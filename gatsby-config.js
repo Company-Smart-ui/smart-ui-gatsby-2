@@ -3,12 +3,14 @@ module.exports = {
     title: `smart-ui-gatsby-2`,
     siteUrl: `https://www.yourdomain.tld`
   },
-  plugins: [{
-    resolve: 'gatsby-source-wordpress',
-    options: {
-      "url": " "
-    }
-  }, "gatsby-plugin-sass", "gatsby-plugin-image", "gatsby-plugin-react-helmet", "gatsby-plugin-sitemap", {
+  plugins: [
+  //     {
+  //   resolve: 'gatsby-source-wordpress',
+  //   options: {
+  //     "url": "https://wdev.smart-ui.pro/graphql"
+  //   }
+  // },
+   "gatsby-plugin-sass", "gatsby-plugin-image", "gatsby-plugin-react-helmet", "gatsby-plugin-sitemap", {
     resolve: 'gatsby-plugin-manifest',
     options: {
       "icon": "src/images/icon.png"
@@ -20,5 +22,5 @@ module.exports = {
       "path": "./src/images/"
     },
     __key: "images"
-  }]
+  } ,'gatsby-plugin-minify-classnames']
 };
