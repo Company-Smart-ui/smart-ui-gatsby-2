@@ -1,0 +1,52 @@
+.burger{
+  font-size: 0;
+  position: relative;
+  height:  7*4+3px;
+  width: 31px;
+  span{
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    transition: 0.3s;
+    border-radius: 3px;
+    background-color: var(--dark);
+    &:nth-child(1){
+      top: 7px;
+    }
+    &:nth-child(2){
+      top: 14px;
+    }
+    &:nth-child(3){
+      width: 50%;
+      top: 21px;
+      left: 0;
+    }
+
+  }
+  &:hover , &:focus{
+    outline: none;
+    span{
+      box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.49);
+    }
+  }
+  &.active{
+    span{
+      box-shadow: none;
+      top: calc(50% - 1.5px);
+      &:nth-child(1){
+        transform:rotate(45deg);
+      }
+      &:nth-child(2){
+        transform:rotate(-45deg);
+      }
+      &:nth-child(3){
+        width: 100%;
+
+        transform:rotate(-45deg);
+        opacity: 0;
+
+      }
+
+    }
+  }
+}

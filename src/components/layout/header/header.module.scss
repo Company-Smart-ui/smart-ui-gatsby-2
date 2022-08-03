@@ -1,0 +1,14 @@
+.header{
+  position: fixed;
+ min-height: 80px;
+  padding:20px 50px ;
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  right: 0;
+  }
+
+.logo{
+  width: 130px;
+  object-fit: contain;
+}

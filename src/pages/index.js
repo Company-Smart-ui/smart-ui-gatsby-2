@@ -4,11 +4,9 @@ import {HomePage} from "../screens/hompage/homePage";
 
 const IndexPage = ( ) => {
 
-  return (
-    <main>
-      <HomePage/>
-    </main>
-  )
+  return    <HomePage/>
+
+
 }
 
 export default IndexPage
