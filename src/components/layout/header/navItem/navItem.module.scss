@@ -1,3 +1,20 @@
+
 .navItem {
+  font-weight: 500;
+  font-size: 38px;
+  text-align: center;
+  color:var(--gray);
+  :global{
+    a.active{
+        color: var(--dark);
+    }
+  }
+  transition:0.3s;
+  pointer-events: none;
+  opacity: 0;
+
+   transform: translate(-100%);
+
+  width: 100%;
 
 }

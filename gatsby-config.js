@@ -22,5 +22,20 @@ module.exports = {
       "path": "./src/images/"
     },
     __key: "images"
-  } ,'gatsby-plugin-minify-classnames']
+  }
+  ,
+      'gatsby-plugin-minify-classnames',
+      {
+          resolve: `gatsby-plugin-alias-imports`,
+          options: {
+              alias: {
+                  "@src": "src",
+              },
+              extensions: [
+                  "js , scss",
+              ],
+          }
+      }
+
+  ]
 };

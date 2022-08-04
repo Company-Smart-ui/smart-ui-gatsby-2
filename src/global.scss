@@ -2,6 +2,7 @@
 
 :root{
   --dark:#292930;
+  --gray:#737373
 }
 
 body , html{
@@ -64,4 +65,8 @@ button{
   align-items: center;
   cursor: pointer;
   padding: 0;
+}
+ul{
+  padding: 0;
+  list-style: none;
 }
