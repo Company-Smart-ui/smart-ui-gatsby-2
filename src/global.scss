@@ -1,15 +1,17 @@
 @import "var";
 
-:root{
-  --dark:#292930;
-  --gray:#737373
-}
 
-body , html{
+body ,html {
   height: 100%;
+  transition:1s;
   margin: 0;
   padding: 0;
-  font-family:  var(--font-primary)
+  font-size: 19px;
+  font-family: $fontText;
+
+}
+h1,h2,h3{
+  font-family: $fontTitle;
 }
 .layout{
   display: flex;
@@ -69,4 +71,30 @@ button{
 ul{
   padding: 0;
   list-style: none;
+}
+.md-only{
+  @media (max-width: $md) {
+    display: none !important;
+  }
+}
+.sm-only{
+  @include md{
+    display: none !important;
+  }
+}
+
+h1{
+  font-size: 84px;
+  line-height: 0.9;
+  @include md{
+    font-size: 142px;
+  }
+}
+h2{
+  font-size: 83px;
+  line-height: 1;
+}
+
+.noise{
+  background: url("./images/noise.png") repeat ;
 }

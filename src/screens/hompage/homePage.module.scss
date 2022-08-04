@@ -1,3 +1,18 @@
+@import "src/var";
 .home{
-  height: 600px;
+ overflow:hidden;
+  max-width:100%;
+
+  :global{
+    .bCircle,.yCircle{
+      border-radius: 50%;
+      aspect-ratio: 1;
+    }
+    .yCircle{
+      background-color: $Yellow;
+    }
+    .bCircle{
+      background-color: $Blue;
+    }
+  }
 }

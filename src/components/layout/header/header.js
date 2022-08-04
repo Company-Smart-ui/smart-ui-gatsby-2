@@ -51,7 +51,7 @@ export const Header = ({path}) => {
                 </ul>
             </nav>
 
-            <StaticImage className={'menuImg'} objectFit={'contain'} width={300} placeholder={'tracedSVG'} src={"./menuImg.jpg"} alt={""}/>
+            <StaticImage className={'menuImg sm-only'} objectFit={'contain'} width={300} placeholder={'tracedSVG'} src={"./menuImg.jpg"} alt={""}/>
         </div>
 
     </header>

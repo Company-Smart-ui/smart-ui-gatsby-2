@@ -1,20 +1,39 @@
-
+@import "src/var";
 .navItem {
   font-weight: 500;
   font-size: 38px;
   text-align: center;
-  color:var(--gray);
+  color:$GrayBlue;
   :global{
     a.active{
-        color: var(--dark);
+        color: $Dark;
+      @include md{
+        border-bottom:solid 2px $Lime;
+      }
     }
   }
   transition:0.3s;
   pointer-events: none;
   opacity: 0;
-
    transform: translate(-100%);
-
   width: 100%;
+  @include md{
+     text-align: left;
+    flex-grow: 0;
+   width: auto;
+    margin-right: 25px;
+    transform :none;
+    opacity: 1;
+    font-size: 14px;
+    pointer-events: all;
+    a{
+     display: block;
+      padding-right: 30px;
+
+    }
+  }
+  @include lg{
+    font-size: 18px;
+  }
 
 }

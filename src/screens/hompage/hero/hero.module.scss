@@ -1,0 +1,28 @@
+.hero {
+  min-height: 80vh;
+  position: relative;
+  background: #e7e7e7;
+  :global{
+    .yCircle{
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 24vw;
+      width: 24vw;
+      transform:translate(-60% , -60%);
+    }
+    .bCircle{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 100%;
+      transform:translateX( max(-50% , -15vw));
+    }
+  }
+
+}
+
+.overlay{
+  position: relative;
+  z-index: 2;
+}
