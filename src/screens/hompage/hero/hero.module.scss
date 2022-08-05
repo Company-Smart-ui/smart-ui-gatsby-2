@@ -1,4 +1,5 @@
 .hero {
+
   padding:  54px 0;
   min-height: 80vh;
   position: relative;
@@ -10,16 +11,19 @@
       right: 0;
       bottom: 0;
       position: absolute;
-
-
     }
     .yCircle{
       position: absolute;
       left: 0;
       top: 0;
       height: 24vw;
-      width: 24vw;
-      transform:translate(-60% , -60%);
+      &.left{
+        transform:translate(-60% , -60%);
+      }
+      &.right{
+        height: 10vh;
+        transform:none;
+      }
     }
     .bCircle{
       position: absolute;

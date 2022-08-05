@@ -9,9 +9,10 @@ export const Hero = () => {
 
     return <section className={style.hero}>
        <div className="container">
-           <div className="yCircle md-only"/>
+           <div className="yCircle left md-only"/>
            <div className="bCircle   "/>
            <figure className="deskImg md-only  ">
+               <div className="yCircle right "/>
                <StaticImage placeholder={'tracedSVG'}  height={400} alt={''} src={'./desktop.png'}/>
            </figure>
            <div className="noise"/>
@@ -22,7 +23,7 @@ export const Hero = () => {
                    You deserve easy IT, to make it easy make it SMART 👋
                </p>
                <div className={style.ctaContainer}>
-
+                   <button className="pure-material-button-contained">Button</button>
                    <button className="button">Get Started</button>
                    <Contact/>
                </div>

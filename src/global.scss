@@ -27,9 +27,10 @@ h1,h2,h3{
 header , footer {
   flex-grow: 0;
 }
-main{
+.main{
   transition:0.2s;
   flex-grow: 1;
+
 }
 * {
   box-sizing: border-box;

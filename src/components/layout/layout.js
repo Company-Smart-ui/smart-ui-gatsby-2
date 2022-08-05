@@ -1,6 +1,7 @@
 import React from 'react';
 import {Footer} from "./footer/footer";
 import "../../global.scss"
+import "../../lazy.scss"
 import {Header} from "./header/header";
 export const Layout = ({children}) => {
 
