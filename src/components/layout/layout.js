@@ -7,7 +7,7 @@ export const Layout = ({children}) => {
     return (
         <div className={'layout'}>
             <Header path={children.props.location.pathname }/>
-            <main>
+            <main className={'main'}>
                 {children}
             </main>
           <Footer/>

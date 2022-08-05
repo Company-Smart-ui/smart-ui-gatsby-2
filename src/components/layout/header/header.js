@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import * as style from "./header.module.scss"
 import {Burger} from "./burger/burger";
 import {useOpen} from "../../../hooks/useOpen";
@@ -31,8 +31,21 @@ const Messenger = ({info})=>{
 }
 
 export const Header = ({path}) => {
+    const {isOpen:scrolled ,onOpen:onScrolled , onClose:offScrolled} =useOpen();
+    useEffect(()=>{
+        const layout  = document.querySelector('.layout');
+        const scrollHandler = ()=>{
+            if(layout.scrollTop>30){
+                onScrolled()
+            } else{
+                offScrolled()
+            }
+        }
+        layout.addEventListener('scroll', scrollHandler );
+        return ()=>layout.removeEventListener('scroll',scrollHandler)
+    },[onScrolled, offScrolled])
     const {isOpen ,onToggle} =useOpen();
-    return <header className={[style.header ,   isOpen? style.open: " "].join(' ')}>
+    return <header className={[scrolled?style.scrolled:" ",  style.header ,   isOpen? style.open: " "].join(' ')}>
             <Burger {...{isOpen, onToggle}} />
         <div className={style.logo }>
             <img  src={Logo} alt=""/>

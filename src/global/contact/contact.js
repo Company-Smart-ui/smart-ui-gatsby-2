@@ -14,7 +14,7 @@ export const Contact = () => {
 
     return     <ul className={style.contact}>
         {CONTACTS.map((item , i)=>{
-            return <Single  {...item} />
+            return <Single key={i} {...item} />
         })}
 
     </ul>

@@ -1,8 +1,18 @@
 .hero {
+  padding:  54px 0;
   min-height: 80vh;
   position: relative;
-  background: #e7e7e7;
+  background-color: #fff;
   :global{
+    .noise{
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+
+
+    }
     .yCircle{
       position: absolute;
       left: 0;
@@ -16,13 +26,22 @@
       top: 0;
       bottom: 0;
       left: 100%;
-      transform:translateX( max(-50% , -15vw));
+      transform:translateX( max(-50% , -20vw));
     }
+    .deskImg{
+       position: absolute;
+      right: 2vw;
+      top: 50%;
+      transform:translateY( -50%);
+      width: calc(20vw + 160px);
+    }
+
   }
 
 }
 
 .overlay{
+
   position: relative;
   z-index: 2;
 }
