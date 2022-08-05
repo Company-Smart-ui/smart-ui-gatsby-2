@@ -1,4 +1,5 @@
 require("@fontsource/dm-sans")
+require("@fontsource/dm-sans/700.css")
 
 require("@fontsource/poppins")
 require("@fontsource/poppins/500.css")
@@ -7,10 +8,12 @@ const React = require("react")
 const {Layout} = require("./src/components/layout/layout")
 // Logs when the client route changes
 exports.onRouteUpdate = ({ location, prevLocation }) => {
-    document.body.style.transform="rotate3d(0, 1, 0, 45deg)"
+    document.querySelector('main').style.transform="translateX(-100%)"
+    document.querySelector('main').style.transition="0s "
     setTimeout(()=>{
-        document.body.style.transform="rotate3d(0, 0, 0, 0)"
-    },1000)
+        document.querySelector('main').style.transform="translateX(0%) "
+        document.querySelector('main').style.transition="0.3s "
+    },200)
     // console.log("new pathname", location.pathname)
     // console.log("old pathname", prevLocation ? prevLocation.pathname : null)
 }
