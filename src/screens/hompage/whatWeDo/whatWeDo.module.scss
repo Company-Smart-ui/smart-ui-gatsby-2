@@ -6,7 +6,7 @@
   url("./linear_background_gradient.png");
   background-color: #292930;
   color: $White;
-  min-height: 765px;
+  min-height: 830px;
   position: relative;
 
   @media (min-width: $md) {
@@ -61,6 +61,7 @@
       font-size: 16px;
       font-weight: 300;
       min-height: 200px;
+      margin-top: 21px;
 
       @media (min-width: $md) {
         font-size: 15px;
@@ -80,7 +81,7 @@
     .controllWrapper {
       display: flex;
       position: absolute;
-      bottom: -100px;
+      bottom: -162px;
       z-index: 10;
       gap: 17px;
 
@@ -164,11 +165,12 @@
       display: inline-block;
       z-index: 10;
       left: 60%;
-      bottom: 51px;
-      color: $Lime;
+      bottom: 28px;
+      color: $White;
+      opacity: 0.5;
 
       &:hover {
-        color: $LimeGreen;
+        opacity: 0.8;
       }
 
       &::before {
@@ -178,7 +180,8 @@
         left: -45px;
         width: 27px;
         height: 1px;
-        background-color: $Lime;
+        background-color: $White;
+        opacity: 0.5;
       }
 
       @media (min-width: $md) {
@@ -219,7 +222,7 @@
 
     .bottomBlock {
       position: absolute;
-      bottom: -142px;
+      bottom: -182px;
       width: 100%;
 
       @media (min-width: $md) {
