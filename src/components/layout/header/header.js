@@ -7,6 +7,7 @@ import Telegram from './telegram.svg'
 import Whatsapp from './whatsapp.svg'
 import {NavItem} from "./navItem/navItem";
 import {StaticImage} from "gatsby-plugin-image";
+import {Link} from "gatsby";
 
 export const NAVIGATION = {
     home: {text:'Home' , link:'/'},
@@ -33,27 +34,31 @@ const Messenger = ({info})=>{
 export const Header = ({path}) => {
     const {isOpen:scrolled ,onOpen:onScrolled , onClose:offScrolled} =useOpen();
     useEffect(()=>{
-        const layout  = document.querySelector('.layout');
+
         const scrollHandler = ()=>{
-            if(layout.scrollTop>30){
+            if(window.scrollY>100){
                 onScrolled()
             } else{
                 offScrolled()
             }
         }
-        layout.addEventListener('scroll', scrollHandler );
-        return ()=>layout.removeEventListener('scroll',scrollHandler)
+        window.addEventListener('scroll', scrollHandler );
+        return ()=>window.removeEventListener('scroll',scrollHandler)
     },[onScrolled, offScrolled])
     const {isOpen ,onToggle} =useOpen();
     return <header className={[scrolled?style.scrolled:" ",  style.header ,   isOpen? style.open: " "].join(' ')}>
             <Burger {...{isOpen, onToggle}} />
         <div className={style.logo }>
-            <img  src={Logo} alt=""/>
+            <Link to={'/'}    >
+                <img  src={Logo} alt=""/>
+
+            </Link>
+
         </div>
 
         <div className={style.menu}>
             <nav className={'nav'}>
-                <ul style={{maxHeight:Object.entries(NAVIGATION).length*150}} className={'navList'}>
+                <ul   className={'navList'}>
                     {Object.entries(NAVIGATION).map((item ,i)=>{
                         const data = item[1];
                         return <NavItem  {...data } active={path===data.link} key={i} id={i}/>
@@ -64,7 +69,7 @@ export const Header = ({path}) => {
                 </ul>
             </nav>
 
-            <StaticImage className={'menuImg sm-only'} objectFit={'contain'} width={300} placeholder={'tracedSVG'} src={"./menuImg.jpg"} alt={""}/>
+            <StaticImage className={'menuImg sm-only'} objectFit={'contain'} width={500} placeholder={'tracedSVG'} src={"./menuImg.jpg"} alt={""}/>
         </div>
 
     </header>

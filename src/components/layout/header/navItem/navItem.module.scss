@@ -1,12 +1,30 @@
 @import "src/var";
 .navItem {
   font-weight: 500;
+  margin:  15px 0;
   font-size: 38px;
   text-align: center;
-  color:$GrayBlue;
+  color:$Gray ;
   :global{
     a.active{
-        color: $Dark;
+
+        color: $GrayBlue;
+
+      span {
+        display: inline-flex;
+        position: relative;
+        &::before{
+          content : ' ';
+          background-color: #FFDC60;
+          height: 36px;
+          width: 36px;
+          display: block;
+          border-radius: 50%;
+          position: absolute;
+          left: -20px;
+          z-index: -1;
+        }
+      }
       @include md{
         border-bottom:solid 2px $Lime;
       }
