@@ -5,10 +5,12 @@
   @include md{
     font-size: 25px;
   }
+  @include lg{
+    font-size: 18px;
+  }
   img{
     height: 0.9em;
     object-fit: contain;
     margin-right: 5px;
-
   }
 }

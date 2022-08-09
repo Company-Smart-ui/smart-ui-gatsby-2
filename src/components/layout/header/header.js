@@ -16,14 +16,15 @@ export const NAVIGATION = {
 }
 
 const messengers =[
+        {
+        img: Whatsapp,
+        link:'https://wa.me/+34634839752',
+        alt:'Whatsapp'
+    },
     {
         img: Telegram,
         link:'https://t.me/alexgashkov1',
         alt:'Telegram'
-    } ,   {
-        img: Whatsapp,
-        link:'https://wa.me/+34634839752',
-        alt:'Whatsapp'
     }
 ]
 

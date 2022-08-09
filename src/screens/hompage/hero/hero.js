@@ -17,17 +17,15 @@ export const Hero = () => {
     useEffect(() => {
         const layout = window
         const scrollHandler = () => {
-            if(layout.scrollY<100){
-
-                setTransformScroll(Math.round(-layout.scrollY / 5))
+            if(layout.scrollY<300){
+                setTransformScroll(Math.round(-layout.scrollY / 2))
             }
-
         }
         layout.addEventListener('scroll', scrollHandler);
         return () => layout.removeEventListener('scroll', scrollHandler)
     }, [])
     const parallaxStyle = {transform: 'translateY(' + transformScroll + "px)"}
-    const parallaxStyleH1 = {transform: 'translateY(' + -transformScroll + "px)"}
+
 
     return <section onMouseMove={moveHandler} className={style.hero}>
         <div className="container  hero-3d">
@@ -40,7 +38,7 @@ export const Hero = () => {
             <div className="noise"/>
 
             <div className={style.overlay}>
-                <h1 style={parallaxStyleH1} >  <span  className="yCircle  md-only "/>  We are <br/> Smart-UI</h1>
+                <h1  >  <span  className="yCircle  md-only "/>  We are <br/> Smart-UI</h1>
                 <p  className="subtitle">
                     You deserve easy IT, to make it easy make <span className="nowrap"> it SMART 👋 </span>
                 </p>

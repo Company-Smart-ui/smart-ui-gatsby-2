@@ -1,23 +1,16 @@
 @import "src/var";
 .contact{
-  @include lg{
+  width: 210px;
+
+  a{
     display: flex;
     justify-content: flex-start;
-    align-items: flex-end;
+    padding: 4px;
   }
-a{
-  display: flex;
-  justify-content: flex-start;
-  padding: 4px;
-}
   img{
     height: 33px;
     width: auto;
     object-fit: contain;
-    @include md{
-      height: 55px;
-      margin-bottom: 5px;
-    }
   }
   li{
     margin-bottom: 20px;
