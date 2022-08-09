@@ -1,0 +1,18 @@
+@import "../../var";
+
+.button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid gray;
+}
+
+.arrow {
+  width: 16px;
+  height: 16px;
+  opacity: 1;
+}
+
+.rotateArrow {
+  transform: rotate(180deg);
+}
