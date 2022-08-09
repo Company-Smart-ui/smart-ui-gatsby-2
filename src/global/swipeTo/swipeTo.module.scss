@@ -1,0 +1,14 @@
+@import "src/var";
+.swipeTo {
+
+  font-size: 15px;
+  @include md{
+    font-size: 25px;
+  }
+  img{
+    height: 0.9em;
+    object-fit: contain;
+    margin-right: 5px;
+
+  }
+}

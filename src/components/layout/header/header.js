@@ -34,7 +34,6 @@ const Messenger = ({info})=>{
 export const Header = ({path}) => {
     const {isOpen:scrolled ,onOpen:onScrolled , onClose:offScrolled} =useOpen();
     useEffect(()=>{
-
         const scrollHandler = ()=>{
             if(window.scrollY>100){
                 onScrolled()
@@ -51,7 +50,6 @@ export const Header = ({path}) => {
         <div className={style.logo }>
             <Link to={'/'}    >
                 <img  src={Logo} alt=""/>
-
             </Link>
 
         </div>
