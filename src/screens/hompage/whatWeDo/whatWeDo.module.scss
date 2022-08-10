@@ -1,22 +1,24 @@
 @import "../../../var.scss";
 
 .whatWeDo {
-  padding: 34px 0;
-  background-image: url("./line_background_grid.png"), 
-  url("./linear_background_gradient.png");
+  padding: 34px 0 108px 0;
+  background-image: url("./linear_background_gradient.png");
   background-color: #292930;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   color: $White;
   min-height: 830px;
   position: relative;
 
   @media (min-width: $md) {
-    padding: 45px 0;
+    padding: 45px 0 85px 0;
     min-height: 774px;
   }
 
-  @media (min-width: $md) {
-    padding: 87px 0;
-    min-height: 910px;
+  @media (min-width: $xl) {
+    padding: 87px 0 127px 0;
+    min-height: 911px;
   }
 
   :global {
@@ -60,16 +62,13 @@
       opacity: 0.5;
       font-size: 16px;
       font-weight: 300;
-      min-height: 200px;
       margin-top: 21px;
 
       @media (min-width: $md) {
         font-size: 15px;
-        max-width: 396px;
-        height: 655px;
       }
 
-      @media (min-width: $xxl) {
+      @media (min-width: $xl) {
         max-width: 100%;
         font-size: 21px;
         font-weight: 400;
@@ -80,19 +79,18 @@
 
     .controllWrapper {
       display: flex;
-      position: absolute;
       bottom: -162px;
       z-index: 10;
       gap: 17px;
 
       @media (min-width: $md) {
-        left: 60%;
-        bottom: -136px;
+        left: 155px;
+        bottom: 28px;
       }
     }
 
     .fillButton {
-      background-color: $Lime;
+      background-color: $MediumSeaGreen;
       border: none;
 
       &:hover {
@@ -105,13 +103,13 @@
       font-weight: 500;
       line-height: 1.3;
       margin-top: 16px;
+      letter-spacing: -0.045em;
+      color: $White;
 
       @media (min-width: $md) {
         font-size: 17px;
         line-height: 1.4;
-        font-weight: 500;
-        letter-spacing: -0.045em;
-        max-width: 396px;
+        margin-top: 0;
       }
 
       @media (min-width: $xl) {
@@ -130,12 +128,10 @@
     // List of options
 
     .listDescriptions {
-      opacity: 0.5;
       font-size: 13px;
       font-weight: 300;
       line-height: 1.29;
       margin-top: 34px;
-      max-width: 394px;
       letter-spacing: -0.025em;
 
       @media (min-width: $md) {
@@ -146,26 +142,21 @@
       @media (min-width: $xl) {
         max-width: 100%;
         line-height: 1.52;
-        max-width: 493px;
       }
 
-      @media (min-width: $xxl) {
-        font-size: 19px;
-        max-width: 610px;
+      @media (min-width: $xl) {
+        font-size: 21px;
       }
     }
 
     // Link to consultation
 
-    .findOut {
+    .infoLink {
       font-size: 13px;
       font-weight: 300;
       line-height: 20px;
       position: relative;
       display: inline-block;
-      z-index: 10;
-      left: 60%;
-      bottom: 28px;
       color: $White;
       opacity: 0.5;
 
@@ -184,19 +175,8 @@
         opacity: 0.5;
       }
 
-      @media (min-width: $md) {
-        left: 50px;
-        top: 20px;
-      }
-
       @media (min-width: $xl) {
-        left: 45px;
-        top: 82px;
         font-size: 19px;
-      }
-
-      @media (min-width: $xxl) {
-        top: 56px;
       }
     }
 
@@ -204,11 +184,10 @@
 
     .flex {
       position: relative;
-      height: 600px;
 
       @media (min-width: $md) {
         display: flex;
-        flex-direction: row;
+        gap: 30px;
       }
 
       .upperBlock {
@@ -221,51 +200,23 @@
     }
 
     .bottomBlock {
-      position: absolute;
-      bottom: -182px;
-      width: 100%;
+      position: relative;
+      margin-top: 50px;
 
       @media (min-width: $md) {
-        left: 52%;
-        bottom: -108px;
-      }
-
-      @media (min-width: $xl) {
-        bottom: -46px;
-      }
-
-      @media (min-width: $xxl) {
-        bottom: -74px;
-      }
-    }
-
-
-    .divider {
-      width: 100%;
-      position: absolute;
-      bottom: 80px;
-
-      @media (min-width: $md) {
-        bottom: 10px;
-        max-width: 360px;
-      }
-
-      @media (min-width: $xl) {
-        max-width: 493px;
-      }
-
-      @media (min-width: $xxl) {
-        max-width: 610px;
+        margin-top: calc(33%);
+        width: 50%;
+        padding-bottom: 40px;
       }
     }
 
     // Button ask questions
 
     .button {
+      margin-top: 60px;
       font-size: 13px;
-      position: absolute;
       display: none;
-      bottom: 150px;
+      top: 50%;
       left: 0;
       z-index: 10;
 
@@ -275,10 +226,6 @@
 
       @media (min-width: $xl) {
         font-size: 17px;
-      }
-
-      @media (min-width: $xxl) {
-        bottom: 190px;
       }
     }
 
@@ -290,7 +237,7 @@
       }
 
       height: 1px;
-      background-color: $LimeGreen;
+      background-color: $MediumSeaGreen;
       width: 200%;
       position: absolute;
       top: -12px;
@@ -309,8 +256,7 @@
 
       @media (min-width: $md) {
         position: absolute;
-        top: 30px;
-        left: -158px;
+        top: -75px;
       }
 
       @media (min-width: $xl) {
@@ -326,10 +272,31 @@
       }
     }
 
+    // Buttons container 
+    .footerButtons {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+      position: absolute;
+      bottom: 34px;
+
+      @media (min-width: $md) {
+        justify-content: center;
+        gap: 60px;
+        left: calc(50% - 140px);
+        bottom: 40px;
+      }
+
+      @media (min-width: $xl) {
+        gap: 100px;
+        bottom: 87px;
+      }
+    }
+
+
     // Swiper 
     .swiper {
       width: 100%;
-      height: 300px;
       margin-left: auto;
       margin-right: auto;
       position: static;
@@ -341,7 +308,7 @@
     }
 
     .mySwiper2 {
-      height: 91%;
+      height: 100%;
       width: 100%;
     }
 

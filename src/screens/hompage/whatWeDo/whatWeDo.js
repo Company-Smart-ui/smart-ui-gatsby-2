@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import * as style from "./whatWeDo.module.scss";
 import { CircleButton } from "../../../global/circleButton/circleButton";
+
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Navigation, Pagination, Thumbs } from "swiper";
+import { FreeMode, Navigation, Thumbs } from "swiper";
+import { useSwiper } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -25,24 +27,17 @@ const WHATWEDOSHARE = [
 ];
 
 export const WhatWeDo = () => {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [firstSwiper, setFirstSwiper] = useState(null);
+  const [secondSwiper, setSecondSwiper] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const firstSwiperParams = {
-    spaceBetween: 10,
-    navigation: false,
-    thumbs: { swiper: thumbsSwiper },
-    modules: [FreeMode, Navigation, Pagination, Thumbs],
-    pagination: { clickable: true },
+  const slideNextHandler = () => {
+    firstSwiper.slideNext();
+    secondSwiper.slideNext();
   };
-
-  const secondarySwiperParams = {
-    onSwiper: setThumbsSwiper,
-    spaceBetween: 10,
-    slidesPerView: 1,
-    freeMode: true,
-    watchSlidesProgress: true,
-    modules: [FreeMode, Navigation, Thumbs],
+  const slidePrevHandler = () => {
+    firstSwiper.slidePrev();
+    secondSwiper.slidePrev();
   };
 
   return (
@@ -54,9 +49,10 @@ export const WhatWeDo = () => {
           <div className="overlay upperBlock">
             <h2 className="h2">What We Do?</h2>
             <Swiper
+              onSwiper={setFirstSwiper}
+              slidesPerView={1}
               className="mySwiper2"
-              {...firstSwiperParams}
-              onSlideChange={() => setActiveIndex(thumbsSwiper.realIndex)}
+              onSlideChange={() => setActiveIndex(firstSwiper.realIndex)}
             >
               <SwiperSlide>
                 <p className="description">
@@ -74,16 +70,6 @@ export const WhatWeDo = () => {
                   projects or become a reliable long-term partners.
                 </p>
               </SwiperSlide>
-              <div className="controllWrapper">
-                <CircleButton
-                  prev
-                  classes={activeIndex !== 0 && "fillButton"}
-                />
-                <CircleButton
-                  toLeft
-                  classes={activeIndex !== 1 && "fillButton"}
-                />
-              </div>
             </Swiper>
             <button className="button">Ask aquestion</button>
           </div>
@@ -99,7 +85,12 @@ export const WhatWeDo = () => {
                   02
                 </span>
               </div>
-              <Swiper {...secondarySwiperParams} className="mySwiper">
+              <Swiper
+                onSwiper={setSecondSwiper}
+                slidesPerView={1}
+                onSlideChange={() => setActiveIndex(firstSwiper.realIndex)}
+                className="mySwiper"
+              >
                 <SwiperSlide>
                   <>
                     <p className="subtitle">
@@ -131,9 +122,23 @@ export const WhatWeDo = () => {
                 </SwiperSlide>
               </Swiper>
             </div>
-            <div className="findOut">
-              <a href="/">Book a consultation</a>
-            </div>
+          </div>
+        </div>
+        <div className="footerButtons">
+          {/* Here should be controll buttons */}
+          <div className="controllWrapper">
+            <CircleButton
+              onClick={slidePrevHandler}
+              classes={activeIndex !== 0 && "fillButton"}
+            />
+            <CircleButton
+              onClick={slideNextHandler}
+              toLeft
+              classes={activeIndex !== 1 && "fillButton"}
+            />
+          </div>
+          <div className="infoLink">
+            <a href="/">Book a consultation</a>
           </div>
         </div>
       </div>
