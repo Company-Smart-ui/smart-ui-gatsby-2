@@ -1,0 +1,52 @@
+@import 'src/var';
+
+.pagination {
+  :global {
+    .paginationWrapper {
+      margin-top: 28px;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.3;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+
+      @media (min-width: $lg) {
+        margin: 0;
+      }
+
+
+      @media (min-width: $xl) {
+        font-size: 16px;
+      }
+    }
+
+    .dark {
+      color: $White;
+      opacity: 0.5;
+    }
+
+    .white {
+      color: $GrayBlue;
+      opacity: 0.5;
+    }
+
+    .activeEl {
+      opacity: 1;
+    }
+
+    .horizontalLine {
+      content: '';
+      width: 39px;
+      height: 1px;
+      
+      &.dark {
+        background-color: $White;
+      }
+      
+      &.white {
+        background-color: $GrayBlue;
+      }
+    }
+  }
+}

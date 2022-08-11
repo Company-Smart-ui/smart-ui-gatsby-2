@@ -1,6 +1,6 @@
 import React from "react";
 import * as style from "./circleButton.module.scss";
-import Arrow from "./arrow_right.svg";
+import Arrow from "./arrow.svg";
 
 export const CircleButton = ({ toLeft, classes, onClick }) => {
   return (
