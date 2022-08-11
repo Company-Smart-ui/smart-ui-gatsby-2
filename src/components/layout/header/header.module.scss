@@ -1,43 +1,53 @@
 @import "src/var.scss";
-.header{
-  transition:0.3s;
-  background-color: #fff;
+
+.header {
+  transition: all 0.1s 0s, opacity 0.3s 1.2s, left 0s 1.4s;
   position: fixed;
   z-index: 100;
   height: 80px;
-  padding:20px 50px ;
+  padding: 20px 50px;
   display: grid;
   grid-template-columns: 1fr 135px 1fr;
   align-items: center;
   justify-content: space-between;
   left: 0;
   right: 0;
-  @include md{
+  @include md {
+    padding: 35px 63px;
+  }
+  @include lg {
     background-color: transparent;
-    grid-template-columns: 15% 1fr  ;
-    padding:60px 100px 20px 100px;
+    grid-template-columns: 160px 1fr;
+    padding: 45px 100px 30px  75px;
     justify-content: center;
     height: auto;
     position: absolute;
   }
-  img{
+  @include xl{
+    padding:  45px max(150px , calc( 50% - 670px ));
+    grid-template-columns: 190px 1fr;
+  }
+
+  img {
     object-fit: contain;
   }
 
-     &.scrolled{
-       position: fixed;
-      padding: 5px 40px;
-       height: 60px;
-      background-color: #fff;
-       @include md{
-         position: absolute;
-         background-color: transparent;
-         transition:0s;       }
+  &.scrolled {
+    position: fixed;
+    padding: 5px 40px;
+    height: 60px;
+    background-color: #fff;
+    @include lg {
+      position: absolute;
+      background-color: transparent;
+      transition: 0s;
     }
+  }
 
 }
+
 .logo {
-  a{
+  a {
     text-align: center;
     display: flex;
     width: 100%;
@@ -46,18 +56,23 @@
     padding-bottom: 4px;
   }
 
-  img{
+  img {
     width: 130px;
     max-width: 100%;
-
+    @include md {
+      width: 140px;
+    }
+    @include xl{
+      width: 180px;
+    }
   }
 }
 
 
-.menu{
+.menu {
+  transition: inherit;
   position: fixed;
   opacity: 0;
-  transition: opacity 0.3s 1.2s , left 0s 1.4s ;
   left: -150%;
   right: 0;
   bottom: 0;
@@ -69,112 +84,132 @@
   flex-direction: column;
   align-items: center;
   background-color: #fff;
-  @include md{
+  @include lg {
     position: static;
     opacity: 1;
     background-color: transparent;
   }
-  :global{
 
-    .nav   {
+  :global {
+
+    .nav {
       margin-bottom: 2vh;
       width: 100%;
-      @include md{
+      @include lg {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         margin: 0;
       }
     }
-    .navList{
+
+    .navList {
       padding: 4vh 10px 1vh 10px;
-      @include md{
-        padding:0 5vw  ;
+      @include lg {
+        display: flex;
+        padding: 0 3vw;
         justify-content: flex-start;
       }
 
     }
-    .menuImg{
+
+    .menuImg {
       margin-bottom: 4vh;
       flex-grow: 1;
       height: 100px;
       width: 100%;
       max-width: 400px;
       max-height: 300px;
-      img{
+
+      img {
         object-position: 50% 50%;
         object-fit: contain;
       }
-
     }
   }
-
 }
-.messengers{
+
+.messengers {
   display: flex;
   justify-content: center;
-  @media (max-width:$md){
+  a{
+    transition:0.2s;
+    &:hover{
+      transform: scale(1.1);
+    }
+  }
+
+  @media (max-width: $lg) {
     width: 100%;
-  margin : 5px;
-  height:35px;
-  flex-grow: 0;
-  li{
-      margin:0 14px;
-      transition:0.3s;
+    margin: 5px;
+    height: 35px;
+    flex-grow: 0;
+    li {
+      margin: 0 14px;
+      transition: 0.3s;
       pointer-events: none;
       opacity: 0;
-      &:nth-child(odd){
-        transform:translate(-110vw);
+      &:nth-child(odd) {
+        transform: translate(-110vw);
       }
-      &:nth-child(even){
-        transform:translate(110vw);
+
+      &:nth-child(even) {
+        transform: translate(110vw);
       }
     }
   }
-@include md{
-  li{
-    flex-shrink: 0;
-    margin-right: 10px;
-  }
-  a{
-    height: 24px;
-    width: 35px;
-    display: block;
-    padding: 0 5px;
-  }
-}
-  @include lg{
-    a{
-      height: 35px;
+  @include lg {
+    margin-right: 70px;
+    li {
+      flex-shrink: 0;
+      margin-right: 5px;
+      display: flex;
+      align-items: center;
+    }
+    a {
+      height: 25px;
       width: 45px;
+      display: block;
+      padding: 0 5px;
     }
-
+  }
+  @include xl{
+    margin-right: 300px;
+    a{
+      height: 50px;
+      margin:0 10px;
+    }
   }
 }
 
-.header.open{
+.header.open {
   background-color: #fff;
+  transition: all 0.3s 0s;
 
-    .menu{
-      opacity: 1;
-      left: 0;
-      transition: all 0.3s 0s   ;
-    }
-  .messengers{
-    li{
-      transform:translate(0);
+  .menu {
+    opacity: 1;
+    left: 0;
+    transition: inherit;
+  }
+
+  .messengers {
+    li {
+      transform: translate(0);
       pointer-events: all;
       opacity: 1;
     }
   }
-  :global{
-    .navItemAnimation{
+
+  :global {
+    .navItemAnimation {
       opacity: 1;
       pointer-events: all;
-      transform:translate(0);
+      transform: translate(0);
     }
   }
 }
+
+
 
 /* width */
 ::-webkit-scrollbar {
@@ -184,7 +219,8 @@
 /* Track */
 ::-webkit-scrollbar-track {
   background: rgba(241, 241, 241, 0.6);
-  &:hover{
+
+  &:hover {
     background: rgba(241, 241, 241, 1);
   }
 }
@@ -192,7 +228,8 @@
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: $LimeGreen;
-  &:hover{
+
+  &:hover {
     background-color: $Lime;
   }
 }

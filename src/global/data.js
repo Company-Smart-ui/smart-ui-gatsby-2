@@ -8,7 +8,7 @@
           {
               alt : 'upwork',
          img:'/upwork.svg',
-         link:"https://www.linkedin.com/in/smart-ui-company/"
+         link:"https://www.upwork.com/ag/smartui/"
      },
      {
          alt : 'clutch',

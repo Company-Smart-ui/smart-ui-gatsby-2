@@ -1,21 +1,20 @@
 @import "src/var";
+
 .navItem {
   font-weight: 500;
-  margin:  15px 0;
+  margin: 15px 0;
   font-size: 38px;
   text-align: center;
-  color:$Gray ;
-  :global{
-    a.active{
-
-        color: $GrayBlue;
-
+  color: $Gray;
+  :global {
+    a.active {
+      color: $GrayBlue;
       span {
         display: inline-flex;
         position: relative;
-        &::before{
-          content : ' ';
-          background-color: #FFDC60;
+        &::before {
+          content: ' ';
+          background-color: $Yellow;
           height: 36px;
           width: 36px;
           display: block;
@@ -23,35 +22,40 @@
           position: absolute;
           left: -20px;
           z-index: -1;
+          @include lg {
+            display: none;
+          }
         }
       }
-      @include md{
-        border-bottom:solid 2px $Lime;
+      @include lg {
+        border-bottom: solid 2px $Lime;
       }
     }
   }
-  transition:0.3s;
+
+  transition: 0.3s;
   pointer-events: none;
   opacity: 0;
-   transform: translate(-100%);
+  transform: translate(-100%);
   width: 100%;
-  @include md{
-     text-align: left;
+  @include lg {
+    text-align: left;
     flex-grow: 0;
-   width: auto;
-    margin-right: 25px;
-    transform :none;
+    width: auto;
+    margin-right: 15px;
+    transform: none;
     opacity: 1;
     font-size: 14px;
     pointer-events: all;
-    a{
-     display: block;
-      padding-right: 30px;
+    a {
+      display: block;
+      padding-right: 15px;
 
     }
   }
-  @include lg{
+  @include xl {
     font-size: 18px;
+    margin-right: 22px;
   }
 
 }

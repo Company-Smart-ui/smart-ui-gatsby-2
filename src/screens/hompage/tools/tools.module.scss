@@ -58,30 +58,8 @@
     }
 
     .swiperTips {
-      font-size: 15px;
-      padding-left: 17px;
-      margin-top: 8px;
-      line-height: 1.46;
-      letter-spacing: -0.025em;
-      position: relative;
-
-      @media (min-width: $lg) {
-        position: absolute;
-        bottom: 0;
-        left: 70;
-      }
-
+      margin-top: 14px;
       color: $Gray;
-
-      &::before {
-        content: '';
-        position: absolute;
-        background-image: url('./hand.svg');
-        width: 11px;
-        height: 13px;
-        top: 19%;
-        left: 4px;
-      }
     }
 
     // Position when we have tablet
@@ -139,6 +117,8 @@
       }
     }
 
-    // End of block, insert the text befote this brackets
+    .buttonsBlock {
+      margin-top: 16px;
+    }
   }
 }

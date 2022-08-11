@@ -12,7 +12,7 @@ const Single =({link , img , alt })=>{
 
 export const Contact = () => {
 
-    return     <ul className={style.contact}>
+    return     <ul className={style.contact + " contact"}>
         {CONTACTS.map((item , i)=>{
             return <Single key={i} {...item} />
         })}

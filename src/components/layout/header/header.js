@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import * as style from "./header.module.scss"
 import {Burger} from "./burger/burger";
 import {useOpen} from "../../../hooks/useOpen";
-import Logo from './smart-ui.svg'
+import Logo from '../../../images/smart-ui.svg'
 import Telegram from './telegram.svg'
 import Whatsapp from './whatsapp.svg'
 import {NavItem} from "./navItem/navItem";
@@ -16,14 +16,15 @@ export const NAVIGATION = {
 }
 
 const messengers =[
+        {
+        img: Whatsapp,
+        link:'https://wa.me/+34634839752',
+        alt:'Whatsapp'
+    },
     {
         img: Telegram,
         link:'https://t.me/alexgashkov1',
         alt:'Telegram'
-    } ,   {
-        img: Whatsapp,
-        link:'https://wa.me/+34634839752',
-        alt:'Whatsapp'
     }
 ]
 
@@ -34,7 +35,6 @@ const Messenger = ({info})=>{
 export const Header = ({path}) => {
     const {isOpen:scrolled ,onOpen:onScrolled , onClose:offScrolled} =useOpen();
     useEffect(()=>{
-
         const scrollHandler = ()=>{
             if(window.scrollY>100){
                 onScrolled()
@@ -51,7 +51,6 @@ export const Header = ({path}) => {
         <div className={style.logo }>
             <Link to={'/'}    >
                 <img  src={Logo} alt=""/>
-
             </Link>
 
         </div>
