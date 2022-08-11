@@ -30,9 +30,9 @@ export const Hero = () => {
     return <section onMouseMove={moveHandler} className={style.hero}>
         <div className="container  hero-3d">
             <div className="yCircle left md-only"/>
-            <div  className="bCircle   "/>
+            <div style={{top:transformScroll/5 ,bottom:transformScroll/5}}  className="bCircle   "/>
             <figure className="deskImg md-only  ">
-                <div className="yCircle right "/>
+                <div style={{top:transformScroll/3}} className="yCircle right "/>
                 <StaticImage style={parallaxStyle} placeholder={'none'} height={480} alt={''} src={'./desktop.png'}/>
             </figure>
             <div className="noise"/>

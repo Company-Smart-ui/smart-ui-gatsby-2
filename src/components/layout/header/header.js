@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import * as style from "./header.module.scss"
 import {Burger} from "./burger/burger";
 import {useOpen} from "../../../hooks/useOpen";
-import Logo from './smart-ui.svg'
+import Logo from '../../../images/smart-ui.svg'
 import Telegram from './telegram.svg'
 import Whatsapp from './whatsapp.svg'
 import {NavItem} from "./navItem/navItem";

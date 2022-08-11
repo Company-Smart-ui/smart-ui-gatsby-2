@@ -132,6 +132,13 @@
 .messengers {
   display: flex;
   justify-content: center;
+  a{
+    transition:0.2s;
+    &:hover{
+      transform: scale(1.1);
+    }
+  }
+
   @media (max-width: $lg) {
     width: 100%;
     margin: 5px;
@@ -170,6 +177,7 @@
     margin-right: 300px;
     a{
       height: 50px;
+      margin:0 10px;
     }
   }
 }

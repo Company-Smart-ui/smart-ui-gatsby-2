@@ -24,7 +24,7 @@ module.exports = {
     __key: "images"
   }
   ,
-      'gatsby-plugin-minify-classnames',
+      // 'gatsby-plugin-minify-classnames',
       {
           resolve: `gatsby-plugin-alias-imports`,
           options: {
