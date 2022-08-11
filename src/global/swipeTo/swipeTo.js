@@ -1,6 +1,7 @@
 import React from 'react';
 import * as style from './swipeTo.module.scss'
 import Img from './pointer.svg'
+import Scroll from './scroll.svg'
 
 export const SwipeTo = () => {
     const scroll =()=>{
@@ -10,8 +11,13 @@ export const SwipeTo = () => {
             behavior: 'smooth'
         });
     }
-    return <button onClick={scroll} className={style.swipeTo}>
-        <img   src={Img} alt=""/>    Swipe to explore
+    return <button onClick={scroll} className={style.swipeTo + "  swipeTo "}>
+        <span className="lg-only">
+              <img   src={Scroll} alt=""/>   Scroll to explore
+        </span>
+      <span className="lg-end">
+              <img   src={Img} alt=""/>    Swipe to explore
+      </span>
     </button>
 };
  

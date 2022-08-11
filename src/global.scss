@@ -94,7 +94,11 @@ ul {
     display: none !important;
   }
 }
-
+.lg-end{
+  @include lg {
+      display: none !important;
+    }
+}
 .sm-only {
   @include md {
     display: none !important;
@@ -109,6 +113,8 @@ h1 {
   }
 
   @include xl {
+    line-height: .9;
+    letter-spacing: -3px;
     font-size: 142px;
   }
 }
@@ -173,7 +179,8 @@ h1 {
     @include xl {
       font-size: 18px;
       padding: 29px  ;
-
+      min-width: 220px;
+      letter-spacing: 0.5px;
     }
 
     color: $White;
