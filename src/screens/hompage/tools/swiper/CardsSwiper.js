@@ -38,17 +38,14 @@ export const CardsSwiper = ({
         className="mySwiper"
         grabCursor={true}
         speed={800}
+        loop={true}
         onSlideChange={() => setActiveHandler(swiperRef?.realIndex)}
       >
-        {cardsList.map((el, index) => {
-          return (
-            <div key={el.id}>
-              <SwiperSlide>
-                <Card content={el} activeIndex={activeIndex} indexEl={index} />
-              </SwiperSlide>
-            </div>
-          );
-        })}
+        {cardsList.map((el, index) => (
+          <SwiperSlide key={el.id}>
+            <Card content={el} activeIndex={activeIndex} indexEl={index} />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

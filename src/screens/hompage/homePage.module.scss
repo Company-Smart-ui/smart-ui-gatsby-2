@@ -1,18 +1,35 @@
 @import "src/var";
-.home{
- overflow:hidden;
-  max-width:100%;
 
-  :global{
-    .bCircle,.yCircle{
+.home {
+  overflow: hidden;
+  max-width: 100%;
+
+  :global {
+
+    .bCircle,
+    .yCircle {
       border-radius: 50%;
       aspect-ratio: 1;
     }
-    .yCircle{
+
+    .yCircle {
       background-color: $Yellow;
     }
-    .bCircle{
+
+    .bCircle {
       background-color: $Blue;
+    }
+
+    .vertical-padding {
+      padding: 34px 0;
+
+      @include md {
+        padding: 50px 0;
+      }
+
+      @include xl {
+        padding: 87px 0;
+      }
     }
   }
 }

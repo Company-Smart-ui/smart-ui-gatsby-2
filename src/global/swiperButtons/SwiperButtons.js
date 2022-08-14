@@ -7,19 +7,18 @@ export const SwiperButtons = ({
   onNext,
   sliderLength,
   activeIndex,
+  loop,
 }) => {
   return (
     <div className={style.swiperButtons}>
       <CircleButton
         onClick={onPrev}
-        classes={activeIndex !== 0 ? "fillButton" : "backgroundButton"}
+        classes={loop || activeIndex !== 0 ? "fillButton" : " "}
       />
       <CircleButton
         onClick={onNext}
         toLeft
-        classes={
-          activeIndex !== sliderLength - 1 ? "fillButton" : "backgroundButton"
-        }
+        classes={loop || activeIndex !== sliderLength - 1 ? "fillButton" : " "}
       />
     </div>
   );

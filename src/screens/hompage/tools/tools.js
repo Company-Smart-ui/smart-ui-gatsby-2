@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as style from "./tools.module.scss";
 import { Pagination } from "../../../global/pagination/Pagination";
 import { CardsSwiper } from "./swiper/CardsSwiper";
@@ -7,7 +7,7 @@ import { cardsList } from "./card/CardList";
 import { SwipeTo } from "../../../global/swipeTo/swipeTo";
 
 export const Tools = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(1);
   const [swiperRef, setSwiperRef] = useState(null);
 
   const slidePrevHandler = () => swiperRef.slidePrev();
@@ -17,8 +17,12 @@ export const Tools = () => {
 
   const sliderLength = cardsList.length;
 
+  useEffect(() => {
+    setActiveIndex(0);
+  }, []);
+
   return (
-    <div className={`${style.tools}`}>
+    <div className={`${style.tools} vertical-padding`}>
       <div className="yCircle" />
       <div className="noise" />
       <div className="overlay lgContainer">
@@ -45,12 +49,13 @@ export const Tools = () => {
               activeIndex={activeIndex}
             />
             <div className="buttonsBlock">
-            <SwiperButtons
-              onPrev={slidePrevHandler}
-              onNext={slideNextHandler}
-              sliderLength={sliderLength}
-              activeIndex={activeIndex}
-            />
+              <SwiperButtons
+                onPrev={slidePrevHandler}
+                onNext={slideNextHandler}
+                sliderLength={sliderLength}
+                activeIndex={activeIndex}
+                loop
+              />
             </div>
           </div>
         </div>

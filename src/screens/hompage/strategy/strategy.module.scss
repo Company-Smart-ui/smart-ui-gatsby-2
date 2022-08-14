@@ -1,4 +1,119 @@
+@import 'src/var';
+
 .strategy {
-  color: blue;
-  font-size: 1px;
+  background-image: url("../whatWeDo/linear_background_gradient.png");
+  background-color: #292930;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: $White;
+  position: relative;
+
+  :global {
+    .gCircle {
+      border-radius: 50%;
+      aspect-ratio: 1;
+      position: absolute;
+      left: 25px;
+      top: 11px;
+      height: 100px;
+      background-color: #3D3D48;
+      opacity: 0.5;
+    }
+
+    .options-list {
+      display: none;
+
+      @include md {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        margin-top: 57px;
+      }
+    }
+
+    .list-item {
+      @include md {
+        display: flex;
+        gap: 30px;
+
+        &:nth-child(even) {
+          margin-left: 20%;
+
+          @include xl {
+            margin-left: calc(50% - 220px);
+          }
+        }
+
+        &:nth-child(odd) {
+          margin-right: 20%;
+
+          @include xl {
+            margin-right: 50%;
+          }
+        }
+      }
+    }
+
+    .list-title {
+      @include md {
+        min-width: 220px;
+      }
+    }
+
+    .list-item-number {
+      font-size: 33px;
+      font-weight: 700;
+      color: $MediumSeaGreen;
+    }
+
+    .list-item-title {
+      margin-left: 10px;
+      font-size: 30px;
+      line-height: 1.5;
+      font-weight: 400;
+    }
+
+    .list-item-description {
+      font-size: 16px;
+      line-height: 1.28;
+      font-weight: 300;
+      opacity: 0.5;
+      text-align: justify;
+    }
+
+    .list-item-first:not(:first-child) {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .overlay {
+      position: relative;
+      z-index: 2;
+    }
+
+
+    // Pagination
+
+    .pagination-button-wrapper {
+      margin-top: 40px;
+
+      @include md {
+        display: none;
+      }
+    }
+
+    // Buttons container 
+    .footerButtons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 32px;
+
+      @include md {
+        display: none;
+      }
+    }
+  }
 }

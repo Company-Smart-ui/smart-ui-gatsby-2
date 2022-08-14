@@ -1,0 +1,77 @@
+@import 'src/var';
+
+.swiper_list {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.28;
+
+  @include md {
+    display: none;
+  }
+
+  :global {
+    .swiper-list-item {
+      &:not(:first-child) {
+        margin-top: 15px;
+      }
+    }
+
+    .list-item-number {
+      font-size: 33px;
+      font-weight: 700;
+      color: $MediumSeaGreen;
+    }
+
+    .list-item-title {
+      margin-left: 10px;
+      font-size: 30px;
+      line-height: 1.5;
+      font-weight: 400;
+    }
+
+    .list-item-description {
+      font-size: 16px;
+      line-height: 1.28;
+      font-weight: 300;
+      opacity: 0.5;
+      text-align: justify;
+    }
+
+    // Swiper 
+    .swiper {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      position: static;
+    }
+
+    .swiper-slide {
+      background-size: cover;
+      background-position: center;
+    }
+
+    .mySwiper2 {
+      height: 100%;
+      width: 100%;
+    }
+
+    .mySwiper {
+      height: 100%;
+      box-sizing: border-box;
+      padding: 10px 0;
+    }
+
+    .mySwiper .swiper-slide {
+      width: 25%;
+      height: 95%;
+    }
+
+    .mySwiper .swiper-slide-thumb-active {
+      opacity: 1;
+    }
+  }
+}

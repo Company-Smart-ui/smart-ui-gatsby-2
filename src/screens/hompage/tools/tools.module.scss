@@ -1,14 +1,8 @@
 @import 'src/var';
 
 .tools {
-  padding: 34px 0;
   position: relative;
-
   background-color: $White;
-
-  @media (min-width: $lg) {
-    padding: 45px 0;
-  }
 
   :global {
     .yCircle {
@@ -17,7 +11,7 @@
       right: -320px;
       top: 35px;
 
-      @media (min-width: $lg) {
+      @include lg {
         display: none;
       }
     }
@@ -31,7 +25,7 @@
 
       color: $MediumSeaGreen;
 
-      @media (min-width: $lg) {
+      @include lg {
         font-size: 16px;
       }
     }
@@ -48,7 +42,7 @@
 
       color: $Gray;
 
-      @media (min-width: $lg) {
+      @include lg {
         font-size: 17px;
       }
     }
@@ -67,14 +61,14 @@
     .tabletContainer {
       z-index: 1;
 
-      @media (min-width: $lg) {
+      @include lg {
         display: flex;
         gap: 31px;
       }
     }
 
     .verticalBlock {
-      @media (min-width: $lg) {
+      @include lg {
         display: flex;
         flex-direction: column;
         gap: 20px;
@@ -106,13 +100,13 @@
     // Reseter 
 
     .lgContainer {
-      @media (min-width: $lg) {
+      @include lg {
         padding: 0 70px;
       }
     }
 
     .container {
-      @media (min-width: $lg) {
+      @include lg {
         padding: 0px;
       }
     }

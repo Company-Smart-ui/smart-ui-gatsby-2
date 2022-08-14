@@ -13,7 +13,7 @@
         background-color: $MediumSeaGreen;
       }
 
-      @media (min-width: $lg) {
+      @include lg {
         padding: 4px;
       }
     }
@@ -27,7 +27,7 @@
       text-align: center;
       background-color: $White;
 
-      @media (min-width: $lg) {
+      @include lg {
         padding: 27px 16px;
         ;
       }
@@ -41,7 +41,7 @@
       color: $Gray;
       text-align: start;
 
-      @media (min-width: $lg) {
+      @include lg {
         font-size: 12px;
       }
     }
@@ -52,7 +52,7 @@
       letter-spacing: -0.045em;
       text-align: center;
 
-      @media (min-width: $lg) {
+      @include lg {
         font-size: 16px;
       }
     }
@@ -68,12 +68,11 @@
       justify-content: center;
       align-items: center;
 
-      @media (min-width: $lg) {
+      @include lg {
         width: 113px;
         height: 113px;
         margin-top: 22px;
       }
     }
-
   }
 }

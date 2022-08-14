@@ -1,9 +1,10 @@
 import React from 'react';
 import * as style from "./card.module.scss";
-import { StaticImage } from "gatsby-plugin-image";
 
 export const Card = ({ content, indexEl, activeIndex }) => {
-  const { title, description } = content;
+  const { img, title, description } = content;
+
+  console.log(img);
 
   return (
     <div className={style.card}>
@@ -13,12 +14,7 @@ export const Card = ({ content, indexEl, activeIndex }) => {
       }
     >
       <div className="imgWrapper">
-        <StaticImage
-          placeholder={"none"}
-          height={120}
-          alt={""}
-          src="./javascript.png"
-        />
+        <img src={img} alt={title} />
       </div>
       <div className="contentWrapper">
         <div className="contentWrapperTitle">{title}</div>
