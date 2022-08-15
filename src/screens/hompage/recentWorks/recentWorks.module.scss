@@ -1,3 +1,10 @@
 .recentWorks {
+  background-color: #ECF2F6;
+  background-image: url('./react.png');
 
+  :global {
+    .button {
+      margin: 20px auto;
+    }
+  }
 }

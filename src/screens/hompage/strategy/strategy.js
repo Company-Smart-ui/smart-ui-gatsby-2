@@ -21,6 +21,7 @@ export const Strategy = () => {
       <div className="container">
         <div className="gCircle" />
         <div className="gCircle bottom" />
+        <div className="noise" />
         <div className="overlay upperBlock">
           <h2 className="h2">Strategy</h2>
           <div className="pagination-button-wrapper">
@@ -45,7 +46,7 @@ export const Strategy = () => {
             ))}
           </div>
         </div>
-        <div className="footerButtons">
+        <div className="footerButtons overlay">
           <SwiperButtons
             onPrev={slidePrevHandler}
             onNext={slideNextHandler}

@@ -1,0 +1,14 @@
+@import 'src/var';
+
+.cardsSwiper {
+  overflow: visible;
+
+  :global {
+    .mySwiper {
+      margin: 0 auto;
+      margin-top: 54px;
+      overflow: visible;
+      height: 450px;
+    }
+  }
+}

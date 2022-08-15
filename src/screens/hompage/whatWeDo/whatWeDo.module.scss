@@ -1,7 +1,7 @@
 @import 'src/var';
 
 .whatWeDo {
-  background-image: url("./linear_background_gradient.png");
+  background-image: url("./line_background_grid.png");
   background-color: $GrayBlue;
   background-position: center;
   background-repeat: no-repeat;
@@ -10,21 +10,23 @@
   position: relative;
 
   :global {
-    .gCircle {
-      border-radius: 50%;
-      aspect-ratio: 1;
+    .noise{
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       position: absolute;
-      top: 30px;
-      left: 27px;
-      height: 100px;
-      background-color: #3D3D48;
-      opacity: 0.5;
+    }
+
+    .gCircle {
+      width: 100px;
+      position: absolute;
 
       &.bottom {
-        height: 52px;
+        position: absolute;
+        width: 52px;
         left: 36px;
         top: 139px;
-        background-color: #31313A;
 
         @include md {
           top: 100px;

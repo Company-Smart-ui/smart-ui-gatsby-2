@@ -29,6 +29,7 @@ export const WhatWeDo = () => {
           <div className="description-grid">
               <div className="gCircle" />
               <div className="gCircle bottom" />
+              <div className="noise" />
               <h2 className="h2 overlay">What We Do?</h2>
               <Swiper
                 onSwiper={setSwiper}
@@ -96,7 +97,7 @@ export const WhatWeDo = () => {
                 </SwiperSlide>
               </Swiper>
           </div>
-          <div className="footer">
+          <div className="footer overlay">
             <SwiperButtons
               onPrev={slidePrevHandler}
               onNext={slideNextHandler}

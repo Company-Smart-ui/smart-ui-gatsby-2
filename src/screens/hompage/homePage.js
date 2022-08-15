@@ -4,6 +4,9 @@ import { Hero } from "./hero/hero";
 import { Strategy } from "./strategy/strategy";
 import { WhatWeDo } from "./whatWeDo/whatWeDo";
 import { Tools } from "./tools/tools";
+import { MeetOur } from './meetOur/meetOur';
+import { OurAdvantages } from './ourAdvantages/ourAdvantages';
+import { RecentWorks } from "./recentWorks/recentWorks";
 
 export const HomePage = () => {
   return (
@@ -12,6 +15,9 @@ export const HomePage = () => {
       <WhatWeDo />
       <Tools/>
       <Strategy />
+      <MeetOur />
+      <OurAdvantages />
+      <RecentWorks />
     </div>
   );
 };

@@ -1,3 +1,73 @@
-.meetOur {
+@import "src/var";
 
+.meetOur {
+  position: relative;
+  background-color: $White;
+
+  :global {
+    .noise{
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+    }
+
+    .img-block {
+      position: absolute;
+      top: -22px;
+      right: -132px;
+      width: 275px;
+      height: 345px;
+    }
+
+    .img-phone {
+      position: absolute;
+      top: 63px;
+      left: 78px;
+    }
+
+    
+    .img-tools {
+      position: absolute;
+      top: 184px;
+      left: 38px;
+    }
+
+    .footer-buttons {
+      margin-top: 20px;
+
+      @include md {
+        display: none;
+      }
+    }
+
+    .whole-team-button {
+      margin-top: 20px;
+      min-width: 165px;
+
+      @include md {
+        min-width: 307px;
+      }
+
+    }
+
+    .swiper-container {
+      @include md {
+        display: none;
+      }
+    }
+
+    .team-list-container {
+      display: none;
+
+      @include md {
+        display: flex;
+        margin-top: 70px;
+        justify-content: space-between;
+        align-items: stretch;
+        gap: 30px;
+      }
+    }
+  }
 }

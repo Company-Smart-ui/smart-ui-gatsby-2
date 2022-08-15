@@ -1,0 +1,54 @@
+@import 'src/var';
+
+
+.card {
+  background-color: $White;
+  border-radius: 8px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  overflow: hidden;
+  padding: 32px;
+  min-height: 100%;
+  width: 100%;
+  
+  @include md {
+    width: calc(100%/3);
+  }
+
+  :global {
+    .content-title {
+      font-size: 35px;
+      font-weight: 500;
+      letter-spacing: -0.045em;
+      line-height: 1.1;
+      text-align: start;
+      color: $GrayBlue;
+
+      @include md {
+        font-size: 24px;
+      }
+
+      @include lg {
+        font-size: 32px;
+      }
+    }
+
+
+    .content-description {
+      font-size: 16px;
+      margin-top: 12px;
+      font-weight: 400;
+      line-height: 1.46;
+      color: $Gray;
+      text-align: start;
+
+      @include md {
+        font-size: 12px;
+        line-height: 1.36;
+      }
+
+      @include lg {
+        font-size: 14px;
+      }
+    }
+  }
+}

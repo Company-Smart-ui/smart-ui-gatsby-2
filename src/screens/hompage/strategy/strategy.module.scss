@@ -1,7 +1,7 @@
 @import 'src/var';
 
 .strategy {
-  background-image: url("../whatWeDo/linear_background_gradient.png");
+  background-image: url("../whatWeDo/line_background_grid.png");
   background-color: #292930;
   background-position: center;
   background-repeat: no-repeat;
@@ -10,21 +10,25 @@
   position: relative;
 
   :global {
+    .noise{
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+    }
+    
     .gCircle {
-      border-radius: 50%;
-      aspect-ratio: 1;
       position: absolute;
       left: 25px;
       top: 11px;
       height: 100px;
-      background-color: #3D3D48;
-      opacity: 0.5;
     }
 
     .options-list {
       display: none;
 
-      @include md {
+      @include lg {
         display: flex;
         flex-direction: column;
         gap: 50px;
@@ -33,30 +37,26 @@
     }
 
     .list-item {
-      @include md {
+      @include lg {
         display: flex;
         gap: 30px;
 
         &:nth-child(even) {
-          margin-left: 20%;
-
-          @include xl {
+          @include lg {
             margin-left: calc(50% - 220px);
           }
         }
 
         &:nth-child(odd) {
-          margin-right: 20%;
-
-          @include xl {
-            margin-right: 50%;
+          @include lg {
+            margin-right: 40%;
           }
         }
       }
     }
 
     .list-title {
-      @include md {
+      @include lg {
         min-width: 220px;
       }
     }
@@ -88,18 +88,12 @@
       gap: 15px;
     }
 
-    .overlay {
-      position: relative;
-      z-index: 2;
-    }
-
-
     // Pagination
 
     .pagination-button-wrapper {
       margin-top: 40px;
 
-      @include md {
+      @include lg {
         display: none;
       }
     }
@@ -111,7 +105,7 @@
       justify-content: center;
       margin-top: 32px;
 
-      @include md {
+      @include lg {
         display: none;
       }
     }

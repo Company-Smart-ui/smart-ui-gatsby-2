@@ -28,9 +28,9 @@ export const Tools = () => {
       <div className="overlay lgContainer">
         <div className="tabletContainer">
           <div className="container resetPadding">
-            <p className="subtitle">Technology</p>
+            <p className="second-title">Technology</p>
             <h2 className="h2 title">Tools We Use</h2>
-            <p className="description">
+            <p className="subtitle description">
               Contact that lead developer and discuss technical points in detail
             </p>
             <button className="button">Contact the lead developer</button>
