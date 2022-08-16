@@ -1,0 +1,129 @@
+@import "src/var";
+
+.wrapper {
+  background-image: url("./line_background_grid.png"),
+    url("./linear_background_gradient.png");
+  background-color: #292930;
+  color: $White;
+  position: relative;
+  padding: 34px 0;
+  @include lg {
+    padding: 70px 0 0;
+    margin-bottom: 25%;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+    @include lg {
+      margin-bottom: 50px;
+    }
+  }
+
+  .img {
+    width: fit-content;
+    margin: 0 auto;
+    @include lg {
+        margin-bottom: -31%;
+    }
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .form {
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 20px;
+    input, textarea {
+      background: none;
+      border: none;
+      width: 100%;
+      color: $White;
+      padding: 20px 10px 10px;
+      position: relative;
+      z-index: 1;
+      font-size: 14px;
+      @include md{
+        font-size: 18px;
+      }
+      
+
+      &:focus {
+        background: none;
+        outline: transparent;
+        border: 0c;
+        & + fieldset {
+          border: 1px solid $MediumSeaGreen;
+          top: -px;
+
+          legend {
+            font-size: 10px;
+            left: 10px;
+          }
+        }
+       
+      }
+
+      &::-webkit-input-placeholder {
+        color: $White;
+      }
+      &::-moz-placeholder {
+        color: $White;
+      }
+    }
+
+    .field {
+      position: relative;
+      margin-bottom: 25px;
+      width: 100%;
+      @include md{
+        margin-bottom: 55px;
+      }
+
+      fieldset {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        padding: 10px;
+        border: 0;
+        border-bottom: 1px solid $MediumSeaGreen;
+        transition: none;
+      }
+
+      legend {
+        transition: 0.3s ease-in-out;
+        font-size: 0;
+      }
+    }
+
+    textarea {
+      resize: none;
+    }
+  }
+
+  :global {
+    .button {
+      margin: 0 auto;
+    }
+
+    .noise {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+      z-index: 1;
+      @include lg{
+        bottom: -25%;
+      }
+    }
+  }
+}
