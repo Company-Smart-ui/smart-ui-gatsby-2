@@ -1,3 +1,98 @@
-.tools {
+@import 'src/var';
 
+.tools {
+  position: relative;
+  background-color: $White;
+
+  :global {
+    .noise{
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+    }
+    
+    .yCircle {
+      width: 400px;
+      position: absolute;
+      right: -320px;
+      top: 35px;
+
+      @include lg {
+        display: none;
+      }
+    }
+
+    .title {
+      margin-top: 10px;
+    }
+
+    .description {
+      margin-top: 15px;
+    }
+
+    .button {
+      margin-top: 13px;
+    }
+
+    .swiperTips {
+      margin-top: 14px;
+      color: $Gray;
+    }
+
+    // Position when we have tablet
+
+    .tabletContainer {
+      z-index: 1;
+
+      @include lg {
+        display: flex;
+        gap: 31px;
+      }
+    }
+
+    .verticalBlock {
+      @include lg {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        overflow: hidden;
+      }
+    }
+
+    .element {
+      margin: 20px;
+    }
+
+    // Swiper
+
+    .swiper {
+      overflow: visible;
+    }
+
+    .mySwiper {
+      // width: 275px;
+      margin: 0 auto;
+      margin-top: 27px;
+    }
+
+    // Reseter 
+
+    .lgContainer {
+      @include lg {
+        padding: 0 70px;
+      }
+    }
+
+    .container {
+      @include lg {
+        padding: 0px;
+      }
+    }
+
+    .buttonsBlock {
+      margin-top: 16px;
+    }
+  }
 }

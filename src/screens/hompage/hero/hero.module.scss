@@ -9,6 +9,7 @@
   @include lg{
     padding:  230px 0 80px 0 ;
   }
+
   @include lg{
     padding:  245px 0 80px 0 ;
   }
@@ -30,6 +31,7 @@
       }
       &.right{
         height:80px;
+
         @include xl{
           height: 160px;
         }
@@ -50,9 +52,11 @@
         top:20px;
         bottom: 20px;
       }
+
       @include xl{
         left: min(100% , calc(50% + 800px));
       }
+
     }
     .deskImg{
       position: absolute;
@@ -63,6 +67,9 @@
         top: 50%;
         width: calc(20vw + 160px);
       }
+
+      transform:translateY( -50%);
+
       transform:translateY( -50%);
       @include xl{
         width: 600px;
@@ -138,7 +145,6 @@
       @include md{
         margin-bottom: 60px;
       }
-
     }
   }
 }
@@ -154,7 +160,7 @@
   :global{
     .button{
       @include lg{
-        margin: 0;
+        margin: 0px;
       }
     }
     .contact{

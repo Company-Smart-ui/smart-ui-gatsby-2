@@ -1,10 +1,60 @@
-import React from 'react';
-import * as style from './strategy.module.scss'
+import React, { useState, useEffect } from "react";
+import * as style from "./strategy.module.scss";
+import { Pagination } from "../../../global/pagination/Pagination";
+import { strategyOptions } from "./strategyOptions";
+import { SwiperButtons } from "../../../global/swiperButtons/SwiperButtons";
+import { SwiperList } from "./swiper/SwiperList";
 
 export const Strategy = () => {
+  const [swiper, setSwiper] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-    return <div className={style.strategy}>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet animi architecto atque autem consequatur eius eos facere facilis hic, ipsa labore laborum libero magnam magni necessitatibus, neque, quia recusandae repellendus sed sit velit vero vitae voluptas! Autem blanditiis distinctio doloremque esse fugiat ipsa molestiae qui tempore? A ab beatae cumque dolor dolore dolorum error excepturi exercitationem facere fugit iure iusto minima nam nesciunt nisi nulla numquam odit optio, quae quod quos rerum sapiente sunt suscipit totam voluptas voluptatibus! A accusantium, ad amet asperiores beatae blanditiis commodi culpa dolorem dolorum ducimus eius enim est eveniet, exercitationem fugit harum hic in incidunt laboriosam modi nobis non nostrum numquam officia omnis pariatur perferendis porro possimus praesentium quas quis rem repellat sit suscipit totam vel voluptatem! Animi atque autem distinctio dolorem dolorum fugiat impedit laboriosam laudantium magnam natus necessitatibus, omnis, optio perspiciatis ratione soluta temporibus veritatis voluptate voluptatum. Aut, corporis deserunt dolorum error esse ex facilis hic inventore iure obcaecati pariatur perferendis quae recusandae, tempora unde. Ad aperiam assumenda beatae consectetur, corporis culpa cum deserunt dolorem doloribus enim error eum ex expedita fugiat fugit impedit iste iusto labore laboriosam laborum maxime nam nisi nostrum praesentium provident quaerat quis recusandae sint totam ullam unde vel voluptates voluptatum. Cumque ducimus eaque, eius eligendi, fugiat inventore minus neque nostrum provident quod, ut veritatis. Exercitationem fugiat itaque quas reprehenderit voluptas? Ab debitis dolorum est harum hic ipsum molestiae optio quae quo, similique, tenetur vitae! Ab accusantium adipisci alias aliquam atque aut autem beatae consequuntur cumque dignissimos dolor, dolorem doloribus error esse eveniet facilis harum illo, in ipsum iusto labore magnam molestiae necessitatibus nemo odio officiis pariatur, praesentium quae quaerat quam quidem quisquam ratione reiciendis saepe suscipit totam voluptate! Commodi culpa cumque eaque enim facilis incidunt ipsa, laudantium magni minus, nisi nostrum nulla odit placeat possimus quaerat qui, quidem repellat vel voluptas voluptate. Consequuntur ducimus esse expedita nam necessitatibus nemo nulla numquam voluptatibus! Atque consectetur dolores id officiis porro praesentium provident quam, reiciendis unde vel? Asperiores consectetur exercitationem fugiat libero maiores, molestiae, nemo neque nisi nulla tempore tenetur, voluptate! Corporis distinctio dolorem eligendi illum molestias, quis repellat tempora! Alias assumenda autem culpa debitis deleniti dolorum eaque earum eos esse excepturi exercitationem explicabo facilis harum impedit incidunt iusto laboriosam maxime minima modi neque, nobis numquam odio officiis placeat praesentium provident quaerat quo quod recusandae reiciendis rerum sapiente sit tempore totam velit vero voluptatem! Blanditiis consectetur cum eos et, facilis iure odio pariatur praesentium reprehenderit sed similique sint ullam. Aliquid amet, aperiam blanditiis cum cumque debitis dignissimos excepturi impedit natus non nostrum nulla praesentium quaerat qui ratione saepe suscipit vero! Cumque doloremque error est, eveniet explicabo harum libero perferendis quibusdam velit voluptas. Ab ad, aliquid amet aspernatur at culpa cum cumque delectus deleniti distinctio, dolorem error facere, in ipsam iste itaque laboriosam libero nam nesciunt nostrum odio omnis quod rem? Dolorum nobis repellat soluta unde! Beatae, fuga, sunt. Adipisci architecto atque blanditiis consectetur consequatur dolor ea est et expedita id, in iste laborum modi, non provident quaerat quidem repellendus sunt vel veniam! Animi asperiores atque consectetur cum doloremque error fugiat impedit incidunt labore laborum libero natus neque nesciunt numquam obcaecati omnis optio, reprehenderit, vitae. A ad adipisci alias asperiores consequatur culpa ea eius eum excepturi fuga, itaque iusto labore laudantium libero maiores nam porro quae rerum sit tempore veniam vitae voluptatum. Beatae officiis provident ratione voluptates.
-    </div>
+  const slidePrevHandler = () => swiper.slidePrev();
+  const slideNextHandler = () => swiper.slideNext();
+
+  useEffect(() => {
+    setActiveIndex(0);
+  }, []);
+
+  return (
+    <section className={`${style.strategy} vertical-padding`}>
+      <div className="container">
+        <div className="gCircle" />
+        <div className="gCircle bottom" />
+        <div className="noise" />
+        <div className="overlay upperBlock">
+          <h2 className="h2">Strategy</h2>
+          <div className="pagination-button-wrapper">
+            <Pagination activeIdx={activeIndex} sliderLength={2} whiteTheme />
+          </div>
+          <SwiperList
+            swiper={swiper}
+            setSwiper={setSwiper}
+            setActiveIndex={setActiveIndex}
+          />
+          <div className="options-list">
+            {strategyOptions.map((option) => (
+              <div key={option.id} className="list-item">
+                <div className="list-title">
+                  <span className="list-item-number">{`0${option.id}`}</span>
+                  <span className="list-item-title">{option.title}</span>
+                </div>
+                <div className="list-item-description">
+                  {option.description}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="footerButtons overlay">
+          <SwiperButtons
+            onPrev={slidePrevHandler}
+            onNext={slideNextHandler}
+            sliderLength={2}
+            activeIndex={activeIndex}
+          />
+        </div>
+      </div>
+    </section>
+  );
 };
- 

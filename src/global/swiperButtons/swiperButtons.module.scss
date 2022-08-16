@@ -1,0 +1,14 @@
+@import 'src/var';
+
+.swiperButtons {
+  gap: 17px;
+  display: flex;
+  justify-content: center;
+
+  :global {
+    .fillButton {
+      background-color: $MediumSeaGreen;
+      border: none;
+    }
+  }
+}

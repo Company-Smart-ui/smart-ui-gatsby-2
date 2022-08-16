@@ -1,53 +1,37 @@
-@import "../../../var.scss";
+@import 'src/var';
 
 .whatWeDo {
-  padding: 34px 0;
-  background-image: url("./line_background_grid.png"), 
-  url("./linear_background_gradient.png");
-  background-color: #292930;
+  background-image: url("./line_background_grid.png");
+  background-color: $GrayBlue;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   color: $White;
-  min-height: 830px;
   position: relative;
 
-  @media (min-width: $md) {
-    padding: 45px 0;
-    min-height: 774px;
-  }
-
-  @media (min-width: $md) {
-    padding: 87px 0;
-    min-height: 910px;
-  }
-
   :global {
-    .gCircle {
-      border-radius: 50%;
-      aspect-ratio: 1;
+    .noise{
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       position: absolute;
-      left: -19px;
-      top: -8px;
-      height: 100px;
-      background-color: #3D3D48;
-      opacity: 0.5;
+    }
+
+    .gCircle {
+      width: 100px;
+      position: absolute;
 
       &.bottom {
-        height: 52px;
-        left: -10px;
-        top: 100px;
-        background-color: #31313A;
+        position: absolute;
+        width: 52px;
+        left: 36px;
+        top: 139px;
 
-        @media (min-width: $md) {
+        @include md {
           top: 100px;
           left: 150px;
         }
-      }
-    }
-
-    .h2 {
-      letter-spacing: -0.025em;
-
-      @media (min-width: $xl) {
-        font-size: 80px;
       }
     }
 
@@ -56,47 +40,20 @@
       z-index: 2;
     }
 
+    // Text description
+
     .description {
       opacity: 0.5;
       font-size: 16px;
       font-weight: 300;
-      min-height: 200px;
       margin-top: 21px;
+      margin-bottom: 26px;
+      text-align: justify;
 
-      @media (min-width: $md) {
-        font-size: 15px;
-        max-width: 396px;
-        height: 655px;
-      }
-
-      @media (min-width: $xxl) {
+      @include xl {
         max-width: 100%;
         font-size: 21px;
         font-weight: 400;
-      }
-    }
-
-    // Controlls button
-
-    .controllWrapper {
-      display: flex;
-      position: absolute;
-      bottom: -162px;
-      z-index: 10;
-      gap: 17px;
-
-      @media (min-width: $md) {
-        left: 60%;
-        bottom: -136px;
-      }
-    }
-
-    .fillButton {
-      background-color: $Lime;
-      border: none;
-
-      &:hover {
-        background-color: $LimeGreen;
       }
     }
 
@@ -104,68 +61,50 @@
       font-size: 13px;
       font-weight: 500;
       line-height: 1.3;
-      margin-top: 16px;
+      letter-spacing: -0.045em;
+      color: $White;
 
-      @media (min-width: $md) {
+      @include md {
         font-size: 17px;
         line-height: 1.4;
-        font-weight: 500;
-        letter-spacing: -0.045em;
-        max-width: 396px;
+        margin-top: 0;
       }
 
-      @media (min-width: $xl) {
+      @include xl {
         font-size: 24px;
         max-width: 100%;
       }
     }
 
-    .horizontalLine {
-      content: '';
-      width: 39px;
-      height: 1px;
-      background-color: $White;
-    }
-
     // List of options
 
-    .listDescriptions {
-      opacity: 0.5;
+    .list-descriptions {
       font-size: 13px;
       font-weight: 300;
       line-height: 1.29;
       margin-top: 34px;
-      max-width: 394px;
       letter-spacing: -0.025em;
+      opacity: 0.5;
 
-      @media (min-width: $md) {
+      @include md {
         font-size: 15px;
         line-height: 1.56;
       }
 
-      @media (min-width: $xl) {
-        max-width: 100%;
+      @include xl {
+        font-size: 21px;
         line-height: 1.52;
-        max-width: 493px;
-      }
-
-      @media (min-width: $xxl) {
-        font-size: 19px;
-        max-width: 610px;
       }
     }
 
     // Link to consultation
 
-    .findOut {
+    .info-link {
       font-size: 13px;
       font-weight: 300;
       line-height: 20px;
       position: relative;
       display: inline-block;
-      z-index: 10;
-      left: 60%;
-      bottom: 28px;
       color: $White;
       opacity: 0.5;
 
@@ -177,188 +116,98 @@
         content: ' ';
         position: absolute;
         top: 50%;
-        left: -45px;
-        width: 27px;
+        left: -40px;
+        width: 25px;
         height: 1px;
         background-color: $White;
         opacity: 0.5;
       }
 
-      @media (min-width: $md) {
-        left: 50px;
-        top: 20px;
-      }
-
       @media (min-width: $xl) {
-        left: 45px;
-        top: 82px;
         font-size: 19px;
       }
+    }
 
-      @media (min-width: $xxl) {
-        top: 56px;
+    // Grid
+
+    .grid {
+      display: grid;
+      grid-template-rows: 1fr 108px 1fr 40px;
+      grid-template-columns: 100%;
+
+      grid-template-areas:
+        "description-grid"
+        "pagination"
+        "work-list"
+        "footer";
+
+      @include md {
+        grid-template-rows: 1fr 1fr 40px;
+        grid-template-columns: 50% 50%;
+        grid-template-areas:
+          "description-grid ."
+          "pagination work-list"
+          "footer footer";
       }
     }
 
-    // Flex column 
+    .description-grid {
+      grid-area: description-grid;
+    }
 
-    .flex {
-      position: relative;
-      height: 600px;
+    .pagination {
+      grid-area: pagination;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
 
-      @media (min-width: $md) {
-        display: flex;
+      @include md {
         flex-direction: row;
-      }
-
-      .upperBlock {
-        height: 100%;
-
-        @media (min-width: $md) {
-          width: 50%;
-        }
+        padding-right: 20px;
       }
     }
 
-    .bottomBlock {
-      position: absolute;
-      bottom: -182px;
-      width: 100%;
+    .work-list {
+      grid-area: work-list;
+      position: relative;
+      margin-top: 16px;
 
-      @media (min-width: $md) {
-        left: 52%;
-        bottom: -108px;
-      }
-
-      @media (min-width: $xl) {
-        bottom: -46px;
-      }
-
-      @media (min-width: $xxl) {
-        bottom: -74px;
+      @include md {
+        margin-top: 0;
       }
     }
 
+    .footer {
+      grid-area: footer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-    .divider {
-      width: 100%;
-      position: absolute;
-      bottom: 80px;
-
-      @media (min-width: $md) {
-        bottom: 10px;
-        max-width: 360px;
-      }
-
-      @media (min-width: $xl) {
-        max-width: 493px;
-      }
-
-      @media (min-width: $xxl) {
-        max-width: 610px;
-      }
-    }
-
-    // Button ask questions
-
-    .button {
-      font-size: 13px;
-      position: absolute;
-      display: none;
-      bottom: 150px;
-      left: 0;
-      z-index: 10;
-
-      @media (min-width: $md) {
-        display: block;
-      }
-
-      @media (min-width: $xl) {
-        font-size: 17px;
-      }
-
-      @media (min-width: $xxl) {
-        bottom: 190px;
+      @include md {
+        justify-content: space-around;
       }
     }
 
     // Divider line
 
     .dividerLine {
-      @media (max-width: $md) {
-        display: none;
+      display: none;
+
+      @include md {
+        display: block;
       }
 
       height: 1px;
-      background-color: $LimeGreen;
+      background-color: $MediumSeaGreen;
       width: 200%;
       position: absolute;
-      top: -12px;
+      top: -38px;
       left: 0;
     }
 
-    // Pagination
-
-    .paginationWrapper {
-      font-size: 13px;
-      font-weight: 500;
-      line-height: 1.3;
-      display: flex;
-      align-items: center;
-      gap: 30px;
-
-      @media (min-width: $md) {
-        position: absolute;
-        top: 30px;
-        left: -158px;
-      }
-
-      @media (min-width: $xl) {
-        font-size: 16px;
-      }
-    }
-
-    .pagination {
-      color: $White;
-
-      &.active {
-        opacity: 0.5;
-      }
-    }
-
-    // Swiper 
-    .swiper {
-      width: 100%;
-      height: 300px;
-      margin-left: auto;
-      margin-right: auto;
-      position: static;
-    }
-
-    .swiper-slide {
-      background-size: cover;
-      background-position: center;
-    }
-
-    .mySwiper2 {
-      height: 91%;
-      width: 100%;
-    }
-
-    .mySwiper {
-      height: 20%;
-      box-sizing: border-box;
-      padding: 10px 0;
-    }
-
-    .mySwiper .swiper-slide {
-      width: 25%;
-      height: 95%;
-      opacity: 0.4;
-    }
-
-    .mySwiper .swiper-slide-thumb-active {
-      opacity: 1;
+    .button {
+      min-width: 158px;
     }
   }
 }
