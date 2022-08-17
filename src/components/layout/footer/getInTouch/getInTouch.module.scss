@@ -11,6 +11,9 @@
     padding: 70px 0 0;
     margin-bottom: 25%;
   }
+  @media (min-width: 1310px) {
+    margin-bottom: 327px;
+  }
 
   h2 {
     text-align: center;
@@ -52,12 +55,25 @@
       @include md{
         font-size: 18px;
       }
+
+      &::-webkit-input-placeholder {
+        color: $White;
+      }
+      &::-moz-placeholder {
+        color: $White;
+      }
       
 
       &:focus {
         background: none;
         outline: transparent;
-        border: 0c;
+        border: 0;
+        &::-webkit-input-placeholder {
+          color: transparent;
+        }
+        &::-moz-placeholder {
+          color: transparent;
+        }
         & + fieldset {
           border: 1px solid $MediumSeaGreen;
           top: -px;
@@ -68,13 +84,6 @@
           }
         }
        
-      }
-
-      &::-webkit-input-placeholder {
-        color: $White;
-      }
-      &::-moz-placeholder {
-        color: $White;
       }
     }
 

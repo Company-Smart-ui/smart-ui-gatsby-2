@@ -44,8 +44,8 @@ export const GetInTouch = () => {
                 <button className='button' type="submit">{defaultData.button}</button>
             </form>
             <div className={style.img}>
-            <StaticImage className={'sm-only'} objectFit={'contain'} placeholder={'tracedSVG'} src={"./mobile.png"} alt={""}/>
-            <StaticImage className={'md-only'} objectFit={'contain'} placeholder={'tracedSVG'} src={"./desktop.png"} alt={""}/>
+            <StaticImage className={'sm-only'} objectFit={'contain'} placeholder={'none'} src={"./mobile.png"} alt={""}/>
+            <StaticImage className={'md-only'} objectFit={'contain'} width={1200} placeholder={'none'} src={"./desktop.png"} alt={""}/>
             </div>
         </div>
         
