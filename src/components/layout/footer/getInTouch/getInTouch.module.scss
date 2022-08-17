@@ -52,6 +52,7 @@
       position: relative;
       z-index: 1;
       font-size: 14px;
+      font-family: $fontText;
       @include md{
         font-size: 18px;
       }
@@ -76,7 +77,7 @@
         }
         & + fieldset {
           border: 1px solid $MediumSeaGreen;
-          top: -px;
+          top: -10px;
 
           legend {
             font-size: 10px;

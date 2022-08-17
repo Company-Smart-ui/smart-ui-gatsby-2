@@ -1,0 +1,60 @@
+@import "src/var.scss";
+
+.messengers {
+    display: flex;
+    justify-content: center;
+    a{
+      transition:0.2s;
+      &:hover{
+        transform: scale(1.1);
+      }
+
+      img {
+        object-position: 50% 50%;
+        object-fit: contain;
+        }
+    }
+  
+    @media (max-width: $lg) {
+      width: 100%;
+      margin: 5px;
+      height: 35px;
+      flex-grow: 0;
+      li {
+        margin: 0 14px;
+        transition: 0.3s;
+        pointer-events: none;
+        opacity: 0;
+        &:nth-child(odd) {
+          transform: translate(-110vw);
+        }
+  
+        &:nth-child(even) {
+          transform: translate(110vw);
+        }
+
+      }
+    }
+    @include lg {
+      margin-right: 70px;
+      li {
+        flex-shrink: 0;
+        margin-right: 5px;
+        display: flex;
+        align-items: center;
+      }
+      a {
+        height: 25px;
+        width: 45px;
+        display: block;
+        padding: 0 5px;
+      }
+    }
+    @include xl{
+      margin-right: 300px;
+      a{
+        height: 50px;
+        margin:0 10px;
+      }
+    }
+  }
