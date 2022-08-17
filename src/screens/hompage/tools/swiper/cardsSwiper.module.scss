@@ -1,12 +1,44 @@
 @import 'src/var';
 
 .cardsSwiper {
-  overflow: visible;
+  margin-top: 32px;
+
+  @include md {
+    width: 630px;
+    margin: 0 auto;
+    overflow: hidden;
+    height: 385px;
+    margin-top: 22px;
+  }
+
+  @include lg {
+    width: 538px;
+    height: 326px;
+    margin-top: 0;
+  }
+
+  @include xl {
+    height: 500px;
+    width: 960px;
+  }
 
   :global {
-      .mySwiper {
+      .swiper {
         margin: 0 auto;
-        margin-top: 27px;
+        margin-top: 2px;
+        width: 375px;
+        
+        @include md {
+          width: 264px;
+        }
+
+        @include lg {
+          width: 222px;
+        }
+
+        @include xl {
+          width: 400px;
+        }
       }
   }
 }

@@ -15,10 +15,11 @@
 
     .img-block {
       position: absolute;
-      top: -22px;
-      right: -132px;
-      width: 275px;
-      height: 345px;
+      background-image: url('./mobile_illustration.png');
+      top: -40px;
+      right: -216px;
+      width: 344px;
+      height: 360px;
     }
 
     .img-phone {
@@ -28,10 +29,11 @@
     }
 
     
-    .img-tools {
+    .img-illustration {
       position: absolute;
-      top: 184px;
-      left: 38px;
+      height: 344px;
+      top: 0;
+      right: 0;
     }
 
     .footer-buttons {
@@ -47,7 +49,8 @@
       min-width: 165px;
 
       @include md {
-        min-width: 307px;
+        min-width: 200px;
+        margin-top: 50px;
       }
 
     }
@@ -63,6 +66,7 @@
 
       @include md {
         display: flex;
+        margin: 0 auto;
         margin-top: 70px;
         justify-content: space-between;
         align-items: stretch;

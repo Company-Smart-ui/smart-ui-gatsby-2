@@ -1,0 +1,54 @@
+@import 'src/var';
+
+.questions {
+  background-color: $LightPeriwinkle;
+
+  :global {
+    .mobile {
+      @include lg {
+        display: none;
+      }
+    }
+
+    .tablet {
+      display: none;
+
+      @include lg {
+        display: block
+      }
+    }
+
+    .cards-wrapper {
+      margin-top: 24px;
+    }
+
+    .card-container {
+      padding: 15px;
+      border-radius: 8px;
+      background-color: $White;
+      box-shadow: 0px 2.41801px 7.73762px rgba(8, 15, 52, 0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      &:not(:first-child) {
+        margin-top: 12px;
+      }
+    }
+
+    .card-title {
+      font-size: 18px;
+      line-height: 1.14;
+      font-weight: 500;
+      font-family: $fontTitle;
+      margin-right: 20px;
+    }
+
+    .cube-button {
+      min-width: 20px;
+      min-height: 20px;
+      background-color: $MediumSeaGreen;
+      border-radius: 4px;
+    }
+  }
+}

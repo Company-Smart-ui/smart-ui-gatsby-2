@@ -1,10 +1,61 @@
+@import 'src/var';
+
 .recentWorks {
   background-color: #ECF2F6;
   background-image: url('./react.png');
+  background-repeat: no-repeat;
+  background-position: right;
 
   :global {
     .button {
       margin: 20px auto;
+    }
+
+    .works-swiper {
+      margin-top: 26px;
+
+      .swiper {
+        overflow: visible;
+      }
+
+      @include md {
+        display: none;
+      }
+    }
+
+    .works-list {
+      display: none;
+      @include md {
+        display: flex;
+        gap: 26px;
+      }
+    }
+
+    .title-container {
+      @include md {
+        max-width: 298px;
+      }
+    }
+
+    .button {
+      @include md {
+        display: block;
+        margin: 0;
+        margin-top: 48px;
+        min-width: 100%;
+      }
+    }
+
+    .pagination-wrapper {
+      margin-top: 64px;
+
+      @include md {
+        margin-top: 71px;
+      }
+    }
+
+    .footer-buttons {
+      margin-top: 20px;
     }
   }
 }

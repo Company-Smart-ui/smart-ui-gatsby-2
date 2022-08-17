@@ -1,36 +1,36 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Card } from "../card/Card";
-import { teamList } from "../card/TeamList";
-import * as style from "./teamSwiper.module.scss";
+import { worksList } from "../card/WorksList";
 
 import "swiper/css";
 import "swiper/css/free-mode";
 
-export const TeamSwiper = ({
+export const WorksSwiper = ({
+  swiperRef,
+  setActiveIndex,
   setSwiperRef,
   loop
 }) => {
   return (
-    <div className={style.cardsSwiper}>
+    <>
       <Swiper
         onSwiper={setSwiperRef}
-        spaceBetween={16}
-        initialSlide={1}
+        spaceBetween={36}
         centeredSlides={true}
         slidesPerView={1.3}
         freeMode={true}
-        className="mySwiper"
+        className="swiper"
         grabCursor={true}
         speed={800}
         loop={loop}
       >
-        {teamList.map((el, index) => (
-          <SwiperSlide key={el.name}>
-            <Card content={el}  indexEl={index} loop={loop} />
+        {worksList.map((el, index) => (
+          <SwiperSlide key={el.title}>
+            <Card content={el} indexEl={index} loop={loop} />
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
+    </>
   );
 };

@@ -1,0 +1,105 @@
+@import 'src/var';
+
+
+.card {
+  background-color: $White;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  width: 100%;
+  border-radius: 8px;
+
+  @include md {
+    width: calc(100%/3);
+  }
+
+  .card-wrapper {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  :global {
+    .content-wrapper {
+      padding: 20px;
+      min-height: 240px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      @include md {
+        align-items: flex-start;
+        min-height: 200px;
+      }
+    }
+
+    .technology {
+      position: absolute;
+      top: -22px;
+      right: -22px;
+
+      img {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    .img-wrapper {
+      img {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+      }
+    }
+
+    .content-description {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1;
+      color: $Gray;
+      text-align: start;
+      margin-top: 17px;
+      min-height: 40px;
+
+      @include md {
+        margin-top: 10px;
+      }
+
+      @include lg {
+        font-size: 12px;
+      }
+    }
+
+    .content-title {
+      font-size: 27px;
+      font-weight: 500;
+      letter-spacing: -0.045em;
+      line-height: 1.1;
+      text-align: start;
+
+      @include md {
+        font-size: 20px;
+      }
+
+      @include lg {
+        font-size: 16px;
+      }
+    }
+
+    .content-link {
+      color: $MediumSeaGreen;
+      display: inline-block;
+      
+      @include md {
+        font-size: 11px;
+      }
+    }
+
+    .button {
+      background-color: $MediumSeaGreen;
+      padding: 12px 38px;
+      line-height: 1.7;
+      min-width: 165px;
+
+      @include md {
+        margin: 0 auto;
+      }
+    }
+  }
+}

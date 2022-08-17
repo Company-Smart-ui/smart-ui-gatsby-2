@@ -20,9 +20,14 @@
     
     .gCircle {
       position: absolute;
-      left: 25px;
-      top: 11px;
+      left: 75px;
+      top: -15px;
       height: 100px;
+      opacity: 0.5;
+    }
+
+    .container {
+      position: relative;
     }
 
     .options-list {
@@ -43,7 +48,8 @@
 
         &:nth-child(even) {
           @include lg {
-            margin-left: calc(50% - 220px);
+            margin-left: calc(60% - 220px);
+            text-align: right;
           }
         }
 

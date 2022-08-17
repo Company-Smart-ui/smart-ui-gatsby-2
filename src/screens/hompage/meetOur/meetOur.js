@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import * as style from "./meetOur.module.scss";
-import { StaticImage } from "gatsby-plugin-image";
 import { TeamSwiper } from "./swiper/TeamSwiper";
 import { SwiperButtons } from "../../../global/swiperButtons/SwiperButtons";
 import { teamList } from "./card/TeamList";
@@ -15,24 +14,7 @@ export const MeetOur = () => {
   return (
     <div className={`${style.meetOur} vertical-padding`}>
       <div className="noise" />
-      <div className="img-block">
-        <figure className="img-tools">
-          <StaticImage
-            placeholder={"none"}
-            height={118}
-            alt={""}
-            src={"./tools.png"}
-          />
-        </figure>
-        <figure className="img-phone">
-          <StaticImage
-            placeholder={"none"}
-            height={280}
-            alt={""}
-            src={"./phone.png"}
-          />
-        </figure>
-      </div>
+      <div className="img-block" />
       <div className="container overlay">
         <h2 className="h2">Meet Our Team</h2>
         <p className="subtitle">Expert Team Member</p>
