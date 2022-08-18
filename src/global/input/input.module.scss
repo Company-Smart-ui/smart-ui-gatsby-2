@@ -1,0 +1,69 @@
+@import "src/var";
+
+.field {
+  position: relative;
+  margin-bottom: 25px;
+  width: 100%;
+  @include md {
+    margin-bottom: 55px;
+  }
+
+  input {
+    background: none;
+    border: none;
+    width: 100%;
+    color: $White;
+    padding: 20px 10px 10px;
+    position: relative;
+    z-index: 1;
+    font-size: 14px;
+    font-family: $fontText;
+    @include md {
+      font-size: 18px;
+    }
+
+    &::-webkit-input-placeholder {
+      color: $White;
+    }
+    &::-moz-placeholder {
+      color: $White;
+    }
+
+    &:focus {
+      background: none;
+      outline: transparent;
+      border: 0;
+      &::-webkit-input-placeholder {
+        color: transparent;
+      }
+      &::-moz-placeholder {
+        color: transparent;
+      }
+      & + fieldset {
+        border: 1px solid $MediumSeaGreen;
+        top: -10px;
+
+        legend {
+          font-size: 10px;
+          left: 10px;
+        }
+      }
+    }
+  }
+  fieldset {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    border: 0;
+    border-bottom: 1px solid $MediumSeaGreen;
+    transition: none;
+  }
+
+  legend {
+    transition: 0.3s ease-in-out;
+    font-size: 0;
+  }
+}
