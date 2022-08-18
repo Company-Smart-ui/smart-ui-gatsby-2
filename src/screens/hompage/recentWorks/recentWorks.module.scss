@@ -13,44 +13,101 @@
 
     .works-swiper {
       margin-top: 26px;
+      display: flex;
 
       .swiper {
         overflow: visible;
-      }
-
-      @include md {
-        display: none;
+        margin-top: 24px;
+        width: 300px;
       }
     }
 
-    .works-list {
-      display: none;
-      @include md {
-        display: flex;
-        gap: 26px;
+    .lgContainer {
+      @include lg {
+        max-width: 1528px;
+        margin: 0 auto;
+        padding: 0 100px;
       }
+    }
+
+    .tabletContainer {
+      z-index: 1;
+
+      @include lg {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 20px;
+      }
+    }
+
+    .vertical-block {
+      margin-top: 44px;
+
+      @include md {
+        margin-top: 71px;
+      }
+
+      @include lg {
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        overflow: hidden;
+        min-width: 538px;
+      }
+    }
+
+    .container {
+      @include lg {
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    .title {
+      margin-top: 10px;
     }
 
     .title-container {
+      max-width: 275px;
+
       @include md {
-        max-width: 298px;
+        max-width: 320px;
+      }
+
+      @include lg {
+        max-width: 250px;
       }
     }
 
     .button {
+      min-width: 100%;
+
       @include md {
         display: block;
         margin: 0;
         margin-top: 48px;
-        min-width: 100%;
+      }
+    }
+
+    .buttonsBlock {
+      margin-top: 16px;
+
+      @include lg {
+        margin-top: 0;
       }
     }
 
     .pagination-wrapper {
-      margin-top: 64px;
+      margin-top: 48px;
 
       @include md {
         margin-top: 71px;
+      }
+
+      @include lg {
+        margin-top: 0;
       }
     }
 

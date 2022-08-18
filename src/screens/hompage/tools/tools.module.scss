@@ -96,25 +96,20 @@
       @include lg {
         max-width: 1528px;
         margin: 0 auto;
-        padding: 0 70px;
+        padding: 0 100px;
       }
     }
 
     .container {
       @include lg {
         margin: 0;
+        padding: 0;
       }
     }
 
     .title-container {
       @include md {
         max-width: 320px;
-      }
-    }
-
-    .container {
-      @include lg {
-        padding: 0px;
       }
     }
 

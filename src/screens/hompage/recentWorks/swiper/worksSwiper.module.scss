@@ -1,0 +1,46 @@
+@import 'src/var';
+
+.worksSwiper {
+  margin-top: 32px;
+  
+  @include md {
+    width: 636px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding-top: 25px;
+    height: 345px;
+    margin-top: 22px;
+  }
+
+  @include lg {
+    width: 635px;
+    height: 340px;
+    margin-top: 0;
+  }
+
+  @include xl {
+    height: 400px;
+    width: 960px;
+  }
+
+  :global {
+      .swiper {
+        margin: 0 auto;
+        margin-top: 2px;
+        width: 375px;
+        overflow: visible;
+        
+        @include md {
+          width: 264px;
+        }
+
+        @include md {
+          width: 243px;
+        }
+
+        @include xl {
+          width: 383px;
+        }
+      }
+  }
+}

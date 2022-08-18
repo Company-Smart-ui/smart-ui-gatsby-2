@@ -14,41 +14,76 @@
       display: none;
 
       @include lg {
-        display: block
+        display: block;
+        max-width: 650px;
       }
     }
 
     .cards-wrapper {
       margin-top: 24px;
-    }
 
-    .card-container {
-      padding: 15px;
-      border-radius: 8px;
-      background-color: $White;
-      box-shadow: 0px 2.41801px 7.73762px rgba(8, 15, 52, 0.06);
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
+      .card-container {
+        padding: 15px;
+        border-radius: 8px;
+        background-color: $White;
+        box-shadow: 0px 2.41801px 7.73762px rgba(8, 15, 52, 0.06);
+        position: relative;
+        max-width: 100%;
 
-      &:not(:first-child) {
-        margin-top: 12px;
+        &:not(:first-child) {
+          margin-top: 12px;
+        }
+      }
+
+      @include md {
+        display: flex;
+        gap: 30px;
       }
     }
 
     .card-title {
       font-size: 18px;
-      line-height: 1.14;
-      font-weight: 500;
+      line-height: 1.5;
+      font-weight: 700;
       font-family: $fontTitle;
-      margin-right: 20px;
+      margin-right: 40px;
+    }
+
+    .card-description {
+      opacity: 0;
+      max-height: 0;
+      margin: 0;
+      font-size: 16px;
+      margin-right: 32px;
+      line-height: 1.25;
+      text-align: justify;
+      color: $Gray;
+      transition: max-height 800ms 100ms , opacity 600ms 200ms;
+    }
+
+    .show {
+      opacity: 1;
+      max-height: 1000px;
+      animation: 400ms ease-in-out 400ms faq forwards backwards;
+      transition: max-height 2000ms 300ms , opacity 1000ms 400ms;
     }
 
     .cube-button {
       min-width: 20px;
       min-height: 20px;
-      background-color: $MediumSeaGreen;
+      background-color: $LightPeriwinkle;
       border-radius: 4px;
+      position: absolute;
+      top: 16px;
+      right: 20px;
+
+      img {
+        width: 10px;
+      }
+    }
+
+    .open {
+      background-color: $MediumSeaGreen;
     }
   }
 }

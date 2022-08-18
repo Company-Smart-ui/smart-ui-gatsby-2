@@ -90,3 +90,12 @@
   opacity: 0;
 }
 
+@keyframes faq {
+  from {
+    max-height: 50px;
+  }
+
+  to {
+    max-height: 3000px;
+  }
+}
