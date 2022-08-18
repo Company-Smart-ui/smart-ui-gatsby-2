@@ -21,6 +21,9 @@ $Yellow:#FFD247;
 $fontTitle :'DM Sans';
 $fontText:'Poppins';
 
+$border: #E3E6E9;
+$title: #6F6C8F;
+
 
 @mixin sm {
   @media (min-width:$sm) {

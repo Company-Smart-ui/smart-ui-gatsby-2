@@ -1,5 +1,187 @@
-@import 'src/var';
-.footer{
+@import "src/var";
+.footer {
+  padding-top: 30px;
+  position: relative;
+  z-index: 1;
+  @include md {
+    padding-top: 60px;
+  }
 
-  background-color: #fff;
+  .nav {
+    width: 100%;
+    margin-bottom: 15px;
+    @include md {
+      width: auto;
+    }
+    @media (min-width: 1350px) {
+      margin-bottom: 0;
+    }
+  }
+
+  .logo {
+    margin-bottom: 40px;
+    img {
+      width: 247px;
+      @include md {
+        width: 302px;
+      }
+    }
+  }
+
+  :global {
+    .contact {
+      @include lg {
+        display: flex;
+        align-items: center;
+        margin-bottom: 80px;
+      }
+      margin-bottom: 40px;
+      @include md {
+        margin-bottom: 60px;
+      }
+      @include lg {
+        margin: 0;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        flex-direction: row-reverse;
+        width: auto;
+        li {
+          margin: 0;
+        }
+      }
+
+      img {
+        @include md {
+          height: 55px;
+          margin-bottom: 5px;
+        }
+        @include lg {
+          height: 23px;
+          margin-right: 18px;
+        }
+      }
+    }
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    border-bottom: 1px solid $border;
+    padding-bottom: 30px;
+  }
+
+  .contactUs {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    @media (min-width: 1350px) {
+      width: 70%;
+    }
+  }
+
+  .column {
+    width: 100%;
+    @include md {
+      width: 33.3%;
+    }
+
+    a, p {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    a {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      flex-direction: row-reverse;
+      @include md {
+        flex-direction: row;
+      }
+    }
+
+    img {
+      width: 16px;
+      margin-left: 20px;
+      @include md {
+        margin: 0;
+        margin-right: 20px;
+      }
+    }
+
+    p {
+      &:first-of-type {
+        color: $title;
+        font-size: 20px;
+        margin-bottom: 30px;
+        @include md {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px 0;
+    text-align: center;
+    @include md {
+      padding: 30px 0;
+      justify-content: space-between;
+    }
+
+    p {
+      width: 100%;
+      color: $title;
+      font-size: 15px;
+      margin-bottom: 20px;
+      @include md{
+        font-size: 25px;
+        width: auto;
+        margin: 0;
+      }
+      @include lg{
+        font-size: 18px;
+      }
+      @include xl{
+        font-size: 16px;
+      }
+    }
+  }
+
+  .backTo {
+    font-size: 15px;
+    span{
+      width: auto;
+      display: flex;
+      align-items: center;
+      color: $title;
+    }
+    @include md{
+      font-size: 25px;
+    }
+    @include lg{
+      font-size: 18px;
+    }
+    @include xl{
+      font-size: 16px;
+    }
+    img{
+      height: 0.9em;
+      object-fit: contain;
+      margin-right: 5px;
+      @include lg{
+        height: 1.4em;
+        margin-right: 15px;
+      }
+    }
+  }
 }
