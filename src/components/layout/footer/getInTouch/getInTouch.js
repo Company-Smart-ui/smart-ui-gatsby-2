@@ -1,6 +1,8 @@
 import React from 'react';
 import * as style from "./getInTouch.module.scss";
 import {StaticImage} from "gatsby-plugin-image";
+import { Input } from '../../../../global/input/input';
+import { Textarea } from '../../../../global/textarea/textarea';
 
 const formTitle = {
     text: 'Lets Get In Touch',
@@ -20,26 +22,11 @@ export const GetInTouch = () => {
         <div className='container'>
            <h2 className='h2'>{formTitle.text}</h2>
             <form className={style.form} >
-                <div className={style.field}>
-                    <input value='' placeholder={defaultData.firstName} type='text'/>
-                    <fieldset>
-                        <legend>{defaultData.firstName}</legend>
-                    </fieldset>
-                </div>
+                <Input placeholder={defaultData.firstName} />
 
-                <div className={style.field}>
-                    <input value='' placeholder={defaultData.email} type='email'/>
-                    <fieldset>
-                        <legend>{defaultData.email}</legend>
-                    </fieldset>
-                </div>
+                <Input placeholder={defaultData.email} type={'email'}/>
 
-                <div className={style.field}>
-                    <textarea value='' placeholder={defaultData.text}></textarea>
-                    <fieldset>
-                        <legend>{defaultData.text}</legend>
-                    </fieldset>
-                </div>
+                <Textarea placeholder={defaultData.text} />
 
                 <button className='button' type="submit">{defaultData.button}</button>
             </form>

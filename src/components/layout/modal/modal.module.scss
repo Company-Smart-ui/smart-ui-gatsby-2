@@ -1,0 +1,16 @@
+@import "src/var";
+
+.wrapper {
+  .btn {
+    position: fixed;
+    top: 50vh;
+    left: 5px;
+    transform: rotate(-90deg) translateY(50%);
+    transform-origin: 0;
+    padding: 10px;
+    z-index: 50;
+    @include md {
+      left: 16px;
+    }
+  }
+}
