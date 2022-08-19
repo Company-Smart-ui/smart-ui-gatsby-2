@@ -1,7 +1,10 @@
 import React from "react";
+import Plus from "./plus.svg";
+import Minus from './minus.svg';
 
 export const Card = ({ el, dropdownHandler }) => {
   const { title, id, isOpen, description } = el;
+
   return (
     <div className="card-container">
       <div className="card-title">{title}</div>
@@ -13,9 +16,9 @@ export const Card = ({ el, dropdownHandler }) => {
         onClick={() => dropdownHandler(id)}
       >
         {isOpen ? (
-          <img src="/minus.svg" alt="minus" className="minus" />
+          <img src={Minus} alt="minus" className="minus" />
         ) : (
-          <img src="/plus.svg" alt="plus" className="plus" />
+          <img src={Plus} alt="plus" className="plus" />
         )}
       </button>
     </div>

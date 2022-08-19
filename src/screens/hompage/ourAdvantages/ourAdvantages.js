@@ -13,12 +13,12 @@ export const OurAdvantages = () => {
 
   return (
     <section className={`${style.ourAdvantages} vertical-padding`}>
+        <div className="noise" />
       <div className="container">
         <div className="gCircle" />
         <div className="bCircle md-only" />
         <div className="clock-mobile" />
         <div className="illustration-tablet" />
-        <div className="noise" />
         <div className="overlay upperBlock">
           <div className="title-block">
           <h2 className="h2">Our Advantages</h2>
