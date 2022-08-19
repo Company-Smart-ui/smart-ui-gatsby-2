@@ -13,13 +13,21 @@
       position: absolute;
     }
 
+    .container {
+      position: relative;
+    }
+
     .img-block {
       position: absolute;
       background-image: url('./mobile_illustration.png');
-      top: -40px;
-      right: -216px;
+      top: -60px;
+      right: -210px;
       width: 344px;
       height: 360px;
+
+      @include lg {
+        right: 50px;
+      }
     }
 
     .img-phone {
@@ -66,11 +74,11 @@
 
       @include md {
         display: flex;
-        margin: 0 auto;
         margin-top: 70px;
         justify-content: space-between;
         align-items: stretch;
         gap: 30px;
+        max-width: 1100px;
       }
     }
   }
