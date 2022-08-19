@@ -21,8 +21,9 @@
     .gCircle {
     width: 94px;
     position: absolute;
-    top: 10px;
+    top: 60px;
     left: 35px;
+    opacity: 0.5;
 
     @include md {
       top: 32px;
@@ -35,6 +36,10 @@
       width: 36px;
       top: 61px;
       right: 273px;
+    }
+
+    .container {
+      position: relative;
     }
 
     .clock-mobile {
@@ -100,9 +105,9 @@
         margin-top: 46px;
       }
 
-      @include xl {
-        margin-left: 100px;
-        margin-right: 100px;
+      @include lg {
+        max-width: 824px;
+        margin: 0 auto;
       }
     }
 

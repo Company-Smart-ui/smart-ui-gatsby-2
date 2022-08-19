@@ -103,3 +103,10 @@ h3 {
     order: 1;
   }
 }
+
+.modal.open {
+  left: 84px;
+  @include xxl {
+    left: calc((50% - 1720px / 2) + 84px);
+  }
+}

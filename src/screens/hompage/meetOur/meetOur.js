@@ -14,15 +14,15 @@ export const MeetOur = () => {
   return (
     <div className={`${style.meetOur} vertical-padding`}>
       <div className="noise" />
-      <div className="img-block" />
       <div className="container overlay">
+      <div className="img-block" />
         <h2 className="h2">Meet Our Team</h2>
         <p className="subtitle">Expert Team Member</p>
       </div>
-      <div className="swiper-container">
+      <div className="swiper-container overlay">
         <TeamSwiper setSwiperRef={setSwiperRef} loop={false} />
       </div>
-      <div className="team-list-container container">
+      <div className="team-list-container container overlay">
         {teamList.map((card) => (
           <Card content={card} key={card.name} loop />
         ))}

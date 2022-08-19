@@ -58,14 +58,15 @@
       line-height: 1.25;
       text-align: justify;
       color: $Gray;
-      transition: max-height 800ms 100ms , opacity 600ms 200ms;
+      transition: max-height 600ms 100ms , opacity 400ms 100ms, margin-top 600ms 300ms;
     }
 
     .show {
+      margin-top: 8px;
       opacity: 1;
       max-height: 1000px;
       animation: 400ms ease-in-out 400ms faq forwards backwards;
-      transition: max-height 2000ms 300ms , opacity 1000ms 400ms;
+      transition: max-height 1000ms 200ms , opacity 600ms 300ms , margin-top 600ms 300ms;
     }
 
     .cube-button {
@@ -79,6 +80,14 @@
 
       img {
         width: 10px;
+      }
+    }
+
+    .second-column {
+      margin-top: 12px;
+
+      @include md {
+        margin-top: 0;
       }
     }
 
