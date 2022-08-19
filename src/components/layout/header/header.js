@@ -8,6 +8,7 @@ import Whatsapp from './whatsapp.svg'
 import {NavItem} from "./navItem/navItem";
 import {StaticImage} from "gatsby-plugin-image";
 import {Link} from "gatsby";
+import {useI18next} from "gatsby-plugin-react-i18next";
 
 export const NAVIGATION = {
     home: {text:'Home' , link:'/'},
@@ -33,6 +34,8 @@ const Messenger = ({info})=>{
 }
 
 export const Header = ({path}) => {
+
+    // console.log({languages, changeLanguage})
     const {isOpen:scrolled ,onOpen:onScrolled , onClose:offScrolled} =useOpen();
     useEffect(()=>{
         const scrollHandler = ()=>{
@@ -68,7 +71,7 @@ export const Header = ({path}) => {
                 </ul>
             </nav>
 
-            <StaticImage className={'menuImg sm-only'} objectFit={'contain'} width={500} placeholder={'tracedSVG'} src={"./menuImg.jpg"} alt={""}/>
+            <StaticImage className={'menuImg  '} objectFit={'contain'} width={500} placeholder={'tracedSVG'} src={"./menuImg.jpg"} alt={""}/>
         </div>
 
     </header>

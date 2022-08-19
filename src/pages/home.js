@@ -1,8 +1,6 @@
-import React, {useTransition} from 'react';
+import * as React from "react"
+import {HomePage} from "../screens/hompage/homePage";
 import {graphql} from "gatsby";
-import {useTranslation} from "react-i18next";
-
-
 
 export const query = graphql`
   query ($language: String ,$pageName:String ) {
@@ -17,13 +15,11 @@ export const query = graphql`
     }
   }
 `
-const Team = (props) => {
-    const {t}= useTranslation();
-     console.log(props)
-    return <div>
-        {t('h1')}
+const Home = ( ) => {
 
-    </div>
-};
+    return     <HomePage/>
 
-export default Team
+
+}
+
+export default Home

@@ -3,17 +3,12 @@ import * as style from "./hero.module.scss"
 import {Contact} from "../../../global/contact/contact";
 import {StaticImage} from "gatsby-plugin-image";
 import {SwipeTo} from "../../../global/swipeTo/swipeTo";
+import {useTranslation} from "react-i18next";
 
 
 export const Hero = () => {
+    const {t} = useTranslation();
     const [transformScroll, setTransformScroll] = useState(1);
-    const [buttonMove, setButtonMove] = useState("0px, 0px");
-    const moveHandler = (e) => {
-        const x = Math.round((e.pageX - (window.innerWidth / 2)) / 100) + "px";
-        const y = Math.round((e.pageY - (window.innerHeight / 2)) / 100) + "px";
-        setButtonMove(x + " , " + y)
-    }
-
     useEffect(() => {
         const layout = window
         const scrollHandler = () => {
@@ -26,8 +21,8 @@ export const Hero = () => {
     }, [])
     const parallaxStyle = {transform: 'translateY(' + transformScroll + "px)"}
 
-    /* eslint-disable-next-line */
-    return <section onMouseMove={moveHandler} className={style.hero}>
+
+    return <section  className={style.hero}>
         <div className="container  hero-3d">
             <div className="yCircle left md-only"/>
             <div style={{top:transformScroll/5 ,bottom:transformScroll/5}}  className="bCircle   "/>
@@ -38,13 +33,12 @@ export const Hero = () => {
             <div className="noise"/>
 
             <div className={style.overlay}>
-                <h1  >  <span  className="yCircle  md-only "/>  We are <br/> SMART-UI</h1>
+                <h1  >  <span  className="yCircle  md-only "/> <span dangerouslySetInnerHTML={{__html:t('h1')}}/>    </h1>
                 <p  className="subtitle">
                     You deserve easy IT, to make it easy make <span className="nowrap"> it SMART 👋 </span>
                 </p>
                 <div  className={style.ctaContainer}>
-                    <button className="button"><span
-                        style={{transform: "translate(" + buttonMove + " )", transition: '0.2s'}}> Get Started </span>
+                    <button className="button"> Get Started
                     </button>
                     <Contact/>
                 </div>
