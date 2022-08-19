@@ -20,7 +20,7 @@ export const SwiperList = ({ swiper, setSwiper, setActiveIndex }) => {
         onSwiper={setSwiper}
         className="mySwiper2"
         allowTouchMove={true}
-        speed={800}
+        speed={400}
         onSlideChange={() => setActiveIndex(swiper.realIndex)}
       >
         <SwiperSlide>

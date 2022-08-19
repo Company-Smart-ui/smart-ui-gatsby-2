@@ -12,11 +12,11 @@
   width: 100%;
   
   @include md {
-    width: calc(100%/3);
+    min-width: 192px;
   }
 
   :global {
-    .contentWrapper {
+    .content-wrapper {
       padding: 20px;
       display: flex;
       flex-direction: column;
@@ -38,12 +38,16 @@
       }
     }
 
-    .contentWrapperTitle {
+    .content-title {
       font-size: 27px;
       font-weight: 500;
       letter-spacing: -0.045em;
       line-height: 1.1;
       text-align: center;
+
+      @include md {
+        font-size: 19px;
+      }
 
       @include lg {
         font-size: 16px;

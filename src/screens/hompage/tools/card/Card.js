@@ -13,12 +13,12 @@ export const Card = ({ content, indexEl, activeIndex }) => {
         indexEl === activeIndex ? "cardsContainer active" : "cardsContainer"
       }
     >
-      <div className="imgWrapper">
+      <div className="img-wrapper">
         <img src={img} alt={title} />
       </div>
-      <div className="contentWrapper">
-        <div className="contentWrapperTitle">{title}</div>
-        <div className="contentWrapperDescription">{description}</div>
+      <div className="content-wrapper">
+        <div className="content-title">{title}</div>
+        <div className="content-description">{description}</div>
       </div>
     </div>
     </div>

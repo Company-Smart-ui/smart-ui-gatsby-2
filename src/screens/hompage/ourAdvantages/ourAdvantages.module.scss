@@ -99,6 +99,11 @@
         gap: 24px;
         margin-top: 46px;
       }
+
+      @include xl {
+        margin-left: 100px;
+        margin-right: 100px;
+      }
     }
 
     .button {

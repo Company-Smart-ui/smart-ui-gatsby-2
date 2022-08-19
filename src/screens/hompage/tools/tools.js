@@ -27,7 +27,8 @@ export const Tools = () => {
       <div className="noise" />
       <div className="overlay lgContainer">
         <div className="tabletContainer">
-          <div className="container resetPadding">
+          <div className="container">
+            <div className="title-container">
             <p className="second-title">Technology</p>
             <h2 className="h2 title">Tools We Use</h2>
             <p className="subtitle description">
@@ -37,9 +38,10 @@ export const Tools = () => {
             <div className="swiperTips">
               <SwipeTo />
             </div>
+            </div>
           </div>
-          <div className="verticalBlock overlay">
-            <div className="container">
+          <div className="vertical-block overlay">
+            <div className="container pagination-wrapper">
               <Pagination activeIdx={activeIndex} sliderLength={sliderLength} />
             </div>
             <CardsSwiper

@@ -1,24 +1,25 @@
 @import 'src/var';
 
-.cardsSwiper {
+.worksSwiper {
   margin-top: 32px;
-
+  
   @include md {
-    width: 630px;
+    width: 636px;
     margin: 0 auto;
     overflow: hidden;
-    height: 385px;
+    padding-top: 25px;
+    height: 345px;
     margin-top: 22px;
   }
 
   @include lg {
-    width: 538px;
-    height: 326px;
+    width: 635px;
+    height: 340px;
     margin-top: 0;
   }
 
   @include xl {
-    height: 500px;
+    height: 400px;
     width: 960px;
   }
 
@@ -27,17 +28,18 @@
         margin: 0 auto;
         margin-top: 2px;
         width: 375px;
+        overflow: visible;
         
         @include md {
           width: 264px;
         }
 
-        @include lg {
-          width: 222px;
+        @include md {
+          width: 243px;
         }
 
         @include xl {
-          width: 400px;
+          width: 383px;
         }
       }
   }
