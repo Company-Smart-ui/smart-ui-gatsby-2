@@ -1,22 +1,8 @@
 
 const strapiConfig = {
-    apiURL: 'http://localhost:1337' ,
-    accessToken: '352de73c0867ea6e184ee51a25df2388a0fb7a1fa05034bb10d03d91c948916db71e4c14c78c05aaffe8b591a07f7abfd93eb22b0e7c4d08e6141bb1db001fab458efff5a5c876643372a75517914faea85a8114b2549e380e71b23ebe831607bf99db6d42b9d5a90bba2e8b467b3d359d879534a6a2adb875ca7bdf5c4fa3b0',
-
-    collectionTypes: [
-        {
-            singularName: "post",
-            i18n: {
-                locale: 'all', // Fetch all localizations
-            },
-        },
-        {
-            singularName: "portfolio-project",
-            i18n: {
-                locale: 'all', // Fetch all localizations
-            },
-        },
-         ],
+    apiURL: 'https://stark-refuge-01750.herokuapp.com/' ,
+    accessToken:  '9a50ad95c89407920b468f977558d9a52e70c88b21eddeeb97b65c82b695ce42d9c0afa6a9623aa1b45ab31c6aa2592e173bcef5a3c883c35bb8818110eb7179c6dd94ac903aecc5323f847845f1d2c455a96d22225bfccde2f8aa469c45a66d78307af131e72a23f2d4cd65153cae7e5cbd65782ece1ac3e3ab3a9f625a3f27',
+    collectionTypes: [   ],
     singleTypes: [ 'home' ],
     queryLimit: 1000,
 };
@@ -64,7 +50,7 @@ module.exports = {
           options: {
               languages: [`en`, `uk-UA`],
               defaultLanguage: `en`,
-              debug:false
+              debug:true
           }
       }
 

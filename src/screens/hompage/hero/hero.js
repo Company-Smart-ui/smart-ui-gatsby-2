@@ -33,7 +33,7 @@ export const Hero = () => {
             <div className="noise"/>
 
             <div className={style.overlay}>
-                <h1  >  <span  className="yCircle  md-only "/> <span dangerouslySetInnerHTML={{__html:t('h1')}}/>    </h1>
+                <h1  >  <span  className="yCircle  md-only "/> <span dangerouslySetInnerHTML={{__html:t('h1')}}/></h1>
                 <p  className="subtitle">
                     You deserve easy IT, to make it easy make <span className="nowrap"> it SMART 👋 </span>
                 </p>

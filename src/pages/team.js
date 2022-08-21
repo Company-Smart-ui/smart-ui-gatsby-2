@@ -2,7 +2,7 @@ import React, {useTransition} from 'react';
 import {graphql} from "gatsby";
 import {useTranslation} from "react-i18next";
 
-
+import {Link, useI18next } from 'gatsby-plugin-react-i18next';
 
 export const query = graphql`
   query ($language: String ,$pageName:String ) {
@@ -17,9 +17,8 @@ export const query = graphql`
     }
   }
 `
-const Team = (props) => {
+const Team = ( ) => {
     const {t}= useTranslation();
-     console.log(props)
     return <div>
         {t('h1')}
 

@@ -1,9 +1,3 @@
-require("@fontsource/dm-sans")
-require("@fontsource/dm-sans/700.css")
-
-require("@fontsource/poppins")
-require("@fontsource/poppins/500.css")
-
 const React = require("react")
 const Layout = require("./src/components/layout/layout").default
 const P404 = require("./src/pages/404").default

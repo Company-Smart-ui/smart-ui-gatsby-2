@@ -1,21 +1,21 @@
 import React from 'react';
-// import {Footer} from "./footer/footer";
+import {Footer} from "./footer/footer";
 import "../../global.scss"
 import "../../lazy.scss"
 import {Header} from "./header/header";
-
-export const Layout = ({children}) => {
-    const path =children.props.children.props.children.props.location.pathname;
-
+ const  Layout = ( props) => {
+    const path = props?.children?.props?.pageContext?.pageName;
+     console.log(path)
     return (
         <div className={'layout'}>
-            <Header path={children?.props?.location?.pathname ||path }/>
+            <Header path={ path }/>
             <main className={'main'}>
-                {children}
+                {props.children}
             </main>
-          {/*<Footer/>*/}
+          <Footer/>
         </div>
 
     );
 };
 
+export default Layout

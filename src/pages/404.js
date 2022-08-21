@@ -25,7 +25,9 @@ const codeStyles = {
 }
 
 // markup
-const NotFoundPage = () => {
+const NotFoundPage = (props) => {
+
+  console.log(props.location.pathname)
   return (
     <main style={pageStyles}>
       <title>Not found</title>

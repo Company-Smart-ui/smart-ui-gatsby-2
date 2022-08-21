@@ -186,3 +186,26 @@ h1 {
   .nowrap{
     white-space: nowrap;
   }
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(241, 241, 241, 0.6);
+
+  &:hover {
+    background: rgba(241, 241, 241, 1);
+  }
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $LimeGreen;
+
+  &:hover {
+    background-color: $Lime;
+  }
+}

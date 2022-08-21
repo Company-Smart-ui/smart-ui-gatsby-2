@@ -1,6 +1,18 @@
 @import "src/var.scss";
 
 .header {
+  &::after{
+    position: fixed;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: red;
+    transform:translateX( -50%);
+    display: block;
+    content: " ";
+    z-index:99999;
+  }
   transition: translate 0.1s 0s, opacity 0.3s 1.2s, left 0s 1.4s , background 0s 1.2s;
   position: fixed;
   z-index: 100;
@@ -98,6 +110,7 @@
       @include lg {
         display: flex;
         flex-direction: row;
+        align-items: center;
         justify-content: space-between;
         margin: 0;
       }
@@ -136,13 +149,15 @@
   justify-content: center;
   a{
     transition:0.2s;
+    height: 33px;
+    width: 33px;
+    display: block;
     &:hover{
       transform: scale(1.1);
     }
   }
 
   @media (max-width: $lg) {
-    width: 100%;
     margin: 5px;
     height: 35px;
     flex-grow: 0;
@@ -184,6 +199,7 @@
   }
 }
 
+
 .header.open {
   background-color: #fff;
   transition: all 0.3s 0s;
@@ -208,31 +224,15 @@
       pointer-events: all;
       transform: translate(0);
     }
+    .langItem.langItem{
+      transform: translate(0)  ;
+      pointer-events: all;
+      opacity: 1;
+    }
   }
 }
 
 
 
-/* width */
-::-webkit-scrollbar {
-  width: 8px;
-}
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: rgba(241, 241, 241, 0.6);
-
-  &:hover {
-    background: rgba(241, 241, 241, 1);
-  }
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: $LimeGreen;
-
-  &:hover {
-    background-color: $Lime;
-  }
-}
 

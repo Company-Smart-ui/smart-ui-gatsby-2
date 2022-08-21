@@ -1,5 +1,5 @@
 const axios = require("axios");
-const ENDPOINT = 'http://localhost:1337/api/'
+const ENDPOINT = 'https://stark-refuge-01750.herokuapp.com/api/'
 const PAGES_API = ['home' ,'portfolio'];
 const LANGUAGES = ['en', 'uk-UA'];
 
