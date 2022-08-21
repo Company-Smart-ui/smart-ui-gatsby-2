@@ -28,7 +28,7 @@ export const ModalForm = ({ onClose }) => {
     }, 1)
   }, [fadeIn])
   return (
-    <div ref={modalRef} className={style.modal} style={{ left: isFade ? 84 : '-100%'}}>
+    <div ref={modalRef} className={[style.modal, isFade ? style.open : ''].join(' ') }>
       <form className={style.form}>
         <h3>Leave your message</h3>
         <Messenger className={"md-only"} />

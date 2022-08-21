@@ -4,18 +4,23 @@ import "../../global.scss"
 import "../../lazy.scss"
 import {Header} from "./header/header";
 import { Modal } from './modal/modal';
-export const Layout = ({children}) => {
+// import {RedLine} from "./redLine/redLine";
 
+ const  Layout = ( props) => {
+    const path = props?.children?.props?.pageContext?.pageName;
+     console.log(path)
     return (
         <div className={'layout'}>
-            <Header path={children.props.location.pathname }/>
+            <Header path={ path }/>
             <Modal />
             <main className={'main'}>
-                {children}
+                {props.children}
             </main>
           <Footer/>
+            {/*<RedLine/>*/}
         </div>
 
     );
 };
 
+export default Layout

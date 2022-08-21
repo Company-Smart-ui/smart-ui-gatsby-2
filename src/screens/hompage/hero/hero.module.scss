@@ -100,7 +100,9 @@
     }
 
   }
-
+  @include md{
+    max-width: 70%;
+  }
   :global{
     .subtitle{
       color:#737373;
