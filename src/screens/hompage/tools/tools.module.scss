@@ -5,26 +5,51 @@
   background-color: $White;
 
   :global {
-    .noise {
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      position: absolute;
-    }
-
     .yCircle {
       position: absolute;
       top: 35px;
       bottom: 561px;
       left: 80%;
 
-      @include lg{
+      @include lg {
         display: none;
       }
     }
 
-    .title {
+    .container-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto, auto, 40px;
+      grid-template-areas:
+        'title-container'
+        'vertical-block'
+        'buttons-block';
+
+      @include lg {
+        grid-template-columns: 250px 1fr;
+        grid-template-rows: auto, 40px;
+        column-gap: 30px;
+        grid-template-areas:
+          'title-container vertical-block'
+          '. buttons-block';
+      }
+    }
+
+    .title-container {
+      grid-area: title-container;
+    }
+
+    .vertical-block {
+      grid-area: vertical-block;
+      padding-bottom: 20px;
+    }
+
+    .buttons-block {
+      grid-area: buttons-block;
+    }
+
+    .title-content {
+      max-width: 320px;
       margin-top: 10px;
     }
 
@@ -36,30 +61,14 @@
       }
     }
 
-    .button {
-      margin-top: 13px;
-    }
-
     .swiperTips {
       margin-top: 14px;
       color: $Gray;
     }
 
-    // Position when we have tablet
-
-    .tabletContainer {
-      z-index: 1;
-
-      @include lg {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 20px;
-      }
-    }
-
     .vertical-block {
       margin-top: 44px;
+      overflow: hidden;
 
       @include md {
         margin-top: 71px;
@@ -70,64 +79,17 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
-        overflow: hidden;
         min-width: 538px;
       }
-    }
 
-    .element {
-      margin: 20px;
-    }
-
-    // Swiper
-
-    .swiper {
-      overflow: visible;
-    }
-
-    .mySwiper {
-      // width: 275px;
-      margin: 0 auto;
-      margin-top: 27px;
-      width: 370px;
-    } 
-
-    .lgContainer {
-      @include lg {
-        max-width: 1528px;
-        margin: 0 auto;
-        padding: 0 100px;
-      }
-    }
-
-    .container {
-      @include lg {
-        margin: 0;
-        padding: 0;
-      }
-    }
-
-    .title-container {
-      @include md {
-        max-width: 320px;
-      }
-    }
-
-    .buttonsBlock {
-      margin-top: 16px;
-
-      @include lg {
-        margin-top: 0;
-      }
-    }
-
-    .pagination-wrapper {
-      @include lg {
-        margin: 0;
+      @include xl {
+        min-width: 960px;
       }
     }
 
     .button {
+      margin-top: 13px;
+
       @include md {
         min-width: 100%;
       }

@@ -18,8 +18,8 @@ export const CardsSwiper = ({
       <Swiper
         onSwiper={setSwiperRef}
         spaceBetween={16}
-        centeredSlides={true}
-        slidesPerView={1.3}
+        centeredSlides={false}
+        slidesPerView={1}
         freeMode={true}
         className="swiper"
         grabCursor={true}

@@ -2,14 +2,18 @@
 
 .worksSwiper {
   margin-top: 32px;
+  width: 275px;
+  padding-top: 25px;
+  height: 400px;
+  overflow: hidden;
+  margin: 0 auto;
   
   @include md {
-    width: 636px;
+    width: 628px;
     margin: 0 auto;
     overflow: hidden;
     padding-top: 25px;
-    height: 345px;
-    margin-top: 22px;
+    height: 350px;
   }
 
   @include lg {
@@ -20,7 +24,7 @@
 
   @include xl {
     height: 400px;
-    width: 960px;
+    width: 986px;
   }
 
   :global {
@@ -29,17 +33,15 @@
         margin-top: 2px;
         width: 375px;
         overflow: visible;
+        margin-left: 30px;
         
         @include md {
-          width: 264px;
-        }
-
-        @include md {
-          width: 243px;
+          width: 628px;
+          margin-left: 11px;
         }
 
         @include xl {
-          width: 383px;
+          width: 986px;
         }
       }
   }

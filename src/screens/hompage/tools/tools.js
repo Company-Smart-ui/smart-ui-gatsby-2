@@ -25,10 +25,10 @@ export const Tools = () => {
     <div className={`${style.tools} vertical-padding`}>
       <div className="yCircle" />
       <div className="noise" />
-      <div className="overlay lgContainer">
-        <div className="tabletContainer">
-          <div className="container">
+      <div className="overlay container">
+        <div className="container-grid">
             <div className="title-container">
+              <div className="title-content">
             <p className="second-title">Technology</p>
             <h2 className="h2 title">Tools We Use</h2>
             <p className="subtitle description">
@@ -38,10 +38,10 @@ export const Tools = () => {
             <div className="swiperTips">
               <SwipeTo />
             </div>
-            </div>
+              </div>
           </div>
           <div className="vertical-block overlay">
-            <div className="container pagination-wrapper">
+            <div className="pagination-wrapper">
               <Pagination activeIdx={activeIndex} sliderLength={sliderLength} />
             </div>
             <CardsSwiper
@@ -50,7 +50,8 @@ export const Tools = () => {
               setSwiperRef={setSwiperRef}
               activeIndex={activeIndex}
             />
-            <div className="buttonsBlock">
+          </div>
+            <div className="buttons-block">
               <SwiperButtons
                 onPrev={slidePrevHandler}
                 onNext={slideNextHandler}
@@ -59,7 +60,6 @@ export const Tools = () => {
                 loop
               />
             </div>
-          </div>
         </div>
       </div>
     </div>

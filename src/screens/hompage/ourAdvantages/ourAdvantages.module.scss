@@ -10,14 +10,6 @@
   position: relative;
 
   :global {
-    .noise{
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      position: absolute;
-    }
-
     .gCircle {
     width: 94px;
     position: absolute;
@@ -83,37 +75,28 @@
       }
     }
 
-    .advantages-swiper {
-      @include md {
-        display: none;
-      }
-    }
-
     .title-block {
       @include md {
         max-width: 457px;
       }
     }
 
-    .options-list {
-      display: none;
+    .pagination-wrapper {
+      margin-top: 48px;
 
       @include md {
-        display: flex;
-        align-items: stretch;
-        gap: 24px;
-        margin-top: 46px;
-      }
-
-      @include lg {
-        max-width: 824px;
-        margin: 0 auto;
+        display: none;
       }
     }
 
     .button {
       margin: 17px auto;
       margin-bottom: 0;
+      min-width: 192px;
+
+      @include md {
+        margin-top: 50px;
+      }
     }
   }
 }

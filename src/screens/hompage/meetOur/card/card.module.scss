@@ -9,10 +9,15 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  width: 100%;
-  
-  @include md {
-    min-width: 192px;
+  width: 260px;
+  margin-left: 7px;
+
+  @include sm {
+    width: 194px;
+  }
+
+  @include xl {
+    min-width: 250px;
   }
 
   :global {

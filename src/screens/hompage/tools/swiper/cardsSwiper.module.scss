@@ -2,42 +2,62 @@
 
 .cardsSwiper {
   margin-top: 32px;
+  width: 275px;
+  margin: 0 auto;
+  margin-top: 24px;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+
+  @include sm {
+    width: 436px;
+    height: 370px;
+  }
 
   @include md {
     width: 630px;
-    margin: 0 auto;
-    overflow: hidden;
     height: 385px;
-    margin-top: 22px;
   }
 
   @include lg {
-    width: 538px;
+    width: 544px;
     height: 326px;
     margin-top: 0;
   }
 
   @include xl {
     height: 500px;
-    width: 960px;
+    width: 900px;
   }
 
   :global {
       .swiper {
-        margin: 0 auto;
-        margin-top: 2px;
         width: 375px;
+        height: 380px;
+        overflow: visible;
+
+        @include sm {
+          width: 200px;
+          margin-left: 16px;
+        }
         
         @include md {
-          width: 264px;
+          width: 195px;
+          margin: 0 auto;
         }
 
         @include lg {
-          width: 222px;
+          width: 165px;
         }
 
         @include xl {
-          width: 400px;
+          width: 282px;
+        }
+      }
+
+      .swiper-slide {
+        @include md {
+          width: 0;
         }
       }
   }

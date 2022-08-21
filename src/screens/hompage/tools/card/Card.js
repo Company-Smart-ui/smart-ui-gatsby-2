@@ -10,7 +10,7 @@ export const Card = ({ content, indexEl, activeIndex }) => {
     <div className={style.card}>
     <div
       className={
-        indexEl === activeIndex ? "cardsContainer active" : "cardsContainer"
+        `cards-container ${indexEl === activeIndex ? "active" : " "}`
       }
     >
       <div className="img-wrapper">
