@@ -16,22 +16,9 @@ export const TeamSwiper = ({
       <Swiper
         onSwiper={setSwiperRef}
         spaceBetween={16}
+        initialSlide={1}
         centeredSlides={true}
         slidesPerView={1.3}
-        breakpoints={{
-          375: {
-            width: 375,
-            slidesPerView: 1.5,
-          },
-          600: {
-            width: 600,
-            slidesPerView: 2.5,
-          },
-          768: {
-            width: 768,
-            slidesPerView: 3,
-          },
-        }}
         freeMode={true}
         className="mySwiper"
         grabCursor={true}

@@ -1,18 +1,7 @@
 @import "src/var.scss";
 
 .header {
-  &::after{
-    position: fixed;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background-color: red;
-    transform:translateX( -50%);
-    display: block;
-    content: " ";
-    z-index:99999;
-  }
+
   transition: translate 0.1s 0s, opacity 0.3s 1.2s, left 0s 1.4s , background 0s 1.2s;
   position: fixed;
   z-index: 100;
@@ -110,8 +99,8 @@
       @include lg {
         display: flex;
         flex-direction: row;
-        align-items: center;
         justify-content: space-between;
+        align-items: center;
         margin: 0;
       }
     }
@@ -144,62 +133,6 @@
   }
 }
 
-.messengers {
-  display: flex;
-  justify-content: center;
-  a{
-    transition:0.2s;
-    height: 33px;
-    width: 33px;
-    display: block;
-    &:hover{
-      transform: scale(1.1);
-    }
-  }
-
-  @media (max-width: $lg) {
-    margin: 5px;
-    height: 35px;
-    flex-grow: 0;
-    li {
-      margin: 0 14px;
-      transition: 0.3s;
-      pointer-events: none;
-      opacity: 0;
-      &:nth-child(odd) {
-        transform: translate(-110vw);
-      }
-
-      &:nth-child(even) {
-        transform: translate(110vw);
-      }
-    }
-  }
-  @include lg {
-    margin-right: 70px;
-    li {
-      flex-shrink: 0;
-      margin-right: 5px;
-      display: flex;
-      align-items: center;
-    }
-    a {
-      height: 25px;
-      width: 45px;
-      display: block;
-      padding: 0 5px;
-    }
-  }
-  @include xl{
-    margin-right: 300px;
-    a{
-      height: 50px;
-      margin:0 10px;
-    }
-  }
-}
-
-
 .header.open {
   background-color: #fff;
   transition: all 0.3s 0s;
@@ -229,10 +162,14 @@
       pointer-events: all;
       opacity: 1;
     }
+
+    .messengers {
+      li {
+        transform: translate(0);
+        pointer-events: all;
+        opacity: 1;
+      }
+    }
   }
 }
-
-
-
-
 

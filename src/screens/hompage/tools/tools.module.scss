@@ -5,21 +5,21 @@
   background-color: $White;
 
   :global {
-    .noise{
+    .noise {
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
       position: absolute;
     }
-    
-    .yCircle {
-      width: 400px;
-      position: absolute;
-      right: -320px;
-      top: 35px;
 
-      @include lg {
+    .yCircle {
+      position: absolute;
+      top: 35px;
+      bottom: 561px;
+      left: 80%;
+
+      @include lg{
         display: none;
       }
     }
@@ -30,6 +30,10 @@
 
     .description {
       margin-top: 15px;
+
+      @include md {
+        font-size: 19px;
+      }
     }
 
     .button {
@@ -48,16 +52,26 @@
 
       @include lg {
         display: flex;
-        gap: 31px;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 20px;
       }
     }
 
-    .verticalBlock {
+    .vertical-block {
+      margin-top: 44px;
+
+      @include md {
+        margin-top: 71px;
+      }
+
       @include lg {
+        margin-top: 0;
         display: flex;
         flex-direction: column;
         gap: 20px;
         overflow: hidden;
+        min-width: 538px;
       }
     }
 
@@ -75,24 +89,48 @@
       // width: 275px;
       margin: 0 auto;
       margin-top: 27px;
-    }
-
-    // Reseter 
+      width: 370px;
+    } 
 
     .lgContainer {
       @include lg {
-        padding: 0 70px;
+        max-width: 1528px;
+        margin: 0 auto;
+        padding: 0 100px;
       }
     }
 
     .container {
       @include lg {
-        padding: 0px;
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    .title-container {
+      @include md {
+        max-width: 320px;
       }
     }
 
     .buttonsBlock {
       margin-top: 16px;
+
+      @include lg {
+        margin-top: 0;
+      }
+    }
+
+    .pagination-wrapper {
+      @include lg {
+        margin: 0;
+      }
+    }
+
+    .button {
+      @include md {
+        min-width: 100%;
+      }
     }
   }
 }

@@ -23,21 +23,23 @@
       position: absolute;
 
       &.bottom {
-        position: absolute;
         width: 52px;
-        left: 36px;
+        left: 10%;
         top: 139px;
 
         @include md {
-          top: 100px;
-          left: 150px;
+          top: 150px;
+          left: 200px;
+        }
+
+        @include xl {
+          left: 250px;
+        }
+
+        @include xxl {
+          left: 30%;
         }
       }
-    }
-
-    .overlay {
-      position: relative;
-      z-index: 2;
     }
 
     // Text description

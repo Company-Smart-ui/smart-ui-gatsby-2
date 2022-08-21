@@ -18,11 +18,10 @@ export const Strategy = () => {
 
   return (
     <section className={`${style.strategy} vertical-padding`}>
+        <div className="noise" />
       <div className="container">
         <div className="gCircle" />
-        <div className="gCircle bottom" />
-        <div className="noise" />
-        <div className="overlay upperBlock">
+        <div className="overlay">
           <h2 className="h2">Strategy</h2>
           <div className="pagination-button-wrapper">
             <Pagination activeIdx={activeIndex} sliderLength={2} whiteTheme />

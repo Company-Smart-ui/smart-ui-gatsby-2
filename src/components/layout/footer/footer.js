@@ -1,5 +1,5 @@
 import React from 'react';
-import * as style from "./footer.module.scss"
+
 import {Contact} from "../../../global/contact/contact";
 import Logo from '../../../images/smart-ui.svg';
 import {Link} from "gatsby";
@@ -8,6 +8,7 @@ import Mail from './mail.svg';
 import Img from './pointer.svg';
 import Scroll from './scroll.svg';
 import { GetInTouch } from './getInTouch/getInTouch';
+import * as style from "./footer.module.scss"
 
 const footerMenu = [
     {
@@ -37,6 +38,7 @@ export const BactToTop = () => {
             behavior: 'smooth'
         });
     }
+
     return <button onClick={scroll} className={style.backTo}>
         <span className="lg-only">
               <img   src={Scroll} alt=""/> Back to top

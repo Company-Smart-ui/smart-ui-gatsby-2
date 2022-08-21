@@ -29,13 +29,13 @@
     "gatsby-plugin-sitemap": "^5.19.0",
     "gatsby-source-filesystem": "^4.19.0",
     "gatsby-source-strapi": "^2.0.0",
-    "gatsby-source-wordpress": "^6.19.0",
     "gatsby-transformer-sharp": "^4.19.0",
     "i18next": "^21.9.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-helmet": "^6.1.0",
     "react-i18next": "^11.18.3",
+    "react-svg-star-rating": "^2.1.2",
     "sass": "^1.54.0",
     "swiper": "^8.3.2"
   }

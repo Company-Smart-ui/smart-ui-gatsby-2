@@ -18,24 +18,10 @@ export const AdvantagesSwiper = ({
         spaceBetween={16}
         centeredSlides={true}
         slidesPerView={1.3}
-        breakpoints={{
-          375: {
-            width: 375,
-            slidesPerView: 1.5,
-          },
-          600: {
-            width: 600,
-            slidesPerView: 2.5,
-          },
-          768: {
-            width: 768,
-            slidesPerView: 3,
-          },
-        }}
         freeMode={true}
         className="mySwiper"
         grabCursor={true}
-        speed={800}
+        speed={400}
         loop={loop}
       >
         {advantagesList.map((el, index) => (
