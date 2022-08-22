@@ -28,7 +28,7 @@ export const ModalForm = ({ onClose, dataText, isShow = true }) => {
     }, 1)
   }, [fadeIn])
   return (
-    <div ref={modalRef} className={[style.modal, isFade ? style.open : ''].join(' ') }>
+    <div ref={modalRef} className={['modalForm',style.modal, isFade ? style.open : ''].join(' ') }>
       <form className={style.form}>
         <h3>{dataText.title}</h3>
         <Messenger />
