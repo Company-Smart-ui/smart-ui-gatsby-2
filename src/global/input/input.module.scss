@@ -42,10 +42,11 @@
       & + fieldset {
         border: 1px solid $MediumSeaGreen;
         top: -10px;
+        padding-top: 0;
+        transition: 0;
 
         legend {
           font-size: 10px;
-          left: 10px;
         }
       }
     }

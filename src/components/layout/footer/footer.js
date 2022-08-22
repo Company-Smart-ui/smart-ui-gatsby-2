@@ -30,7 +30,7 @@ const copyright = {
     text: '© 2022 Smart-UI. All Rights Reserved',
 }
 
-export const BactToTop = () => {
+export const BackToTop = () => {
     const scroll =()=>{
         window.scrollTo({
             top: 0,
@@ -72,7 +72,7 @@ export const Footer = () => {
             </div>
             <div className={style.bottom}>
                 <p>{copyright.text}</p>
-                <BactToTop />
+                <BackToTop />
             </div>
             
          </div>
