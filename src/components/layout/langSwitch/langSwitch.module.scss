@@ -1,0 +1,65 @@
+@import 'src/var';
+
+.langSwitch {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height:60px;
+  margin-bottom: 25px;
+  a {
+    font-size: 30px;
+    line-height: 2;
+    text-transform: uppercase;
+    height: 100%;
+    display: block;
+
+    color: $Gray;
+  }
+  @include lg{
+    height: 100%;
+    margin: 0;
+    a{
+      font-size: 14px;
+    }
+  }
+
+  :global{
+    a.active{
+
+      color: $Lime;
+    }
+    .langItem:first-child{
+      padding-right: 10px;
+      position: relative;
+      transform: translate(-110vw);
+      &::after{
+        content: " ";
+        border-right: solid $Gray 1px;
+        position: absolute;
+        top: 20px;
+        bottom: 20px;
+        width: 1px;
+        right:-1px;
+     @include lg{
+       top: 8px;
+       bottom: 8px;
+     }
+      }
+
+    }
+    .langItem:last-child{
+      padding-left: 10px;
+      transform: translate( 110vw);
+    }
+    .langItem.langItem{
+      transition-duration: 0.3s;
+      pointer-events: none;
+      opacity: 0;
+      @include lg{
+        pointer-events: all;
+        transform: none;
+        opacity: 1;
+      }
+    }
+  }
+}

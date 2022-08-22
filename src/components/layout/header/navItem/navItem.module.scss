@@ -6,6 +6,9 @@
   font-size: 38px;
   text-align: center;
   color: $Gray;
+  a:hover{
+    color: $Lime
+  }
   :global {
     a.active {
       color: $GrayBlue;
@@ -48,9 +51,11 @@
     font-size: 14px;
     pointer-events: all;
     a {
-      display: block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       padding-right: 15px;
-
+      height: 100%;
     }
   }
   @include xl {

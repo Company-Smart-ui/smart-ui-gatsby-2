@@ -1,14 +1,44 @@
 @import 'src/var';
 
-.cardsSwiper {
-  overflow: visible;
+.teamSwiper {
+  margin-top: 32px;
+  width: 275px;
+  height: 520px;
+  margin: 0 auto;
+  margin-top: 24px;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+
+  @include sm {
+    width: 436px;
+    height: 455px;
+  }
+
+  @include md {
+    width: 630px;
+    height: 455px;
+  }
+
+  @include xl {
+    height: 520px;
+    width: 800px;
+  }
 
   :global {
-      .mySwiper {
-        margin: 0 auto;
-        margin-top: 54px;
-        overflow: visible;
-        width: 300px;
+    .swiper {
+      width: 375px;
+      overflow: visible;
+
+      @include sm {
+        width: 100%;
+        margin-left: -110px;
       }
+
+      @include md {
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
   }
 }

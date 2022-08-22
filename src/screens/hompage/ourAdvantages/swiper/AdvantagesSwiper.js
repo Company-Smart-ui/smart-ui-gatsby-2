@@ -8,8 +8,10 @@ import "swiper/css";
 import "swiper/css/free-mode";
 
 export const AdvantagesSwiper = ({
+  swiperRef,
   setSwiperRef,
-  loop
+  loop,
+  setActiveIndex,
 }) => {
   return (
     <div className={style.cardsSwiper}>
@@ -17,12 +19,24 @@ export const AdvantagesSwiper = ({
         onSwiper={setSwiperRef}
         spaceBetween={16}
         centeredSlides={true}
-        slidesPerView={1.3}
+        slidesPerView={1}
         freeMode={true}
         className="mySwiper"
+        breakpoints={{
+          375: {
+            slidesPerView: 1,
+            spaceBetween: 16
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 24,
+            allowTouchMove: false,
+          }
+        }}
         grabCursor={true}
         speed={400}
         loop={loop}
+        onSlideChange={() => setActiveIndex(swiperRef?.realIndex)}
       >
         {advantagesList.map((el, index) => (
           <SwiperSlide key={el.title}>

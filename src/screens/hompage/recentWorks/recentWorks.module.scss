@@ -7,10 +7,6 @@
   background-position: right;
 
   :global {
-    .button {
-      margin: 20px auto;
-    }
-
     .works-swiper {
       margin-top: 26px;
       display: flex;
@@ -22,46 +18,55 @@
       }
     }
 
-    .lgContainer {
-      @include lg {
-        max-width: 1528px;
-        margin: 0 auto;
-        padding: 0 100px;
-      }
-    }
-
-    .tabletContainer {
-      z-index: 1;
-
-      @include lg {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 20px;
-      }
-    }
-
-    .vertical-block {
-      margin-top: 44px;
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto, 60px, auto, 40px;
+      grid-template-areas:
+        'title-container'
+        'content-container'
+        'buttons-block'
+        'view-more-button';
 
       @include md {
-        margin-top: 71px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+          'title-container .'
+          'view-more-button .'
+          'content-container content-container'
+          'buttons-block buttons-block';
       }
+
+      @include lg {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 30px;
+        grid-template-rows: auto, auto, auto;
+        grid-template-areas:
+          'title-container content-container'
+          'view-more-button content-container'
+          '. buttons-block';
+      }
+    }
+
+    .title-container {
+      grid-area: title-container;
+      max-width: 298px;
+    }
+
+    .view-more-button {
+      grid-area: view-more-button;
+    }
+
+    .content-container {
+      grid-area: content-container;
+    }
+
+    .buttons-block {
+      grid-area: buttons-block;
+      margin-top: 16px;
 
       @include lg {
         margin-top: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        overflow: hidden;
-        min-width: 538px;
-      }
-    }
-
-    .container {
-      @include lg {
-        margin: 0;
-        padding: 0;
       }
     }
 
@@ -69,33 +74,28 @@
       margin-top: 10px;
     }
 
-    .title-container {
-      max-width: 275px;
-
-      @include md {
-        max-width: 320px;
-      }
-
+    .subtitle {
       @include lg {
-        max-width: 250px;
+        font-size: 17px;
       }
     }
 
+
     .button {
-      min-width: 100%;
+      min-width: 200px;
+      max-width: 298px;
+      margin: 20px auto;
 
       @include md {
         display: block;
         margin: 0;
         margin-top: 48px;
       }
-    }
-
-    .buttonsBlock {
-      margin-top: 16px;
 
       @include lg {
         margin-top: 0;
+        max-width: 298px;
+        margin-bottom: 20px;
       }
     }
 
@@ -109,10 +109,6 @@
       @include lg {
         margin-top: 0;
       }
-    }
-
-    .footer-buttons {
-      margin-top: 20px;
     }
   }
 }

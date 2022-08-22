@@ -6,10 +6,19 @@
   :global {
     .mySwiper {
       margin: 0 auto;
-      margin-top: 54px;
-      overflow: visible;
-      height: 450px;
-      width: 300px;
+      margin-top: 24px;
+      overflow: hidden;
+      height: 365px;
+      max-width: 275px;
+
+      @include md {
+        max-width: 628px;
+        margin-top: 57px;
+      }
+
+      @include lg {
+        max-width: 824px;
+      }
     }
   }
 }

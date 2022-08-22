@@ -19,9 +19,19 @@ export const WorksSwiper = ({
         onSwiper={setSwiperRef}
         spaceBetween={32}
         centeredSlides={true}
-        slidesPerView={1.3}
+        slidesPerView={1}
         freeMode={true}
         className="swiper"
+        breakpoints={{
+          375: {
+            slidesPerView: 1,
+            spaceBetween: 32
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 0,
+          }
+        }}
         grabCursor={true}
         speed={800}
         loop={true}

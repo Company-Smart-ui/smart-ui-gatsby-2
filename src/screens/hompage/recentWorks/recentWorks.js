@@ -3,6 +3,7 @@ import { SwiperButtons } from "../../../global/swiperButtons/SwiperButtons";
 import * as style from "./recentWorks.module.scss";
 import { WorksSwiper } from "./swiper/WorksSwiper";
 import { Pagination } from "../../../global/pagination/Pagination";
+import { worksList } from "./card/WorksList";
 
 export const RecentWorks = () => {
   const [swiperRef, setSwiperRef] = useState(null);
@@ -19,29 +20,31 @@ export const RecentWorks = () => {
 
   return (
     <div className={`${style.recentWorks} vertical-padding`}>
-      <div className="overalay lgContainer">
-        <div className="tabletContainer">
-          <div className="container">
+      <div className="overalay">
+        <div className="container">
+          <div className="grid-container">
             <div className="title-container">
               <div className="second-title">Showcase</div>
               <h2 className="h2 title">Recent Works</h2>
               <div className="subtitle">
                 We will help to develop your best project based on your idea.
               </div>
-              <button className="button">View More Projects</button>
             </div>
-          </div>
-          <div className="vertical-block overlay">
-            <div className="pagination-wrapper container">
-              <Pagination activeIdx={activeIndex} sliderLength={2} />
+            <button className="button view-more-button">
+              View More Projects
+            </button>
+            <div className="content-container">
+              <div className="pagination-wrapper">
+                <Pagination activeIdx={activeIndex} sliderLength={worksList.length} />
+              </div>
+              <WorksSwiper
+                setActiveHandler={setActiveHandler}
+                swiperRef={swiperRef}
+                setSwiperRef={setSwiperRef}
+                activeIndex={activeIndex}
+              />
             </div>
-            <WorksSwiper
-              setActiveHandler={setActiveHandler}
-              swiperRef={swiperRef}
-              setSwiperRef={setSwiperRef}
-              activeIndex={activeIndex}
-            />
-            <div className="buttonsBlock">
+            <div className="buttons-block">
               <SwiperButtons
                 onPrev={slidePrevHandler}
                 onNext={slideNextHandler}

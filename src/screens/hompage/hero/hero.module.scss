@@ -14,13 +14,6 @@
     padding:  245px 0 80px 0 ;
   }
   :global{
-    .noise{
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      position: absolute;
-    }
     .yCircle{
       position: absolute;
       left: 0;
@@ -107,7 +100,9 @@
     }
 
   }
-
+  @include md{
+    max-width: 70%;
+  }
   :global{
     .subtitle{
       color:#737373;
