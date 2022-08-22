@@ -15,10 +15,10 @@ module.exports = {
   },
   plugins: [
 
-      {
-          resolve: `gatsby-source-strapi`,
-          options: strapiConfig,
-      },
+      // {
+      //     resolve: `gatsby-source-strapi`,
+      //     options: strapiConfig,
+      // },
    "gatsby-plugin-sass", "gatsby-plugin-image", "gatsby-plugin-react-helmet", "gatsby-plugin-sitemap", {
     resolve: 'gatsby-plugin-manifest',
     options: {
