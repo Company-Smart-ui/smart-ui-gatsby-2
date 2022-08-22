@@ -3,7 +3,7 @@
 .modal {
   background: $GrayBlue;
   position: fixed;
-  z-index: 3;
+  z-index: 101;
   top: 41vh;
   left: 0;
   border-radius: 8px;
@@ -35,6 +35,10 @@
       li {
         opacity: 1;
         transform: none;
+      }
+
+      a {
+        pointer-events: all;
       }
     }
 
@@ -105,8 +109,11 @@ h3 {
 }
 
 .modal.open {
-  left: 84px;
+  left: 45px;
   transform: translate(0, -50%);
+  @include md {
+    left: 84px;
+  }
   @include xxl {
     left: calc((50% - 1720px / 2) + 84px);
   }

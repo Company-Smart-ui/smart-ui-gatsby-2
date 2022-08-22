@@ -17,7 +17,7 @@ export const Modal = ({text = 'return message', dataText = modalText, isShow}) =
     const {isOpen, onClose, onOpen}= useOpen(false);
 
     return <div className={style.wrapper + " modal"}>
-        <button className={style.btn + " button"} onClick={onOpen}>{text}</button>
+        <button className={["button", style.btn, isOpen ? style.disabled : ''].join(' ') } onClick={onOpen} >{text}</button>
         {
             isOpen && <ModalForm dataText={dataText} onClose={onClose} isShow={isShow} /> 
 
