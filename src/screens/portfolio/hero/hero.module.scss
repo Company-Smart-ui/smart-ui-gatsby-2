@@ -77,5 +77,16 @@
           margin-bottom: 80px;
         }
       }
+
+      .modal {
+        position: static;
+
+        .button {
+            position: relative;
+            transform: none;
+            left: auto;
+            top: auto;
+        }
+      }
   }
 }
