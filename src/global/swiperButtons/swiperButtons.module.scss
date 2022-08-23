@@ -9,6 +9,14 @@
     .fillButton {
       background-color: $MediumSeaGreen;
       border: none;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:active {
+        opacity: 0.8;
+      }
     }
   }
 }
