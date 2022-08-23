@@ -22,7 +22,7 @@ export const Header = ({path}) => {
     const {isOpen:scrolled ,onOpen:onScrolled , onClose:offScrolled} =useOpen();
     useEffect(()=>{
         const scrollHandler = ()=>{
-            if(window.scrollY>100){
+            if(window.scrollY>1){
                 onScrolled()
             } else{
                 offScrolled()
