@@ -1,10 +1,10 @@
 import {API} from "./API";
 
 export const sendForm =({type , data ,e })=>{
-
+    const validatedData = JSON.parse(JSON.stringify(data))
     const u = {
-        form_json_data:data,
-        form_type:type
+        data_message:validatedData,
+        type:type
     }
     const setData = async ()=>{
        fetch(API.CONTACT_FORM ,{  method: 'POST' , mode: 'cors',

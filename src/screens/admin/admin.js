@@ -4,7 +4,7 @@ import {Cookies} from "react-cookie";
 import {useOpen} from "../../hooks/useOpen";
 import axios from "axios";
 import {API} from "../../api/API";
-import {navigate} from "gatsby";
+import {Link, navigate} from "gatsby";
 import {Loader} from "../../global/loader/loader";
 import {ContactCard} from "./contactCard/contactCard";
 
@@ -22,8 +22,10 @@ export const Admin = () => {
             headers: {
                 'Authorization': `Bearer  ${jwt}`
             }
-        }).catch(function ( ) {
-            navigate('/login');
+        }).catch(function (e ) {
+            alert(e)
+            console.log(e);
+            finishLoading();
         }).then((value) => {
                 if (value?.status === 200 && value?.data?.data) {
                     setContacts(value.data.data)
@@ -37,6 +39,7 @@ export const Admin = () => {
     }, [])
 
     return <section className={style.admin}>
+        <Link to={'/login'} > login </Link>
         {loading && <Loader/>}
         <div className="container">
             <h1 style={{fontSize: 33}}> contact form results </h1>

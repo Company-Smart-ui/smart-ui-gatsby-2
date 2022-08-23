@@ -30,7 +30,7 @@ export const ModalForm = ({ onClose, dataText, isShow = true }) => {
   }, [fadeIn])
   return (
     <div ref={modalRef} className={[style.modal, isFade ? style.open : ''].join(' ') }>
-      <form onSubmit={(e)=>sendForm({e,type:'fdf', data:'fdfd'})} className={style.form}>
+      <form onSubmit={(e)=>sendForm({e,type:'return message', data: {message:'hello' , contact:'dsf sdf sdf '}})} className={style.form}>
         <h3>{dataText.title}</h3>
         <Messenger />
         <p>{dataText.subtitle}</p>
