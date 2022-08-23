@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import {useOpen} from "../../../../hooks/useOpen";
 import {useOnClickOutside} from "../../../../hooks/useOnClickOutside";
 
-export const ModalForm = ({ onClose }) => {
+export const ModalForm = ({ onClose, dataText, isShow = true }) => {
   const {isOpen: isFade, onOpen: fadeIn, onClose: fadeOut}= useOpen(false);
 
   const modalRef = useRef();
@@ -16,7 +16,7 @@ export const ModalForm = ({ onClose }) => {
     fadeOut();
     setTimeout(() => {
       onClose();
-    }, 1000)
+    }, 800)
   }
 
   useOnClickOutside(modalRef, fadeOutHandle);
@@ -30,16 +30,16 @@ export const ModalForm = ({ onClose }) => {
   return (
     <div ref={modalRef} className={[style.modal, isFade ? style.open : ''].join(' ') }>
       <form className={style.form}>
-        <h3>Leave your message</h3>
-        <Messenger className={"md-only"} />
-        <p>Please leave one of your contacts to contact you.</p>
-        <Input placeholder={"Leave any contacts: ( telegram ,whatsapp, linkedin , etc.. )"} />
+        <h3>{dataText.title}</h3>
+        <Messenger />
+        <p>{dataText.subtitle}</p>
+        <Input placeholder={dataText.input} />
 
-        <Textarea placeholder={"Your message*"} />
+        <Textarea placeholder={dataText.textarea} />
 
-        <p className="md-only">
-          Your data is safe and will not be passed on to third parties
-        </p>
+        {
+          isShow && <p className="md-only"> {dataText.eeo}</p>
+        }
 
         <div className={style.btns}>
           <button
@@ -47,10 +47,10 @@ export const ModalForm = ({ onClose }) => {
             type="reset"
             onClick={fadeOutHandle}
           >
-            No, cancel
+            {dataText.resetBtn}
           </button>
           <button type="submit" className="button">
-            Yes, confirm
+            {dataText.submit}
           </button>
         </div>
       </form>

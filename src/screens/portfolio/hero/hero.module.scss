@@ -1,0 +1,92 @@
+@import "src/var";
+
+.hero {
+  padding: 120px 0 40px 0;
+  position: relative;
+  background-color: #fff;
+  @include md {
+    padding: 140px 0 80px 0;
+  }
+  @include lg {
+    padding: 230px 0 80px 0;
+  }
+
+  @include lg {
+    padding: 245px 0 80px 0;
+  }
+
+  .overlay{
+    position: relative;
+    z-index: 2;
+    h1{
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+  }
+
+  :global {
+    .noise {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+    }
+    .bCircle {
+      position: absolute;
+      top: 60px;
+      bottom: 200px;
+      left: 100%;
+      transform: translateX(max(-50%, calc(-35vw + 100px)));
+      @include sm {
+        top: 0;
+        bottom: 0;
+      }
+      @include lg {
+        top: 20px;
+        bottom: 20px;
+      }
+
+      @include xl {
+        left: min(100%, calc(50% + 800px));
+      }
+    }
+    .subtitle{
+        color:#737373;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 19px;
+        line-height: 125%;
+        max-width: 280px;
+        margin-bottom: 26px;
+        letter-spacing: -0.2px;
+        @include md{
+          max-width:440px;
+        }
+        @include lg{
+          max-width: 600px;
+          font-size: 17px;
+          margin-bottom: 50px;
+        }
+        @include xl{
+          font-size: 23px;
+          max-width: 900px;
+          margin-top: 20px;
+          letter-spacing: 0.5px;
+          margin-bottom: 80px;
+        }
+      }
+
+      .modal {
+        position: static;
+
+        .button {
+            position: relative;
+            transform: none;
+            left: auto;
+            top: auto;
+        }
+      }
+  }
+}
