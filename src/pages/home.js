@@ -16,7 +16,6 @@ export const query = graphql`
   }
 `
 const Home = ( ) => {
-
     return     <HomePage/>
 
 

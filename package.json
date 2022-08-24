@@ -32,10 +32,12 @@
     "gatsby-transformer-sharp": "^4.19.0",
     "i18next": "^21.9.0",
     "react": "^18.1.0",
+    "react-cookie": "^4.1.1",
     "react-dom": "^18.1.0",
     "react-helmet": "^6.1.0",
     "react-i18next": "^11.18.3",
     "react-svg-star-rating": "^2.1.2",
+    "react-toastify": "^9.0.8",
     "sass": "^1.54.0",
     "swiper": "^8.3.2"
   }

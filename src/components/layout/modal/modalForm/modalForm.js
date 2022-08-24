@@ -6,6 +6,7 @@ import { Textarea } from "../../../../global/textarea/textarea";
 import { useEffect } from "react";
 import {useOpen} from "../../../../hooks/useOpen";
 import {useOnClickOutside} from "../../../../hooks/useOnClickOutside";
+import {sendForm} from "../../../../api/contactForm";
 
 export const ModalForm = ({ onClose, dataText, isShow = true }) => {
   const {isOpen: isFade, onOpen: fadeIn, onClose: fadeOut}= useOpen(false);
@@ -28,8 +29,8 @@ export const ModalForm = ({ onClose, dataText, isShow = true }) => {
     }, 1)
   }, [fadeIn])
   return (
-    <div ref={modalRef} className={['modalForm',style.modal, isFade ? (style.open + " open") : ''].join(' ') }>
-      <form className={style.form}>
+    <div ref={modalRef} className={[style.modal, isFade ? style.open : ''].join(' ') }>
+      <form onSubmit={(e)=>sendForm({e,type:'return message', data: {message:'hello' , contact:'dsf sdf sdf '}})} className={style.form}>
         <h3>{dataText.title}</h3>
         <Messenger />
         <p>{dataText.subtitle}</p>
@@ -49,7 +50,7 @@ export const ModalForm = ({ onClose, dataText, isShow = true }) => {
           >
             {dataText.resetBtn}
           </button>
-          <button type="submit" className="button">
+          <button type="submit"   className="button">
             {dataText.submit}
           </button>
         </div>

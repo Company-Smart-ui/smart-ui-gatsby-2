@@ -7,7 +7,7 @@ const LANGUAGES = ['en', 'uk-UA'];
 const createField = async ({lang} )=> {
     const pages =[];
     for (let page of PAGES_API) {
-        const fetchData = () => axios.get(ENDPOINT +page + "?locale=" + lang);
+        const fetchData = () => axios.get(ENDPOINT +page + "?locale=" + lang+"&populate=*");
         const field = await fetchData();
         pages.push({
             ns: page,
