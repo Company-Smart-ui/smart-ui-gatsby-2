@@ -5,6 +5,7 @@ import { CardsSwiper } from "./swiper/CardsSwiper";
 import { SwiperButtons } from "../../../global/swiperButtons/SwiperButtons";
 import { cardsList } from "./card/CardList";
 import { SwipeTo } from "../../../global/swipeTo/swipeTo";
+import {useTranslation} from "react-i18next";
 
 export const Tools = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -20,13 +21,14 @@ export const Tools = () => {
   useEffect(() => {
     setActiveIndex(0);
   }, []);
-
+    const {t} = useTranslation();
   return (
     <div className={`${style.tools} vertical-padding`}>
       <div className="yCircle" />
       <div className="noise" />
       <div className="overlay container">
         <div className="container-grid">
+<<<<<<< HEAD
           <div className="title-container">
             <div className="title-content">
               <p className="second-title">Technology</p>
@@ -38,6 +40,19 @@ export const Tools = () => {
               <button className="button">Contact the lead developer</button>
               <div className="swiperTips">
                 <SwipeTo />
+=======
+            <div className="title-container">
+              <div className="title-content">
+            <p className="second-title">{t('tools_small_title')}</p>
+            <h2 className="h2 title">Tools We Use</h2>
+            <p className="subtitle description">
+              Contact that lead developer and discuss technical points in detail
+            </p>
+            <button className="button">Contact the lead developer</button>
+            <div className="swiperTips">
+              <SwipeTo />
+            </div>
+>>>>>>> master
               </div>
             </div>
           </div>

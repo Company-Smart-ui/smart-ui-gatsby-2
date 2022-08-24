@@ -1,8 +1,6 @@
-import React, {useTransition} from 'react';
+import React  from 'react';
 import {graphql} from "gatsby";
-import {useTranslation} from "react-i18next";
 
-import {Link, useI18next } from 'gatsby-plugin-react-i18next';
 
 export const query = graphql`
   query ($language: String ,$pageName:String ) {
@@ -18,9 +16,9 @@ export const query = graphql`
   }
 `
 const Team = ( ) => {
-    const {t}= useTranslation();
+
     return <div>
-        {t('h1')}
+
 
     </div>
 };

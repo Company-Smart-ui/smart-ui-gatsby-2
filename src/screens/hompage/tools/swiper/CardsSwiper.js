@@ -7,11 +7,13 @@ import * as style from "./cardsSwiper.module.scss";
 import "swiper/css";
 import "swiper/css/free-mode";
 
+
 export const CardsSwiper = ({
   setActiveHandler,
   setSwiperRef,
   activeIndex,
 }) => {
+
   return (
     <div className={style.cardsSwiper}>
       <Swiper
