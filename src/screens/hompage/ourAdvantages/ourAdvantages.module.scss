@@ -13,21 +13,15 @@
     .gCircle {
     width: 94px;
     position: absolute;
-    top: 60px;
-    left: 35px;
-    opacity: 0.5;
-
-    @include md {
-      top: 32px;
-      left: 50px;
-    }
+    top: -10px;
+    left: -30px;
     }
 
     .bCircle {
       position: absolute;
       width: 36px;
-      top: 61px;
-      right: 273px;
+      top: 161px;
+      right: -350px;
     }
 
     .container {
@@ -46,6 +40,10 @@
       @include md {
         display: none;
       }
+    }
+
+    .noise {
+      z-index: 1;
     }
 
     .illustration-tablet {
@@ -76,6 +74,7 @@
     }
 
     .title-block {
+      position: relative;
       @include md {
         max-width: 457px;
       }

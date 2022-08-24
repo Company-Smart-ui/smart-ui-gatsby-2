@@ -20,13 +20,13 @@ export const OurAdvantages = () => {
     <section className={`${style.ourAdvantages} vertical-padding`}>
       <div className="noise" />
       <div className="container">
-        <div className="gCircle" />
-        <div className="bCircle md-only" />
         <div className="clock-mobile" />
         <div className="illustration-tablet" />
-        <div className="overlay upperBlock">
+        <div className="upperBlock">
           <div className="title-block">
-            <h2 className="h2">Our Advantages</h2>
+            <div className="bCircle md-only" />
+            <div className="gCircle" />
+            <h2 className="h2 overlay">Our Advantages</h2>
             <div className="subtitle">
               We help to develop business, using complex modern effective it
               solutions, tools of web development and Internet marketing.
@@ -53,7 +53,7 @@ export const OurAdvantages = () => {
             activeIndex={activeIndex}
           />
         </div>
-        <button className="button">Review</button>
+        <button className="button overlay">Review</button>
       </div>
     </section>
   );

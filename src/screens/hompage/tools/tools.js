@@ -42,7 +42,6 @@ export const Tools = () => {
               </div>
             </div>
           </div>
-        </div>
         <div className="vertical-block overlay">
           <div className="pagination-wrapper">
             <Pagination activeIdx={activeIndex} sliderLength={sliderLength} />
@@ -61,6 +60,7 @@ export const Tools = () => {
             activeIndex={activeIndex}
             loop
           />
+        </div>
         </div>
       </div>
     </div>

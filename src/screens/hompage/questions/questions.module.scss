@@ -61,6 +61,8 @@
       text-align: start;
     }
 
+    // Open
+
     .card-description {
       display: block;
       opacity: 0;
@@ -71,15 +73,17 @@
       line-height: 1.25;
       text-align: justify;
       color: $Gray;
-      transition: max-height 600ms 100ms , opacity 400ms 100ms, margin-top 600ms 300ms;
+      transition: max-height 300ms 100ms , opacity 300ms 100ms, margin-top 300ms 100ms;
     }
+
+    // Close
 
     .show {
       margin-top: 8px;
       opacity: 1;
       max-height: 1000px;
-      animation: 400ms linear 400ms faq forwards backwards;
-      transition: max-height 800ms 200ms , opacity 600ms 300ms , margin-top 600ms 300ms;
+      animation: 400ms ease-in-out 400ms faq forwards backwards;
+      transition: max-height 300ms 100ms , opacity 300ms 100ms , margin-top 300ms 100ms;
     }
 
     .cube-button {
@@ -94,6 +98,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      transition: background-color 300ms 100ms;
 
       img {
         width: 10px;
@@ -110,6 +115,7 @@
 
     .open {
       background-color: $MediumSeaGreen;
+      transition: background-color 300ms 100ms;
     }
   }
 }
