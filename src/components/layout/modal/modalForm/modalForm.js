@@ -16,7 +16,7 @@ export const ModalForm = ({ onClose, dataText, isShow = true }) => {
     fadeOut();
     setTimeout(() => {
       onClose();
-    }, 800)
+    }, 650)
   }
 
   useOnClickOutside(modalRef, fadeOutHandle);
@@ -28,7 +28,7 @@ export const ModalForm = ({ onClose, dataText, isShow = true }) => {
     }, 1)
   }, [fadeIn])
   return (
-    <div ref={modalRef} className={['modalForm',style.modal, isFade ? style.open : ''].join(' ') }>
+    <div ref={modalRef} className={['modalForm',style.modal, isFade ? (style.open + " open") : ''].join(' ') }>
       <form className={style.form}>
         <h3>{dataText.title}</h3>
         <Messenger />
@@ -41,7 +41,7 @@ export const ModalForm = ({ onClose, dataText, isShow = true }) => {
           isShow && <p className="md-only"> {dataText.eeo}</p>
         }
 
-        <div className={style.btns}>
+        <div className={style.btns + " btns"}>
           <button
             className="reset"
             type="reset"

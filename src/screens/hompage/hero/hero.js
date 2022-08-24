@@ -38,8 +38,7 @@ export const Hero = () => {
                     You deserve easy IT, to make it easy make <span className="nowrap"> it SMART 👋 </span>
                 </p>
                 <div  className={style.ctaContainer}>
-                    <button className="button"> Get Started
-                    </button>
+                    <button className="button"> Get Started </button>
                     <Contact/>
                 </div>
                   <SwipeTo/>

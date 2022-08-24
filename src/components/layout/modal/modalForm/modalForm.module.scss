@@ -8,10 +8,10 @@
   left: 0;
   border-radius: 8px;
   width: 100%;
-  max-width: 275px;
+  max-width: calc(100% - 55px);
   padding: 20px 15px;
   transform: translate(-100%, -50%);
-  transition: .8s ease-in-out;
+  transition: .65s ease-in-out;
   @include md {
     max-width: 547px;
     padding: 20px 40px;
@@ -81,7 +81,6 @@ h3 {
 
 .form {
   width: 100%;
-  max-width: 540px;
   margin: 0 auto;
   position: relative;
   z-index: 1;

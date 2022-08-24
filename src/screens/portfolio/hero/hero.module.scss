@@ -3,7 +3,6 @@
 .hero {
   padding: 120px 0 40px 0;
   position: relative;
-  background-color: #fff;
   @include md {
     padding: 140px 0 80px 0;
   }
@@ -15,23 +14,41 @@
     padding: 245px 0 80px 0;
   }
 
-  .overlay{
-    position: relative;
+  .overlay {
     z-index: 2;
-    h1{
+    position: relative;
+    h1 {
       margin-bottom: 10px;
       position: relative;
     }
+  }
 
+  .speed {
+    background: rgba(250, 253, 255, 0.9);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    .top {
+      border-bottom: 2px solid #d3d4dc;
+    }
   }
 
   :global {
-    .noise {
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+    .yCircle{
       position: absolute;
+      left: 0;
+      top: 0;
+      height: 24vw;
+      &.left{
+        transform:translate(-60% , -60%);
+      }
+      &.right{
+        height:80px;
+
+        @include xl{
+          height: 160px;
+        }
+        transform:translate(10% , 10%);
+      }
     }
     .bCircle {
       position: absolute;
@@ -53,44 +70,53 @@
       }
     }
 
-    .button {
-      padding:20px 10px;
+    .openBtn {
+      padding: 20px 10px;
     }
-    .subtitle{
-        color:#737373;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 19px;
-        line-height: 125%;
-        max-width: 280px;
-        margin-bottom: 26px;
-        letter-spacing: -0.2px;
-        @include md{
-          max-width:440px;
-        }
-        @include lg{
+
+    .modal {
+      position: static;
+
+      .button {
+        position: relative;
+        transform: none;
+        left: auto;
+        top: auto;
+      }
+
+      .textarea,
+      .input {
+        margin-bottom: 25px;
+      }
+
+      .modalForm {
+        left: 45px;
+        transform: none;
+        top: 75px;
+        opacity: 0;
+        @include md {
+          left: 84px;
           max-width: 600px;
-          font-size: 17px;
-          margin-bottom: 50px;
         }
-        @include xl{
-          font-size: 23px;
-          max-width: 900px;
-          margin-top: 20px;
-          letter-spacing: 0.5px;
-          margin-bottom: 80px;
+        @include lg {
+          max-width: 750px;
+        }
+        @include xxl {
+          left: calc((50% - 1720px / 2) + 84px);
+        }
+
+        .messengers {
+          order: 1;
+        }
+
+        .btns {
+          order: 2;
+        }
+
+        &.open {
+          opacity: 1;
         }
       }
-
-      .modal {
-        position: static;
-
-        .button {
-            position: relative;
-            transform: none;
-            left: auto;
-            top: auto;
-        }
-      }
+    }
   }
 }
