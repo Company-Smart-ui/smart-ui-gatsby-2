@@ -8,11 +8,6 @@
   overflow: hidden;
   padding: 32px;
   min-height: 100%;
-  // width: 100%;
-  
-  @include md {
-    // width: 200px;
-  }
 
   :global {
     .content-title {

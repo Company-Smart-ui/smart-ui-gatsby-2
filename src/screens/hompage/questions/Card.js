@@ -1,26 +1,23 @@
 import React from "react";
 import Plus from "./plus.svg";
-import Minus from './minus.svg';
+import Minus from "./minus.svg";
 
 export const Card = ({ el, dropdownHandler }) => {
   const { title, id, isOpen, description } = el;
 
   return (
-    <div className="card-container">
-      <div className="card-title">{title}</div>
-      <div className={`card-description ${isOpen ? "show" : " "}`}>
+    <button className="card-container" onClick={() => dropdownHandler(id)}>
+      <span className="card-title">{title}</span>
+      <span className={`card-description ${isOpen ? "show" : " "}`}>
         {description}
-      </div>
-      <button
-        className={`cube-button ${isOpen ? "open" : ""}`}
-        onClick={() => dropdownHandler(id)}
-      >
+      </span>
+      <span className={`cube-button ${isOpen ? "open" : ""}`}>
         {isOpen ? (
           <img src={Minus} alt="minus" className="minus" />
         ) : (
           <img src={Plus} alt="plus" className="plus" />
         )}
-      </button>
-    </div>
+      </span>
+    </button>
   );
 };

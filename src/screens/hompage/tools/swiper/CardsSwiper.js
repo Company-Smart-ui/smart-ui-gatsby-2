@@ -9,7 +9,6 @@ import "swiper/css/free-mode";
 
 export const CardsSwiper = ({
   setActiveHandler,
-  swiperRef,
   setSwiperRef,
   activeIndex,
 }) => {
@@ -17,15 +16,27 @@ export const CardsSwiper = ({
     <div className={style.cardsSwiper}>
       <Swiper
         onSwiper={setSwiperRef}
-        spaceBetween={16}
-        centeredSlides={false}
+        spaceBetween={8}
         slidesPerView={1}
-        freeMode={true}
         className="swiper"
+        breakpoints={{
+          375: {
+            slidesPerView: 1,
+            spaceBetween: 8
+          },
+          576: {
+            slidesPerView: 2,
+            spaceBetween: 0,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 0,
+          }
+        }}
         grabCursor={true}
         speed={400}
         loop={true}
-        onSlideChange={() => setActiveHandler(swiperRef?.realIndex)}
+        onSlideChange={setActiveHandler}
       >
         {cardsList.map((el, index) => (
           <SwiperSlide key={el.id}>

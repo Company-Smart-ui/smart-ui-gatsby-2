@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as style from "./ourAdvantages.module.scss";
 import { SwiperButtons } from "../../../global/swiperButtons/SwiperButtons";
 import { AdvantagesSwiper } from "./swiper/AdvantagesSwiper";
@@ -11,6 +11,10 @@ export const OurAdvantages = () => {
 
   const slidePrevHandler = () => swiperRef.slidePrev();
   const slideNextHandler = () => swiperRef.slideNext();
+
+  useEffect(() => {
+    setActiveIndex(0);
+  }, []);
 
   return (
     <section className={`${style.ourAdvantages} vertical-padding`}>
@@ -29,20 +33,24 @@ export const OurAdvantages = () => {
             </div>
           </div>
           <div className="pagination-wrapper">
-            <Pagination activeIdx={activeIndex} sliderLength={advantagesList.length} whiteTheme />
+            <Pagination
+              activeIdx={activeIndex}
+              sliderLength={advantagesList.length}
+              whiteTheme
+            />
           </div>
           <AdvantagesSwiper
             swiperRef={swiperRef}
             setSwiperRef={setSwiperRef}
             setActiveIndex={setActiveIndex}
-            loop
           />
         </div>
         <div className="footer-buttons overlay">
           <SwiperButtons
             onPrev={slidePrevHandler}
             onNext={slideNextHandler}
-            loop
+            sliderLength={advantagesList.length}
+            activeIndex={activeIndex}
           />
         </div>
         <button className="button">Review</button>

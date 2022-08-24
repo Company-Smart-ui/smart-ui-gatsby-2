@@ -7,13 +7,13 @@ import { cardsList } from "./card/CardList";
 import { SwipeTo } from "../../../global/swipeTo/swipeTo";
 
 export const Tools = () => {
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(null);
   const [swiperRef, setSwiperRef] = useState(null);
 
   const slidePrevHandler = () => swiperRef.slidePrev();
   const slideNextHandler = () => swiperRef.slideNext();
 
-  const setActiveHandler = (idx) => setActiveIndex(idx);
+  const setActiveHandler = () => setActiveIndex(swiperRef?.realIndex);
 
   const sliderLength = cardsList.length;
 
@@ -27,18 +27,19 @@ export const Tools = () => {
       <div className="noise" />
       <div className="overlay container">
         <div className="container-grid">
-            <div className="title-container">
-              <div className="title-content">
-            <p className="second-title">Technology</p>
-            <h2 className="h2 title">Tools We Use</h2>
-            <p className="subtitle description">
-              Contact that lead developer and discuss technical points in detail
-            </p>
-            <button className="button">Contact the lead developer</button>
-            <div className="swiperTips">
-              <SwipeTo />
-            </div>
+          <div className="title-container">
+            <div className="title-content">
+              <p className="second-title">Technology</p>
+              <h2 className="h2 title">Tools We Use</h2>
+              <p className="subtitle description">
+                Contact that lead developer and discuss technical points in
+                detail
+              </p>
+              <button className="button">Contact the lead developer</button>
+              <div className="swiperTips">
+                <SwipeTo />
               </div>
+            </div>
           </div>
           <div className="vertical-block overlay">
             <div className="pagination-wrapper">
@@ -46,20 +47,19 @@ export const Tools = () => {
             </div>
             <CardsSwiper
               setActiveHandler={setActiveHandler}
-              swiperRef={swiperRef}
               setSwiperRef={setSwiperRef}
               activeIndex={activeIndex}
             />
           </div>
-            <div className="buttons-block">
-              <SwiperButtons
-                onPrev={slidePrevHandler}
-                onNext={slideNextHandler}
-                sliderLength={sliderLength}
-                activeIndex={activeIndex}
-                loop
-              />
-            </div>
+          <div className="buttons-block">
+            <SwiperButtons
+              onPrev={slidePrevHandler}
+              onNext={slideNextHandler}
+              sliderLength={sliderLength}
+              activeIndex={activeIndex}
+              loop
+            />
+          </div>
         </div>
       </div>
     </div>

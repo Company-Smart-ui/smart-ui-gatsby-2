@@ -2,22 +2,27 @@
 
 .cardsSwiper {
   overflow: visible;
+  height: 100%;
+  width: 275px;
+  margin: 0 auto;
+  margin-top: 24px;
+
+  @include md {
+    width: 100%;
+  }
 
   :global {
-    .mySwiper {
-      margin: 0 auto;
-      margin-top: 24px;
+    .swiper {
+      width: 100%;
       overflow: hidden;
       height: 365px;
-      max-width: 275px;
 
       @include md {
-        max-width: 628px;
-        margin-top: 57px;
+        width: 100%;
       }
 
-      @include lg {
-        max-width: 824px;
+      @include xl {
+       padding: 0 112px;
       }
     }
   }

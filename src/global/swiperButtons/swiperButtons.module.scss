@@ -13,10 +13,15 @@
       &:hover {
         opacity: 0.8;
       }
+    }
 
-      &:active {
-        opacity: 0.8;
-      }
+    .gray-button {
+      background-color: $Gray;
+    }
+
+    .transparent-button {
+      background-color: transparent;
+      border: 1px solid $Gray;
     }
   }
 }

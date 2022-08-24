@@ -1,44 +1,37 @@
 @import 'src/var';
 
 .teamSwiper {
-  margin-top: 32px;
   width: 275px;
-  height: 520px;
   margin: 0 auto;
-  margin-top: 24px;
   overflow: hidden;
   display: flex;
   align-items: stretch;
+  height: calc(100% + 100px);
+  padding-left: 10px;
+  padding-right: 10px;
 
   @include sm {
-    width: 436px;
-    height: 455px;
-  }
-
-  @include md {
-    width: 630px;
-    height: 455px;
-  }
-
-  @include xl {
-    height: 520px;
-    width: 800px;
+    width: 100%;
   }
 
   :global {
     .swiper {
-      width: 375px;
+      width: 100%;
       overflow: visible;
 
       @include sm {
         width: 100%;
-        margin-left: -110px;
+        overflow: hidden;
       }
 
-      @include md {
-        width: 100%;
-        margin: 0 auto;
+      @include xl {
+        margin: 0 112px;
       }
+    }
+
+    .swiper-slide {
+      padding-left: 10px;
+      padding-right: 10px;
     }
   }
 }

@@ -44,6 +44,9 @@ export const ClientReviews = () => {
               <SwiperButtons
                 onPrev={slidePrevHandler}
                 onNext={slideNextHandler}
+                sliderLength={2}
+                activeIndex={activeIndex}
+                fill={true}
               />
             </div>
           </div>

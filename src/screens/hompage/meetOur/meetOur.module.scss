@@ -58,6 +58,10 @@
       }
     }
 
+    .noise {
+      z-index: 2;
+    }
+
     .whole-team-button {
       margin-top: 20px;
       min-width: 165px;
@@ -70,7 +74,8 @@
 
     .container-block {
       overflow: hidden;
-      margin-top: 16px;
+      margin-top: 24px;
+      height: 100%;
     }
 
     .pagination-wrapper {

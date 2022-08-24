@@ -6,11 +6,13 @@ import { teamList } from "./card/TeamList";
 import { Pagination } from "../../../global/pagination/Pagination";
 
 export const MeetOur = () => {
-  const [swiperRef, setSwiperRef] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
-
-  const slidePrevHandler = () => swiperRef.slidePrev();
-  const slideNextHandler = () => swiperRef.slideNext();
+  const [swiperRef, setSwiperRef] = useState(null);
+  
+  const activeIndexHandler = () => setActiveIndex(swiperRef?.realIndex);
+  
+    const slidePrevHandler = () => swiperRef.slidePrev();
+    const slideNextHandler = () => swiperRef.slideNext();
 
   useEffect(() => {
     setActiveIndex(0);
@@ -19,7 +21,7 @@ export const MeetOur = () => {
   return (
     <div className={`${style.meetOur} vertical-padding`}>
       <div className="noise" />
-      <div className="container overlay">
+      <div className="container">
         <div className="img-block" />
         <div className="container-grid">
           <div className="title-block">
@@ -34,25 +36,22 @@ export const MeetOur = () => {
               </div>
             </div>
           </div>
-          <div className="container-block">
-            <div className="swiper-container overlay">
+          <div className="container-block overlay">
               <TeamSwiper
-                setActiveIndex={setActiveIndex}
+                activeIndexHandler={activeIndexHandler}
+                swiperRef={swiperRef}
                 setSwiperRef={setSwiperRef}
                 loop
-                swiperRef={swiperRef}
               />
-            </div>
           </div>
           <div className="footer-buttons overlay">
             <SwiperButtons
               onPrev={slidePrevHandler}
               onNext={slideNextHandler}
-              activeIndex={activeIndex}
               loop
             />
           </div>
-          <button className="container button whole-team-button">
+          <button className="container button whole-team-button overlay">
             The whole team
           </button>
         </div>

@@ -20,9 +20,8 @@ export const RecentWorks = () => {
 
   return (
     <div className={`${style.recentWorks} vertical-padding`}>
-      <div className="overalay">
-        <div className="container">
-          <div className="grid-container">
+      <div className="overalay container">
+          <div className="container-grid">
             <div className="title-container">
               <div className="second-title">Showcase</div>
               <h2 className="h2 title">Recent Works</h2>
@@ -30,7 +29,7 @@ export const RecentWorks = () => {
                 We will help to develop your best project based on your idea.
               </div>
             </div>
-            <button className="button view-more-button">
+            <button className="button view-more-button overlay">
               View More Projects
             </button>
             <div className="content-container">
@@ -44,7 +43,7 @@ export const RecentWorks = () => {
                 activeIndex={activeIndex}
               />
             </div>
-            <div className="buttons-block">
+            <div className="buttons-block overlay">
               <SwiperButtons
                 onPrev={slidePrevHandler}
                 onNext={slideNextHandler}
@@ -52,7 +51,6 @@ export const RecentWorks = () => {
               />
             </div>
           </div>
-        </div>
       </div>
     </div>
   );

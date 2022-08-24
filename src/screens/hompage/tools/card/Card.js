@@ -4,8 +4,6 @@ import * as style from "./card.module.scss";
 export const Card = ({ content, indexEl, activeIndex }) => {
   const { img, title, description } = content;
 
-  console.log(img);
-
   return (
     <div className={style.card}>
     <div
