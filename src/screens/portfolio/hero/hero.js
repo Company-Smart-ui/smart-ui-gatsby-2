@@ -28,21 +28,21 @@ export const Hero = () => {
                 <div className={style.speed}>
                     <div className={style.top}>
                         <img src={Speed} alt="speed logo"/>
-                        <div className={style.text}>
+                        {/* <div className={style.text}>
                             <p>PageSpeed Insights</p>
                             <p>Learn more about website performance</p>
-                        </div> 
+                        </div>  */}
                         <Link to={'#'}>
                             i
                         </Link>
                     </div>
-                    <div className={style.main}>
+                    {/* <div className={style.main}>
                         <div className={style.index}>98</div>
                         <p>
                             <strong>Efficiency</strong>
                             Website optimization check
                         </p>
-                    </div>
+                    </div> */}
                 </div>
                 <Modal text={'Contact the lead developer'} dataText={modalText} isShow={false} />
             </div>

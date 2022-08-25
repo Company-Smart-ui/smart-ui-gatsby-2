@@ -1,4 +1,5 @@
 import {API} from "./API";
+import axios from "axios";
 
 export const sendForm =({type , data ,e })=>{
     const validatedData = JSON.parse(JSON.stringify(data))
@@ -6,13 +7,14 @@ export const sendForm =({type , data ,e })=>{
         data_message:validatedData,
         type:type
     }
-    const setData = async ()=>{
-       fetch(API.CONTACT_FORM ,{  method: 'POST' , mode: 'cors',
-            headers: { "Content-Type": "application/json",
-                "Authorization" : "Token " }, body: JSON.stringify({data:u})})
-           .catch(e=>{console.log(e) ; alert(e)});
+    const setData = () => {
+        axios.post(API.CONTACT_FORM, {data: u})
+        .catch(e=>{console.log(e) ; alert(e)});
     }
-    setData();
+
+    setData()
+
+
 
     e.preventDefault();
 }
