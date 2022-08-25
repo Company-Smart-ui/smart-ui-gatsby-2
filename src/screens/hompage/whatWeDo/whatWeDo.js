@@ -104,10 +104,11 @@ export const WhatWeDo = () => {
               sliderLength={2}
               activeIndex={activeIndex}
             />
+          </div>
             <div className="info-link">
+              <div className="horizontal-line" />
               <a href="/">Book a consultation</a>
             </div>
-          </div>
         </div>
       </div>
     </section>

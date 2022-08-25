@@ -8,8 +8,7 @@ import "swiper/css";
 import "swiper/css/free-mode";
 
 export const TeamSwiper = ({
-  swiperRef,
-  setActiveIndex,
+  activeIndexHandler,
   setSwiperRef,
   loop
 }) => {
@@ -19,7 +18,6 @@ export const TeamSwiper = ({
         onSwiper={setSwiperRef}
         spaceBetween={32}
         initialSlide={1}
-        centeredSlides={true}
         slidesPerView={0}
         freeMode={true}
         className="mySwiper"
@@ -30,19 +28,27 @@ export const TeamSwiper = ({
           },
           576: {
             slidesPerView: 2,
-            spaceBetween: 16
+            spaceBetween: 0
           },
           768: {
             slidesPerView: 3,
             spaceBetween: 0,
             allowTouchMove: false,
             grabCursor: false,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 32,
+          },
+          1440: {
+            slidesPerView: 3,
+            spaceBetween: 32,
           }
         }}
         grabCursor={true}
         speed={800}
         loop={loop}
-        onSlideChange={() => setActiveIndex(swiperRef?.realIndex)}
+        onSlideChange={activeIndexHandler}
       >
         {teamList.map((el, index) => (
           <SwiperSlide key={el.name}>

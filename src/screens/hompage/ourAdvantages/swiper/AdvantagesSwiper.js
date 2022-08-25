@@ -18,7 +18,7 @@ export const AdvantagesSwiper = ({
       <Swiper
         onSwiper={setSwiperRef}
         spaceBetween={16}
-        centeredSlides={true}
+        initialSlide={0}
         slidesPerView={1}
         freeMode={true}
         className="mySwiper"
@@ -31,11 +31,19 @@ export const AdvantagesSwiper = ({
             slidesPerView: 3,
             spaceBetween: 24,
             allowTouchMove: false,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 44,
+          },
+          1440: {
+            slidesPerView: 3,
+            spaceBetween: 64,
           }
         }}
         grabCursor={true}
         speed={400}
-        loop={loop}
+        loop={false}
         onSlideChange={() => setActiveIndex(swiperRef?.realIndex)}
       >
         {advantagesList.map((el, index) => (

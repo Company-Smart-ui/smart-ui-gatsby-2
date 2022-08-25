@@ -8,6 +8,7 @@ export const Card = ({ content }) => {
 
   return (
     <div className={style.card}>
+      <div className="cards-container">
       <div className="technology">
         {technology === "wordpress" && (
           <img src={wordpressImg} alt="wordpress" />
@@ -26,6 +27,7 @@ export const Card = ({ content }) => {
         <a href={link} className="content-link">Website</a>
         </div>
         <button className="button">Learn more</button>
+      </div>
       </div>
     </div>
   );

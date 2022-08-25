@@ -17,20 +17,22 @@ export const WorksSwiper = ({
     <div className={style.worksSwiper}>
       <Swiper
         onSwiper={setSwiperRef}
-        spaceBetween={32}
-        centeredSlides={true}
+        spaceBetween={0}
         slidesPerView={1}
-        freeMode={true}
         className="swiper"
         breakpoints={{
           375: {
             slidesPerView: 1,
-            spaceBetween: 32
+            spaceBetween: 0
+          },
+          576: {
+            slidesPerView: 2,
+            spaceBetween: 0
           },
           768: {
             slidesPerView: 3,
             spaceBetween: 0,
-          }
+          },
         }}
         grabCursor={true}
         speed={800}

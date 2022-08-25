@@ -9,6 +9,19 @@
     .fillButton {
       background-color: $MediumSeaGreen;
       border: none;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    .gray-button {
+      background-color: $Gray;
+    }
+
+    .transparent-button {
+      background-color: transparent;
+      border: 1px solid $Gray;
     }
   }
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as style from "./ourAdvantages.module.scss";
 import { SwiperButtons } from "../../../global/swiperButtons/SwiperButtons";
 import { AdvantagesSwiper } from "./swiper/AdvantagesSwiper";
@@ -12,40 +12,48 @@ export const OurAdvantages = () => {
   const slidePrevHandler = () => swiperRef.slidePrev();
   const slideNextHandler = () => swiperRef.slideNext();
 
+  useEffect(() => {
+    setActiveIndex(0);
+  }, []);
+
   return (
     <section className={`${style.ourAdvantages} vertical-padding`}>
       <div className="noise" />
       <div className="container">
-        <div className="gCircle" />
-        <div className="bCircle md-only" />
         <div className="clock-mobile" />
         <div className="illustration-tablet" />
-        <div className="overlay upperBlock">
+        <div className="upperBlock">
           <div className="title-block">
-            <h2 className="h2">Our Advantages</h2>
+            <div className="bCircle md-only" />
+            <div className="gCircle" />
+            <h2 className="h2 overlay">Our Advantages</h2>
             <div className="subtitle">
               We help to develop business, using complex modern effective it
               solutions, tools of web development and Internet marketing.
             </div>
           </div>
           <div className="pagination-wrapper">
-            <Pagination activeIdx={activeIndex} sliderLength={advantagesList.length} whiteTheme />
+            <Pagination
+              activeIdx={activeIndex}
+              sliderLength={advantagesList.length}
+              whiteTheme
+            />
           </div>
           <AdvantagesSwiper
             swiperRef={swiperRef}
             setSwiperRef={setSwiperRef}
             setActiveIndex={setActiveIndex}
-            loop
           />
         </div>
         <div className="footer-buttons overlay">
           <SwiperButtons
             onPrev={slidePrevHandler}
             onNext={slideNextHandler}
-            loop
+            sliderLength={advantagesList.length}
+            activeIndex={activeIndex}
           />
         </div>
-        <button className="button">Review</button>
+        <button className="button overlay">Review</button>
       </div>
     </section>
   );

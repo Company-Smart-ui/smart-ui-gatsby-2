@@ -1,15 +1,69 @@
+@import 'src/var';
+
 .login {
-  padding: 200px 0;
-  background-color: #fff;
+  padding: 100px 0;
+  background-color: $White;
   display: flex;
   justify-content: center;
   align-items: center;
-  form{
+
+  form {
     min-height: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
   }
 
+  :global {
+    .form-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
 
+      .form-row {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+      }
+    }
+
+    input {
+      margin-top: 4px;
+      max-width: 400px;
+      background: $White;
+      border-radius: 4px;
+      padding: 12px;
+      border: 1px solid $Gray;
+      background-color: $White;
+
+      &:focus,
+      &:valid {
+        background-color: $White;
+        border: 1px solid $GrayBlue;
+
+      }
+    }
+
+    label {
+      font-size: 12px;
+      font-weight: 300;
+      color: $Gray;
+      position: absolute;
+      top: 15px;
+      left: 12px;
+    }
+  
+    input:focus~label,
+    input:valid~label {
+      top: -20px;
+      left: 2px;
+      transition: all;
+      transition-duration: 300ms;
+      transition-delay: 100ms;
+    }
+
+    .button {
+      padding: 16px 24px;
+    }
+  }
 }
