@@ -14,7 +14,7 @@ export const CardsSwiper = ({
   activeIndex,
 }) => {
     const {t} = useTranslation();
-    console.log(t("tools_cards", { returnObjects: true }))
+    // console.log(t("tools_cards", { returnObjects: true }))
   return (
     <div className={style.cardsSwiper}>
       <Swiper
