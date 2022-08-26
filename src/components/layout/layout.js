@@ -8,7 +8,6 @@ import { Modal } from './modal/modal';
 
  const  Layout = ( props) => {
     const path = props?.children?.props?.pageContext?.pageName;
-     console.log(path)
     return (
         <div className={'layout'}>
             <Header path={ path }/>

@@ -3,4 +3,68 @@
 .portfolio {
   overflow: hidden;
   max-width: 100%;
+  background: $LightPeriwinkle;
+
+  :global {
+    .bCircle,
+    .yCircle {
+      border-radius: 50%;
+      aspect-ratio: 1;
+    }
+
+    .yCircle {
+      background-color: $Yellow;
+    }
+
+    .bCircle {
+      background-color: $Blue;
+    }
+    .noise {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+    }
+
+    .vertical-padding {
+      padding: 34px 0;
+
+      @include md {
+        padding: 50px 0;
+      }
+
+      @include xl {
+        padding: 87px 0;
+      }
+    }
+
+    .subtitle {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: $Gray;
+      text-align: justify;
+      margin: 28px 0 15px;
+
+      @include md {
+        font-size: 19px;
+        line-height: 1.53;
+        margin-bottom: 45px;
+      }
+
+      @include lg {
+        font-size: 17px;
+      }
+
+      @include lg {
+        font-size: 21px;
+      }
+    }
+
+    .overlay {
+      position: relative;
+      z-index: 2;
+    }
+  }
 }

@@ -17,7 +17,7 @@ export const ModalForm = ({ onClose, dataText, isShow = true }) => {
     fadeOut();
     setTimeout(() => {
       onClose();
-    }, 800)
+    }, 650)
   }
 
   useOnClickOutside(modalRef, fadeOutHandle);
@@ -30,7 +30,7 @@ export const ModalForm = ({ onClose, dataText, isShow = true }) => {
   }, [fadeIn])
   return (
     <div ref={modalRef} className={[style.modal, isFade ? style.open : ''].join(' ') }>
-      <form onSubmit={(e)=>sendForm({e,type:'return message', data: {message:'hello' , contact:'dsf sdf sdf '}})} className={style.form}>
+      <form onSubmit={(e)=>sendForm({e,type:'return message', data: {message:'hello' , contact:'Hello world '}})} className={style.form}>
         <h3>{dataText.title}</h3>
         <Messenger />
         <p>{dataText.subtitle}</p>
@@ -42,7 +42,7 @@ export const ModalForm = ({ onClose, dataText, isShow = true }) => {
           isShow && <p className="md-only"> {dataText.eeo}</p>
         }
 
-        <div className={style.btns}>
+        <div className={style.btns + " btns"}>
           <button
             className="reset"
             type="reset"

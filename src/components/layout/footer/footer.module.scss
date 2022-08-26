@@ -86,7 +86,9 @@
 
   .column {
     width: 100%;
+    margin: 0 0 15px;
     @include md {
+      margin: 0;
       width: 33.3%;
     }
 
