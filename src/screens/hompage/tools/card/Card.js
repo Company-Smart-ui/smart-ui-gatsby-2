@@ -1,9 +1,11 @@
 import React from 'react';
 import * as style from "./card.module.scss";
+import {GatsbyImage, getImage} from "gatsby-plugin-image";
 
 export const Card = ({ content, indexEl, activeIndex }) => {
-  const { img, title, description } = content;
 
+  const { img, Title, Text } = content;
+  const image = getImage(img?.localFile );
   return (
     <div className={style.card}>
     <div
@@ -12,11 +14,11 @@ export const Card = ({ content, indexEl, activeIndex }) => {
       }
     >
       <div className="img-wrapper">
-        <img src={img} alt={title} />
+        <GatsbyImage alt={Title} image={image}/>
       </div>
       <div className="content-wrapper">
-        <div className="content-title">{title}</div>
-        <div className="content-description">{description}</div>
+        <div className="content-title">{Title}</div>
+        <div className="content-description">{Text}</div>
       </div>
     </div>
     </div>
