@@ -7,23 +7,65 @@ import { API } from "../../api/API";
 import { Link, navigate } from "gatsby";
 import { Loader } from "../../global/loader/loader";
 import { ContactCard } from "./contactCard/contactCard";
+import { FilterMessages } from "./filterMessages/filterMessages";
 
-const messages = [
-  {
-    attributes: {
-      title: "Hello. Contact with me please!",
-      message:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      isChecked: false,
-      date: new Date(),
-    },
-  },
-];
+const ARCHIVE_ENUM = {
+  all: 0,
+  new: 1,
+  archived: 2,
+};
 
 export const Admin = () => {
   const cookies = new Cookies();
   const { isOpen: loading, onClose: finishLoading } = useOpen(true);
   const [contacts, setContacts] = useState();
+  const [activeIndex, setActiveIndex] = useState(1);
+
+  const refreshArchivedData = (id) => {
+    return contacts.map((el) => {
+      if (el.id === id) {
+        const { isArchived } = el.attributes;
+        return {
+          ...el,
+          ...(el.attributes.isArchived = !isArchived),
+        };
+      }
+      return el;
+    });
+  };
+
+  const archivedHandler = (id) => {
+    const jwt = cookies.get("jwt");
+
+    if (!jwt) {
+      navigate("/login");
+    }
+
+    const currentMessage = contacts.find((el) => el.id === id);
+    const { isArchived } = currentMessage.attributes;
+
+    const body = {
+      data: {
+        isArchived: !isArchived,
+      },
+    };
+
+    axios
+      .put(`${API.CONTACT_FORM}/${id}`, body, {
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+        },
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          const newData = refreshArchivedData(id);
+          setContacts(newData);
+        }
+      })
+      .catch(function (e) {
+        alert(e);
+      });
+  };
 
   useEffect(() => {
     const jwt = cookies.get("jwt");
@@ -52,16 +94,38 @@ export const Admin = () => {
     // eslint-disable-next-line
   }, []);
 
+  const renderFilteredArr = (contactsArr) => {
+    if (activeIndex === ARCHIVE_ENUM.new) {
+      return contactsArr.filter((el) => !el.attributes.isArchived);
+    }
+    if (activeIndex === ARCHIVE_ENUM.archived) {
+      return contactsArr.filter((el) => el.attributes.isArchived);
+    }
+    return contactsArr;
+  };
+
   return (
     <section className={style.admin}>
-      <Link to={"/login"}> login </Link>
       {loading && <Loader />}
       <div className="container">
-        <h1 style={{ fontSize: 33 }}> contact form results </h1>
-        {/* messages should be replaced on contacts?.map */}
-        {messages?.map((contact, i) => {
-          return <ContactCard key={i} data={contact} />;
-        })}
+        <Link to={"/login"}> Logout </Link>
+        <FilterMessages
+          contacts={contacts}
+          activeIndex={activeIndex}
+          setActiveIndex={setActiveIndex}
+        />
+        <div className="contacts-list">
+          {contacts &&
+            renderFilteredArr(contacts).map((contact, i) => {
+              return (
+                <ContactCard
+                  key={i}
+                  data={contact}
+                  archivedHandler={archivedHandler}
+                />
+              );
+            })}
+        </div>
       </div>
     </section>
   );

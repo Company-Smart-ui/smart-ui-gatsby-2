@@ -1,4 +1,60 @@
+@import 'src/var';
+
 .contactCard {
   padding: 20px;
-  border: solid red 2px;
+  border-radius: 8px;
+  border: solid $Gray 1px;
+  -webkit-box-shadow: 7px 9px 20px -4px rgba(0, 0, 0, 0.26);
+  -moz-box-shadow: 7px 9px 20px -4px rgba(0, 0, 0, 0.26);
+  box-shadow: 7px 9px 20px -4px rgba(0, 0, 0, 0.26);
+
+  :global {
+    .date {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    input {
+      cursor: pointer;
+      width: 15px;
+      height: 15px;
+
+      &[type=checkbox] {
+        accent-color: $GrayBlue;
+      }
+    }
+
+    .message {
+      margin-top: 8px;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .control-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+
+      @include sm {
+        flex-direction: row;
+      }
+    }
+
+    .title-message {
+      margin-top: 8px;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .button {
+      max-height: 20px;
+      min-width: 60px;
+    }
+
+    .archive {
+      background: red;
+    }
+  }
 }
