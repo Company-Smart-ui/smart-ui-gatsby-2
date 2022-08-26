@@ -6,7 +6,7 @@ import Scroll from "./scroll.svg";
 export const SwipeTo = () => {
   const scroll = () => {
     window.scrollBy({
-      top: 500,
+      top:500,
       left: 0,
       behavior: "smooth",
     });

@@ -1,9 +1,9 @@
-import React from "react";
+import React  from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Card } from "../card/Card";
 import { cardsList } from "../card/CardList";
 import * as style from "./cardsSwiper.module.scss";
-
+import {useTranslation} from "react-i18next";
 import "swiper/css";
 import "swiper/css/free-mode";
 
@@ -13,7 +13,8 @@ export const CardsSwiper = ({
   setSwiperRef,
   activeIndex,
 }) => {
-
+    const {t} = useTranslation();
+    // console.log(t("tools_cards", { returnObjects: true }))
   return (
     <div className={style.cardsSwiper}>
       <Swiper
