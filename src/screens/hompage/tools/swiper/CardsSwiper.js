@@ -38,9 +38,6 @@ export const CardsSwiper = ({
     const cardData =  translatedText.map((text, i)=>{
         return {...text ,img:cardImages[i]?.node?.Img   }
     })
-    console.log(cardData)
-
-
   return (
     <div className={style.cardsSwiper}>
       <Swiper
