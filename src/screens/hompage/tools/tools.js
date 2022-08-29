@@ -3,7 +3,7 @@ import * as style from "./tools.module.scss";
 import { Pagination } from "../../../global/pagination/Pagination";
 import { CardsSwiper } from "./swiper/CardsSwiper";
 import { SwiperButtons } from "../../../global/swiperButtons/SwiperButtons";
-import { cardsList } from "./card/CardList";
+
 import { SwipeTo } from "../../../global/swipeTo/swipeTo";
 import { useTranslation } from "react-i18next";
 
@@ -16,12 +16,14 @@ export const Tools = () => {
 
   const setActiveHandler = () => setActiveIndex(swiperRef?.realIndex);
 
-  const sliderLength = cardsList.length;
 
   useEffect(() => {
     setActiveIndex(0);
   }, []);
+
   const { t } = useTranslation();
+
+  const sliderLength = t("tools_cards", { returnObjects: true }).length;
   return (
     <div className={`${style.tools} vertical-padding`}>
       <div className="yCircle" />
@@ -31,12 +33,11 @@ export const Tools = () => {
           <div className="title-container">
             <div className="title-content">
               <p className="second-title">{t("tools_small_title")}</p>
-              <h2 className="h2 title">Tools We Use</h2>
+              <h2 className="h2 title"> {t("tools_big_title")}</h2>
               <p className="subtitle description">
-                Contact that lead developer and discuss technical points in
-                detail
+                {t("tools_text")}
               </p>
-              <button className="button">Contact the lead developer</button>
+              <button className="button"> {t('tools_btn')}</button>
               <div className="swiperTips">
                 <SwipeTo />
               </div>
