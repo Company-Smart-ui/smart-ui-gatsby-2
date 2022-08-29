@@ -34,10 +34,14 @@ export const CardsSwiper = ({
   `)
 
     const cardImages= dataImg?.img?.edges||[];
-    const translatedText = t("tools_cards", { returnObjects: true });
-    const cardData =  translatedText.map((text, i)=>{
-        return {...text ,img:cardImages[i]?.node?.Img   }
-    })
+
+    const translatedText = t("tools_cards", { returnObjects: true })||[];
+    let cardData = [];
+        if(Array.isArray(translatedText)){
+              cardData =  translatedText.map((text, i)=>{
+                return {...text ,img:cardImages[i]?.node?.Img   }
+            })
+        }
   return (
     <div className={style.cardsSwiper}>
       <Swiper

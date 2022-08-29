@@ -1,0 +1,74 @@
+.select{
+ *{
+   cursor:pointer;
+ }
+  outline:none;
+  &:focus{
+    outline: none ;
+  }
+
+      :global{
+        .s__control{
+          min-height: 20px;
+          line-height: 1;
+          border:none;
+          outline:none;
+          box-shadow: none;
+          border-radius:  16px 16px 0 0 ;
+          .s__value-container{
+            margin-left: 1px;
+            padding: 6px 5px 2px 12px;
+          }
+        }
+        .s__control--menu-is-open{
+          box-shadow: 0  -5px 5px rgba(0, 0, 0, 0.02);
+        }
+        .s__menu{
+          padding-bottom: 6px;
+          margin: 0;
+          border-radius:0 0 16px 16px;
+          box-shadow: 0  5.5px 5.5px rgba(0, 0, 0, 0.02);
+          overflow: hidden;
+
+        }
+        .s__dropdown-indicator{
+          padding-right: 6px;
+          padding-left:0;
+          padding-bottom: 4px;
+            svg{
+               fill:#373D59;
+              width: 31px;
+            }
+        }
+        .s__option , .s__value-container{
+          cursor:pointer;
+          min-width: 77px;
+          padding: 5px 5px 5px 15px;
+          background-color: #fff;
+          font-size: 14px;
+          line-height: 20px;
+        }
+        .s__option{
+          &:hover{
+            font-weight: 600;
+          }
+          &:active{
+            font-weight: 500;
+            background-color: transparent;
+          }
+        }
+        .s__option--is-selected{
+          display: none;
+        }
+        .s__control--menu-is-open{
+
+          .s__dropdown-indicator{
+              svg{
+                transform:rotate(180deg);
+              }
+
+          }
+        }
+      }
+}
+
