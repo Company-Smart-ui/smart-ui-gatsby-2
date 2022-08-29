@@ -1,15 +1,26 @@
 import React, { useRef } from "react";
 import * as style from "./modalForm.module.scss";
 import { Messenger } from "../../../../global/messengers/messengers.js";
-import { Input } from "../../../../global/input/input";
-import { Textarea } from "../../../../global/textarea/textarea";
+import { FormField } from "../../../../global/formField/formField";
 import { useEffect } from "react";
 import {useOpen} from "../../../../hooks/useOpen";
 import {useOnClickOutside} from "../../../../hooks/useOnClickOutside";
 import {sendForm} from "../../../../api/contactForm";
+import { useForm } from "react-hook-form";
 
 export const ModalForm = ({ onClose, dataText, isShow = true }) => {
   const {isOpen: isFade, onOpen: fadeIn, onClose: fadeOut}= useOpen(false);
+  const { register, handleSubmit } = useForm({
+    mode: "onBlur",
+  });
+
+  function onSubmit(data, e) {
+    console.log(data)
+    e.preventDefault()
+
+    sendForm({e,type:'return message', data: {...data}})
+
+  }
 
   const modalRef = useRef();
 
@@ -30,13 +41,17 @@ export const ModalForm = ({ onClose, dataText, isShow = true }) => {
   }, [fadeIn])
   return (
     <div ref={modalRef} className={[style.modal, isFade ? style.open : ''].join(' ') }>
-      <form onSubmit={(e)=>sendForm({e,type:'return message', data: {message:'hello' , contact:'Hello world '}})} className={style.form}>
+      <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
         <h3>{dataText.title}</h3>
         <Messenger />
         <p>{dataText.subtitle}</p>
-        <Input placeholder={dataText.input} />
+        <FormField placeholder={dataText.input} >
+          <input  {...register("contact", { required: true, maxLength: 20 })} placeholder={dataText.input} type={'text'} />
+        </FormField>
 
-        <Textarea placeholder={dataText.textarea} />
+        <FormField placeholder={dataText.textarea}>
+          <textarea {...register("message", { required: true, maxLength: 300 })} placeholder={dataText.textarea}></textarea>
+          </FormField>
 
         {
           isShow && <p className="md-only"> {dataText.eeo}</p>

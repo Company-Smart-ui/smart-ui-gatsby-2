@@ -4,11 +4,11 @@
   position: relative;
   margin-bottom: 25px;
   width: 100%;
-
   @include md {
     margin-bottom: 55px;
   }
 
+  input,
   textarea {
     background: none;
     border: none;
@@ -19,7 +19,6 @@
     z-index: 1;
     font-size: 14px;
     font-family: $fontText;
-    resize: none;
     @include md {
       font-size: 18px;
     }
@@ -44,15 +43,15 @@
       & + fieldset {
         border: 1px solid $MediumSeaGreen;
         top: -10px;
+        padding-top: 0;
+        transition: 0;
 
         legend {
           font-size: 10px;
-          left: 10px;
         }
       }
     }
   }
-
   fieldset {
     position: absolute;
     top: 0;
@@ -68,5 +67,9 @@
   legend {
     transition: 0.3s ease-in-out;
     font-size: 0;
+  }
+
+  textarea {
+    resize: none;
   }
 }
