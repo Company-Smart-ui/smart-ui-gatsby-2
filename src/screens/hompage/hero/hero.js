@@ -12,8 +12,10 @@ export const Hero = () => {
     useEffect(() => {
         const layout = window
         const scrollHandler = () => {
-            if(layout.scrollY<300){
+            if(layout.scrollY<400){
                 setTransformScroll(Math.round(-layout.scrollY / 2))
+            }else {
+                setTransformScroll(Math.round(-400 / 2))
             }
         }
         layout.addEventListener('scroll', scrollHandler);
