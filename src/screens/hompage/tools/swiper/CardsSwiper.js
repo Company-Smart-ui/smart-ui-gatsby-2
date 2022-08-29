@@ -1,11 +1,11 @@
-import React from "react";
+import React  from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Card } from "../card/Card";
-import { cardsList } from "../card/CardList";
 import * as style from "./cardsSwiper.module.scss";
-
+import {useTranslation} from "react-i18next";
 import "swiper/css";
 import "swiper/css/free-mode";
+import {graphql, useStaticQuery} from "gatsby";
 
 
 export const CardsSwiper = ({
@@ -13,7 +13,31 @@ export const CardsSwiper = ({
   setSwiperRef,
   activeIndex,
 }) => {
+    const {t} = useTranslation();
 
+    const dataImg = useStaticQuery(graphql`
+    query {
+     img: allStrapiComponentCardsCardTools {
+        edges {
+          node {
+            Img {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+    const cardImages= dataImg?.img?.edges||[];
+    const translatedText = t("tools_cards", { returnObjects: true });
+    const cardData =  translatedText.map((text, i)=>{
+        return {...text ,img:cardImages[i]?.node?.Img   }
+    })
   return (
     <div className={style.cardsSwiper}>
       <Swiper
@@ -40,7 +64,7 @@ export const CardsSwiper = ({
         loop={true}
         onSlideChange={setActiveHandler}
       >
-        {cardsList.map((el, index) => (
+        {cardData.map((el, index) => (
           <SwiperSlide key={el.id}>
             <Card content={el} activeIndex={activeIndex} indexEl={index} />
           </SwiperSlide>

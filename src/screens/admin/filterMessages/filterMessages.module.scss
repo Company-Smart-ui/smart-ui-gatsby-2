@@ -1,0 +1,46 @@
+@import 'src/var';
+
+.list {
+  display: flex;
+  margin-top: 12px;
+  gap: 12px;
+
+  :global {
+    .item-button {
+      display: flex;
+      gap: 4px;
+      padding: 4px 0;
+      font-size: 14px;
+      color: $GrayBlue;
+      font-weight: 500;
+    }
+    
+    .dot {
+      border-radius: 50%;
+      width: 3px;
+      height: 3px;
+      background-color: $GrayBlue;
+    }
+
+    .dot-active {
+      background-color: $MediumSeaGreen;
+    }
+
+    .active {
+      position: relative;
+        color: $MediumSeaGreen;
+
+        ::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          bottom: 0;
+          left: 0;
+          background-color: $MediumSeaGreen;
+          border-radius: 1px;
+        }
+    }
+  }
+}
+
