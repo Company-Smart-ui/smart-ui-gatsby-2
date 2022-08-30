@@ -9,7 +9,7 @@ import Img from './pointer.svg';
 import Scroll from './scroll.svg';
 import { GetInTouch } from './getInTouch/getInTouch';
 import * as style from "./footer.module.scss"
-
+import {useTranslation} from "react-i18next";
 const footerMenu = [
     {
         text: `<p>Our Contact</p><a href="tel:+380935046334"><img src=${Phone} /> +38 (093) 504 63 34</a><a href="mailto:info@smart-ui.pro"><img src=${Mail} /> info@smart-ui.pro</a>`,
@@ -51,8 +51,10 @@ export const BackToTop = () => {
  
 
 
-export const Footer = () => {
-
+export const Footer = ( ) => {
+            const {t} = useTranslation();
+    // const translatedText = t("Footer", { returnObjects: true })||[];
+ // соня это тебе
      return <>
         <GetInTouch />
         <footer className={style.footer}>
