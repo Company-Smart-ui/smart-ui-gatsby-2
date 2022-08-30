@@ -21,11 +21,10 @@ export const ModalForm = ({ onClose, dataText, isShow = true }) => {
   function onSubmit(data, e) {
     e.preventDefault();
 
-    sendForm({ e, type: "request consultation", data: { ...data } });
+    sendForm({ type: "request consultation", data: { ...data } });
 
-    setTimeout(() => {
-        reset()
-    }, 100)
+    reset();
+    fadeOut();
   }
 
   const modalRef = useRef();
@@ -52,7 +51,7 @@ export const ModalForm = ({ onClose, dataText, isShow = true }) => {
         <p>{dataText.subtitle}</p>
         <FormField placeholder={dataText.input} >
           <input  {...register("contact", { required: true, maxLength: { value: 150, message: "Not more than 150 symbols" }, })} placeholder={dataText.input} type={'text'} />
-          {errors.firstName && (
+          {errors.contact && (
               <span className="error">{errors.contact.message}</span>
             )}
         </FormField>
@@ -65,6 +64,9 @@ export const ModalForm = ({ onClose, dataText, isShow = true }) => {
               })}
               placeholder={dataText.textarea}
             ></textarea>
+            {errors.message && (
+              <span className="error">{errors.message.message}</span>
+            )}
           </FormField>
 
         {
