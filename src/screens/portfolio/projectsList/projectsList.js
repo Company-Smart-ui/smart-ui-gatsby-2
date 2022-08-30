@@ -3,13 +3,13 @@ import * as style from "./projectsList.module.scss";
 import { ItemsPerPage } from "../../../components/itemsPerPage/itemsPerPage";
 import { Pagination } from "../../../components/pagination/pagination";
 
-export const ProjectsList = ({ worksList }) => {
+export const ProjectsList = ({ listCardsProjects }) => {
   const [itemsPerPage, setItemsPerPage] = useState({
     value: "10",
     label: "10 Rows",
   });
   const [itemOffset, setItemOffset] = useState(4);
-  const itemsCount = { data: worksList.length };
+  const itemsCount = { data: listCardsProjects.length };
   // const { data: itemsCount } = useQuery([API], () =>
   //     LeaderBoardService.getAllCount()
   // );

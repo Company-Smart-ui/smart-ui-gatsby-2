@@ -2,16 +2,18 @@ import React, { useState } from "react";
 import * as style from "./clientsReview.module.scss";
 import { ReviewCard } from "./card/reviewCard";
 import { Pagination } from "../../../components/pagination/pagination";
-import { reviewOptions } from "./reviewList";
+import { reviewsList } from "./data";
 
 export const ClientsReview = () => {
-  const [cards, setCards] = useState(reviewOptions);
+  const [cards, setCards] = useState(reviewsList);
   const [itemOffset, setItemOffset] = useState(1);
 
   const itemsCount = { data: cards.length };
 
   return (
     <div className={`${style.review} vertical-padding`}>
+      <div className="bCircle md-only" />
+      <div className="noise" />
       <div className="container">
         <div className="container-grid">
           <div className="title-section">
@@ -22,17 +24,17 @@ export const ClientsReview = () => {
             <div className="subtitle">
               We will help to develop your best project based on your idea.
             </div>
-            <button className="button">Leave a comment</button>
+            <button className="button overlay">Leave a comment</button>
           </div>
           <div className="review-section">
-          <div className="title">What others are saying</div>
+            <div className="title">What others are saying</div>
             <div className="list">
               {cards.slice(0, 2).map((el) => (
                 <ReviewCard key={el.id} content={el} />
               ))}
             </div>
           </div>
-          <div className="pagination-section">
+          <div className="pagination-section overlay">
             <Pagination
               itemsPerPage={2}
               {...{

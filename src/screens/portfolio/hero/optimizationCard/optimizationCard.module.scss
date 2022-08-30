@@ -1,0 +1,89 @@
+@import "src/var";
+
+.optimization_card {
+  margin: 0 auto;
+  margin-top: 16px;
+  flex-direction: column;
+  display: flex;
+  max-width: 275px;
+  background-color: rgba(250, 253, 255, 0.9);
+  box-shadow: 0px 3.1339px 3.1339px rgba(0, 0, 0, 0.25);
+
+  @include md {
+    margin-top: 0;
+  }
+
+@include lg {
+  margin-top: 0;
+}
+  :global {
+    .wrapper {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      border-bottom: 1px solid #D3D4DC;
+
+      .info {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background-color: rgba(189, 189, 189, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          width: 3px;
+          height: 10px;
+        }
+      }
+    }
+
+    .img {
+      width: 36px;
+      height: 32px;
+    }
+
+    .vidget {
+      flex-direction: column;
+      align-items: center;
+
+      .title {
+        margin-top: 10px;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.5;
+      }
+
+      .check {
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 1.5;
+      }
+
+      .control {
+        width: 80px;
+        height: 80px;
+      }
+
+      .progress-text {
+        height: 80px;
+      }
+    }
+
+    .speed-wrapper {
+      .speed {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.2;
+        color: $GrayBlue;
+      }
+
+      .description {
+        font-size: 8px;
+        margin-top: 5px;
+        line-height: 1.33;
+      }
+    }
+  }
+}

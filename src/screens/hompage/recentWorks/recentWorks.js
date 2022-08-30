@@ -3,7 +3,7 @@ import { SwiperButtons } from "../../../global/swiperButtons/SwiperButtons";
 import * as style from "./recentWorks.module.scss";
 import { WorksSwiper } from "./swiper/WorksSwiper";
 import { Pagination } from "../../../global/pagination/Pagination";
-import { worksList } from "./card/WorksList";
+import { listCardsProjects } from "../../portfolio/hero/data";
 
 export const RecentWorks = () => {
   const [swiperRef, setSwiperRef] = useState(null);
@@ -34,7 +34,7 @@ export const RecentWorks = () => {
             </button>
             <div className="content-container">
               <div className="pagination-wrapper">
-                <Pagination activeIdx={activeIndex} sliderLength={worksList.length} />
+                <Pagination activeIdx={activeIndex} sliderLength={listCardsProjects.length} />
               </div>
               <WorksSwiper
                 setActiveHandler={setActiveHandler}

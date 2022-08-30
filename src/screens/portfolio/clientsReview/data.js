@@ -1,4 +1,4 @@
-export const reviewOptions = [
+export const reviewsList = [
   {
     id: "1",
     name: "Dash Boston 1",

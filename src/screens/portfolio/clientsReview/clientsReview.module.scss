@@ -1,7 +1,7 @@
 @import 'src/var';
 
 .review {
-
+position: relative;
   :global {
     .yCircle {
       position: absolute;
@@ -9,6 +9,19 @@
       height: 80px;
       left: -5px;
       top: -13px;
+    }
+
+    .bCircle {
+      position: absolute;
+      width: 534px;
+      height: 534px;
+      right: -40%;
+      top: 0;
+      z-index: 1;
+    }
+
+    .noise {
+      z-index: 1;
     }
 
     // General component
