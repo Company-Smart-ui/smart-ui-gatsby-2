@@ -3,9 +3,11 @@
 .hero {
   padding: 120px 0 40px 0;
   position: relative;
+
   @include md {
     padding: 140px 0 80px 0;
   }
+
   @include lg {
     padding: 230px 0 80px 0;
   }
@@ -17,6 +19,7 @@
   .overlay {
     z-index: 2;
     position: relative;
+
     h1 {
       margin-bottom: 10px;
       position: relative;
@@ -24,45 +27,59 @@
   }
 
   .speed {
-    background: rgba(250, 253, 255, 0.9);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 40px;
+    // background: rgba(250, 253, 255, 0.9);
+    // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     .top {
-      border-bottom: 2px solid #d3d4dc;
+      // border-bottom: 2px solid #d3d4dc;
       display: flex;
-      justify-content: space-between;
+      gap: 12px;
       align-items: flex-start;
+      row-gap: 12px;
+      overflow-x: scroll;
+      padding: 12px 6px;
+
+      @include xl {
+        overflow-x: visible;
+      }
     }
   }
 
   :global {
-    .yCircle{
+    .yCircle {
       position: absolute;
       left: 0;
       top: 0;
       height: 24vw;
-      &.left{
-        transform:translate(-60% , -60%);
-      }
-      &.right{
-        height:80px;
 
-        @include xl{
+      &.left {
+        transform: translate(-60%, -60%);
+      }
+
+      &.right {
+        height: 80px;
+
+        @include xl {
           height: 160px;
         }
-        transform:translate(10% , 10%);
+
+        transform:translate(10%, 10%);
       }
     }
+
     .bCircle {
       position: absolute;
       top: 60px;
       bottom: 200px;
       left: 100%;
       transform: translateX(max(-50%, calc(-35vw + 100px)));
+
       @include sm {
         top: 0;
         bottom: 0;
       }
+
       @include lg {
         top: 20px;
         bottom: 20px;
@@ -97,13 +114,16 @@
         transform: none;
         top: 75px;
         opacity: 0;
+
         @include md {
           left: 84px;
           max-width: 600px;
         }
+
         @include lg {
           max-width: 750px;
         }
+
         @include xxl {
           left: calc((50% - 1720px / 2) + 84px);
         }
@@ -120,6 +140,147 @@
           opacity: 1;
         }
       }
+    }
+
+    .filter-buttons {
+      cursor: pointer;
+      display: inline-block;
+      padding: 7px 34px;
+      font-size: 16px;
+      outline: solid;
+      border-radius: 30px;
+      font-weight: 500;
+      color: $Gray;
+      letter-spacing: -0.04em;
+
+      &.active {
+        background-color: $Lime;
+        color: $White;
+        outline: none;
+      }
+    }
+
+    .cards-list {
+      margin: 30px auto;
+      margin-bottom: 0;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+
+      @include md {
+        max-width: 628px;
+        gap: 32px;
+        padding: 0 23px;
+      }
+
+      @include lg {
+        max-width: 824px;
+        padding: 0 121px;
+      }
+
+      @include xl {
+        max-width: 1240px;
+        column-gap: 86px;
+        row-gap: 43px;
+      }
+
+      @include xxl {
+        max-width: 1340px;
+        column-gap: 32px;
+        row-gap: 32px;
+        padding: 0 66px;
+      }
+    }
+
+    .swiper {
+      padding: 30px 0;
+      width: 100%;
+      // width: 275px;
+      // margin: 0 auto;
+    }
+
+    .swiper-wrapper {
+      // max-width: 275px;
+      margin: 0 auto;
+    }
+
+    .swiper-slide {
+      max-width: 275px;
+    }
+
+    .reset-padding-right {
+      padding-right: 0;
+    }
+
+    .optimization-card {
+      margin: 0 auto;
+      margin-top: 16px;
+      flex-direction: column;
+      display: flex;
+      max-width: 275px;
+      background-color: rgba(250, 253, 255, 0.9);
+      box-shadow: 0px 3.1339px 3.1339px rgba(0, 0, 0, 0.25);
+      // padding: 20px;
+
+      .wrapper {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        border-bottom: 1px solid #D3D4DC;
+
+        .info {
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          background-color: rgba(189, 189, 189, 0.5);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          img {
+            width: 3px;
+            height: 10px;
+          }
+        }
+      }
+
+      .img {
+        width: 36px;
+        height: 32px;
+      }
+
+      .vidget {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+
+        .title {
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 1.5;
+        }
+
+        .check {
+          font-weight: 300;
+        }
+      }
+    }
+
+    .speed-wrapper {
+
+      .speed {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.2;
+        color: $GrayBlue;
+      }
+
+      .description {
+        font-size: 8px;
+        margin-top: 5px;
+        line-height: 1.33;
+      }
+
     }
   }
 }

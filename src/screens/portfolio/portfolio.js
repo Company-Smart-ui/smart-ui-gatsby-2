@@ -8,7 +8,7 @@ export const Portfolio = () => {
     return (
         <div className={style.portfolio}>
             <Hero />
-            <ProjectsList/>
+            {/* <ProjectsList/> */}
             <ClientsReview />
         </div>
     )

@@ -1,0 +1,98 @@
+@import 'src/var';
+
+
+.card {
+  max-width: 275px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1)) drop-shadow(0px 16px 16px rgba(0, 0, 0, 0.05));
+  margin: 0 auto;
+
+  :global {
+    .cards-container {
+      background-color: $White;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .content-wrapper {
+      padding: 20px;
+      min-height: 232px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      @include md {
+        align-items: flex-start;
+        min-height: 232px;
+      }
+    }
+
+    .technology {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+
+      img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    .img-wrapper {
+      height: 212px;
+
+      // img {
+      //   margin: 0;
+      //   object-fit: cover;
+      // }
+    }
+
+    .content-description {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.2;
+      color: $Gray;
+      text-align: start;
+      margin-top: 8px;
+      min-height: 40px;
+
+      @include md {
+        margin-top: 10px;
+      }
+
+      @include lg {
+        font-size: 12px;
+      }
+    }
+
+    .content-title {
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: -0.045em;
+      text-align: start;
+
+      @include md {
+        font-size: 20px;
+      }
+
+      @include lg {
+        font-size: 16px;
+      }
+    }
+
+    .content-link {
+      color: $MediumSeaGreen;
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .button {
+      background-color: $MediumSeaGreen;
+      padding: 12px 38px;
+      line-height: 1.7;
+      min-width: 168px;
+      margin: 0 auto;
+    }
+  }
+}
