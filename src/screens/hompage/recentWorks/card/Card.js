@@ -2,6 +2,7 @@ import React from "react";
 import * as style from "./card.module.scss";
 import wordpressImg from "./wordpress.png";
 import reactImg from "./react.png";
+import {PageSpeed} from "../../../../components/pageSpeed/pageSpeed";
 
 export const Card = ({ content }) => {
   const { img, title, description, link, technology } = content;
@@ -10,13 +11,9 @@ export const Card = ({ content }) => {
     <div className={style.card}>
       <div className="cards-container">
       <div className="technology">
-        {technology === "wordpress" && (
           <img src={wordpressImg} alt="wordpress" />
-        )}
-         {technology === "react" && (
-          <img src={reactImg} alt="react" />
-        )}
       </div>
+          <PageSpeed/>
       <div className="img-wrapper">
         <img src={img} alt={title} />
       </div>

@@ -10,6 +10,7 @@ import {Messenger} from "../../../global/messengers/messengers.js";
 
 import {I18nextContext, Link} from 'gatsby-plugin-react-i18next';
 import {LangSwitch} from "../langSwitch/langSwitch";
+import {useNoScroll} from "../../../hooks/useNoScroll";
 export const NAVIGATION = {
     home: {text:'Home' , link:'/home/'},
     team: {text:'Our team', link:'/team/'},
@@ -18,7 +19,6 @@ export const NAVIGATION = {
 
 export const Header = ({path}) => {
     const {language:currentLng} =  useContext(I18nextContext);
-
     const {isOpen:scrolled ,onOpen:onScrolled , onClose:offScrolled} =useOpen();
     useEffect(()=>{
         const scrollHandler = ()=>{
@@ -31,7 +31,8 @@ export const Header = ({path}) => {
         window.addEventListener('scroll', scrollHandler );
         return ()=>window.removeEventListener('scroll',scrollHandler)
     },[onScrolled, offScrolled])
-    const {isOpen ,onToggle} =useOpen();
+    const {isOpen ,onToggle ,onClose} =useOpen();
+    useNoScroll(isOpen)
     return <header className={[scrolled?style.scrolled:" ",  style.header ,   isOpen? style.open: " "].join(' ')}>
             <Burger {...{isOpen, onToggle}} />
         <div className={style.logo }>
@@ -46,7 +47,7 @@ export const Header = ({path}) => {
                 <ul   className={'navList'}>
                     {Object.entries(NAVIGATION).map((item ,i)=>{
                         const data = item[1];
-                        return <NavItem   {...data } currentLng={currentLng} active={path===data.link.replace(/\//g,'')} key={i} id={i}/>
+                        return <NavItem   {...data } currentLng={currentLng} onClose={onClose} active={path===data.link.replace(/\//g,'')} key={i} id={i}/>
                     })}
                 </ul>
                 <LangSwitch delay={ (Object.entries(NAVIGATION).length+1)/5 }  />

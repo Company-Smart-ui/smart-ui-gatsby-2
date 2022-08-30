@@ -99,3 +99,35 @@
     max-height: 3000px;
   }
 }
+
+@keyframes p50 {
+  0% {
+    stroke: red;
+    fill: rgba(253, 182, 182, 0.993)
+  }
+
+  100% {
+    stroke: #ffa400;
+    fill: #f8d59460;
+  }
+
+}
+
+@keyframes p90 {
+  0% {
+    stroke: red;
+    fill: rgba(250, 188, 188, 0.993)
+  }
+
+  50% {
+    stroke: #ffa400;
+    fill: #f8f0e2;
+  }
+
+
+
+  100% {
+    stroke: #0cce6b;
+    fill: #d9fcea;
+  }
+}
