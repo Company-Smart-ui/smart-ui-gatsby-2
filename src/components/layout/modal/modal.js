@@ -13,11 +13,11 @@ const modalText = {
     submit: 'Yes, confirm',
 }
 
-export const Modal = ({text = 'return message', dataText = modalText, isShow}) => {
+export const Modal = ({text = 'request consultation', dataText = modalText, isShow}) => {
     const {isOpen, onClose, onOpen}= useOpen(false);
 
     return <div className={style.wrapper + " modal"}>
-        <button className={["button openBtn", style.btn, isOpen ? style.disabled : ''].join(' ') } onClick={onOpen} >{text}</button>
+        <button className={["button openBtn", style.btn, (isOpen ? style.disabled : '')].join(' ') } onClick={onOpen} >{text}</button>
         {
             isOpen && <ModalForm dataText={dataText} onClose={onClose} isShow={isShow} /> 
 

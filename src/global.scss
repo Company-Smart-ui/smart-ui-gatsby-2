@@ -222,6 +222,14 @@ h1 {
   .nowrap{
     white-space: nowrap;
   }
+  /* form validation */
+  .error {
+    color: red;
+    font-size: 14px;
+    position: absolute;
+    bottom: -20px;
+    left: 5px;
+  }
 
 /* width */
 ::-webkit-scrollbar {

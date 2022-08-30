@@ -1,15 +1,31 @@
 import React, { useRef } from "react";
 import * as style from "./modalForm.module.scss";
-import { Messenger } from "../../../../global/messengers/messengers.js";
-import { Input } from "../../../../global/input/input";
-import { Textarea } from "../../../../global/textarea/textarea";
+import { FormField } from "../../../../global/formField/formField";
 import { useEffect } from "react";
 import {useOpen} from "../../../../hooks/useOpen";
 import {useOnClickOutside} from "../../../../hooks/useOnClickOutside";
 import {sendForm} from "../../../../api/contactForm";
+import { useForm } from "react-hook-form";
 
 export const ModalForm = ({ onClose, dataText, isShow = true }) => {
   const {isOpen: isFade, onOpen: fadeIn, onClose: fadeOut}= useOpen(false);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm({
+    mode: "onChange",
+  });
+
+  function onSubmit(data, e) {
+    e.preventDefault();
+
+    sendForm({ type: "request consultation", data: { ...data } });
+
+    reset();
+    fadeOut();
+  }
 
   const modalRef = useRef();
 
@@ -30,13 +46,28 @@ export const ModalForm = ({ onClose, dataText, isShow = true }) => {
   }, [fadeIn])
   return (
     <div ref={modalRef} className={[style.modal, isFade ? style.open : ''].join(' ') }>
-      <form onSubmit={(e)=>sendForm({e,type:'return message', data: {message:'hello' , contact:'Hello world '}})} className={style.form}>
+      <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
         <h3>{dataText.title}</h3>
-        <Messenger />
         <p>{dataText.subtitle}</p>
-        <Input placeholder={dataText.input} />
+        <FormField placeholder={dataText.input} >
+          <input  {...register("contact", { required: true, maxLength: { value: 150, message: "Not more than 150 symbols" }, })} placeholder={dataText.input} type={'text'} />
+          {errors.contact && (
+              <span className="error">{errors.contact.message}</span>
+            )}
+        </FormField>
 
-        <Textarea placeholder={dataText.textarea} />
+        <FormField placeholder={dataText.textarea}>
+            <textarea
+              {...register("message", {
+                required: true,
+                maxLength: { value: 300, message: "Not more than 300 symbols" },
+              })}
+              placeholder={dataText.textarea}
+            ></textarea>
+            {errors.message && (
+              <span className="error">{errors.message.message}</span>
+            )}
+          </FormField>
 
         {
           isShow && <p className="md-only"> {dataText.eeo}</p>
@@ -47,6 +78,7 @@ export const ModalForm = ({ onClose, dataText, isShow = true }) => {
             className="reset"
             type="reset"
             onClick={fadeOutHandle}
+            disabled={isSubmitting}
           >
             {dataText.resetBtn}
           </button>

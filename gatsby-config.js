@@ -8,6 +8,11 @@ const strapiConfig = {
         queryParams: {
             populate:  "deep"
         },
+    }, {
+        singularName: 'global',
+        queryParams: {
+            populate:  "deep"
+        },
     },],
     queryLimit: 1000,
 };

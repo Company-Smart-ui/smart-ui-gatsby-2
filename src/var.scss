@@ -24,6 +24,7 @@ $title: #6F6C8F;
 
 $DarkGray: #4F4F4F;
 
+
 @mixin sm {
   @media (min-width:$sm) {
     @content

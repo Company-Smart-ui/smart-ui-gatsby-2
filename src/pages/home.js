@@ -3,8 +3,8 @@ import {HomePage} from "../screens/hompage/homePage";
 import {graphql} from "gatsby";
 
 export const query = graphql`
-  query ($language: String ,$pageName:String ) {
-   locales: allLocale(filter: {language: {eq: $language}, ns: {eq: $pageName}}) {
+  query ($language: String ,$pageName:[String] ) {
+   locales: allLocale(filter: {language: {eq: $language}, ns: {in: $pageName}}) {
       edges {
         node { 
           ns
