@@ -76,11 +76,11 @@ export const Login = () => {
         <form onSubmit={loginHandler}>
           <div className="form-wrapper">
             <div className="form-row">
-              <input name={"identifier"} type="text" required />
+              <input id='identifier' name={"identifier"} type="text" required />
               <label for="identifier">Login</label>
             </div>
             <div className="form-row">
-              <input name={"password"} type="password" required />
+              <input id='password' name={"password"} type="password" required />
               <label for="password">Password</label>
             </div>
             <button type={"submit"} className="button">

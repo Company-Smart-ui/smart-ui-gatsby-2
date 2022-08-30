@@ -13,7 +13,7 @@ const modalText = {
     submit: 'Yes, confirm',
 }
 
-export const Modal = ({text = 'return message', dataText = modalText, isShow}) => {
+export const Modal = ({text = 'request consultation', dataText = modalText, isShow}) => {
     const {isOpen, onClose, onOpen}= useOpen(false);
 
     return <div className={style.wrapper + " modal"}>
