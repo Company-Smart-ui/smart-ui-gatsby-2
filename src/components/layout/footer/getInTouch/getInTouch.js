@@ -4,6 +4,8 @@ import { StaticImage } from "gatsby-plugin-image";
 import { FormField } from "../../../../global/formField/formField";
 import { useForm } from "react-hook-form";
 import { sendForm } from "../../../../api/contactForm";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const formTitle = {
   text: "Lets Get In Touch",
@@ -21,7 +23,7 @@ export const GetInTouch = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting, isValid, isSubmitted },
+    formState: { errors, isSubmitting },
   } = useForm({
     mode: "onChange",
   });
@@ -29,10 +31,11 @@ export const GetInTouch = () => {
   function onSubmit(data, e) {
     e.preventDefault();
 
-    sendForm({ e, type: "get in touch", data: { ...data } });
+    sendForm({ e, type: "footer", data: { ...data } });
 
     setTimeout(() => {
         reset()
+
     }, 100)
   }
 
@@ -50,7 +53,7 @@ export const GetInTouch = () => {
                 minLength: { value: 2, message: "Not less than 5 symbols" },
                 maxLength: { value: 30, message: "Not more than 30 symbols" },
                 pattern: {
-                  value: /^[A-Za-z]+$/i,
+                  value:/([а-яА-яa-zA-z]+\s)+([а-яА-яa-zA-z]+)/ig,
                   message: "Please, use only letters",
                 },
               })}
@@ -97,6 +100,7 @@ export const GetInTouch = () => {
             {defaultData.button}
           </button>
         </form>
+        <ToastContainer />
         <div className={style.img}>
           <StaticImage
             className={"sm-only"}

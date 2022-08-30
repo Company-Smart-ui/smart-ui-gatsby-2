@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import * as style from "./modalForm.module.scss";
-import { Messenger } from "../../../../global/messengers/messengers.js";
 import { FormField } from "../../../../global/formField/formField";
 import { useEffect } from "react";
 import {useOpen} from "../../../../hooks/useOpen";
@@ -10,16 +9,23 @@ import { useForm } from "react-hook-form";
 
 export const ModalForm = ({ onClose, dataText, isShow = true }) => {
   const {isOpen: isFade, onOpen: fadeIn, onClose: fadeOut}= useOpen(false);
-  const { register, handleSubmit } = useForm({
-    mode: "onBlur",
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm({
+    mode: "onChange",
   });
 
   function onSubmit(data, e) {
-    console.log(data)
-    e.preventDefault()
+    e.preventDefault();
 
-    sendForm({e,type:'return message', data: {...data}})
+    sendForm({ e, type: "request consultation", data: { ...data } });
 
+    setTimeout(() => {
+        reset()
+    }, 100)
   }
 
   const modalRef = useRef();
@@ -43,14 +49,22 @@ export const ModalForm = ({ onClose, dataText, isShow = true }) => {
     <div ref={modalRef} className={[style.modal, isFade ? style.open : ''].join(' ') }>
       <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
         <h3>{dataText.title}</h3>
-        <Messenger />
         <p>{dataText.subtitle}</p>
         <FormField placeholder={dataText.input} >
-          <input  {...register("contact", { required: true, maxLength: 20 })} placeholder={dataText.input} type={'text'} />
+          <input  {...register("contact", { required: true, maxLength: { value: 150, message: "Not more than 150 symbols" }, })} placeholder={dataText.input} type={'text'} />
+          {errors.firstName && (
+              <span className="error">{errors.contact.message}</span>
+            )}
         </FormField>
 
         <FormField placeholder={dataText.textarea}>
-          <textarea {...register("message", { required: true, maxLength: 300 })} placeholder={dataText.textarea}></textarea>
+            <textarea
+              {...register("message", {
+                required: true,
+                maxLength: { value: 300, message: "Not more than 300 symbols" },
+              })}
+              placeholder={dataText.textarea}
+            ></textarea>
           </FormField>
 
         {
@@ -62,6 +76,7 @@ export const ModalForm = ({ onClose, dataText, isShow = true }) => {
             className="reset"
             type="reset"
             onClick={fadeOutHandle}
+            disabled={isSubmitting}
           >
             {dataText.resetBtn}
           </button>
