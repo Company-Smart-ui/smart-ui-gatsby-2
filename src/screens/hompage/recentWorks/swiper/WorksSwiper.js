@@ -18,21 +18,25 @@ export const WorksSwiper = ({
     <div className={style.worksSwiper}>
       <Swiper
         onSwiper={setSwiperRef}
-        spaceBetween={0}
+        spaceBetween={32}
         slidesPerView={1}
         className="swiper"
         breakpoints={{
           375: {
             slidesPerView: 1,
-            spaceBetween: 0
+            spaceBetween: 32
           },
           576: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 0
           },
           768: {
             slidesPerView: 2,
             spaceBetween: 0,
+          },
+          1024: {
+            slidesPerView: 2,
+            spaceBetween: 8,
           },
           1440: {
             slidesPerView: 3,

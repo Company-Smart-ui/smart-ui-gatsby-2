@@ -47,7 +47,7 @@
 
       @include lg {
         grid-template-columns: 250px 1fr;
-        column-gap: 30px;
+        column-gap: 10px;
         grid-template-rows: auto, auto, auto;
         grid-template-areas:
           'title-container content-container'
