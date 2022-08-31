@@ -4,6 +4,7 @@ import * as style from "./recentWorks.module.scss";
 import { WorksSwiper } from "./swiper/WorksSwiper";
 import { Pagination } from "../../../global/pagination/Pagination";
 import { listCardsProjects } from "../../portfolio/hero/data";
+import { useTranslation } from "react-i18next";
 
 export const RecentWorks = () => {
   const [swiperRef, setSwiperRef] = useState(null);
@@ -18,19 +19,21 @@ export const RecentWorks = () => {
     setActiveIndex(0);
   }, []);
 
+  const { t } = useTranslation();
+
   return (
     <div className={`${style.recentWorks} vertical-padding`}>
       <div className="overalay container">
           <div className="container-grid">
             <div className="title-container">
-              <div className="second-title">Showcase</div>
-              <h2 className="h2 title">Recent Works</h2>
+              <div className="second-title">{t('projects_small_title')}</div>
+              <h2 className="h2 title">{t('projects_big_title')}</h2>
               <div className="subtitle">
-                We will help to develop your best project based on your idea.
+              {t('projects_text')}
               </div>
             </div>
             <button className="button view-more-button overlay">
-              View More Projects
+            {t('projects_btn')}
             </button>
             <div className="content-container">
               <div className="pagination-wrapper">

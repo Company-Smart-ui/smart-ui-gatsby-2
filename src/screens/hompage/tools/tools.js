@@ -24,6 +24,7 @@ export const Tools = () => {
   const { t } = useTranslation();
 
   const sliderLength = t("tools_cards", { returnObjects: true }).length;
+
   return (
     <div className={`${style.tools} vertical-padding`}>
       <div className="yCircle" />

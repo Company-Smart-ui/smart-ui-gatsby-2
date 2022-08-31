@@ -4,8 +4,10 @@ import { TeamSwiper } from "./swiper/TeamSwiper";
 import { SwiperButtons } from "../../../global/swiperButtons/SwiperButtons";
 import { teamList } from "./card/TeamList";
 import { Pagination } from "../../../global/pagination/Pagination";
+import { useTranslation } from "react-i18next";
 
 export const MeetOur = () => {
+  const {t} = useTranslation();
   const [activeIndex, setActiveIndex] = useState(0);
   const [swiperRef, setSwiperRef] = useState(null);
   
@@ -26,8 +28,8 @@ export const MeetOur = () => {
         <div className="container-grid">
           <div className="title-block">
             <div className="title-container">
-              <h2 className="h2">Meet Our Team</h2>
-              <p className="subtitle">Expert Team Member</p>
+              <h2 className="h2">{t('team_title')}</h2>
+              <p className="subtitle">{t('team_text')}</p>
               <div className="pagination-wrapper">
                 <Pagination
                   activeIdx={activeIndex}
@@ -41,6 +43,7 @@ export const MeetOur = () => {
                 activeIndexHandler={activeIndexHandler}
                 swiperRef={swiperRef}
                 setSwiperRef={setSwiperRef}
+                teamList={teamList}
                 loop
               />
           </div>
@@ -52,7 +55,7 @@ export const MeetOur = () => {
             />
           </div>
           <button className="container button whole-team-button overlay">
-            The whole team
+            {t('team_btn')}
           </button>
         </div>
       </div>

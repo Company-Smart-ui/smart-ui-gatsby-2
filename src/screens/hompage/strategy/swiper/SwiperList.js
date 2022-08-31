@@ -1,18 +1,10 @@
-import React from 'react';
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import  { strategyOptions }  from "../strategyOptions";
 import * as style from "./swiperList.module.scss";
 
-export const SwiperList = ({ swiper, setSwiper, setActiveIndex }) => {
+export const SwiperList = ({ swiper, setSwiper, setActiveIndex, content }) => {
 
-  const firstSliderBlock = [];
-  const secondSliderBlock = [];
-
-  strategyOptions.forEach((el, index) =>
-    index < strategyOptions.length / 2
-      ? firstSliderBlock.push(el)
-      : secondSliderBlock.push(el)
-  );
+  const middleItem = content.length / 2;
 
   return (
     <div className={style.swiper_list}>
@@ -21,25 +13,38 @@ export const SwiperList = ({ swiper, setSwiper, setActiveIndex }) => {
         className="mySwiper2"
         allowTouchMove={true}
         speed={400}
+        breakpoints={{
+          1024: {
+            slidesPerView: 2,
+            spaceBetween: 64,
+            allowTouchMove: false,
+          }
+        }}
         onSlideChange={() => setActiveIndex(swiper.realIndex)}
       >
         <SwiperSlide>
-          {firstSliderBlock.map((option) => (
-            <div key={option.id} className="swiper-list-item">
-              <span className="list-item-number">{`0${option.id}`}</span>
-              <span className="list-item-title">{option.title}</span>
-              <div className="list-item-description">{option.description}</div>
-            </div>
-          ))}
+          {Array.isArray(content) && content.map(
+            ({ id, title, text }, i) =>
+              i < middleItem && (
+                <div key={id} className="swiper-list-item">
+                  <span className="list-item-number">{`0${i + 1}`}</span>
+                  <span className="list-item-title">{title}</span>
+                  <div className="list-item-description">{text}</div>
+                </div>
+              )
+          )}
         </SwiperSlide>
         <SwiperSlide>
-          {secondSliderBlock.map((option) => (
-            <div key={option.id} className="swiper-list-item">
-              <span className="list-item-number">{`0${option.id}`}</span>
-              <span className="list-item-title">{option.title}</span>
-              <div className="list-item-description">{option.description}</div>
-            </div>
-          ))}
+          {Array.isArray(content) && content.map(
+            ({ id, title, text }, i) =>
+              i >= middleItem && (
+                <div key={id} className="swiper-list-item">
+                  <span className="list-item-number">{`0${i + 1}`}</span>
+                  <span className="list-item-title">{title}</span>
+                  <div className="list-item-description">{text}</div>
+                </div>
+              )
+          )}
         </SwiperSlide>
       </Swiper>
     </div>

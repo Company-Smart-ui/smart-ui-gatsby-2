@@ -5,18 +5,21 @@ import ALEX_GASHKOV from './alex_gashkov.jpg';
 
 export const teamList = [
   {
-    photo: ALEXANDER_KLIPKOV,
-    name: "Alexander Klipkov",
-    position: "The Chief Operations Officer at SMART-UI IT Company",
+    img: ALEXANDER_KLIPKOV,
+    title: "Alexander Klipkov",
+    text: "The Chief Operations Officer at SMART-UI IT Company",
+    btn: 'Ask a question'
   },
   {
-    photo: ALEXANDER_KOZLOV,
-    name: "Alexander Kozlov",
-    position: "Executive Managing Director – Smart UI",
+    img: ALEXANDER_KOZLOV,
+    title: "Alexander Kozlov",
+    text: "Executive Managing Director – Smart UI",
+    btn: 'Ask a question'
   },
   {
-    photo: ALEX_GASHKOV,
-    name: "Alex Gashkov",
-    position: "Founder and CEO at SMART-UI IT Company",
+    img: ALEX_GASHKOV,
+    title: "Alex Gashkov",
+    text: "Founder and CEO at SMART-UI IT Company",
+    btn: 'Ask a question'
   },
 ];

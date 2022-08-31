@@ -1,7 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Card } from "../card/Card";
-import { advantagesList } from "../card/AdvantagesList";
 import * as style from "./advantagesSwiper.module.scss";
 
 import "swiper/css";
@@ -10,8 +9,8 @@ import "swiper/css/free-mode";
 export const AdvantagesSwiper = ({
   swiperRef,
   setSwiperRef,
-  loop,
   setActiveIndex,
+  cardsList,
 }) => {
   return (
     <div className={style.cardsSwiper}>
@@ -46,9 +45,9 @@ export const AdvantagesSwiper = ({
         loop={false}
         onSlideChange={() => setActiveIndex(swiperRef?.realIndex)}
       >
-        {advantagesList.map((el, index) => (
+        {cardsList.map((el) => (
           <SwiperSlide key={el.title}>
-            <Card content={el}  indexEl={index} loop={loop} />
+            <Card content={el} />
           </SwiperSlide>
         ))}
       </Swiper>

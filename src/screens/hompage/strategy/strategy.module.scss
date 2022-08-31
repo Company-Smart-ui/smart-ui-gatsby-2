@@ -21,17 +21,8 @@
     .container {
       position: relative;
     }
-
-    .options-list {
-      display: none;
-
-      @include lg {
-        display: flex;
-        flex-direction: column;
-        gap: 50px;
-        margin-top: 57px;
-      }
-    }
+    
+    // List of strategy
 
     .list-item {
       @include lg {

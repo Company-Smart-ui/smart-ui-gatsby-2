@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import * as style from "./strategy.module.scss";
 import { Pagination } from "../../../global/pagination/Pagination";
-import { strategyOptions } from "./strategyOptions";
 import { SwiperButtons } from "../../../global/swiperButtons/SwiperButtons";
 import { SwiperList } from "./swiper/SwiperList";
+import {useTranslation} from "react-i18next";
 
 export const Strategy = () => {
+  const {t} = useTranslation();
   const [swiper, setSwiper] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -16,13 +17,15 @@ export const Strategy = () => {
     setActiveIndex(0);
   }, []);
 
+  const items = t('strategy_items', { returnObjects: true });
+
   return (
     <section className={`${style.strategy} vertical-padding`}>
         <div className="noise" />
       <div className="container">
         <div className="gCircle" />
         <div className="overlay">
-          <h2 className="h2">Strategy</h2>
+          <h2 className="h2">{t('strategy_title')}</h2>
           <div className="pagination-button-wrapper">
             <Pagination activeIdx={activeIndex} sliderLength={2} whiteTheme />
           </div>
@@ -30,20 +33,8 @@ export const Strategy = () => {
             swiper={swiper}
             setSwiper={setSwiper}
             setActiveIndex={setActiveIndex}
+            content={items}
           />
-          <div className="options-list">
-            {strategyOptions.map((option) => (
-              <div key={option.id} className="list-item">
-                <div className="list-title">
-                  <span className="list-item-number">{`0${option.id}`}</span>
-                  <span className="list-item-title">{option.title}</span>
-                </div>
-                <div className="list-item-description">
-                  {option.description}
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
         <div className="footerButtons overlay">
           <SwiperButtons

@@ -3,7 +3,7 @@ import * as style from "./ourAdvantages.module.scss";
 import { SwiperButtons } from "../../../global/swiperButtons/SwiperButtons";
 import { AdvantagesSwiper } from "./swiper/AdvantagesSwiper";
 import { Pagination } from "../../../global/pagination/Pagination";
-import { advantagesList } from "./card/AdvantagesList";
+import { useTranslation } from "react-i18next";
 
 export const OurAdvantages = () => {
   const [swiperRef, setSwiperRef] = useState(null);
@@ -16,6 +16,10 @@ export const OurAdvantages = () => {
     setActiveIndex(0);
   }, []);
 
+  const { t } = useTranslation();
+
+  const cardsList = t("advantages_cards", { returnObjects: true });
+
   return (
     <section className={`${style.ourAdvantages} vertical-padding`}>
       <div className="noise" />
@@ -26,16 +30,13 @@ export const OurAdvantages = () => {
           <div className="title-block">
             <div className="bCircle md-only" />
             <div className="gCircle" />
-            <h2 className="h2 overlay">Our Advantages</h2>
-            <div className="subtitle">
-              We help to develop business, using complex modern effective it
-              solutions, tools of web development and Internet marketing.
-            </div>
+            <h2 className="h2 overlay">{t("advantages_title")}</h2>
+            <div className="subtitle">{t("advantages_text")}</div>
           </div>
           <div className="pagination-wrapper">
             <Pagination
               activeIdx={activeIndex}
-              sliderLength={advantagesList.length}
+              sliderLength={cardsList.length}
               whiteTheme
             />
           </div>
@@ -43,13 +44,14 @@ export const OurAdvantages = () => {
             swiperRef={swiperRef}
             setSwiperRef={setSwiperRef}
             setActiveIndex={setActiveIndex}
+            cardsList={cardsList}
           />
         </div>
         <div className="footer-buttons overlay">
           <SwiperButtons
             onPrev={slidePrevHandler}
             onNext={slideNextHandler}
-            sliderLength={advantagesList.length}
+            sliderLength={cardsList.length}
             activeIndex={activeIndex}
           />
         </div>

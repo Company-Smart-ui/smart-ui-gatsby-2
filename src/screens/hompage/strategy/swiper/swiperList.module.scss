@@ -9,10 +9,6 @@
   font-weight: 300;
   line-height: 1.28;
 
-  @include lg {
-    display: none;
-  }
-
   :global {
     .swiper-list-item {
       &:not(:first-child) {
