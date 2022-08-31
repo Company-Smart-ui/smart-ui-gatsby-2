@@ -12,7 +12,7 @@ export const ClientsReview = () => {
 
   return (
     <div className={`${style.review} vertical-padding`}>
-      <div className="bCircle md-only" />
+      <div className="bCircle" />
       <div className="noise" />
       <div className="container">
         <div className="container-grid">

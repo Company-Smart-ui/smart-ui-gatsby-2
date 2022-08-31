@@ -13,11 +13,15 @@ position: relative;
 
     .bCircle {
       position: absolute;
-      width: 534px;
-      height: 534px;
-      right: -40%;
-      top: 0;
-      z-index: 1;
+      top: 20px;
+      bottom: 500px;
+      left: 100%;
+      transform: translateX(max(-50%, -35vw + 100px));
+
+      @include sm {
+        top: 0;
+        bottom: 200px;
+      }
     }
 
     .noise {
