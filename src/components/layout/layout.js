@@ -8,7 +8,7 @@ import {navigate} from "gatsby";
 // import {RedLine} from "./redLine/redLine";
 
  const  Layout = ( props) => {
-    const path = props?.children?.props?.pageContext?.pageName;
+    const path = props?.children?.props?.pageContext?.pageName[0];
     if(path===""){
         if(typeof window!=="undefined"){
             navigate('/home');
