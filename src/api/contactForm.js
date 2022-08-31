@@ -1,7 +1,6 @@
 import {API} from "./API";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { Sent } from "./done.svg";
 
 export const sendForm =({type , data })=>{
     const validatedData = JSON.parse(JSON.stringify(data))
@@ -17,7 +16,6 @@ export const sendForm =({type , data })=>{
             if (value?.status === 200) {
                 toast.success('Message sent successfully', {
                     theme: "dark",
-                    icon: Sent,
                     toastId: "customId"
                 })
             }
