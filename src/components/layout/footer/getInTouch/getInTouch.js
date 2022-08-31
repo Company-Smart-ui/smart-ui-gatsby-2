@@ -31,12 +31,10 @@ export const GetInTouch = () => {
   function onSubmit(data, e) {
     e.preventDefault();
 
-    sendForm({ e, type: "footer", data: { ...data } });
+    sendForm({ type: "footer", data: { ...data } });
 
-    setTimeout(() => {
-        reset()
+    reset()
 
-    }, 100)
   }
 
 
@@ -53,7 +51,7 @@ export const GetInTouch = () => {
                 minLength: { value: 2, message: "Not less than 5 symbols" },
                 maxLength: { value: 30, message: "Not more than 30 symbols" },
                 pattern: {
-                  value:/([а-яА-яa-zA-z]+\s)+([а-яА-яa-zA-z]+)/ig,
+                  value: /^[а-яА-ЯёЁіІїЇєЄa-zA-Z_'"\s]+$/,
                   message: "Please, use only letters",
                 },
               })}
@@ -91,6 +89,9 @@ export const GetInTouch = () => {
               })}
               placeholder={defaultData.text}
             ></textarea>
+            {errors.message && (
+              <span className="error">{errors.message.message}</span>
+            )}
           </FormField>
           <button
             className="button"
@@ -100,7 +101,9 @@ export const GetInTouch = () => {
             {defaultData.button}
           </button>
         </form>
-        <ToastContainer />
+        <ToastContainer 
+          position="top-center"
+        ></ToastContainer>
         <div className={style.img}>
           <StaticImage
             className={"sm-only"}

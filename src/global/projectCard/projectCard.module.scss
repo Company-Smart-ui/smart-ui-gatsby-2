@@ -1,45 +1,47 @@
 @import 'src/var';
 
 
-.card {
-  padding-left: 10px;
-  padding-right: 10px;
+.projectCard {
+  width: 275px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1)) drop-shadow(0px 16px 16px rgba(0, 0, 0, 0.05));
+  margin: 0 auto;
 
   :global {
     .cards-container {
       background-color: $White;
-      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-      width: 100%;
       border-radius: 8px;
-
-      @include sm {
-        width: 100%;
-      }
-
-      .card-wrapper {
-        border-radius: 8px;
-        overflow: hidden;
-      }
-
+      overflow: hidden;
+      min-width: 275px;
     }
 
     .content-wrapper {
       padding: 20px;
-      min-height: 240px;
+      min-height: 232px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
 
       @include md {
         align-items: flex-start;
-        min-height: 200px;
+        min-height: 232px;
       }
+    }
+
+    .progress {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 40px;
+      height: 40px;
     }
 
     .technology {
       position: absolute;
-      top: 10px;
-      right: 10px;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
 
       img {
         width: 40px;
@@ -48,11 +50,12 @@
     }
 
     .img-wrapper {
-      img {
-        object-fit: contain;
-        border-top-left-radius: 8px;
-        border-top-right-radius: 8px;
-      }
+      height: 212px;
+
+      // img {
+      //   margin: 0;
+      //   object-fit: cover;
+      // }
     }
 
     .content-description {
@@ -74,10 +77,9 @@
     }
 
     .content-title {
-      font-size: 21px;
-      font-weight: 500;
+      font-size: 20px;
+      font-weight: 400;
       letter-spacing: -0.045em;
-      line-height: 1.1;
       text-align: start;
 
       @include md {
@@ -92,16 +94,17 @@
     .content-link {
       color: $MediumSeaGreen;
       display: inline-block;
-      margin-top: 8px;
+      margin-top: 14px;
       font-size: 14px;
+      line-height: 1.5;
     }
 
     .button {
       background-color: $MediumSeaGreen;
       padding: 12px 38px;
       line-height: 1.7;
-      min-width: 100%;
-      margin: 0;
+      min-width: 168px;
+      margin: 0 auto;
     }
   }
 }

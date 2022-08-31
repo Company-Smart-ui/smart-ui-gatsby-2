@@ -1,7 +1,6 @@
-import React,{ useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import * as styles from "./pagination.module.scss";
-
 
 export const Pagination = ({
   itemsPerPage,
@@ -24,8 +23,8 @@ export const Pagination = ({
   };
   const btnNext = (
     <svg
-      width="13"
-      height="22"
+      width="10"
+      height="12"
       viewBox="0 0 13 22"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -44,8 +43,11 @@ export const Pagination = ({
           y2="1"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#9B7EFA" />
-          <stop offset="1" stopColor="#7E5AE1" />
+          <stop stopColor="#737373" />
+          <stop
+            offset="1"
+            stopColor="#737373"
+          />
         </linearGradient>
       </defs>
     </svg>
@@ -54,7 +56,7 @@ export const Pagination = ({
     <ReactPaginate
       nextLabel={btnNext}
       onPageChange={handlePageClick}
-      pageRangeDisplayed={5}
+      pageRangeDisplayed={2}
       marginPagesDisplayed={1}
       pageCount={pageCount}
       previousLabel={btnNext}

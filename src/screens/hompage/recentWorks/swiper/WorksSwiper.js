@@ -1,7 +1,8 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Card } from "../card/Card";
-import { worksList } from "../card/WorksList";
+// import { Card } from "../card/Card";
+import { ProjectCard } from "../../../../global/projectCard/projectCard";
+import { listCardsProjects } from "../../../portfolio/hero/data";
 import * as style from './worksSwiper.module.scss';
 
 import "swiper/css";
@@ -30,6 +31,10 @@ export const WorksSwiper = ({
             spaceBetween: 0
           },
           768: {
+            slidesPerView: 2,
+            spaceBetween: 0,
+          },
+          1440: {
             slidesPerView: 3,
             spaceBetween: 0,
           },
@@ -39,9 +44,9 @@ export const WorksSwiper = ({
         loop={true}
         onSlideChange={() => setActiveHandler(swiperRef?.realIndex)}
       >
-        {worksList.map((el, index) => (
+        {listCardsProjects.map((el, index) => (
           <SwiperSlide key={el.title}>
-            <Card content={el} indexEl={index} loop={loop} />
+            <ProjectCard content={el} indexEl={index} loop={loop} />
           </SwiperSlide>
         ))}
       </Swiper>

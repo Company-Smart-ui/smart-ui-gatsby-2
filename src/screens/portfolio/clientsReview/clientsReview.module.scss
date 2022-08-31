@@ -1,7 +1,7 @@
 @import 'src/var';
 
 .review {
-
+position: relative;
   :global {
     .yCircle {
       position: absolute;
@@ -11,24 +11,49 @@
       top: -13px;
     }
 
+    .bCircle {
+      position: absolute;
+      top: 20px;
+      bottom: 500px;
+      left: 100%;
+      transform: translateX(max(-50%, -35vw + 100px));
+
+      @include sm {
+        top: 0;
+        bottom: 200px;
+      }
+    }
+
+    .noise {
+      z-index: 1;
+    }
+
     // General component
     .container-grid {
       display: grid;
       grid-template-columns: 1fr;
-      grid-template-rows: auto, auto, auto, 40px;
+      grid-template-rows: auto, auto, auto;
       grid-template-areas:
         "title-section"
-        "pagination-section"
         "review-section"
-        "buttons";
+        "pagination-section";
 
       @include lg {
         grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: auto, auto, 40px;
+        grid-template-rows: auto, auto;
+        column-gap: 30px;
         grid-template-areas:
-          "title-section pagination-section ."
-          ". review-section review-section"
-          ". buttons buttons";
+          "title-section . ."
+          "pagination-section review-section review-section"
+      }
+
+      @include xl {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto, auto;
+        column-gap: 30px;
+        grid-template-areas:
+          "title-section ."
+          "pagination-section review-section review-section"
       }
     }
 
@@ -36,20 +61,10 @@
       grid-area: title-section;
       position: relative;
       max-width: 275px;
-    }
-
-    .title-review {
-      padding-top: 40px;
-      color: $MediumSeaGreen;
-      font-size: 20px;
-      font-weight: 500;
-      letter-spacing: -0.045em;
 
       @include lg {
-        padding-top: 0;
-        margin-top: 280px;
+        max-width: 100%;
       }
-
     }
 
     .pagination {
@@ -61,11 +76,29 @@
       grid-area: review-section;
       min-width: 275px;
       padding-top: 24px;
+      position: relative;
+
+      .title {
+        color: $MediumSeaGreen;
+        font-size: 20px;
+        font-weight: 500;
+        letter-spacing: -0.045em;
+
+        @include lg {
+          position: absolute;
+          top: -50px;
+        }
+      }
+
+      @include lg {
+        padding-top: 0;
+      }
     }
 
-    .buttons {
-      grid-area: buttons;
-      padding-top: 24px;
+    .pagination-section {
+      grid-area: pagination-section;
+      margin-top: 24px;
+      margin-right: auto;
     }
 
     // Card item
@@ -76,7 +109,7 @@
       max-width: 100%;
 
       @include md {
-        max-width: calc(50% - 15px);
+        max-width: calc(50%);
       }
 
       &:not(:first-child) {
@@ -131,6 +164,16 @@
 
       .list {
         max-width: 100%;
+        margin-top: 24px;
+
+        @include md {
+          display: flex;
+          gap: 30px;
+        }
+
+        @include lg {
+          margin-top: 0;
+        }
       }
 
       .buttons {
@@ -138,47 +181,14 @@
       }
     }
 
-    .swiper {
-      width: 100%;
-      margin: 0 auto;
-
-      @include md {
-        width: 100%
-      }
-    }
-
-    .swiper-slide {
-      display: flex;
-      flex-direction: column;
-
-      @include md {
-        display: flex;
-        flex-direction: row;
-        gap: 30px;
-      }
-    }
-
     .pagination-button {
       width: 10px;
-
     }
 
-    .right {
-      transform: rotate(180deg);
-    }
+    .button {
 
-    .pagination-block {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 30px;
-
-      .active {
-        padding: 6px 10px;
-        border-radius: 50%;
-        background-color: $MediumSeaGreen;
-        color: $White;
-        font-size: 12px;
+      @include xl {
+        min-width: 300px;
       }
     }
   }

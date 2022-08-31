@@ -3,9 +3,11 @@
 .hero {
   padding: 120px 0 40px 0;
   position: relative;
+
   @include md {
     padding: 140px 0 80px 0;
   }
+
   @include lg {
     padding: 230px 0 80px 0;
   }
@@ -17,52 +19,56 @@
   .overlay {
     z-index: 2;
     position: relative;
+
     h1 {
       margin-bottom: 10px;
       position: relative;
     }
   }
-
-  .speed {
-    background: rgba(250, 253, 255, 0.9);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
     .top {
-      border-bottom: 2px solid #d3d4dc;
+      margin-top: 40px;
       display: flex;
-      justify-content: space-between;
+      gap: 12px;
       align-items: flex-start;
+      row-gap: 12px;
+      overflow-x: auto;
+      padding: 12px 6px;
     }
-  }
 
   :global {
-    .yCircle{
+    .yCircle {
       position: absolute;
       left: 0;
       top: 0;
       height: 24vw;
-      &.left{
-        transform:translate(-60% , -60%);
-      }
-      &.right{
-        height:80px;
 
-        @include xl{
+      &.left {
+        transform: translate(-60%, -60%);
+      }
+
+      &.right {
+        height: 80px;
+
+        @include xl {
           height: 160px;
         }
-        transform:translate(10% , 10%);
+
+        transform:translate(10%, 10%);
       }
     }
+
     .bCircle {
       position: absolute;
       top: 60px;
       bottom: 200px;
       left: 100%;
       transform: translateX(max(-50%, calc(-35vw + 100px)));
+
       @include sm {
         top: 0;
         bottom: 0;
       }
+
       @include lg {
         top: 20px;
         bottom: 20px;
@@ -97,13 +103,16 @@
         transform: none;
         top: 75px;
         opacity: 0;
+
         @include md {
           left: 84px;
           max-width: 600px;
         }
+
         @include lg {
           max-width: 750px;
         }
+
         @include xxl {
           left: calc((50% - 1720px / 2) + 84px);
         }
@@ -119,6 +128,87 @@
         &.open {
           opacity: 1;
         }
+      }
+    }
+
+    .list-wrapper {
+      width: 100%;
+      overflow: auto;
+      padding: 30px 0;
+    }
+
+    .cards-list {
+      margin: 30px auto;
+      margin-bottom: 0;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      padding: 0 24px;
+      width: 632px;
+    }
+
+    .reset-padding-right {
+      padding-right: 0;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-rows: 1fr;
+      grid-template-columns: auto, auto, auto, 60px;
+      grid-template-areas:
+        "title-section"
+        "subtitle-section"
+        "optimization-section"
+        "modal-button-section";
+
+        @include md {
+          grid-template-rows: 120px 1fr 80px;
+          grid-template-columns: auto, minmax(300px, 1fr);
+          column-gap: 30px;
+          grid-template-areas:
+            "title-section title-section"
+            "subtitle-section optimization-section"
+            "modal-button-section optimization-section";
+        }
+
+        @include lg {
+          grid-template-rows: 1fr 1fr 60px;
+          grid-template-columns: auto, minmax(275px, 1fr);
+          column-gap: 60px;
+          grid-template-areas:
+            "title-section optimization-section"
+            "subtitle-section optimization-section"
+            "modal-button-section optimization-section";
+        }
+    }
+
+    .title-section {
+      grid-area: title-section;
+    }
+
+    .subtitle-section {
+      grid-area: subtitle-section;
+
+      .subtitle {
+        @include md {
+          margin: 0;
+        }
+      }
+    }
+
+    .optimization-section {
+      grid-area: optimization-section;
+      min-width: 275px
+    }
+
+    .modal-button-section {
+      grid-area: modal-button-section;
+      margin-top: 24px;
+      min-width: 100%;
+      max-height: 60px;
+
+      @include lg {
+        margin-top: 0;
       }
     }
   }
