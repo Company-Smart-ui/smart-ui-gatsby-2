@@ -10,6 +10,9 @@ import Scroll from './scroll.svg';
 import { GetInTouch } from './getInTouch/getInTouch';
 import * as style from "./footer.module.scss"
 import {useTranslation} from "react-i18next";
+import { Modal } from '../modal/modal';
+import {useOpen} from "../../../hooks/useOpen";
+
 const footerMenu = [
     {
         text: `<p>Our Contact</p><a href="tel:+380935046334"><img src=${Phone} /> +38 (093) 504 63 34</a><a href="mailto:info@smart-ui.pro"><img src=${Mail} /> info@smart-ui.pro</a>`,
@@ -52,10 +55,17 @@ export const BackToTop = () => {
 
 
 export const Footer = ( ) => {
+    const {isOpen, onClose, onOpen}= useOpen(false);
             const {t} = useTranslation();
     // const translatedText = t("Footer", { returnObjects: true })||[];
- // соня это тебе
      return <>
+        <button className={["openBtn", (isOpen ? 'disabled' : '')].join(' ') } onClick={onOpen} >request consultation</button>
+        {
+            isOpen && <Modal onClose={onClose}>
+                        <h3>Leave your message</h3>
+                        <p>Please leave one of your contacts to contact you.</p>
+                    </Modal>
+        }
         <GetInTouch />
         <footer className={style.footer}>
          <div className="container">

@@ -1,5 +1,4 @@
 import React from "react";
-import { Modal } from "../../../components/layout/modal/modal";
 import * as style from "./hero.module.scss";
 import { ProjectCard } from "../../../global/projectCard/projectCard";
 import { listCardsProjects } from "./data";
@@ -39,11 +38,7 @@ export const Hero = () => {
               <OptimizationCard result={98} />
             </div>
             <div className="modal-button-section">
-              <Modal
-                text={"Contact the lead developer"}
-                dataText={modalText}
-                isShow={false}
-              />
+              <button className="button">Contact the lead developer</button>
             </div>
           </div>
           <div className={style.top}>

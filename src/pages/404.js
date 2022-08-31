@@ -4,8 +4,8 @@ import { Link } from "gatsby"
 // styles
 const pageStyles = {
   color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
+  padding: "150px 96px",
+
 }
 const headingStyles = {
   marginTop: 0,
@@ -47,7 +47,7 @@ const NotFoundPage = (props) => {
           </>
         ) : null}
         <br />
-        <Link to="/">Go home</Link>.
+        <Link to="/home">Go home</Link>.
       </p>
     </main>
   )

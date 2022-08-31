@@ -3,7 +3,6 @@ import {Footer} from "./footer/footer";
 import "../../global.scss"
 import "../../lazy.scss"
 import {Header} from "./header/header";
-import { Modal } from './modal/modal';
 import {navigate} from "gatsby";
 // import {RedLine} from "./redLine/redLine";
 
@@ -16,11 +15,10 @@ import {navigate} from "gatsby";
 
         return <> </>
     }
-
+     console.log(props)
     return (
         <div className={'layout'}>
             <Header path={ path }/>
-            <Modal />
             <main className={'main'}>
                 {props.children}
             </main>
