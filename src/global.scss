@@ -1,6 +1,5 @@
 @import "var";
 
-
 body,
 html {
   height: 100%;
@@ -38,7 +37,6 @@ footer {
 .main {
   transition: 0.2s;
   flex-grow: 1;
-
 }
 
 * {
@@ -92,10 +90,10 @@ ul {
     display: none !important;
   }
 }
-.lg-end{
+.lg-end {
   @include lg {
-      display: none !important;
-    }
+    display: none !important;
+  }
 }
 .sm-only {
   @include md {
@@ -104,132 +102,124 @@ ul {
 }
 
 h1 {
-  font-size: clamp(40px , calc(20vw - 20px )  , 70px);
+  font-size: clamp(40px, calc(20vw - 20px), 70px);
   line-height: 1;
   @include md {
     font-size: 100px;
   }
 
   @include xl {
-    line-height: .9;
+    line-height: 0.9;
     letter-spacing: -3px;
     font-size: 142px;
   }
 }
 
-  h2 {
+h2 {
+  font-size: 60px;
+  line-height: 1;
+
+  @include md {
+    font-size: 80px;
+  }
+
+  @include lg {
     font-size: 60px;
-    line-height: 1;
-
-    @include md {
-      font-size: 80px;
-    }
-
-    @include lg {
-      font-size: 60px;
-    }
-
-    @include xl {
-      font-size: 80px;
-    }
   }
 
-  .noise {
-    background-image: url("./images/noise.png");
-    background-blend-mode: overlay;
-    mix-blend-mode: overlay;
+  @include xl {
+    font-size: 80px;
   }
-    button {
-      background-color: transparent;
-      border: none;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      padding: 0;
-      white-space: nowrap;
-    }
-  .button {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    padding:20px 10px;
-    background: $Lime;
-    border-radius: 8px;
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 1.2;
-    transition: .2s;
-    min-width: 204px;
+}
 
-    &:hover {
-      box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.49);
-    }
+.noise {
+  background-image: url("./images/noise.png");
+  background-blend-mode: overlay;
+  mix-blend-mode: overlay;
+}
+button {
+  background-color: transparent;
+  border: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 0;
+  white-space: nowrap;
+}
+.button {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 20px 10px;
+  background: $Lime;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.2;
+  transition: 0.2s;
+  min-width: 204px;
 
-    &:active {
-      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.49);
-    }
-    @include lg{
-      min-width: 158px;
-      padding: 26px;
-    }
-
-    @include xl {
-      font-size: 18px;
-      padding: 29px  ;
-      min-width: 220px;
-      letter-spacing: 0.5px;
-    }
-
-    color: $White;
+  &:hover {
+    box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.49);
   }
 
-  .reset {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    padding:20px 10px;
-    border-radius: 8px;
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 1.2;
-    transition: .2s;
-    min-width: 204px;
-    border: 1px solid $DarkGray;
-
-    &:hover {
-      box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.49);
-    }
-
-    &:active {
-      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.49);
-    }
-    @include lg{
-      min-width: 158px;
-      padding: 26px;
-    }
-
-    @include xl {
-      font-size: 18px;
-      padding: 29px  ;
-      min-width: 220px;
-      letter-spacing: 0.5px;
-    }
-
-    color: $DarkGray;
+  &:active {
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.49);
   }
-  
-  .nowrap{
-    white-space: nowrap;
+  @include lg {
+    min-width: 158px;
+    padding: 26px;
   }
-  /* form validation */
-  .error {
-    color: red;
-    font-size: 14px;
-    position: absolute;
-    bottom: -20px;
-    left: 5px;
+
+  @include xl {
+    font-size: 18px;
+    padding: 29px;
+    min-width: 220px;
+    letter-spacing: 0.5px;
   }
+
+  color: $White;
+}
+
+.reset {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 20px 10px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.2;
+  transition: 0.2s;
+  min-width: 204px;
+  border: 1px solid $DarkGray;
+
+  &:hover {
+    box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.49);
+  }
+
+  &:active {
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.49);
+  }
+  @include lg {
+    min-width: 158px;
+    padding: 26px;
+  }
+
+  @include xl {
+    font-size: 18px;
+    padding: 29px;
+    min-width: 220px;
+    letter-spacing: 0.5px;
+  }
+
+  color: $DarkGray;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
 
 /* width */
 ::-webkit-scrollbar {
@@ -251,5 +241,202 @@ h1 {
 
   &:hover {
     background-color: $Lime;
+  }
+}
+
+// form elements
+
+.formField {
+  position: relative;
+  margin-bottom: 25px;
+  width: 100%;
+  display: block;
+  @include md {
+    margin-bottom: 55px;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  input,
+  textarea {
+    background: none;
+    border: none;
+    width: 100%;
+    color: $White;
+    padding: 20px 10px 10px;
+    font-family: $fontText;
+    width: 100%;
+    font-size: 11px;
+    border-bottom: 1px solid $LimeGreen;
+    @include md {
+      font-size: 14px;
+    }
+    &::-webkit-input-placeholder,
+    &::-moz-placeholder {
+      color: $DarkGray;
+    }
+    &:focus {
+      background: none;
+      outline: transparent;
+      &::-webkit-input-placeholder {
+        color: transparent;
+      }
+      &::-moz-placeholder {
+        color: transparent;
+      }
+    }
+  }
+
+  /* form validation */
+  .error {
+    color: red;
+    font-size: 14px;
+    position: absolute;
+    bottom: -20px;
+    left: 5px;
+  }
+}
+
+// modal
+
+.openBtn {
+  position: fixed;
+  top: 50vh;
+  left: 5px;
+  transform: rotate(-90deg) translateY(50%);
+  transform-origin: 0;
+  padding: 10px;
+  z-index: 50;
+  min-width: 275px;
+  margin: 0 auto;
+  background: $Lime;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.2;
+  transition: 0.2s;
+  min-width: 275px;
+  color: $White;
+  @include md {
+    left: 16px;
+    margin: 0;
+  }
+  @include xl {
+    font-size: 18px;
+    letter-spacing: 0.5px;
+  }
+  @include xxl {
+    left: calc((50% - #{$xxl} / 2) + 16px);
+  }
+  &:hover {
+    box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.49);
+  }
+
+  &:active {
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.49);
+  }
+}
+
+.disabled {
+  pointer-events: none;
+  pointer-events: none;
+  background: $DarkGray;
+}
+
+.modal {
+  background: $GrayBlue;
+  position: fixed;
+  z-index: 103;
+  top: 41vh;
+  left: 0;
+  border-radius: 8px;
+  width: 100%;
+  max-width: calc(100% - 55px);
+  padding: 20px 15px;
+  transform: translate(-100%, -50%);
+  transition: 0.65s ease-in-out;
+  @include md {
+    max-width: 547px;
+    padding: 20px 40px;
+  }
+
+  h3 {
+    color: $White;
+    font-size: 16px;
+    font-family: $fontText;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 14px;
+    color: $DarkGray;
+    margin-bottom: 25px;
+  }
+
+  
+.form {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  p {
+    color: $White;
+    font-size: 16px;
+  }
+}
+
+.btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  order: 2;
+  @include md {
+    justify-content: start;
+    order: 1;
+  }
+}
+
+  .button,
+  .reset {
+    margin: 0 5px;
+    @media (max-width: $md) {
+      font-size: 10px;
+      min-width: 115px;
+    }
+  }
+
+  &.open {
+    left: 45px;
+    transform: translate(0, -50%);
+    @include md {
+      left: 84px;
+    }
+    @include xxl {
+      left: calc((50% - 1720px / 2) + 84px);
+    }
+  }
+}
+
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: $GrayBlue;
+  opacity: 0;
+  transition: .65s ease-in-out;
+  z-index: 102;
+  &.open {
+    opacity: 0.5;
   }
 }
