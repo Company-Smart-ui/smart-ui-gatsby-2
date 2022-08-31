@@ -21,10 +21,10 @@ export const ProjectCard = ({ content }) => {
   return (
     <div className={style.projectCard}>
       <div className="cards-container">
+        <div className="technology">{rendeTechnology(technology)}</div>
         <div className="progress">
           <PageSpeed result={pageSpeedResult} />
         </div>
-        <div className="technology">{rendeTechnology(technology)}</div>
         <div className="img-wrapper">
           <img src={img} alt={title} />
         </div>

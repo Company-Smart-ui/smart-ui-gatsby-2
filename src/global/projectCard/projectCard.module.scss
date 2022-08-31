@@ -12,6 +12,30 @@
       border-radius: 8px;
       overflow: hidden;
       min-width: 275px;
+      position: relative;
+
+      .technology {
+        position: absolute;
+        top: 20px;
+        left: -80px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+  
+        img {
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      &:hover {
+        .technology {
+          left: 20px;
+          transition: all;
+          transition-delay: 100ms;
+          transition-duration: 400ms;
+        }
+      }
     }
 
     .content-wrapper {
@@ -30,23 +54,9 @@
     .progress {
       position: absolute;
       top: 20px;
-      left: 20px;
+      right: 20px;
       width: 40px;
       height: 40px;
-    }
-
-    .technology {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-
-      img {
-        width: 40px;
-        height: 40px;
-      }
     }
 
     .img-wrapper {

@@ -14,8 +14,17 @@
     width: 100%;
   }
 
+  @include md {
+    max-width: 600px;
+  }
+
   @include lg {
     min-height: 100%;
+    max-width: 600px;
+  }
+
+  @include xl {
+    max-width: 900px;
   }
 
   :global {
