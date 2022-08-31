@@ -45,7 +45,7 @@ export const AdvantagesSwiper = ({
         loop={false}
         onSlideChange={() => setActiveIndex(swiperRef?.realIndex)}
       >
-        {cardsList.map((el) => (
+        {Array.isArray(cardsList) && cardsList.map((el) => (
           <SwiperSlide key={el.title}>
             <Card content={el} />
           </SwiperSlide>

@@ -9,7 +9,7 @@ export const Questions = () => {
   const accordionList = t("questions_accondion", { returnObjects: true });
 
   const getListOptions = () => {
-    const optionsList = accordionList.map((el) => {
+    const optionsList = Array.isArray(accordionList) && accordionList.map((el) => {
       return {
         id: el.id,
         isOpen: false,
@@ -47,7 +47,7 @@ export const Questions = () => {
         <h2 className="h2 tablet">{t("questions_title")}</h2>
         <div className="cards-wrapper">
           <div className="first-column">
-            {accordionList.map(
+            {Array.isArray(accordionList) && accordionList.map(
               (el, i) =>
                 i < middleIndex && (
                   <Card
@@ -61,7 +61,7 @@ export const Questions = () => {
             )}
           </div>
           <div className="second-column">
-            {accordionList.map(
+            {Array.isArray(accordionList) && accordionList.map(
               (el, i) =>
                 i >= middleIndex && (
                   <Card
