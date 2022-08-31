@@ -1,6 +1,7 @@
 import * as React from "react"
 import {HomePage} from "../screens/hompage/homePage";
 import {graphql} from "gatsby";
+import {SEO} from "../components/SEO/SEO";
 
 export const query = graphql`
   query ($language: String ,$pageName:[String] ) {
@@ -16,9 +17,16 @@ export const query = graphql`
   }
 `
 const Home = ( ) => {
-    return     <HomePage/>
+    return  <>
+        <title>Not found</title>
+        <HomePage/>
+    </>
 
 
 }
 
 export default Home
+
+export const Head = () => (
+    <SEO />
+)

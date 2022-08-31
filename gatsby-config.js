@@ -20,8 +20,10 @@ const strapiConfig = {
 
 module.exports = {
   siteMetadata: {
-    title: `smart-ui-gatsby-2`,
-    siteUrl: `https://www.yourdomain.tld`
+    title: `Smart-ui `,
+      description: `Smart ui Agency `,
+      image: `/logo-large.png`,
+    siteUrl: `https://smart-ui-gatsby-2.vercel.app/`
   },
   plugins: [
 

@@ -16,7 +16,7 @@ import {navigate} from "gatsby";
 
         return <> </>
     }
-
+     console.log(props)
     return (
         <div className={'layout'}>
             <Header path={ path }/>
