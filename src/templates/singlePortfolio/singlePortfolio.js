@@ -8,6 +8,8 @@ import cannabisImg4 from './toronto-cannabis-4.jpeg';
 import cannabisImg5 from './toronto-cannabis-5.jpeg';
 import cannabisImg6 from './toronto-cannabis-6.jpeg';
 import chatIcon from './chat-white.png';
+import flag from './flag.svg';
+import logoSmartUIMobile from './smart-ui-logo-mobile.svg';
 
 
 const SinglePortfolio = ( ) => {
@@ -15,6 +17,10 @@ const SinglePortfolio = ( ) => {
     return <div className={style.singlePortfolio}>
         <div className="noise"></div>
         <div>
+            <div className="flag">
+                <img className="flag__mobile" src={logoSmartUIMobile} alt="logoSmartUI"/>
+                <img className="flag__desktop" src={flag} alt="logoSmartUI"/>
+            </div>
             <button className="button button__chat">
                 <img src={chatIcon} alt="chatIcon"/>
             </button>
@@ -49,9 +55,6 @@ const SinglePortfolio = ( ) => {
                             <h3 className="subtitle">Огляд</h3>
                             <p>Інтернет-магазин від дизайну в Figma з багатьма інтерактивними елементами в JS до WordPress.</p>
                         </div>
-                        <div>
-                            <a href="#" className="button">Переглянути сайт</a>
-                        </div>
                     </div>
                     <div className="right">
                         <div className="block">
@@ -68,6 +71,9 @@ const SinglePortfolio = ( ) => {
                                 <li>Технічні консультації</li>
                             </ul>
                         </div>
+                    </div>
+                    <div className="button__wrap">
+                        <a href="#" className="button">Переглянути сайт</a>
                     </div>
                 </div>
             </div>

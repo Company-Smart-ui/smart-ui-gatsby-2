@@ -1,9 +1,10 @@
 @import "src/var";
 
-$bgColor: #292930;
+$bgColor: #1E1E1E;
 $borderColor: rgba(255, 255, 255, 0.3);
 $categoryBg: rgba(217, 217, 217, 0.5);
 $pictureBg: rgba(255, 255, 255, 0.1);
+$secondFontColor: #8F8F8F;
 
 .singlePortfolio{
   margin-top: 120px;
@@ -21,9 +22,23 @@ $pictureBg: rgba(255, 255, 255, 0.1);
   :global{
     .container{
       max-width: 1325px;
-      @include lg{
+      @include xl{
         padding: 0;
         border: 1px solid $borderColor;
+      }
+    }
+    .button__wrap{
+      text-align: center;
+      a{
+        width: 100%;
+      }
+      @include md{
+        a{
+          width: auto;
+        }
+      }
+      @include lg{
+        text-align: left;
       }
     }
     a.button{
@@ -36,7 +51,7 @@ $pictureBg: rgba(255, 255, 255, 0.1);
     }
     .button__chat{
       position: fixed;
-      bottom: 15%;
+      bottom: 25%;
       right: 5px;
       max-width: 75px;
       min-width: 0;
@@ -45,15 +60,57 @@ $pictureBg: rgba(255, 255, 255, 0.1);
       z-index: 1;
       @include lg{
         padding: 15px;
-        right: 25px;
+        right: 15px;
       }
       @include xxl{
-        right: calc((50% - 1720px / 2) + 16px);
+        right: calc((50% - 1720px / 2) + 85px);
       }
       img{
         max-width: 35px;
         @include lg{
           max-width: 40px;
+        }
+      }
+    }
+    .flag{
+      background-color: $White;
+      position: fixed;
+      right: 0;
+      bottom: 5%;
+      padding: 5px 10px 0;
+      z-index: 1;
+      transform: skewY(-40deg);
+      @include sm{
+        padding: 5px 19px 0;
+      }
+      @include lg{
+        transform: skewY(-30deg);
+        padding: 5px 34px 0;
+      }
+      @include xl{
+        right: calc(50% - 860px + 17px);
+        transform: skewY(0deg);
+        background-color: transparent;
+        padding: 0;
+      }
+      @include xxl{
+
+      }
+      &__desktop{
+        display: none;
+        @include xl{
+          display: block;
+        }
+      }
+      &__mobile{
+        @include xl{
+          display: none;
+        }
+      }
+      img{
+        max-width: 100px;
+        @include xl{
+          max-width: 180px;
         }
       }
     }
@@ -88,6 +145,7 @@ $pictureBg: rgba(255, 255, 255, 0.1);
         padding: 50px 85px;
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
       }
     }
     .left{
@@ -107,6 +165,9 @@ $pictureBg: rgba(255, 255, 255, 0.1);
       margin-bottom: 35px;
       @include md{
         margin-bottom: 50px;
+      }
+      p, ul{
+        color: #8F8F8F;
       }
       &.modified{
         display: flex;
@@ -128,6 +189,7 @@ $pictureBg: rgba(255, 255, 255, 0.1);
         padding: 0 23px;
         background: $categoryBg;
         border-radius: 20.5px;
+        color: $White;
       }
     }
     picture{
