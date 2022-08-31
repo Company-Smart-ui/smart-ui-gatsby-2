@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import * as style from "./questions.module.scss";
 import { Card } from "./Card";
-// import questionsList from "./questionsList";
 import { useTranslation } from "react-i18next";
 
 export const Questions = () => {
