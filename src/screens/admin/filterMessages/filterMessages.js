@@ -37,9 +37,7 @@ export const FilterMessages = ({
               onClick={() => setActiveIndex(i)}
             >
               <span>{title} </span>
-              {count && (
                 <span className={`dot ${activeIndex === i ? 'dot-active' : ' '}`}></span>
-              )}
               <span className="count">{count}</span>
             </button>
           </li>

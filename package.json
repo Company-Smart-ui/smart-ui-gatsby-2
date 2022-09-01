@@ -17,6 +17,7 @@
     "@fontsource/dm-sans": "^4.5.7",
     "@fontsource/poppins": "^4.5.8",
     "axios": "^0.27.2",
+    "date-fns": "^2.29.2",
     "gatsby": "^4.19.2",
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-image": "^2.19.0",

@@ -21,61 +21,6 @@
     .container {
       position: relative;
     }
-    
-    // List of strategy
-
-    .list-item {
-      @include lg {
-        display: flex;
-        gap: 30px;
-
-        &:nth-child(even) {
-          @include lg {
-            margin-left: calc(60% - 220px);
-            text-align: right;
-          }
-        }
-
-        &:nth-child(odd) {
-          @include lg {
-            margin-right: 40%;
-          }
-        }
-      }
-    }
-
-    .list-title {
-      @include lg {
-        min-width: 220px;
-      }
-    }
-
-    .list-item-number {
-      font-size: 33px;
-      font-weight: 700;
-      color: $MediumSeaGreen;
-    }
-
-    .list-item-title {
-      margin-left: 10px;
-      font-size: 30px;
-      line-height: 1.5;
-      font-weight: 400;
-    }
-
-    .list-item-description {
-      font-size: 16px;
-      line-height: 1.28;
-      font-weight: 300;
-      opacity: 0.5;
-      text-align: justify;
-    }
-
-    .list-item-first:not(:first-child) {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
 
     // Pagination
 
