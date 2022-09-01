@@ -376,34 +376,33 @@ button {
     margin-bottom: 25px;
   }
 
-  
-.form {
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-  margin-bottom: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+  .form {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
 
-  p {
-    color: $White;
-    font-size: 16px;
+    p {
+      color: $White;
+      font-size: 16px;
+    }
   }
-}
 
-.btns {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  order: 2;
-  @include md {
-    justify-content: start;
-    order: 1;
+  .btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    order: 2;
+    @include md {
+      justify-content: start;
+      order: 1;
+    }
   }
-}
 
   .button,
   .reset {
@@ -434,7 +433,7 @@ button {
   right: 0;
   background: $GrayBlue;
   opacity: 0;
-  transition: .65s ease-in-out;
+  transition: 0.65s ease-in-out;
   z-index: 102;
   &.open {
     opacity: 0.5;

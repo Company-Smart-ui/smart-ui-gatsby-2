@@ -55,7 +55,6 @@ export const OurAdvantages = () => {
             activeIndex={activeIndex}
           />
         </div>
-        <button className="button overlay">Review</button>
       </div>
     </section>
   );

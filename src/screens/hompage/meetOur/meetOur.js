@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import * as style from "./meetOur.module.scss";
 import { TeamSwiper } from "./swiper/TeamSwiper";
 import { SwiperButtons } from "../../../global/swiperButtons/SwiperButtons";
 import { teamList } from "./card/TeamList";
 import { Pagination } from "../../../global/pagination/Pagination";
 import { useTranslation } from "react-i18next";
+import {I18nextContext, Link} from 'gatsby-plugin-react-i18next';
 
 export const MeetOur = () => {
+  const {language:currentLng} =  useContext(I18nextContext);
   const {t} = useTranslation();
   const [activeIndex, setActiveIndex] = useState(0);
   const [swiperRef, setSwiperRef] = useState(null);
@@ -54,9 +56,9 @@ export const MeetOur = () => {
               loop
             />
           </div>
-          <button className="container button whole-team-button overlay">
+          <Link className="container button whole-team-button overlay" to={'/team/'}  language={currentLng}   >
             {t('team_btn')}
-          </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -26,7 +26,8 @@ export const Hero = () => {
     const parallaxStyle = {transform: 'translateY(' + transformScroll + "px)"}
 
 
-    return <><section  className={style.hero}>
+    return <>
+        <section  className={style.hero}>
         <div className="container  hero-3d">
             <div className="yCircle left md-only"/>
             <div style={{top:transformScroll/5 ,bottom:transformScroll/5}}  className="bCircle   "/>
@@ -50,9 +51,11 @@ export const Hero = () => {
     </section>
     {
         isOpen && 
-        <Modal onClose={onClose} title={'Get started'}>
-            <h3>Get started</h3>
-        </Modal>
+        <div className={style.heroWrap}>
+            <Modal onClose={onClose} title={'Get started'}>
+                <h3>Get started</h3>
+            </Modal>
+        </div>
     }
     </>
 };
