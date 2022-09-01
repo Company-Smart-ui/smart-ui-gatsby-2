@@ -4,8 +4,9 @@ import { useOpen } from "../../../hooks/useOpen";
 import { useOnClickOutside } from "../../../hooks/useOnClickOutside";
 import { sendForm } from "../../../api/contactForm";
 import { useForm } from "react-hook-form";
+import {MESSENGERS} from "../../../global/data";
 
-export const Modal = ({ onClose, children, title = 'request consultation' }) => {
+export const Modal = ({ onClose, children, title = 'request consultation', nameClass = '', isMessage = false, data = '' }) => {
   const { isOpen: isFade, onOpen: fadeIn, onClose: fadeOut } = useOpen(false);
   const {
     register,
@@ -43,7 +44,7 @@ export const Modal = ({ onClose, children, title = 'request consultation' }) => 
   return (
     <div
       ref={modalRef}
-      className={['modal', (isFade ? 'open' : '')].join(" ")}
+      className={[ nameClass, 'modal', (isFade ? 'open' : '')].join(" ")}
     >
       {children}
       <form onSubmit={handleSubmit(onSubmit)} className='form'>
@@ -78,6 +79,10 @@ export const Modal = ({ onClose, children, title = 'request consultation' }) => 
         <p className="md-only">
           Your data is safe and will not be passed on to third parties
         </p>
+
+        {
+          isMessage && <MESSENGERS data={data} />
+        }
 
         <div className={"btns"}>
           <button

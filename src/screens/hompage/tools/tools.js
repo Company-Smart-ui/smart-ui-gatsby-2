@@ -6,6 +6,8 @@ import { SwiperButtons } from "../../../global/swiperButtons/SwiperButtons";
 
 import { SwipeTo } from "../../../global/swipeTo/swipeTo";
 import { useTranslation } from "react-i18next";
+import {Modal} from "../../../components/layout/modal/modal";
+import {useOpen} from "../../../hooks/useOpen";
 
 export const Tools = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -15,6 +17,8 @@ export const Tools = () => {
   const slideNextHandler = () => swiperRef.slideNext();
 
   const setActiveHandler = () => setActiveIndex(swiperRef?.realIndex);
+
+  const {isOpen, onClose, onOpen}= useOpen(false);
 
 
   useEffect(() => {
@@ -26,6 +30,7 @@ export const Tools = () => {
   const sliderLength = t("tools_cards", { returnObjects: true }).length;
 
   return (
+    <>
     <div className={`${style.tools} vertical-padding`}>
       <div className="yCircle" />
       <div className="noise" />
@@ -38,7 +43,7 @@ export const Tools = () => {
               <p className="subtitle description">
                 {t("tools_text")}
               </p>
-              <button className="button"> {t('tools_btn')}</button>
+              <button className={["button", (isOpen ? 'disabled' : '')].join(' ') } onClick={onOpen} > {t('tools_btn')}</button>
               <div className="swiperTips">
                 <SwipeTo />
               </div>
@@ -66,5 +71,14 @@ export const Tools = () => {
         </div>
       </div>
     </div>
+    {
+      isOpen && 
+      <div className={style.toolsWrap}>
+          <Modal onClose={onClose} title={`${t('tools_btn')}`}>
+              <h3>{t('tools_btn')}</h3>
+          </Modal>
+      </div>
+    }
+    </>
   );
 };

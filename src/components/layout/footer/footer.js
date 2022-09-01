@@ -63,7 +63,6 @@ export const Footer = ( ) => {
         {
             isOpen && <Modal onClose={onClose}>
                         <h3>Leave your message</h3>
-                        <p>Please leave one of your contacts to contact you.</p>
                     </Modal>
         }
         <GetInTouch />

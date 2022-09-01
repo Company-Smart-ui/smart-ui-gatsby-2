@@ -3,6 +3,8 @@ import * as style from "./whatWeDo.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { SwiperButtons } from "../../../global/swiperButtons/SwiperButtons";
 import { useTranslation } from "react-i18next";
+import {Modal} from "../../../components/layout/modal/modal";
+import {useOpen} from "../../../hooks/useOpen";
 
 import "swiper/css";
 import { Pagination } from "../../../global/pagination/Pagination";
@@ -12,6 +14,7 @@ export const WhatWeDo = () => {
   const [swiper, setSwiper] = useState(null);
   const [secondSwiper, setSecondSwiper] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const {isOpen, onClose, onOpen}= useOpen(false);
 
   const slidePrevHandler = () => {
     swiper.slidePrev();
@@ -29,6 +32,7 @@ export const WhatWeDo = () => {
   const secondSlide = template[1];
 
   return (
+    <>
     <section className={`${style.whatWeDo} vertical-padding`}>
       <div className="container">
         <div className="grid">
@@ -53,7 +57,7 @@ export const WhatWeDo = () => {
             </Swiper>
           </div>
           <div className="pagination">
-            <button className="button">{t("whatwedo_btn")}</button>
+            <button className={["button", (isOpen ? 'disabled' : '')].join(' ') } onClick={onOpen}>{t("whatwedo_btn")}</button>
             <Pagination activeIdx={activeIndex} sliderLength={2} whiteTheme />
           </div>
           <div className="work-list">
@@ -103,5 +107,14 @@ export const WhatWeDo = () => {
         </div>
       </div>
     </section>
+    {
+        isOpen && 
+        <div className={style.whatWeDoWrap}>
+            <Modal onClose={onClose} title={'Ask a question'}>
+                <h3>Ask a question</h3>
+            </Modal>
+        </div>
+    }
+    </>
   );
 };
