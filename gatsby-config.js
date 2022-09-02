@@ -21,7 +21,7 @@ const strapiConfig = {
 module.exports = {
   siteMetadata: {
     title: `Smart-ui `,
-      description: `Smart ui Agency `,
+      description: `Smart ui  frontend  Agency -  React js , Gatsby , Next `,
       image: `/logo-large.png`,
     siteUrl: `https://smart-ui-gatsby-2.vercel.app/`
   },
@@ -31,7 +31,7 @@ module.exports = {
           resolve: `gatsby-source-strapi`,
           options: strapiConfig,
       },
-   "gatsby-plugin-sass", "gatsby-plugin-image", "gatsby-plugin-react-helmet", "gatsby-plugin-sitemap", {
+   "gatsby-plugin-sass", "gatsby-plugin-image",  "gatsby-plugin-sitemap", {
     resolve: 'gatsby-plugin-manifest',
     options: {
       "icon": "src/images/icon.png"

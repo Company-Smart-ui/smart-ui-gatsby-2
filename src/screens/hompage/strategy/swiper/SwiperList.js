@@ -18,8 +18,6 @@ export const SwiperList = ({ swiper, setSwiper, setActiveIndex, content }) => {
       }
     });
 
-  console.log(firstSlideArr);
-  console.log(secondSlideArr);
 
   return (
     <div className={style.swiper_list}>

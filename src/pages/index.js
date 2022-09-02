@@ -1,10 +1,11 @@
 import * as React from "react"
+import {HomePage} from "../screens/hompage/homePage";
+import {graphql} from "gatsby";
+import {SEO} from "../components/SEO/SEO";
 
-import {useEffect} from "react";
-import {graphql, navigate} from "gatsby";
 export const query = graphql`
-  query ($language: String ,$pageName:[String] ) {
-   locales: allLocale(filter: {language: {eq: $language}, ns: {in: $pageName}}) {
+  query ($language: String  ) {
+   locales: allLocale(filter: {language: {eq: $language}, ns: {in:["home" , "global"]}}) {
       edges {
         node { 
           ns
@@ -15,14 +16,14 @@ export const query = graphql`
     }
   }
 `
-const IndexPage = ( ) => {
-
- useEffect(()=>{
-   navigate('/home/')
- },[])
-  return    <></>
+const Home = ( ) => {
+    return     <HomePage/>
 
 
 }
 
-export default IndexPage
+export default Home
+
+export const Head = () => (
+    <SEO title={'Home'}/>
+)

@@ -14,7 +14,7 @@ import {LangSwitch} from "../langSwitch/langSwitch";
 import {useNoScroll} from "../../../hooks/useNoScroll";
 import {useTranslation} from "react-i18next";
 export const NAVIGATION = {
-    home: {text: 'Home'  , link:'/home/'},
+    home: {text: 'Home'  , link:'/'},
     team: {text:'Our team', link:'/team/'},
     portfolio:{text:'Portfolio', link:'/portfolio/'}
 }
@@ -52,7 +52,7 @@ export const Header = ({path}) => {
     return <header className={[scrolled?style.scrolled:" ",  style.header ,   isOpen? style.open: " "].join(' ')}>
             <Burger {...{isOpen, onToggle}} />
         <div className={style.logo }>
-            <Link to={'/home/'}  language={currentLng}   >
+            <Link to={NAVIGATION.home.link}  language={currentLng}   >
                 <img  src={Logo} alt="logo"/>
             </Link>
 
