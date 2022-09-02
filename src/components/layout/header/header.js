@@ -5,6 +5,7 @@ import {useOpen} from "../../../hooks/useOpen";
 import Logo from '../../../images/smart-ui.svg';
 import {NavItem} from "./navItem/navItem";
 import {StaticImage} from "gatsby-plugin-image";
+import {MESSENGERS} from "../../../global/data";
 
 import {Messenger} from "../../../global/messengers/messengers.js";
 
@@ -66,7 +67,7 @@ export const Header = ({path}) => {
                     })}
                 </ul>
                 <LangSwitch delay={ (Object.entries(NAVIGATION).length+1)/5 }  />
-                <Messenger />
+                <Messenger data={MESSENGERS} />
             </nav>
 
             <StaticImage className={'menuImg  '} objectFit={'contain'} width={500} placeholder={'tracedSVG'} src={"./menuImg.jpg"} alt={""}/>
