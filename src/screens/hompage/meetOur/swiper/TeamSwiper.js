@@ -16,7 +16,7 @@ export const TeamSwiper = ({
     <div className={style.teamSwiper}>
       <Swiper
         onSwiper={setSwiperRef}
-        spaceBetween={32}
+        spaceBetween={0}
         initialSlide={1}
         slidesPerView={0}
         freeMode={true}
@@ -24,10 +24,10 @@ export const TeamSwiper = ({
         breakpoints={{
           375: {
             slidesPerView: 1,
-            spaceBetween: 16,
+            spaceBetween: 0,
           },
           576: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 0,
           },
           768: {
@@ -38,10 +38,10 @@ export const TeamSwiper = ({
           },
           1024: {
             slidesPerView: 3,
-            spaceBetween: 32,
+            spaceBetween: 0,
             allowTouchMove: false,
             grabCursor: false,
-          },
+          }
         }}
         grabCursor={true}
         speed={800}

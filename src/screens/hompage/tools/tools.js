@@ -8,18 +8,13 @@ import { SwipeTo } from "../../../global/swipeTo/swipeTo";
 import { useTranslation } from "react-i18next";
 
 export const Tools = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [swiperRef, setSwiperRef] = useState(null);
 
   const slidePrevHandler = () => swiperRef.slidePrev();
   const slideNextHandler = () => swiperRef.slideNext();
 
   const setActiveHandler = () => setActiveIndex(swiperRef?.realIndex);
-
-
-  useEffect(() => {
-    setActiveIndex(0);
-  }, []);
 
   const { t } = useTranslation();
 

@@ -16,7 +16,7 @@ export const AdvantagesSwiper = ({
     <div className={style.cardsSwiper}>
       <Swiper
         onSwiper={setSwiperRef}
-        spaceBetween={16}
+        spaceBetween={0}
         initialSlide={0}
         slidesPerView={1}
         freeMode={true}
@@ -24,32 +24,25 @@ export const AdvantagesSwiper = ({
         breakpoints={{
           375: {
             slidesPerView: 1,
-            spaceBetween: 16
+            spaceBetween: 0,
           },
           768: {
             slidesPerView: 3,
-            spaceBetween: 24,
+            spaceBetween: 0,
             allowTouchMove: false,
           },
-          1024: {
-            slidesPerView: 3,
-            spaceBetween: 44,
-          },
-          1440: {
-            slidesPerView: 3,
-            spaceBetween: 64,
-          }
         }}
         grabCursor={true}
         speed={400}
         loop={false}
         onSlideChange={() => setActiveIndex(swiperRef?.realIndex)}
       >
-        {Array.isArray(cardsList) && cardsList.map((el) => (
-          <SwiperSlide key={el.title}>
-            <Card content={el} />
-          </SwiperSlide>
-        ))}
+        {Array.isArray(cardsList) &&
+          cardsList.map((el) => (
+            <SwiperSlide key={el.title}>
+              <Card content={el} />
+            </SwiperSlide>
+          ))}
       </Swiper>
     </div>
   );

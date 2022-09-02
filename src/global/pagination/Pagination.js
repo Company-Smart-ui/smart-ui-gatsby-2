@@ -1,7 +1,7 @@
 import React from "react";
 import * as style from "./pagination.module.scss";
 
-export const Pagination = ({ activeIdx, sliderLength, whiteTheme }) => {
+export const Pagination = ({ activeIdx = 0, sliderLength, whiteTheme }) => {
   const showCurrentIndex = (index) => {
     if (typeof(index) === "number" && index < 10) {
       return `0${activeIdx + 1}`;

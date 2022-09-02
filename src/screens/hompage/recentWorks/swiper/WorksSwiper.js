@@ -1,6 +1,5 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-// import { Card } from "../card/Card";
 import { ProjectCard } from "../../../../global/projectCard/projectCard";
 import { listCardsProjects } from "../../../portfolio/hero/data";
 import * as style from './worksSwiper.module.scss';
@@ -18,15 +17,11 @@ export const WorksSwiper = ({
     <div className={style.worksSwiper}>
       <Swiper
         onSwiper={setSwiperRef}
-        spaceBetween={32}
+        spaceBetween={0}
         slidesPerView={1}
         className="swiper"
         breakpoints={{
           375: {
-            slidesPerView: 1,
-            spaceBetween: 32
-          },
-          576: {
             slidesPerView: 1,
             spaceBetween: 0
           },
@@ -48,9 +43,9 @@ export const WorksSwiper = ({
         loop={true}
         onSlideChange={() => setActiveHandler(swiperRef?.realIndex)}
       >
-        {listCardsProjects.map((el, index) => (
+        {listCardsProjects.map((el) => (
           <SwiperSlide key={el.title}>
-            <ProjectCard content={el} indexEl={index} loop={loop} />
+            <ProjectCard content={el} />
           </SwiperSlide>
         ))}
       </Swiper>
