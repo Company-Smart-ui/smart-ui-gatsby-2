@@ -9,15 +9,16 @@
 
       :global{
         .s__control{
-          min-height: 20px;
+          min-height: 36px;
           line-height: 1;
           border:none;
           outline:none;
           box-shadow: none;
-          border-radius:  16px 16px 0 0 ;
+          border-radius: 6px;
+          overflow: hidden;
           .s__value-container{
-            margin-left: 1px;
-            padding: 6px 5px 2px 12px;
+            // margin-left: 1px;
+            padding: 2px 5px 2px 5px;
           }
         }
         .s__control--menu-is-open{
@@ -26,7 +27,8 @@
         .s__menu{
           padding-bottom: 6px;
           margin: 0;
-          border-radius:0 0 16px 16px;
+          margin-top: 3px;
+          border-radius: 6px;
           box-shadow: 0  5.5px 5.5px rgba(0, 0, 0, 0.02);
           overflow: hidden;
 
@@ -37,13 +39,13 @@
           padding-bottom: 4px;
             svg{
                fill:#373D59;
-              width: 31px;
+              width: 18px;
             }
         }
         .s__option , .s__value-container{
           cursor:pointer;
           min-width: 77px;
-          padding: 5px 5px 5px 15px;
+          padding: 5px 5px 5px 5px;
           background-color: #fff;
           font-size: 14px;
           line-height: 20px;

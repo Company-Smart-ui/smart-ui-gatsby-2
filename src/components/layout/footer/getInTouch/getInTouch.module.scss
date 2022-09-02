@@ -29,7 +29,7 @@
     width: fit-content;
     margin: 0 auto;
     @include lg {
-        margin-bottom: -31%;
+      margin-bottom: -31%;
     }
     img {
       max-width: 100%;
@@ -46,6 +46,20 @@
   }
 
   :global {
+    .formField {
+      input,
+      textarea {
+        color: $White;
+        font-size: 14px;
+        @include md {
+          font-size: 18px;
+        }
+        &::-webkit-input-placeholder,
+        &::-moz-placeholder {
+          color: $White;
+        }
+      }
+    }
     .button {
       margin: 0 auto;
     }
@@ -57,7 +71,7 @@
       bottom: 0;
       position: absolute;
       z-index: 1;
-      @include lg{
+      @include lg {
         bottom: -25%;
       }
     }

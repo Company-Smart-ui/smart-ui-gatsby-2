@@ -1,7 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Card } from "../card/Card";
-import { teamList } from "../card/TeamList";
 import * as style from "./teamSwiper.module.scss";
 
 import "swiper/css";
@@ -10,13 +9,14 @@ import "swiper/css/free-mode";
 export const TeamSwiper = ({
   activeIndexHandler,
   setSwiperRef,
-  loop
+  teamList,
+  loop,
 }) => {
   return (
     <div className={style.teamSwiper}>
       <Swiper
         onSwiper={setSwiperRef}
-        spaceBetween={32}
+        spaceBetween={0}
         initialSlide={1}
         slidesPerView={0}
         freeMode={true}
@@ -24,11 +24,11 @@ export const TeamSwiper = ({
         breakpoints={{
           375: {
             slidesPerView: 1,
-            spaceBetween: 16
+            spaceBetween: 0,
           },
           576: {
-            slidesPerView: 2,
-            spaceBetween: 0
+            slidesPerView: 1,
+            spaceBetween: 0,
           },
           768: {
             slidesPerView: 3,
@@ -38,11 +38,9 @@ export const TeamSwiper = ({
           },
           1024: {
             slidesPerView: 3,
-            spaceBetween: 32,
-          },
-          1440: {
-            slidesPerView: 3,
-            spaceBetween: 32,
+            spaceBetween: 0,
+            allowTouchMove: false,
+            grabCursor: false,
           }
         }}
         grabCursor={true}
@@ -50,11 +48,12 @@ export const TeamSwiper = ({
         loop={loop}
         onSlideChange={activeIndexHandler}
       >
-        {teamList.map((el, index) => (
-          <SwiperSlide key={el.name}>
-            <Card content={el}  indexEl={index} loop={loop} />
-          </SwiperSlide>
-        ))}
+        {teamList &&
+          teamList.map((el) => (
+            <SwiperSlide key={el.title}>
+              <Card content={el} />
+            </SwiperSlide>
+          ))}
       </Swiper>
     </div>
   );

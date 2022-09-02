@@ -8,7 +8,15 @@
   margin-top: 24px;
 
   @include md {
-    width: 100%;
+    width: 628px;
+  }
+
+  @include lg {
+    width: 824px;
+  }
+
+  @include xl {
+    width: 950px;
   }
 
   :global {
@@ -20,9 +28,23 @@
       @include md {
         width: 100%;
       }
+    }
+
+    .swiper-slide {
+      width: 275px;
+      padding: 0 10px;
+
+      @include md {
+        width: 210px;
+        padding: 0 10px;
+      }
+
+      @include lg {
+        width: 275px;
+      }
 
       @include xl {
-       padding: 0 112px;
+        width: 318px;
       }
     }
   }

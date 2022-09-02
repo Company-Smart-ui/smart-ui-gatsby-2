@@ -4,10 +4,12 @@ import {Contact} from "../../../global/contact/contact";
 import {StaticImage} from "gatsby-plugin-image";
 import {SwipeTo} from "../../../global/swipeTo/swipeTo";
 import {useTranslation} from "react-i18next";
-
+import {Modal} from "../../../components/layout/modal/modal";
+import {useOpen} from "../../../hooks/useOpen";
 
 export const Hero = () => {
     const {t} = useTranslation();
+    const {isOpen, onClose, onOpen}= useOpen(false);
     const [transformScroll, setTransformScroll] = useState(1);
     useEffect(() => {
         const layout = window
@@ -24,7 +26,8 @@ export const Hero = () => {
     const parallaxStyle = {transform: 'translateY(' + transformScroll + "px)"}
 
 
-    return <section  className={style.hero}>
+    return <>
+        <section  className={style.hero}>
         <div className="container  hero-3d">
             <div className="yCircle left md-only"/>
             <div style={{top:transformScroll/5 ,bottom:transformScroll/5}}  className="bCircle   "/>
@@ -36,11 +39,9 @@ export const Hero = () => {
 
             <div className={style.overlay}>
                 <h1  >  <span  className="yCircle  md-only "/> <span dangerouslySetInnerHTML={{__html:t('h1')}}/></h1>
-                <p  className="subtitle">
-                    You deserve easy IT, to make it easy make <span className="nowrap"> it SMART 👋 </span>
-                </p>
+                <p dangerouslySetInnerHTML={{__html:t('hero_subtitle')}}  className="subtitle" />
                 <div  className={style.ctaContainer}>
-                    <button className="button"> Get Started </button>
+                    <button className={["button", (isOpen ? 'disabled' : '')].join(' ') } onClick={onOpen} > Get Started </button>
                     <Contact/>
                 </div>
                   <SwipeTo/>
@@ -48,6 +49,15 @@ export const Hero = () => {
 
         </div>
     </section>
+    {
+        isOpen && 
+        <div className={style.heroWrap}>
+            <Modal onClose={onClose} title={'Get started'}>
+                <h3>Get started</h3>
+            </Modal>
+        </div>
+    }
+    </>
 };
 
  

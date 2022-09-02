@@ -49,6 +49,11 @@
       }
     }
 
+    h2::after{
+        content: ".";
+        color:$LimeGreen;
+    }
+
     .title {
       grid-area: title;
       max-width: 275px;

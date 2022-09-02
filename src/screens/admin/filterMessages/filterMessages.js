@@ -1,7 +1,6 @@
 import React from 'react';
 import * as style from './filterMessages.module.scss'
 
-
 export const FilterMessages = ({
   activeIndex,
   setActiveIndex,
@@ -29,17 +28,15 @@ export const FilterMessages = ({
 
   return (
     <ul className={style.list}>
-      {resultOptions?.map(({ id, title, count }, i) => {
+      {resultOptions?.map(({ title, count }, i) => {
         return (
-          <li key={id} className={`item`}>
+          <li key={title} className={`item`}>
             <button
               className={`item-button ${activeIndex === i ? 'active' : ' '}`}
               onClick={() => setActiveIndex(i)}
             >
               <span>{title} </span>
-              {count && (
                 <span className={`dot ${activeIndex === i ? 'dot-active' : ' '}`}></span>
-              )}
               <span className="count">{count}</span>
             </button>
           </li>

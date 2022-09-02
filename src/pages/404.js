@@ -1,11 +1,12 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import {NAVIGATION} from "../components/layout/header/header";
 
 // styles
 const pageStyles = {
   color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
+  padding: "150px 96px",
+
 }
 const headingStyles = {
   marginTop: 0,
@@ -27,7 +28,7 @@ const codeStyles = {
 // markup
 const NotFoundPage = (props) => {
 
-  console.log(props.location.pathname)
+
   return (
     <main style={pageStyles}>
       <title>Not found</title>
@@ -47,7 +48,7 @@ const NotFoundPage = (props) => {
           </>
         ) : null}
         <br />
-        <Link to="/">Go home</Link>.
+        <Link to={NAVIGATION.home.link}>Go home</Link>.
       </p>
     </main>
   )

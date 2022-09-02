@@ -10,8 +10,23 @@
   align-items: stretch;
 
   @include sm {
-    width: 100%;
-    height: 100%;
+    width: 436px;
+  }
+
+  @include md {
+    width: 628px;
+  }
+
+  @include lg {
+    width: 520px;
+  }
+
+  @include xl {
+    width: 810px;
+  }
+
+  @include xxl {
+    width: 898px;
   }
 
   :global {
@@ -21,7 +36,7 @@
         overflow: visible;
 
         @include md {
-          margin-left: calc(100% / 3);
+          width: 100%;
         }
 
         @include lg {
@@ -34,8 +49,25 @@
       }
 
       .swiper-slide {
+        width: 275px;
+
+        @include sm {
+          width: 218px;
+        }
         @include md {
-          width: 0;
+          width: 209px;
+        }
+
+        @include lg {
+          width: 173px;
+        }
+
+        @include xl {
+          width: 270px;
+        }
+
+        @include xxl {
+          width: 299px;
         }
       }
   }

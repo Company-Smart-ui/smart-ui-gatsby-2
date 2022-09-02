@@ -19,7 +19,7 @@ import Whatsapp from '../images/whatsapp.svg'
     },
  ]
 
- export const MESSANGERS = [
+ export const MESSENGERS = [
     {
     img: Whatsapp,
     link:'https://wa.me/+34634839752',

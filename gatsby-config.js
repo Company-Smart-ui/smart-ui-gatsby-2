@@ -8,6 +8,11 @@ const strapiConfig = {
         queryParams: {
             populate:  "deep"
         },
+    }, {
+        singularName: 'global',
+        queryParams: {
+            populate:  "deep"
+        },
     },],
     queryLimit: 1000,
 };
@@ -15,8 +20,10 @@ const strapiConfig = {
 
 module.exports = {
   siteMetadata: {
-    title: `smart-ui-gatsby-2`,
-    siteUrl: `https://www.yourdomain.tld`
+    title: `Smart-ui `,
+      description: `Smart ui  frontend  Agency -  React js , Gatsby , Next `,
+      image: `/logo-large.png`,
+    siteUrl: `https://smart-ui-gatsby-2.vercel.app/`
   },
   plugins: [
 
@@ -24,7 +31,7 @@ module.exports = {
           resolve: `gatsby-source-strapi`,
           options: strapiConfig,
       },
-   "gatsby-plugin-sass", "gatsby-plugin-image", "gatsby-plugin-react-helmet", "gatsby-plugin-sitemap", {
+   "gatsby-plugin-sass", "gatsby-plugin-image",  "gatsby-plugin-sitemap", {
     resolve: 'gatsby-plugin-manifest',
     options: {
       "icon": "src/images/icon.png"

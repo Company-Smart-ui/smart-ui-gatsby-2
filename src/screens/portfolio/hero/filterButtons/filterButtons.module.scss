@@ -1,0 +1,20 @@
+@import 'src/var';
+
+.filter-buttons {
+  cursor: pointer;
+  display: inline-block;
+  padding: 7px 34px;
+  font-size: 16px;
+  border: 1px solid $Gray;
+  border-radius: 30px;
+  font-weight: 500;
+  color: $Gray;
+  letter-spacing: -0.04em;
+}
+
+.active {
+  background-color: $Lime;
+  color: $White;
+  border: 1px solid $Lime;
+  outline: none;
+}

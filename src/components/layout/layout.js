@@ -3,24 +3,14 @@ import {Footer} from "./footer/footer";
 import "../../global.scss"
 import "../../lazy.scss"
 import {Header} from "./header/header";
-import { Modal } from './modal/modal';
-import {navigate} from "gatsby";
 // import {RedLine} from "./redLine/redLine";
 
  const  Layout = ( props) => {
-    const path = props?.children?.props?.pageContext?.pageName;
-    if(path===""){
-        if(typeof window!=="undefined"){
-            navigate('/home');
-        }
-
-        return <> </>
-    }
+    const path = props?.children?.props?.pageContext?.pageName[0];
 
     return (
         <div className={'layout'}>
             <Header path={ path }/>
-            <Modal />
             <main className={'main'}>
                 {props.children}
             </main>
@@ -32,3 +22,4 @@ import {navigate} from "gatsby";
 };
 
 export default Layout
+

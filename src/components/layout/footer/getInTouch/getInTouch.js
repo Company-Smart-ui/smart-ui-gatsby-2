@@ -1,7 +1,6 @@
 import React from "react";
 import * as style from "./getInTouch.module.scss";
 import { StaticImage } from "gatsby-plugin-image";
-import { FormField } from "../../../../global/formField/formField";
 import { useForm } from "react-hook-form";
 import { sendForm } from "../../../../api/contactForm";
 import { ToastContainer } from "react-toastify";
@@ -30,15 +29,9 @@ export const GetInTouch = () => {
 
   function onSubmit(data, e) {
     e.preventDefault();
-
-    sendForm({ e, type: "footer", data: { ...data } });
-
-    setTimeout(() => {
-        reset()
-
-    }, 100)
+    sendForm({ type: "footer", data: { ...data } });
+    reset()
   }
-
 
   return (
     <div className={style.wrapper}>
@@ -46,52 +39,55 @@ export const GetInTouch = () => {
       <div className="container">
         <h2 className="h2">{formTitle.text}</h2>
         <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
-          <FormField placeholder={defaultData.firstName}>
-            <input
-              {...register("firstName", {
-                required: true,
-                minLength: { value: 2, message: "Not less than 5 symbols" },
-                maxLength: { value: 30, message: "Not more than 30 symbols" },
-                pattern: {
-                  value:/([а-яА-яa-zA-z]+\s)+([а-яА-яa-zA-z]+)/ig,
-                  message: "Please, use only letters",
-                },
-              })}
-              placeholder={defaultData.firstName}
-              type={"text"}
-            />
-            {errors.firstName && (
-              <span className="error">{errors.firstName.message}</span>
-            )}
-          </FormField>
+            <label className="formField">
+              <input
+                {...register("firstName", {
+                  required: true,
+                  minLength: { value: 2, message: "Not less than 5 symbols" },
+                  maxLength: { value: 30, message: "Not more than 30 symbols" },
+                  pattern: {
+                    value: /^[а-яА-ЯёЁіІїЇєЄa-zA-Z_'"\s]+$/,
+                    message: "Please, use only letters",
+                  },
+                })}
+                placeholder={defaultData.firstName}
+                type={"text"}
+              />
+              {errors.firstName && (
+                <span className="error">{errors.firstName.message}</span>
+              )}
+            </label>
 
-          <FormField placeholder={defaultData.email}>
-            <input
-              {...register("email", {
-                required: true,
-                pattern: {
-                  value:
-                    /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/,
-                  message: "Please, use correct email",
-                },
-              })}
-              placeholder={defaultData.email}
-              type={"email"}
-            />
-            {errors.email && (
-              <span className="error">{errors.email.message}</span>
-            )}
-          </FormField>
+            <label className="formField">
+              <input
+                {...register("email", {
+                  required: true,
+                  pattern: {
+                    value:
+                      /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/,
+                    message: "Please, use correct email",
+                  },
+                })}
+                placeholder={defaultData.email}
+                type={"email"}
+              />
+              {errors.email && (
+                <span className="error">{errors.email.message}</span>
+              )}
+            </label>
 
-          <FormField placeholder={defaultData.text}>
-            <textarea
-              {...register("message", {
-                required: true,
-                maxLength: { value: 300, message: "Not more than 300 symbols" },
-              })}
-              placeholder={defaultData.text}
-            ></textarea>
-          </FormField>
+            <label className="formField">
+              <textarea
+                {...register("message", {
+                  required: true,
+                  maxLength: { value: 300, message: "Not more than 300 symbols" },
+                })}
+                placeholder={defaultData.text}
+              ></textarea>
+              {errors.message && (
+                <span className="error">{errors.message.message}</span>
+              )}
+            </label>
           <button
             className="button"
             type="submit"
@@ -100,7 +96,9 @@ export const GetInTouch = () => {
             {defaultData.button}
           </button>
         </form>
-        <ToastContainer />
+        <ToastContainer 
+          position="top-center"
+        ></ToastContainer>
         <div className={style.img}>
           <StaticImage
             className={"sm-only"}

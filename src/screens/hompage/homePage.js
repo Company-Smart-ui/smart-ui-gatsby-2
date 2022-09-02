@@ -13,6 +13,7 @@ import { Questions } from './questions/questions';
 export const HomePage = () => {
   return (
     <div className={style.home}>
+
       <Hero />
       <WhatWeDo />
       <Tools/>

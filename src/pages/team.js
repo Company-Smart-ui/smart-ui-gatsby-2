@@ -1,10 +1,11 @@
 import React  from 'react';
 import {graphql} from "gatsby";
+import {SEO} from "../components/SEO/SEO";
 
 
 export const query = graphql`
-  query ($language: String ,$pageName:String ) {
-   locales: allLocale(filter: {language: {eq: $language}, ns: {eq: $pageName}}) {
+  query ($language: String ,$pageName:[String] ) {
+   locales: allLocale(filter: {language: {eq: $language}, ns: {in: $pageName}}) {
       edges {
         node { 
           ns
@@ -17,10 +18,16 @@ export const query = graphql`
 `
 const Team = ( ) => {
 
-    return <div>
+    return <div style={{height:800 , background:'#fff'}}>
 
 
     </div>
 };
 
 export default Team
+
+export const Head = (data) =>{
+    return (
+        <SEO title={data.pageContext.pageName[0]} />
+    )
+}

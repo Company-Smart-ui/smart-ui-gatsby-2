@@ -25,10 +25,6 @@
       line-height: 1.46;
       color: $Gray;
       text-align: start;
-
-      @include lg {
-        font-size: 12px;
-      }
     }
 
     .content-title {

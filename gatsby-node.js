@@ -1,13 +1,13 @@
 const axios = require("axios");
 const ENDPOINT = 'https://stark-refuge-01750.herokuapp.com/api/'
-const PAGES_API = ['home' ,'portfolio'];
+const PAGES_API = ['home' ,'portfolio' , 'global'];
 const LANGUAGES = ['en', 'uk-UA'];
 
 
 const createField = async ({lang} )=> {
     const pages =[];
     for (let page of PAGES_API) {
-        const fetchData = () => axios.get(ENDPOINT +page + "?locale=" + lang+"&populate=*");
+        const fetchData = () => axios.get(ENDPOINT +page + "?locale=" + lang+"&populate=deep");
         const field = await fetchData();
         pages.push({
             ns: page,
@@ -51,7 +51,7 @@ exports.onCreatePage = ({ page, actions }) => {
         ...page,
         context: {
             ...page.context,
-            pageName:page.context.i18n.originalPath.replace(/\//g, "" ),
+            pageName:[page.context.i18n.originalPath.replace(/\//g, "" ) , "global"],
         },
     })
 }

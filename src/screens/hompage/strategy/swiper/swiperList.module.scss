@@ -9,14 +9,32 @@
   font-weight: 300;
   line-height: 1.28;
 
-  @include lg {
-    display: none;
-  }
-
   :global {
     .swiper-list-item {
+
       &:not(:first-child) {
         margin-top: 50px;
+
+        @include lg {
+          margin-top: 0;
+        }
+      }
+
+      @include lg {
+        display: flex;
+        gap: 20px;
+      }
+
+      .title-block {
+        @include lg {
+          min-width: 220px;
+        }
+      }
+    }
+
+    .second {
+      @include lg {
+        text-align: end;
       }
     }
 
@@ -50,13 +68,18 @@
     }
 
     .swiper-slide {
-      background-size: cover;
-      background-position: center;
+      @include lg {
+        display: contents;
+      }
     }
 
-    .mySwiper2 {
-      height: 100%;
-      width: 100%;
+    .swiper-wrapper {
+      @include lg {
+        display: grid;
+        gap: 30px;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+      }
     }
 
     .mySwiper {

@@ -85,7 +85,12 @@ export const Admin = () => {
       })
       .then((value) => {
         if (value?.status === 200 && value?.data?.data) {
-          setContacts(value.data.data);
+          const objList = value.data.data.sort(
+            (a, b) =>
+              new Date(b?.attributes?.createdAt) -
+              new Date(a?.attributes?.createdAt)
+          );
+          setContacts(objList);
           finishLoading();
         } else {
           console.log(value);
