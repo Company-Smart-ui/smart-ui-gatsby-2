@@ -2,7 +2,7 @@ import * as React from "react";
 import {Portfolio} from "../screens/portfolio/portfolio";
 
 import {graphql} from "gatsby";
-import {SEO} from "../components/SEO/SEO";
+import {Seo} from "../components/SEO/SEO";
 
 export const query = graphql`
   query ($language: String ,$pageName:[String] ) {
@@ -29,6 +29,6 @@ export default PortfolioPage
 
 export const Head = (data) =>{
  return (
-      <SEO title={data.pageContext.pageName[0]} />
+      <Seo title={data.pageContext.pageName[0]} />
   )
 }

@@ -4,7 +4,7 @@ import { useOpen } from "../../../hooks/useOpen";
 import { useOnClickOutside } from "../../../hooks/useOnClickOutside";
 import { sendForm } from "../../../api/contactForm";
 import { useForm } from "react-hook-form";
-import {MESSENGERS} from "../../../global/data";
+
 
 export const Modal = ({ onClose, children, title = 'request consultation', nameClass = '', isMessage = false, data = '' }) => {
   const { isOpen: isFade, onOpen: fadeIn, onClose: fadeOut } = useOpen(false);
@@ -81,7 +81,7 @@ export const Modal = ({ onClose, children, title = 'request consultation', nameC
         </p>
 
         {
-          isMessage && <MESSENGERS data={data} />
+          // isMessage && <MESSENGERS data={data} />
         }
 
         <div className={"btns"}>

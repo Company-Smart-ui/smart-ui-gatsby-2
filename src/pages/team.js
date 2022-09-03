@@ -1,6 +1,6 @@
 import React  from 'react';
 import {graphql} from "gatsby";
-import {SEO} from "../components/SEO/SEO";
+import {Seo} from "../components/SEO/SEO";
 
 
 export const query = graphql`
@@ -28,6 +28,6 @@ export default Team
 
 export const Head = (data) =>{
     return (
-        <SEO title={data.pageContext.pageName[0]} />
+        <Seo title={data.pageContext.pageName[0]} />
     )
 }

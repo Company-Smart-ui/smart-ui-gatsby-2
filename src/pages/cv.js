@@ -1,9 +1,9 @@
 import * as React from "react"
-import CV from "../templates/cv/cv";
+import Cv from "../templates/cv/cv";
 
 const CVPage = ( ) => {
 
-    return <CV/>
+    return <Cv/>
 
 
 }

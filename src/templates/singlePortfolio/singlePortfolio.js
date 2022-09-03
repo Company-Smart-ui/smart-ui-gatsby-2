@@ -10,10 +10,22 @@ import cannabisImg6 from './toronto-cannabis-6.jpeg';
 import chatIcon from './chat-white.png';
 import flag from './flag.svg';
 import logoSmartUIMobile from './smart-ui-logo-mobile.svg';
+import {graphql} from "gatsby";
 
-
-const SinglePortfolio = ( ) => {
-
+export const query = graphql`
+  query ($language: String  ) {
+   locales: allLocale(filter: {language: {eq: $language}, ns: {in:[  "global"]}}) {
+      edges {
+        node { 
+          ns
+          language
+          data 
+        }
+      }
+    }
+  }
+`
+const SinglePortfolio = (  ) => {
     return <div className={style.singlePortfolio}>
         <div className="noise"></div>
         <div>
@@ -73,7 +85,7 @@ const SinglePortfolio = ( ) => {
                         </div>
                     </div>
                     <div className="button__wrap">
-                        <a href="#" className="button">Переглянути сайт</a>
+                        <a href="./#" className="button">Переглянути сайт</a>
                     </div>
                 </div>
             </div>

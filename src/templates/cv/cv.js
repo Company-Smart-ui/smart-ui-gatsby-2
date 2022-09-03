@@ -1,6 +1,6 @@
 import * as React from "react"
 
-const CV = ( ) => {
+const Cv = ( ) => {
 
     return <div>
         <h1>fgvdc</h1>
@@ -9,4 +9,4 @@ const CV = ( ) => {
 
 }
 
-export default CV
+export default Cv

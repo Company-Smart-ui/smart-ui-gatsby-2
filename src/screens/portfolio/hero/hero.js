@@ -6,15 +6,15 @@ import { ProjectsList } from "../projectsList/projectsList";
 import { OptimizationCard } from "./optimizationCard/optimizationCard";
 import { FilterButtons } from "./filterButtons/filterButtons";
 
-const modalText = {
-  title: "Contact the lead developer",
-  subtitle:
-    "Please leave one of your contacts, lead developer will contact you.",
-  input: "Contact the lead developer",
-  textarea: "Your message*",
-  resetBtn: "No, cancel",
-  submit: "Yes, confirm",
-};
+// const modalText = {
+//   title: "Contact the lead developer",
+//   subtitle:
+//     "Please leave one of your contacts, lead developer will contact you.",
+//   input: "Contact the lead developer",
+//   textarea: "Your message*",
+//   resetBtn: "No, cancel",
+//   submit: "Yes, confirm",
+// };
 
 export const Hero = () => {
   return (

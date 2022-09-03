@@ -5,7 +5,7 @@ function ucFirst(str) {
 
     return str[0].toUpperCase() + str.slice(1);
 }
-export const SEO = ({ title, description, pathname, children }) => {
+export const Seo = ({ title, description, pathname, children }) => {
     const { title: defaultTitle, description: defaultDescription, image, siteUrl, twitterUsername } = useSiteMetadata()
     const clearTitle =  (title? title +' | '+  defaultTitle:defaultTitle )
     const seo = {

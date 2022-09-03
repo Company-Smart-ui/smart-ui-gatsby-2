@@ -22,6 +22,7 @@ export const Questions = () => {
   useEffect(() => {
     const list = getListOptions();
     setOptions(list);
+    //eslint-disable-next-line
   }, []);
 
   const dropdownHandler = (idx) => {

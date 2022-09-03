@@ -1,7 +1,7 @@
 import * as React from "react"
 import {HomePage} from "../screens/hompage/homePage";
 import {graphql} from "gatsby";
-import {SEO} from "../components/SEO/SEO";
+import {Seo} from "../components/SEO/SEO";
 
 export const query = graphql`
   query ($language: String  ) {
@@ -25,5 +25,5 @@ const Home = ( ) => {
 export default Home
 
 export const Head = () => (
-    <SEO title={'Home'}/>
+    <Seo title={'Home'}/>
 )

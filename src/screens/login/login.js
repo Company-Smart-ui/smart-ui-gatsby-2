@@ -77,11 +77,11 @@ export const Login = () => {
           <div className="form-wrapper">
             <div className="form-row">
               <input id='identifier' name={"identifier"} type="text" required />
-              <label for="identifier">Login</label>
+              <label htmlFor="identifier">Login</label>
             </div>
             <div className="form-row">
               <input id='password' name={"password"} type="password" required />
-              <label for="password">Password</label>
+              <label htmlFor="password">Password</label>
             </div>
             <button type={"submit"} className="button">
               Login

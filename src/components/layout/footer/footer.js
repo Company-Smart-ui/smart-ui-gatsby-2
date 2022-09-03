@@ -9,7 +9,6 @@ import Img from './pointer.svg';
 import Scroll from './scroll.svg';
 import { GetInTouch } from './getInTouch/getInTouch';
 import * as style from "./footer.module.scss"
-import {useTranslation} from "react-i18next";
 import { Modal } from '../modal/modal';
 import {useOpen} from "../../../hooks/useOpen";
 
@@ -56,7 +55,7 @@ export const BackToTop = () => {
 
 export const Footer = ( ) => {
     const {isOpen, onClose, onOpen}= useOpen(false);
-            const {t} = useTranslation();
+            // const {t} = useTranslation();
     // const translatedText = t("Footer", { returnObjects: true })||[];
      return <>
         <button className={["openBtn", (isOpen ? 'disabled' : '')].join(' ') } onClick={onOpen} >request consultation</button>
