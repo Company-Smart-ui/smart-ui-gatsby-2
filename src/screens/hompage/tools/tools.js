@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import * as style from "./tools.module.scss";
 import { Pagination } from "../../../global/pagination/Pagination";
 import { CardsSwiper } from "./swiper/CardsSwiper";
