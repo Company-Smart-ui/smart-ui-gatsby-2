@@ -36,11 +36,11 @@ export const Hero = () => {
           <div className="optimization-section overlay">
             <OptimizationCard result={98} />
           </div>
-          <div className="modal-button-section">
+          <div className="modal-button-section overlay">
             <button className="button">Contact the lead developer</button>
           </div>
         </div>
-        <div className="portfolio-block">
+        <div className="portfolio-block overlay">
           <div className="filter-buttons">
             <FilterButtons />
           </div>
