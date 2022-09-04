@@ -43,7 +43,7 @@ export const WorksSwiper = ({
         onSlideChange={() => setActiveHandler(swiperRef?.realIndex)}
       >
         {listCardsProjects.map((el) => (
-          <SwiperSlide key={el.title}>
+          <SwiperSlide key={el.id}>
             <ProjectCard content={el} />
           </SwiperSlide>
         ))}
