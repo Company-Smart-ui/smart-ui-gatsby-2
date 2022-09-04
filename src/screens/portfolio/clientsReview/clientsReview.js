@@ -5,7 +5,7 @@ import { Pagination } from "../../../components/pagination/pagination";
 import { reviewsList } from "./data";
 
 export const ClientsReview = () => {
-  const [cards, setCards] = useState(reviewsList);
+  const [cards ] = useState(reviewsList);
   const [itemOffset, setItemOffset] = useState(1);
 
   const itemsCount = { data: cards.length };

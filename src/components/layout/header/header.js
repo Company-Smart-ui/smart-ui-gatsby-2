@@ -14,7 +14,7 @@ import {LangSwitch} from "../langSwitch/langSwitch";
 import {useNoScroll} from "../../../hooks/useNoScroll";
 import {useTranslation} from "react-i18next";
 export const NAVIGATION = {
-    home: {text: 'Home'  , link:'/home/'},
+    home: {text: 'Home'  , link:'/'},
     team: {text:'Our team', link:'/team/'},
     portfolio:{text:'Portfolio', link:'/portfolio/'}
 }
@@ -22,12 +22,12 @@ export const Header = ({path}) => {
     const {language:currentLng} =  useContext(I18nextContext);
     const {isOpen:scrolled ,onOpen:onScrolled , onClose:offScrolled} =useOpen();
     const {t} = useTranslation();
-    const dataHeader = t("Header", { returnObjects: true })||[];
+    const dataHeader = t("Header", { returnObjects: true });
 
 
     const translatedNavigation = {}
         try{
-            const dataNav = dataHeader.filter(d=>d?.__component==="header.header-menu")[0]
+            const dataNav = Array.isArray(dataHeader) && dataHeader.filter(d=>d?.__component==="header.header-menu")[0]
             Object.entries(NAVIGATION).forEach(nav=>{
                 const field = nav[0]
                 translatedNavigation[field]= {text:dataNav[field] , link:nav[1].link};
@@ -52,7 +52,7 @@ export const Header = ({path}) => {
     return <header className={[scrolled?style.scrolled:" ",  style.header ,   isOpen? style.open: " "].join(' ')}>
             <Burger {...{isOpen, onToggle}} />
         <div className={style.logo }>
-            <Link to={'/home/'}  language={currentLng}   >
+            <Link to={NAVIGATION.home.link}  language={currentLng}   >
                 <img  src={Logo} alt="logo"/>
             </Link>
 

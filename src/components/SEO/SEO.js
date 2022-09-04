@@ -1,11 +1,15 @@
 import React from "react"
 import {useSiteMetadata} from "../../hooks/useSiteMetadata";
+function ucFirst(str) {
+    if (!str) return str;
 
-export const SEO = ({ title, description, pathname, children }) => {
+    return str[0].toUpperCase() + str.slice(1);
+}
+export const Seo = ({ title, description, pathname, children }) => {
     const { title: defaultTitle, description: defaultDescription, image, siteUrl, twitterUsername } = useSiteMetadata()
-    console.log(useSiteMetadata())
+    const clearTitle =  (title? title +' | '+  defaultTitle:defaultTitle )
     const seo = {
-        title: title || defaultTitle,
+        title: ucFirst(clearTitle),
         description: description || defaultDescription,
         image: `${siteUrl}${image}`,
         url: `${siteUrl}${pathname || ``}`,
@@ -22,8 +26,8 @@ export const SEO = ({ title, description, pathname, children }) => {
             <meta name="twitter:description" content={seo.description} />
             <meta name="twitter:image" content={seo.image} />
             <meta name="twitter:creator" content={seo.twitterUsername} />
-            <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>👤</text></svg>" />
-            {children}
+
+            {children&&children}
         </>
     )
 }

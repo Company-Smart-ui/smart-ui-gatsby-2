@@ -1,0 +1,223 @@
+@import "src/var";
+
+$bgColor: #1E1E1E;
+$borderColor: rgba(255, 255, 255, 0.3);
+$categoryBg: rgba(217, 217, 217, 0.5);
+$pictureBg: rgba(255, 255, 255, 0.1);
+$secondFontColor: #8F8F8F;
+
+.singlePortfolio{
+  margin-top: 120px;
+  background-color: $bgColor;
+  position: relative;
+  color: $White;
+  font-size: clamp(18px, 6vw - 20px, 24px);
+  padding-bottom: 100px;
+  background-image: url('./logo-wp.png');
+  background-repeat: no-repeat;
+  background-position: left center;
+  @include xl{
+    padding-bottom: 150px;
+  }
+  :global{
+    .container{
+      max-width: 1325px;
+      @include xl{
+        padding: 0;
+        border: 1px solid $borderColor;
+      }
+    }
+    .button__wrap{
+      text-align: center;
+      a{
+        width: 100%;
+      }
+      @include md{
+        a{
+          width: auto;
+        }
+      }
+      @include lg{
+        text-align: left;
+      }
+    }
+    a.button{
+      display: inline-block;
+      margin-bottom: 30px;
+      font-size: 18px;
+      @include lg{
+        margin-bottom: 0;
+      }
+    }
+    .button__chat{
+      position: fixed;
+      bottom: 25%;
+      right: 5px;
+      max-width: 75px;
+      min-width: 0;
+      padding: 10px;
+      border-radius: 50%;
+      z-index: 1;
+      @include lg{
+        padding: 15px;
+        right: 15px;
+      }
+      @include xxl{
+        right: calc((50% - 1720px / 2) + 85px);
+      }
+      img{
+        max-width: 35px;
+        @include lg{
+          max-width: 40px;
+        }
+      }
+    }
+    .flag{
+      background-color: $White;
+      position: fixed;
+      right: 0;
+      bottom: 5%;
+      padding: 5px 10px 0;
+      z-index: 1;
+      transform: skewY(-40deg);
+      @include sm{
+        padding: 5px 19px 0;
+      }
+      @include lg{
+        transform: skewY(-30deg);
+        padding: 5px 34px 0;
+      }
+      @include xl{
+        right: calc(50% - 860px + 17px);
+        transform: skewY(0deg);
+        background-color: transparent;
+        padding: 0;
+      }
+      @include xxl{
+
+      }
+      &__desktop{
+        display: none;
+        @include xl{
+          display: block;
+        }
+      }
+      &__mobile{
+        @include xl{
+          display: none;
+        }
+      }
+      img{
+        max-width: 100px;
+        @include xl{
+          max-width: 180px;
+        }
+      }
+    }
+    h1{
+      color: white;
+      font-size: clamp(40px, 10vw - 20px, 80px);
+    }
+    .noise{
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+    }
+    .subtitle{
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+      margin-right: 10px;
+      font-size: clamp(16px, 10vw - 20px, 24px);
+      @include lg{
+        margin-bottom: 20px;
+      }
+      @include xl{
+        margin-bottom: 30px;
+      }
+    }
+    .wrap{
+      border-bottom: 1px solid $borderColor;
+      padding: 30px 0;
+      @include lg{
+        padding: 50px 85px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+    }
+    .left{
+      @include lg{
+        width: 50%;
+      }
+    }
+    .right{
+      @include lg{
+        width: 50%;
+        max-width: 470px;
+        margin-left: auto;
+        padding-left: 80px;
+      }
+    }
+    .block{
+      margin-bottom: 35px;
+      @include md{
+        margin-bottom: 50px;
+      }
+      p, ul{
+        color: #8F8F8F;
+      }
+      &.modified{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        .subtitle{
+          margin-bottom: 0;
+        }
+      }
+      &:last-child{
+        margin-bottom: 30px;
+      }
+    }
+    .category{
+      display: flex;
+      align-items: flex-start;
+      li{
+        margin-right: 10px;
+        padding: 0 23px;
+        background: $categoryBg;
+        border-radius: 20.5px;
+        color: $White;
+      }
+    }
+    picture{
+      background: $pictureBg;
+      display: block;
+      text-align: center;
+      font-size: 0;
+    }
+    .picture-mobile{
+      padding: 50px 0;
+      border-bottom: 1px solid $borderColor;
+      img{
+        max-width: 460px;
+      }
+      &__wrap{
+        backdrop-filter: blur(100px);
+      }
+    }
+    .picture-desktop{
+      picture{
+        margin-bottom: 50px;
+        @include xl{
+          margin-bottom: 100px;
+        }
+        &:last-child{
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

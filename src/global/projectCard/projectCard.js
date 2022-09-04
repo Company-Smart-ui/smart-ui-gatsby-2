@@ -16,6 +16,7 @@ export const ProjectCard = ({ content }) => {
       if (el === "wordpress") {
         return <img key={el} src={wordpressImg} alt="wordpress" />;
       }
+      return <> </>
     });
 
   return (

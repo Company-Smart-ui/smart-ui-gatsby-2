@@ -5,8 +5,8 @@ import { Pagination } from "../../../components/pagination/pagination";
 
 export const ProjectsList = ({ listCardsProjects }) => {
   const [itemsPerPage, setItemsPerPage] = useState({
-    value: "10",
-    label: "10 Rows",
+    value: "2",
+    label: "2 Rows",
   });
   const [itemOffset, setItemOffset] = useState(4);
   const itemsCount = { data: listCardsProjects.length };
@@ -14,7 +14,6 @@ export const ProjectsList = ({ listCardsProjects }) => {
   //     LeaderBoardService.getAllCount()
   // );
   const PerPageOptions = [
-    { value: "1", label: "1 Row" },
     { value: "2", label: "2 Rows" },
     { value: "10", label: "10 Rows" },
     { value: "20", label: "20 Rows" },

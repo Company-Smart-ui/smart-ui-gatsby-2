@@ -10,8 +10,7 @@ import "swiper/css/free-mode";
 export const WorksSwiper = ({
   swiperRef,
   setActiveHandler,
-  setSwiperRef,
-  loop
+  setSwiperRef
 }) => {
   return (
     <div className={style.worksSwiper}>

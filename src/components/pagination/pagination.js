@@ -11,7 +11,7 @@ export const Pagination = ({
   const [pageCount, setPageCount] = useState(0);
   useEffect(
     () => {
-      const endOffset = itemOffset + itemsPerPage;
+      // const endOffset = itemOffset + itemsPerPage;
       setPageCount(Math.ceil(length / itemsPerPage));
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps

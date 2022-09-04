@@ -16,7 +16,7 @@
 
       .technology {
         position: absolute;
-        top: 20px;
+        top: 15px;
         left: -80px;
         display: flex;
         flex-direction: column;
@@ -30,7 +30,7 @@
 
       &:hover {
         .technology {
-          left: 20px;
+          left: 15px;
           transition: all;
           transition-delay: 100ms;
           transition-duration: 400ms;
@@ -53,14 +53,14 @@
 
     .progress {
       position: absolute;
-      top: 20px;
-      right: 20px;
+      top: 15px;
+      right: 15px;
       width: 40px;
       height: 40px;
     }
 
     .img-wrapper {
-      height: 212px;
+      height: 150px;
 
       // img {
       //   margin: 0;

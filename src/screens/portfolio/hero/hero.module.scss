@@ -9,12 +9,12 @@
   }
 
   @include lg {
-    padding: 230px 0 80px 0;
+    padding: 200px 0 80px 0;
   }
 
-  @include lg {
-    padding: 245px 0 80px 0;
-  }
+  // @include xl {
+  //   padding: 245px 0 80px 0;
+  // }
 
   .overlay {
     z-index: 2;
@@ -24,27 +24,30 @@
       margin-bottom: 10px;
       position: relative;
     }
+
   }
-    .top {
-      margin-top: 40px;
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      row-gap: 12px;
-      overflow-x: auto;
-      padding: 12px 6px;
+  
+  :global {
+    .noise {
+      z-index: 1;
     }
 
-  :global {
     .yCircle {
       position: absolute;
-      left: 0;
-      top: 0;
-      height: 24vw;
+      left: 50%;
+      top: 350px;
+      height: 380px;
 
-      &.left {
-        transform: translate(-60%, -60%);
+
+      @include md {
+        height: 150px;
+        top: -75px;
+        left: -75px;
       }
+
+      // &.left {
+      //   transform: translate(-60%, -60%);
+      // }
 
       &.right {
         height: 80px;
@@ -59,24 +62,40 @@
 
     .bCircle {
       position: absolute;
-      top: 60px;
+      top: 0;
       bottom: 200px;
       left: 100%;
+      height: 500px;
       transform: translateX(max(-50%, calc(-35vw + 100px)));
+      display: none;
 
-      @include sm {
-        top: 0;
-        bottom: 0;
+      @include md {
+        display: block;
       }
 
-      @include lg {
-        top: 20px;
-        bottom: 20px;
-      }
+      // @include lg {
+      //   top: 0;
+      //   bottom: 1270px;
+      // }
 
-      @include xl {
-        left: min(100%, calc(50% + 800px));
-      }
+      // @include xl {
+      //   left: min(100%, calc(50% + 800px));
+      // }
+    }
+
+    .portfolio-block {
+      margin-top: 40px;
+      position: relative;
+    }
+
+    .filter-buttons {
+      // margin-top: 40px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      row-gap: 12px;
+      overflow-x: auto;
+      padding: 12px 6px;
     }
 
     .openBtn {
@@ -145,6 +164,15 @@
       flex-wrap: wrap;
       padding: 0 24px;
       width: 632px;
+
+      @include xl {
+        width: 921px;
+      }
+
+      
+      @include xxl {
+        width: 1220px;
+      }
     }
 
     .reset-padding-right {
@@ -153,6 +181,7 @@
 
     .grid-container {
       display: grid;
+      position: relative;
       grid-template-rows: 1fr;
       grid-template-columns: auto, auto, auto, 60px;
       grid-template-areas:
@@ -172,7 +201,7 @@
         }
 
         @include lg {
-          grid-template-rows: 1fr 1fr 60px;
+          grid-template-rows: 1fr auto auto;
           grid-template-columns: auto, minmax(275px, 1fr);
           column-gap: 60px;
           grid-template-areas:
@@ -193,6 +222,10 @@
         @include md {
           margin: 0;
         }
+
+        @include lg {
+          margin-top: 24px;
+        }
       }
     }
 
@@ -205,7 +238,23 @@
       grid-area: modal-button-section;
       margin-top: 24px;
       min-width: 100%;
-      max-height: 60px;
+
+      .button {
+        width: 275px;
+        margin-left: auto;
+        margin-right: auto;
+
+        @include md {
+          margin: 0;
+          margin-right: auto;
+          width: 220px;
+        }
+
+        @include lg {
+          margin-top: 45px;
+          width: 300px;
+        }
+      }
 
       @include lg {
         margin-top: 0;

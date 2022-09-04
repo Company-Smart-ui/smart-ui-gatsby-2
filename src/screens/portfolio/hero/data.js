@@ -10,7 +10,7 @@ export const listCardsProjects = [
     description:
       "Creating a site from scratch on React, Gatsby, back-end on WordPress",
     link: "/",
-    technology: ["react", "wordpress"],
+    technology: ["react", "wordpress", "react"],
     pageSpeedResult: 82,
   },
   {
@@ -34,6 +34,46 @@ export const listCardsProjects = [
   },
   {
     id: '4',
+    img: PROJECT_1,
+    title: "THCM",
+    description:
+      "Creating a site from scratch on React, Gatsby, back-end on WordPress",
+    link: "/",
+    technology: ["react"],
+    pageSpeedResult: 99,
+  },
+  {
+    id: '5',
+    img: PROJECT_1,
+    title: "THCM",
+    description:
+      "Creating a site from scratch on React, Gatsby, back-end on WordPress",
+    link: "/",
+    technology: ["react"],
+    pageSpeedResult: 99,
+  },
+  {
+    id: '6',
+    img: PROJECT_1,
+    title: "THCM",
+    description:
+      "Creating a site from scratch on React, Gatsby, back-end on WordPress",
+    link: "/",
+    technology: ["react"],
+    pageSpeedResult: 99,
+  },
+  {
+    id: '7',
+    img: PROJECT_1,
+    title: "THCM",
+    description:
+      "Creating a site from scratch on React, Gatsby, back-end on WordPress",
+    link: "/",
+    technology: ["react"],
+    pageSpeedResult: 99,
+  },
+  {
+    id: '8',
     img: PROJECT_1,
     title: "THCM",
     description:
