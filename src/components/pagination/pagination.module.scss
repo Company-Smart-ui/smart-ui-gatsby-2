@@ -10,10 +10,7 @@
   :global{
     .page-item{
       flex-shrink: 0;
-      // margin:0 1px;
-      color:#5D606B;
       &:first-child{
-        // margin-right: 7px;
         transform: rotate(180deg);
         @include md{
           margin-right: 2px;
@@ -23,7 +20,6 @@
         }
       }
       &:last-child{
-        // margin-left: 7px;
         @include md{
           svg{
             height: 15px;

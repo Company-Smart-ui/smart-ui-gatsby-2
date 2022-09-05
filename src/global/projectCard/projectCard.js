@@ -8,13 +8,13 @@ export const ProjectCard = ({ content }) => {
   const { img, title, description, link, technology, pageSpeedResult } =
     content;
 
-  const rendeTechnology = (techList) =>
-    techList.map((el) => {
+  const showTechnology = (techList) =>
+    techList.map((el, i) => {
       if (el === "react") {
-        return <img key={el} src={reactImg} alt="react" />;
+        return <img key={i} src={reactImg} alt="react" />;
       }
       if (el === "wordpress") {
-        return <img key={el} src={wordpressImg} alt="wordpress" />;
+        return <img key={i} src={wordpressImg} alt="wordpress" />;
       }
       return <> </>
     });
@@ -22,7 +22,7 @@ export const ProjectCard = ({ content }) => {
   return (
     <div className={style.projectCard}>
       <div className="cards-container">
-        <div className="technology">{rendeTechnology(technology)}</div>
+        <div className="technology">{showTechnology(technology)}</div>
         <div className="progress">
           <PageSpeed result={pageSpeedResult} />
         </div>

@@ -21,8 +21,7 @@
       }
 
       @include lg {
-        display: flex;
-        gap: 20px;
+        display: contents;
       }
 
       .title-block {
@@ -32,7 +31,7 @@
       }
     }
 
-    .second {
+    .second-column-title {
       @include lg {
         text-align: end;
       }
@@ -56,7 +55,6 @@
       line-height: 1.28;
       font-weight: 300;
       opacity: 0.5;
-      text-align: justify;
     }
 
     // Swiper 
@@ -76,8 +74,9 @@
     .swiper-wrapper {
       @include lg {
         display: grid;
-        gap: 30px;
-        grid-template-columns: 1fr 1fr 1fr;
+        row-gap: 40px;
+        column-gap: 30px;
+        grid-template-columns: 200px 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
       }
     }

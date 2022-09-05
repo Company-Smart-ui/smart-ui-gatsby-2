@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import * as style from "./strategy.module.scss";
 import { Pagination } from "../../../global/pagination/Pagination";
 import { SwiperButtons } from "../../../global/swiperButtons/SwiperButtons";
@@ -12,10 +12,6 @@ export const Strategy = () => {
 
   const slidePrevHandler = () => swiper.slidePrev();
   const slideNextHandler = () => swiper.slideNext();
-
-  useEffect(() => {
-    setActiveIndex(0);
-  }, []);
 
   const items = t('strategy_items', { returnObjects: true });
 
