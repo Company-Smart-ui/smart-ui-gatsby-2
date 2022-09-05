@@ -1,9 +1,5 @@
 import * as React from "react"
 import * as style from "./singlePortfolio.module.scss";
-import cannabisHero from './cannabis-main-img.jpeg';
-import cannabisImg1 from './toronto-cannabis-1.jpeg';
-import cannabisImg2 from './toronto-cannabis-2.jpeg';
-import cannabisImg3 from './toronto-cannabis-3.jpeg';
 import cannabisImg4 from './toronto-cannabis-4.jpeg';
 import cannabisImg5 from './toronto-cannabis-5.jpeg';
 import cannabisImg6 from './toronto-cannabis-6.jpeg';
@@ -24,19 +20,86 @@ export const query = graphql`
       }
     }
     project :  allStrapiSingleProject(filter: {id: {eq:$pageId}}) {
-    edges {
-      node {
-        id
-        project_name
-      }
+        edges {
+            node {
+                id
+                project_name
+                seo_title
+                site_url
+                main_img {
+                    url
+                }
+                description_text {
+                    data {
+                      description_text
+                    }
+                }
+                technology {
+                    name
+                }
+                technologies{
+                    name
+                }
+                content_management_systems {
+                    name
+                }
+                services {
+                    data {
+                      services
+                    }
+                }
+                Blocks {
+                    ... on STRAPI__COMPONENT_TITLE_TEXT_SINGLE_PROJECT_BLOCK {
+                      title_text {
+                        title
+                        text {
+                          data {
+                            text
+                          }
+                        }
+                      }
+                    }
+                    ... on STRAPI__COMPONENT_MEDIA_SINGLE_PROJECT_MEDIA {
+                      img {
+                        url
+                      }
+                    }
+                }
+            }
+        }
     }
-  }
+    global: allStrapiGlobal{
+        nodes {
+          tr_category
+          tr_cms
+          tr_site
+          tr_technology
+          tr_view_site
+          tr_review
+          tr_services
+        }
+      }
   }
 `
+function Block (props){
+    return (
+        <div className={`block${props.class ? ' ' + props.class : ''}`}>
+            <h3 className="subtitle">{props.title}</h3>
+            {props.text && (
+                <p>{props.text}</p>
+            )}
+            {props.children}
+        </div>
+    )
+}
+
 const SinglePortfolio = (props) => {
-    console.log(props.data)
+    const propProj = props?.data?.project?.edges[0]?.node
+    const propGlobal = props?.data?.global?.nodes[0]
+    const blocks = propProj.Blocks
+    console.log(props)
     return <div className={style.singlePortfolio}>
-        <div className="noise"></div>
+        {/* <div className="noise"></div> */}
         <div>
             <div className="flag">
                 <img className="flag__mobile" src={logoSmartUIMobile} alt="logoSmartUI"/>
@@ -47,62 +110,96 @@ const SinglePortfolio = (props) => {
             </button>
         </div>
         <div className="container">
-            <picture>
-                <img src={cannabisHero} alt="cannabisHero"/>
-            </picture>
+            {propProj.main_img.url && (
+                <picture>
+                    <img src={propProj.main_img.url} alt={propProj.project_name}/>
+                </picture>
+            )}
+            
             <div>
-                <div className="wrap">
-                    <h1>Toronto Cannabis Authority</h1>
-                </div>
+                {propProj.project_name && (
+                    <div className="wrap">
+                        <h1>{propProj.project_name}</h1>
+                    </div>
+                )}
+                
                 <div className="wrap">
                     <div className="left">
-                        <div className="block modified">
-                            <h3 className="subtitle">Категорії : </h3>
-                            <ul className="category">
-                                <li>html</li>
-                            </ul>
-                        </div>
-                        <div className="block modified">
-                            <h3 className="subtitle">Сайт : </h3>
-                            <p>https://
-                                <wbr/>
-                                torontocannabisauthority.ca/
-                            </p>
-                        </div>
-                        <div className="block modified">
-                            <h3 className="subtitle">Конструктори веб-сайтів : </h3>
-                            <ul className="category">
-                                <li>Wordpress</li>
-                            </ul>
-                        </div>
-                        <div className="block">
-                            <h3 className="subtitle">Огляд</h3>
-                            <p>Інтернет-магазин від дизайну в Figma з багатьма інтерактивними елементами в JS до
-                                WordPress.</p>
-                        </div>
+                        {propProj.technology.name && (
+                            <Block 
+                            class="modified" 
+                            title={propGlobal.tr_category + ':'}
+                            >
+                                <ul className="category">
+                                    <li>{propProj.technology.name}</li>
+                                </ul>
+                            </Block>
+                        )}
+                        
+                        {propProj.site_url && (
+                            <Block 
+                                class="modified" 
+                                title={propGlobal.tr_site + ':'}
+                                text={propProj.site_url}
+                            /> 
+                        )}
+                            
+                        {propProj.content_management_systems.length > 0 && (
+                            <Block 
+                                class="modified" 
+                                title={propGlobal.tr_cms + ':'}
+                            >
+                                <ul className="category">
+                                    {propProj.content_management_systems.map((i) => {
+                                        return (
+                                            <li>{i.name}</li>
+                                        )
+                                    })}
+                                </ul>
+                            </Block>
+                        )}
+
+                        {propProj.technologies.length > 0 && (
+                             <Block 
+                                class="modified" 
+                                title={propGlobal.tr_technology + ':'}
+                            >
+                                <ul className="category">
+                                    {propProj.technologies.map((i) => {
+                                        return (
+                                            <li>{i.name}</li>
+                                        )
+                                    })}
+                                </ul>
+                            </Block>
+                        )}
+                        
+                        {propProj.description_text?.data?.description_text && (
+                            <Block 
+                                title={propGlobal.tr_review}
+                                text={propProj.description_text?.data?.description_text}
+                            />
+                        )}
+                        
                     </div>
                     <div className="right">
-                        <div className="block">
-                            <h3 className="subtitle">ПОСЛУГИ ТА ОБСЯГ</h3>
-                            <ul>
-                                <li>Дослідження та стратегія UX</li>
-                                <li>Досвід дизайну</li>
-                                <li>Візуальний дизайн</li>
-                                <li>Мистецький напрямок</li>
-                                <li>Творчий напрямок</li>
-                                <li>Керівництво по стилю</li>
-                                <li>Інструкції щодо вмісту</li>
-                                <li>Фронтальна розробка</li>
-                                <li>Технічні консультації</li>
-                            </ul>
-                        </div>
+                        {propProj.services && (
+                            <Block 
+                                title={propGlobal.tr_services}
+                                text={propProj.description_text?.data?.description_text}
+                            >
+                                <div dangerouslySetInnerHTML={{__html: propProj.services.data.services}} />
+                            </Block>
+                        )}
+                        
                     </div>
-                    <div className="button__wrap">
-                        <a href="./#" className="button">Переглянути сайт</a>
-                    </div>
+                    {propProj.site_url && (
+                        <a href={propProj.site_url} className="button" target="_blank" rel="noreferrer">{propGlobal.tr_view_site}</a>
+                    )}
+                    
                 </div>
             </div>
-            <div className="picture-mobile">
+            {/* <div className="picture-mobile">
                 <div className="picture-mobile__wrap">
                     <picture>
                         <img src={cannabisImg1} alt="cannabisImg"/>
@@ -114,46 +211,32 @@ const SinglePortfolio = (props) => {
                         <img src={cannabisImg3} alt="cannabisImg"/>
                     </picture>
                 </div>
-            </div>
-            <div className="wrap">
-                <div className="left">
-                    <div className="block">
-                        <h3 className="subtitle">ВИКЛИК</h3>
-                        <p>Завдання, висунуте Toronto Cannabis Authority, було таким: «У 2021 році ми матимемо найкращий
-                            у світі веб-сайт з продажу канабісу». З точки зору вмісту, структури та загального
-                            використання, розробити веб-сайт у таким чином, щоб він дуже добре відображав бренд,
-                            технології та діяльність, водночас залишаючись провідним у сфері комерції з амбітними
-                            цілями.</p>
-                    </div>
-                    <div className="block">
-                        <h3 className="subtitle">НАШ ПІДХІД</h3>
-                        <p>Завдання було амбітним, а завдання попереду – складним. Ми зібрали команду проекту з різними
-                            наборами навичок для дослідження, мозкового штурму, створення, ітерації та виконання з метою
-                            створення модельного веб-сайту в галузі. Щоб максимізувати позитивну взаємодію з
-                            користувачем, окрім макета, оптимізованого для мобільних пристроїв, і дизайну, орієнтованого
-                            на взаємодію з користувачем, ми збагатили веб-сайт низкою модних функцій, які гармонійно
-                            працюють разом. Такі як :</p>
-                        <ul>
-                            <li>- Персоналізовані пропозиції, сповіщення та купони.</li>
-                            <li>- Інструмент рекомендації продукту, який допомагає клієнтам знайти потрібний продукт
-                                відповідно до їхніх потреб без використання будь-яких технічних термінів.
-                            </li>
-                            <li>- Розумне попередньо визначене порівняння продуктів, щоб визначити різницю без зусиль.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div className="right">
-                    <div className="block">
-                        <h3 className="subtitle">РЕЗУЛЬТАТИ</h3>
-                        <ul>
-                            <li>Збільшення відвідуваності сайту на 13%.</li>
-                            <li>Збільшення нових користувачів на 18%.</li>
-                            <li>Час, проведений на веб-сайті після пошуку, збільшився на 134%</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            </div> */}
+             
+            
+            {blocks.length > 0 && (
+                blocks.map((i) => {
+                    return (
+                        <>
+                        {i.title_text && (
+                            <div className="wrap">
+                                {i.title_text.map((t) => {
+                                    return (
+                                        <Block 
+                                            title={t.title}
+                                        >
+                                            <div dangerouslySetInnerHTML={{__html: t.text.data.text}} />
+                                        </Block>
+                                    )
+                                })}
+                                
+                            </div>
+                        )}
+
+                        </>
+                    )
+                })
+            )}
             <div className="picture-desktop">
                 <picture>
                     <img src={cannabisImg4} alt="cannabisImg"/>
