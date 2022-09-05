@@ -5,13 +5,12 @@ import { useTranslation } from "react-i18next";
 
 export const Questions = () => {
   const { t } = useTranslation();
-  const [options, setOptions] = useState();
-  const accordionList = t("questions_accondion", { returnObjects: true });
+  const [options, setOptions] = useState([]);
+  const accordionList = t("questions_accondion", { returnObjects: true }) || [];
 
   const getListOptions = () => {
-    const optionsList = Array.isArray(accordionList) && accordionList.map((el) => {
+    const optionsList = Array.isArray(accordionList) && accordionList.map(() => {
       return {
-        id: el.id,
         isOpen: false,
       };
     });
@@ -19,11 +18,6 @@ export const Questions = () => {
     return optionsList;
   };
 
-  useEffect(() => {
-    const list = getListOptions();
-    setOptions(list);
-    //eslint-disable-next-line
-  }, []);
 
   const dropdownHandler = (idx) => {
     const newOptions = options.map((option, i) => {
@@ -40,6 +34,13 @@ export const Questions = () => {
   };
 
   const middleIndex = accordionList.length / 2;
+
+  useEffect(() => {
+    const list = getListOptions();
+
+    setOptions(list);
+    //eslint-disable-next-line
+  }, []);
 
   return (
     <div className={`${style.questions} vertical-padding`}>
