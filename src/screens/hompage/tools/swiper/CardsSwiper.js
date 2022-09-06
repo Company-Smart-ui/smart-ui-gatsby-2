@@ -65,7 +65,7 @@ export const CardsSwiper = ({
         }}
         grabCursor={true}
         speed={400}
-        loop={true}
+        loop={false}
         onSlideChange={setActiveHandler}
       >
         {cardData.map((el, index) => (

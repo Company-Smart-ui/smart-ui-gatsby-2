@@ -6,12 +6,7 @@ import * as style from "./teamSwiper.module.scss";
 import "swiper/css";
 import "swiper/css/free-mode";
 
-export const TeamSwiper = ({
-  activeIndexHandler,
-  setSwiperRef,
-  teamList,
-  loop,
-}) => {
+export const TeamSwiper = ({ activeIndexHandler, setSwiperRef, teamList }) => {
   return (
     <div className={style.teamSwiper}>
       <Swiper
@@ -41,11 +36,11 @@ export const TeamSwiper = ({
             spaceBetween: 0,
             allowTouchMove: false,
             grabCursor: false,
-          }
+          },
         }}
         grabCursor={true}
         speed={800}
-        loop={loop}
+        loop={false}
         onSlideChange={activeIndexHandler}
       >
         {teamList &&
