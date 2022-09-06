@@ -41,7 +41,7 @@ export const Hero = () => {
                 <h1  >  <span  className="yCircle  md-only "/> <span dangerouslySetInnerHTML={{__html:t('h1')}}/></h1>
                 <p dangerouslySetInnerHTML={{__html:t('hero_subtitle')}}  className="subtitle" />
                 <div  className={style.ctaContainer}>
-                    <button className={["button", (isOpen ? 'disabled' : '')].join(' ') } onClick={onOpen} > Get Started </button>
+                    <button className={["button", (isOpen ? 'disabledBtn' : '')].join(' ') } onClick={onOpen} > Get Started </button>
                     <Contact/>
                 </div>
                   <SwipeTo/>

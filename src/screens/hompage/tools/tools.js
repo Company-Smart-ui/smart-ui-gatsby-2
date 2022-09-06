@@ -38,7 +38,7 @@ export const Tools = () => {
               <p className="subtitle description">
                 {t("tools_text")}
               </p>
-              <button className={["button", (isOpen ? 'disabled' : '')].join(' ') } onClick={onOpen} > {t('tools_btn')}</button>
+              <button className={["button", (isOpen ? 'disabledBtn' : '')].join(' ') } onClick={onOpen} > {t('tools_btn')}</button>
               <div className="swiperTips">
                 <SwipeTo />
               </div>
