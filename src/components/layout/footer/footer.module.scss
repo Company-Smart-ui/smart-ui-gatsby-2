@@ -117,7 +117,7 @@
       }
     }
 
-    p {
+     > p {
       &:first-of-type {
         color: $title;
         font-size: 20px;
