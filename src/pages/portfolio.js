@@ -18,17 +18,18 @@ export const query = graphql`
   }
 `
 
-const PortfolioPage = ( ) => {
+const PortfolioPage = () => {
 
-  return    <Portfolio/>
+    return <Portfolio/>
 
 
 }
 
 export default PortfolioPage
 
-export const Head = (data) =>{
- return (
-      <Seo title={data.pageContext.pageName[0]} />
-  )
+export const Head = (data) => {
+    return (
+        <Seo title={data.pageContext.pageName[0]}/>
+    )
 }
+
