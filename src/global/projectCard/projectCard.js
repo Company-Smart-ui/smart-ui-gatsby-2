@@ -1,45 +1,48 @@
 import React from "react";
 import * as style from "./projectCard.module.scss";
-import wordpressImg from "./img/wordpress.png";
-import reactImg from "./img/react.png";
-import { PageSpeed } from "../../components/pageSpeed/pageSpeed";
+import {PageSpeed} from "../../components/pageSpeed/pageSpeed";
+import {GatsbyImage, getImage} from "gatsby-plugin-image";
 
-export const ProjectCard = ({ content }) => {
-  const { img, title, description, link, technology, pageSpeedResult } =
-    content;
+export const ProjectCard = ({content}) => {
+    const {project_name, site_url, google_page_speed, description_text, main_img, technology} = content;
 
-  const showTechnology = (techList) =>
-    techList.map((el, i) => {
-      if (el === "react") {
-        return <img key={i} src={reactImg} alt="react" />;
-      }
-      if (el === "wordpress") {
-        return <img key={i} src={wordpressImg} alt="wordpress" />;
-      }
-      return <> </>
-    });
+    const image = getImage(main_img?.localFile);
 
-  return (
-    <div className={style.projectCard}>
-      <div className="cards-container">
-        <div className="technology">{showTechnology(technology)}</div>
-        <div className="progress">
-          <PageSpeed result={pageSpeedResult} />
+    // const showTechnology = (techList) =>
+    //     techList.map((el, i) => {
+    //         if (el === "react") {
+    //             return <img key={i} src={reactImg} alt="react"/>;
+    //         }
+    //         if (el === "wordpress") {
+    //             return <img key={i} src={wordpressImg} alt="wordpress"/>;
+    //         }
+    //         return <> </>
+    //     });
+
+    return (
+        <div className={style.projectCard}>
+            <div className="cards-container">
+                {/*<div className="technology">{showTechnology(technology)}</div>*/}
+                <div className="progress">
+                    <PageSpeed result={google_page_speed || 90}/>
+                </div>
+                <div className="img-wrapper">
+                    <GatsbyImage
+                        alt={project_name}
+                        src={image}
+                    />
+                </div>
+                <div className="content-wrapper">
+                    <div>
+                        <div className="content-title">{project_name}</div>
+                        <a href={site_url} className="content-link">
+                            Website
+                        </a>
+                        <div className="content-description">{description_text?.data?.description_text}</div>
+                    </div>
+                    <button className="button">Learn more</button>
+                </div>
+            </div>
         </div>
-        <div className="img-wrapper">
-          <img src={img} alt={title} />
-        </div>
-        <div className="content-wrapper">
-          <div>
-            <div className="content-title">{title}</div>
-            <a href={link} className="content-link">
-              Website
-            </a>
-            <div className="content-description">{description}</div>
-          </div>
-          <button className="button">Learn more</button>
-        </div>
-      </div>
-    </div>
-  );
+    );
 };
