@@ -4,8 +4,7 @@
   overflow: visible;
   height: 100%;
   width: 275px;
-  margin: 0 auto;
-  margin-top: 24px;
+  margin: 24px auto 0;
 
   @include md {
     width: 628px;

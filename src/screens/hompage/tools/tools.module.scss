@@ -19,7 +19,7 @@
     .container-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto, auto, 40px;
+      grid-template-rows: auto auto 40px;
       grid-template-areas:
         'title-container title-container'
         'vertical-block vertical-block'
@@ -27,7 +27,7 @@
 
       @include sm {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto, auto, 40px;
+        grid-template-rows: auto auto 40px;
         grid-template-areas:
         'title-container .'
         'vertical-block vertical-block'
@@ -36,7 +36,7 @@
 
       @include lg {
         grid-template-columns: 300px 1fr;
-        grid-template-rows: auto, 40px;
+        grid-template-rows: auto 40px;
         column-gap: 30px;
         grid-template-areas:
           'title-container vertical-block'
@@ -101,6 +101,7 @@
     }
   }
 }
+
 .toolsWrap {
   :global {
     .modal {
@@ -113,6 +114,7 @@
       @include xxl {
         left: calc((50% - 1720px / 2) + 84px);
       }
+
       &.open {
         top: 120px;
         transform: translateY(0);

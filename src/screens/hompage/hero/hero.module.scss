@@ -1,4 +1,5 @@
 @import "src/var";
+
 .hero {
   padding: 120px 0 40px 0;
   position: relative;
@@ -13,15 +14,18 @@
   @include lg {
     padding: 245px 0 80px 0;
   }
+
   :global {
     .yCircle {
       position: absolute;
       left: 0;
       top: 0;
       height: 24vw;
+
       &.left {
         transform: translate(-60%, -60%);
       }
+
       &.right {
         height: 80px;
 
@@ -31,6 +35,7 @@
         transform: translate(10%, 10%);
       }
     }
+
     .bCircle {
       position: absolute;
       top: 60px;
@@ -50,6 +55,7 @@
         left: min(100%, calc(50% + 800px));
       }
     }
+
     .deskImg {
       position: absolute;
       right: 2vw;
@@ -69,6 +75,7 @@
         left: min(60%, calc(50% + 500px));
       }
     }
+
     .swipeTo {
       @include xl {
         margin-left: 15px;
@@ -81,9 +88,11 @@
 .overlay {
   position: relative;
   z-index: 2;
+
   h1 {
     margin-bottom: 10px;
     position: relative;
+
     :global {
       .yCircle {
         top: -5px;
@@ -98,9 +107,11 @@
       color: $LimeGreen;
     }
   }
+
   @include md {
     max-width: 70%;
   }
+
   :global {
     .subtitle {
       color: #737373;
@@ -127,12 +138,14 @@
         margin-bottom: 80px;
       }
     }
+
     .button {
       margin-bottom: 26px;
       @include md {
         margin-bottom: 50px;
       }
     }
+
     .contact {
       margin-bottom: 40px;
       @include md {
@@ -148,12 +161,14 @@
     align-items: center;
     margin-bottom: 80px;
   }
+
   :global {
     .button {
       @include lg {
-        margin: 0px;
+        margin: 0;
       }
     }
+
     .contact {
       margin-bottom: 40px;
       @include md {
@@ -186,6 +201,7 @@
     }
   }
 }
+
 .heroWrap {
   :global {
     .modal {
@@ -198,6 +214,7 @@
       @include xxl {
         left: calc((50% - 1720px / 2) + 84px);
       }
+
       &.open {
         top: 120px;
         transform: translateY(0);

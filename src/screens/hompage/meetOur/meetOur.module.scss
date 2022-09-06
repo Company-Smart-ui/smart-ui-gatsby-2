@@ -12,7 +12,7 @@
     .container-grid {
       display: grid;
       grid-template-columns: 1fr;
-      grid-template-rows: auto, auto, 40px, auto;
+      grid-template-rows: auto auto 40px auto;
       grid-template-areas:
         'title-block'
         'container-block'

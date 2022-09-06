@@ -13,15 +13,11 @@ export const RecentWorks = () => {
     const [listOfProjects, setListOfProjects] = useState([]);
 
     const data = useStaticQuery(graphql`
-    query {
+       query {
       allStrapiSingleProject {
         nodes {
           google_page_speed
-          project_name
-          site_url
-          technology {
-            name
-          }
+          id
           main_img {
             localFile {
               childImageSharp {
@@ -29,10 +25,23 @@ export const RecentWorks = () => {
               }
             }
           }
-          description_text {
-            data {
-              description_text
+          seo_description
+          project_name
+          seo_title
+          site_url
+          technologies {
+            name
+          }
+          technology {
+            icon {
+              name
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
             }
+            name
           }
         }
       }
@@ -41,7 +50,7 @@ export const RecentWorks = () => {
 
     useEffect(() => {
         if (data) {
-            setListOfProjects(data.allStrapiSingleProject.nodes)
+            setListOfProjects(data.allStrapiSingleProject.nodes);
         }
     }, [data]);
 

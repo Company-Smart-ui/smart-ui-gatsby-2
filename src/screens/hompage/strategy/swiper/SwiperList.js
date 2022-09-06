@@ -26,7 +26,9 @@ export const SwiperList = ({ swiper, setSwiper, setActiveIndex, content }) => {
               i < middleItem && (
                 <div key={id} className="swiper-list-item">
                   <div
-                    className={`title-block ${i % 2 === 1 ? "second-column-title" : " "}`}
+                    className={`title-block ${
+                      i % 2 === 1 ? "second-column-title" : " "
+                    }`}
                     style={{
                       gridArea:
                         i % 2 === 1
@@ -58,7 +60,9 @@ export const SwiperList = ({ swiper, setSwiper, setActiveIndex, content }) => {
               i >= middleItem && (
                 <div key={id} className="swiper-list-item">
                   <div
-                    className={`title-block ${i % 2 === 1 ? "second-column-title" : " "}`}
+                    className={`title-block ${
+                      i % 2 === 1 ? "second-column-title" : " "
+                    }`}
                     style={{
                       gridArea:
                         i % 2 === 1
