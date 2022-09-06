@@ -1,28 +1,27 @@
-import {API, sendTelegram} from "./API";
 import axios from "axios";
+import {API, sendTelegram} from "./API";
 import {toast} from "react-toastify";
 
 const sendDataToStrapi = (formData) => {
-    axios.post(API.CONTACT_FORM, {data: formData})
+    axios.post(API.REVIEW_PORTFOLIO, {data: formData})
         .catch((e) => {
             console.log(e)
             toast.error("Something went wrong. Please, try again!", {theme: "colored"});
         })
         .then((value) => {
             if (value?.status === 200) {
-                toast.success('Message sent successfully', {theme: "dark"});
+                toast.success('review will publish after checking', {theme: "dark"});
             }
         })
 
 
 }
-export const sendForm = ({type, data}) => {
-    const validatedData = JSON.parse(JSON.stringify(data))
+export const leaveComment = ({name, stars, review}) => {
+    const type = 'review'
     const formData = {
-        data_message: validatedData,
-        type: type
+        name, stars, review
     }
-    const dataToString = JSON.stringify(data);
+    const dataToString = JSON.stringify(formData);
     sendTelegram({type, dataToString})
     sendDataToStrapi(formData)
 }

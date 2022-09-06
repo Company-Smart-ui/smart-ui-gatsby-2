@@ -6,7 +6,12 @@ const strapiConfig = {
         queryParams: {
             populate: "deep"
         },
-    },
+    }, {
+        singularName: 'review-portfolio',
+        queryParams: {
+            populate: "deep"
+        },
+    }
     ],
     singleTypes: [{
         singularName: 'home',
