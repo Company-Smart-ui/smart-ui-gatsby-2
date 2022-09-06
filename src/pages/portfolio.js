@@ -45,6 +45,7 @@ export async function getServerData() {
                 props: {}
             }
         })
+    console.log('data portfolio:', resp.data)
     return {
         props: resp.data,
     }
