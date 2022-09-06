@@ -3,8 +3,6 @@ import React from 'react';
 import {Contact} from "../../../global/contact/contact";
 import Logo from '../../../images/smart-ui.svg';
 import {Link} from "gatsby";
-import Phone from './phone.svg';
-import Mail from './mail.svg';
 import Img from './pointer.svg';
 import Scroll from './scroll.svg';
 import { GetInTouch } from './getInTouch/getInTouch';
