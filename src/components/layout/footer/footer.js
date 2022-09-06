@@ -47,7 +47,7 @@ export const Footer = ( ) => {
     const {isOpen, onClose, onOpen}= useOpen(false);
             const {t} = useTranslation();
             const translatedText = t("Footer", { returnObjects: true })||[];
-            const dataText = Array.isArray(translatedText) && translatedText.filter(d=>d?.__component==="footer.blocks")[0].block;
+            const dataText = Array.isArray(translatedText) ? translatedText.filter(d=>d?.__component==="footer.blocks")[0].block : '';
      return <>
         <button className={["openBtn", (isOpen ? 'disabledBtn' : '')].join(' ') } onClick={onOpen} >request consultation</button>
         {
