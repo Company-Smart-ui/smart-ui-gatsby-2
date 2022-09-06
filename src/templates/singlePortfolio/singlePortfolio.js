@@ -109,9 +109,9 @@ const SinglePortfolio = (props) => {
             </button>
         </div>
         <div className="container">
-            {propProj.main_img.url && (
+            {propProj.main_img && (
                 <picture>
-                    <img src={propProj.main_img.url} alt={propProj.project_name} />
+                    <img src={propProj.main_img.url} alt="" />
                 </picture>
             )}
 
@@ -199,7 +199,7 @@ const SinglePortfolio = (props) => {
                 </div>
             </div>
 
-            {blocks.length > 0 && (
+            {blocks && (
                 blocks.map((i) => {
                     return (
                         <>
