@@ -1,9 +1,10 @@
 import * as React from "react"
 import * as style from "./singlePortfolio.module.scss";
-import chatIcon from './chat-white.png';
-import flag from './flag.svg';
-import logoSmartUIMobile from './smart-ui-logo-mobile.svg';
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { graphql } from "gatsby";
+import {Block} from "../../components/simpleBlock/block";
+import {Background} from "./components/background/portfolioBackGround";
+import {FlexibleBlock} from "./components/flexibleBlock/portfolioFlexibleBlock";
 
 export const query = graphql`
   query ($language: String , $pageId:String ) {
@@ -25,6 +26,11 @@ export const query = graphql`
                 site_url
                 main_img {
                     url
+                    localFile {
+                        childImageSharp {
+                          gatsbyImageData
+                        }
+                    }
                 }
                 description_text {
                     data {
@@ -80,178 +86,81 @@ export const query = graphql`
       }
   }
 `
-function Block(props) {
-    return (
-        <div className={`block${props.class ? ' ' + props.class : ''}`}>
-            <h3 className="subtitle">{props.title}</h3>
-            {props.text && (
-                <p>{props.text}</p>
-            )}
-            {props.children}
-        </div>
-    )
-}
 
 const SinglePortfolio = (props) => {
     const propProj = props?.data?.project?.edges[0]?.node
     const propGlobal = props?.data?.global?.nodes[0]
-    const blocks = propProj.Blocks
-    console.log(props)
-    return <div className={style.singlePortfolio}>
-        <div className="noise"></div>
-        <div>
-            <div className="flag">
-                <img className="flag__mobile" src={logoSmartUIMobile} alt="logoSmartUI" />
-                <img className="flag__desktop" src={flag} alt="logoSmartUI" />
-            </div>
-            <button className="button button__chat">
-                <img src={chatIcon} alt="chatIcon" />
-            </button>
-        </div>
-        <div className="container">
-            {propProj.main_img && (
-                <picture>
-                    <img src={propProj.main_img.url} alt="" />
-                </picture>
-            )}
-
-            <div>
-                {propProj.project_name && (
-                    <div className="wrap">
-                        <h1>{propProj.project_name}</h1>
-                    </div>
+    console.log(props);
+    return (
+        <div className={style.singlePortfolio}>
+            {Background()}
+            <div className="container">
+                {propProj.main_img && (
+                    <GatsbyImage alt={propProj.project_name ? propProj.project_name : ''} image={getImage(propProj.main_img.localFile.childImageSharp.gatsbyImageData)}/>
                 )}
-
-                <div className="wrap">
-                    <div className="left">
-                        {propProj.technology.name && (
-                            <Block
-                                class="modified"
-                                title={propGlobal.tr_category + ':'}
-                            >
-                                <ul className="category">
-                                    <li>{propProj.technology.name}</li>
-                                </ul>
-                            </Block>
-                        )}
-
-                        {propProj.site_url && (
-                            <Block
-                                class="modified"
-                                title={propGlobal.tr_site + ':'}
-                                text={propProj.site_url}
-                            />
-                        )}
-
-                        {propProj.content_management_systems.length > 0 && (
-                            <Block
-                                class="modified"
-                                title={propGlobal.tr_cms + ':'}
-                            >
-                                <ul className="category">
-                                    {propProj.content_management_systems.map((i) => {
-                                        return (
-                                            <li>{i.name}</li>
-                                        )
-                                    })}
-                                </ul>
-                            </Block>
-                        )}
-
-                        {propProj.technologies.length > 0 && (
-                            <Block
-                                class="modified"
-                                title={propGlobal.tr_technology + ':'}
-                            >
-                                <ul className="category">
-                                    {propProj.technologies.map((i) => {
-                                        return (
-                                            <li>{i.name}</li>
-                                        )
-                                    })}
-                                </ul>
-                            </Block>
-                        )}
-
-                        {propProj.description_text?.data?.description_text && (
-                            <Block
-                                title={propGlobal.tr_review}
-                                text={propProj.description_text?.data?.description_text}
-                            />
-                        )}
-
-                    </div>
-                    <div className="right">
-                        {propProj.services && (
-                            <Block
-                                title={propGlobal.tr_services}
-                                text={propProj.description_text?.data?.description_text}
-                            >
-                                <div dangerouslySetInnerHTML={{ __html: propProj.services.data.services }} />
-                            </Block>
-                        )}
-
-                    </div>
-                    {propProj.site_url && (
-                        <a href={propProj.site_url} className="button" target="_blank" rel="noreferrer">{propGlobal.tr_view_site}</a>
+                <div>
+                    {propProj.project_name && (
+                        <div className="wrap">
+                            <h1>{propProj.project_name}</h1>
+                        </div>
                     )}
-
-                </div>
-            </div>
-
-            {blocks && (
-                blocks.map((i) => {
-                    return (
-                        <>
-                            {i.title_text && (
-                                <div className={`wrap ${style.projectBlockWrap}`}>
-                                    {i.title_text.map((t) => {
-                                        return (
-                                            <Block
-                                                title={t.title}
-                                            >
-                                                <div dangerouslySetInnerHTML={{ __html: t.text.data.text }} />
-                                            </Block>
-                                        )
-                                    })}
-
-                                </div>
+                    <div className="wrap">
+                        <div className="left">
+                            {propProj.technology.name && (
+                                <Block class="modified" title={propGlobal.tr_category + ':'}>
+                                    <ul className="category">
+                                        <li>{propProj.technology.name}</li>
+                                    </ul>
+                                </Block>
                             )}
-                            {i.img && (
-                                i.mobile_img === true ? (
-                                    <div className="picture-mobile">
-                                        <div className="picture-mobile__wrap">
-                                            {i.img.map((t) => {
-                                                return (
-                                                    <picture>
-                                                        <img src={t.url} alt={t.alternativeText} />
-                                                    </picture>
-                                                )
-                                            })}
-                                        </div>
-                                    </div>
-                                ) : (
-                                    <div className="picture-desktop">
-                                        {i.img.map((t) => {
+                            {propProj.site_url && (
+                                <Block
+                                    class="modified"
+                                    title={propGlobal.tr_site + ':'}
+                                    text={propProj.site_url}
+                                />
+                            )}
+                            {propProj.content_management_systems.length > 0 && (
+                                <Block class="modified" title={propGlobal.tr_cms + ':'} >
+                                    <ul className="category">
+                                        {propProj.content_management_systems.map((i) => {
                                             return (
-                                                <picture>
-                                                    <img src={t.url} alt={t.alternativeText} />
-                                                </picture>
+                                                <li>{i.name}</li>
                                             )
                                         })}
-
-                                    </div>
-                                )
-
+                                    </ul>
+                                </Block>
                             )}
+                            {propProj.technologies.length > 0 && (
+                                <Block class="modified" title={propGlobal.tr_technology + ':'}>
+                                    <ul className="category">
+                                        {propProj.technologies.map((i) => {
+                                            return (
+                                                <li>{i.name}</li>
+                                            )
+                                        })}
+                                    </ul>
+                                </Block>
+                            )}
+                            {propProj.description_text?.data?.description_text && (
+                                <Block title={propGlobal.tr_review} text={propProj.description_text?.data?.description_text} />
+                            )}
+                        </div>
+                        <div className="right">
+                            {propProj.services && 
+                                <Block title={propGlobal.tr_services} text={propProj.description_text?.data?.description_text}>
+                                    <div dangerouslySetInnerHTML={{ __html: propProj.services.data.services }} />
+                                </Block>
+                            }
+                        </div>
+                        {propProj.site_url && <a href={propProj.site_url} className="button" target="_blank" rel="noreferrer">{propGlobal.tr_view_site}</a>}
+                    </div>
+                </div>
 
-                        </>
-                    )
-                })
-            )}
+                {propProj.Blocks && propProj.Blocks.map((i) => {return FlexibleBlock(i)})}
+            </div>
         </div>
-    </div>
-
+    )
 }
 
 export default SinglePortfolio
