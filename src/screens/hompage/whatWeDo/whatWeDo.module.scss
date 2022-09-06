@@ -213,18 +213,12 @@
 .whatWeDoWrap {
   :global {
     .modal {
-      left: 45px;
-      transform: translateY(-100%);
+      left: 50%;
+      transform: translateY(-100%) translateX(-50%);
       top: 0;
-      @include md {
-        left: 84px;
-      }
-      @include xxl {
-        left: calc((50% - 1720px / 2) + 84px);
-      }
       &.open {
-        top: 120px;
-        transform: translateY(0);
+        top: 50%;
+        transform: translateY(-50%) translateX(-50%);
       }
     }
   }

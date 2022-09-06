@@ -339,10 +339,9 @@ button {
   }
 }
 
-.disabled {
+.disabledBtn {
   pointer-events: none;
-  pointer-events: none;
-  // background: $DarkGray;
+  background: $DarkGray;
 }
 
 .modal {
@@ -372,7 +371,7 @@ button {
 
   p {
     font-size: 14px;
-    color: $DarkGray;
+    color: $LightGray;
     margin-bottom: 25px;
   }
 

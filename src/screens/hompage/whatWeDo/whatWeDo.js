@@ -57,7 +57,7 @@ export const WhatWeDo = () => {
             </Swiper>
           </div>
           <div className="pagination">
-            <button className={["button", (isOpen ? 'disabled' : '')].join(' ') } onClick={onOpen}>{t("whatwedo_btn")}</button>
+            <button className={["button", (isOpen ? 'disabledBtn' : '')].join(' ') } onClick={onOpen}>{t("whatwedo_btn")}</button>
             <Pagination activeIdx={activeIndex} sliderLength={2} whiteTheme />
           </div>
           <div className="work-list">

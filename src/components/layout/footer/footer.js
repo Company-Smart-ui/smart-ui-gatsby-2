@@ -47,9 +47,9 @@ export const Footer = ( ) => {
     const {isOpen, onClose, onOpen}= useOpen(false);
             const {t} = useTranslation();
             const translatedText = t("Footer", { returnObjects: true })||[];
-            const dataText = Array.isArray(translatedText) && translatedText.filter(d=>d?.__component==="footer.blocks")[0]
+            const dataText = Array.isArray(translatedText) && translatedText.filter(d=>d?.__component==="footer.blocks")[0].block;
      return <>
-        <button className={["openBtn", (isOpen ? 'disabled' : '')].join(' ') } onClick={onOpen} >request consultation</button>
+        <button className={["openBtn", (isOpen ? 'disabledBtn' : '')].join(' ') } onClick={onOpen} >request consultation</button>
         {
             isOpen && <Modal onClose={onClose}>
                         <h3>Leave your message</h3>
@@ -68,7 +68,7 @@ export const Footer = ( ) => {
                      <Contact/>
                 </div>
                 <div className={style.contactUs}>
-                    {dataText.block.map((el, i) => <ContactUs info={el} key={i}/>)}
+                    { (typeof dataText === 'object') && (dataText.map((el, i) => <ContactUs info={el} key={i}/>))}
                 </div>
             </div>
             <div className={style.bottom}>
