@@ -1,12 +1,9 @@
 import * as React from "react"
 import * as style from "./singlePortfolio.module.scss";
-import cannabisImg4 from './toronto-cannabis-4.jpeg';
-import cannabisImg5 from './toronto-cannabis-5.jpeg';
-import cannabisImg6 from './toronto-cannabis-6.jpeg';
 import chatIcon from './chat-white.png';
 import flag from './flag.svg';
 import logoSmartUIMobile from './smart-ui-logo-mobile.svg';
-import {graphql} from "gatsby";
+import { graphql } from "gatsby";
 
 export const query = graphql`
   query ($language: String , $pageId:String ) {
@@ -62,7 +59,9 @@ export const query = graphql`
                     ... on STRAPI__COMPONENT_MEDIA_SINGLE_PROJECT_MEDIA {
                       img {
                         url
+                        alternativeText
                       }
+                      mobile_img
                     }
                 }
             }
@@ -81,7 +80,7 @@ export const query = graphql`
       }
   }
 `
-function Block (props){
+function Block(props) {
     return (
         <div className={`block${props.class ? ' ' + props.class : ''}`}>
             <h3 className="subtitle">{props.title}</h3>
@@ -99,54 +98,54 @@ const SinglePortfolio = (props) => {
     const blocks = propProj.Blocks
     console.log(props)
     return <div className={style.singlePortfolio}>
-        {/* <div className="noise"></div> */}
+        <div className="noise"></div>
         <div>
             <div className="flag">
-                <img className="flag__mobile" src={logoSmartUIMobile} alt="logoSmartUI"/>
-                <img className="flag__desktop" src={flag} alt="logoSmartUI"/>
+                <img className="flag__mobile" src={logoSmartUIMobile} alt="logoSmartUI" />
+                <img className="flag__desktop" src={flag} alt="logoSmartUI" />
             </div>
             <button className="button button__chat">
-                <img src={chatIcon} alt="chatIcon"/>
+                <img src={chatIcon} alt="chatIcon" />
             </button>
         </div>
         <div className="container">
             {propProj.main_img.url && (
                 <picture>
-                    <img src={propProj.main_img.url} alt={propProj.project_name}/>
+                    <img src={propProj.main_img.url} alt={propProj.project_name} />
                 </picture>
             )}
-            
+
             <div>
                 {propProj.project_name && (
                     <div className="wrap">
                         <h1>{propProj.project_name}</h1>
                     </div>
                 )}
-                
+
                 <div className="wrap">
                     <div className="left">
                         {propProj.technology.name && (
-                            <Block 
-                            class="modified" 
-                            title={propGlobal.tr_category + ':'}
+                            <Block
+                                class="modified"
+                                title={propGlobal.tr_category + ':'}
                             >
                                 <ul className="category">
                                     <li>{propProj.technology.name}</li>
                                 </ul>
                             </Block>
                         )}
-                        
+
                         {propProj.site_url && (
-                            <Block 
-                                class="modified" 
+                            <Block
+                                class="modified"
                                 title={propGlobal.tr_site + ':'}
                                 text={propProj.site_url}
-                            /> 
+                            />
                         )}
-                            
+
                         {propProj.content_management_systems.length > 0 && (
-                            <Block 
-                                class="modified" 
+                            <Block
+                                class="modified"
                                 title={propGlobal.tr_cms + ':'}
                             >
                                 <ul className="category">
@@ -160,8 +159,8 @@ const SinglePortfolio = (props) => {
                         )}
 
                         {propProj.technologies.length > 0 && (
-                             <Block 
-                                class="modified" 
+                            <Block
+                                class="modified"
                                 title={propGlobal.tr_technology + ':'}
                             >
                                 <ul className="category">
@@ -173,81 +172,83 @@ const SinglePortfolio = (props) => {
                                 </ul>
                             </Block>
                         )}
-                        
+
                         {propProj.description_text?.data?.description_text && (
-                            <Block 
+                            <Block
                                 title={propGlobal.tr_review}
                                 text={propProj.description_text?.data?.description_text}
                             />
                         )}
-                        
+
                     </div>
                     <div className="right">
                         {propProj.services && (
-                            <Block 
+                            <Block
                                 title={propGlobal.tr_services}
                                 text={propProj.description_text?.data?.description_text}
                             >
-                                <div dangerouslySetInnerHTML={{__html: propProj.services.data.services}} />
+                                <div dangerouslySetInnerHTML={{ __html: propProj.services.data.services }} />
                             </Block>
                         )}
-                        
+
                     </div>
                     {propProj.site_url && (
                         <a href={propProj.site_url} className="button" target="_blank" rel="noreferrer">{propGlobal.tr_view_site}</a>
                     )}
-                    
+
                 </div>
             </div>
-            {/* <div className="picture-mobile">
-                <div className="picture-mobile__wrap">
-                    <picture>
-                        <img src={cannabisImg1} alt="cannabisImg"/>
-                    </picture>
-                    <picture>
-                        <img src={cannabisImg2} alt="cannabisImg"/>
-                    </picture>
-                    <picture>
-                        <img src={cannabisImg3} alt="cannabisImg"/>
-                    </picture>
-                </div>
-            </div> */}
-             
-            
+
             {blocks.length > 0 && (
                 blocks.map((i) => {
                     return (
                         <>
-                        {i.title_text && (
-                            <div className="wrap">
-                                {i.title_text.map((t) => {
-                                    return (
-                                        <Block 
-                                            title={t.title}
-                                        >
-                                            <div dangerouslySetInnerHTML={{__html: t.text.data.text}} />
-                                        </Block>
-                                    )
-                                })}
-                                
-                            </div>
-                        )}
+                            {i.title_text && (
+                                <div className={`wrap ${style.projectBlockWrap}`}>
+                                    {i.title_text.map((t) => {
+                                        return (
+                                            <Block
+                                                title={t.title}
+                                            >
+                                                <div dangerouslySetInnerHTML={{ __html: t.text.data.text }} />
+                                            </Block>
+                                        )
+                                    })}
+
+                                </div>
+                            )}
+                            {i.img && (
+                                i.mobile_img === true ? (
+                                    <div className="picture-mobile">
+                                        <div className="picture-mobile__wrap">
+                                            {i.img.map((t) => {
+                                                return (
+                                                    <picture>
+                                                        <img src={t.url} alt={t.alternativeText} />
+                                                    </picture>
+                                                )
+                                            })}
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div className="picture-desktop">
+                                        {i.img.map((t) => {
+                                            return (
+                                                <picture>
+                                                    <img src={t.url} alt={t.alternativeText} />
+                                                </picture>
+                                            )
+                                        })}
+
+                                    </div>
+                                )
+
+                            )}
 
                         </>
                     )
                 })
             )}
-            <div className="picture-desktop">
-                <picture>
-                    <img src={cannabisImg4} alt="cannabisImg"/>
-                </picture>
-                <picture>
-                    <img src={cannabisImg5} alt="cannabisImg"/>
-                </picture>
-                <picture>
-                    <img src={cannabisImg6} alt="cannabisImg"/>
-                </picture>
-            </div>
         </div>
     </div>
 

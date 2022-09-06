@@ -166,7 +166,7 @@ $secondFontColor: #8F8F8F;
       @include md{
         margin-bottom: 50px;
       }
-      p, ul{
+      p, ul, & > div{
         color: #8F8F8F;
       }
       &.modified{
@@ -216,6 +216,21 @@ $secondFontColor: #8F8F8F;
         }
         &:last-child{
           margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+.projectBlockWrap{
+  :global{
+    .block{
+      width: 100%;
+      @include lg{
+        width: 50%;
+        &:nth-child(2n){
+          max-width: 470px;
+          margin-left: auto;
+          padding-left: 80px;
         }
       }
     }
