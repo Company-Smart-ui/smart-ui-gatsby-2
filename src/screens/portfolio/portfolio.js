@@ -3,11 +3,11 @@ import {Hero} from "./hero/hero";
 import * as style from "./portfolio.module.scss";
 import {ClientsReview} from "./clientsReview/clientsReview";
 
-export const Portfolio = ({serverData}) => {
+export const Portfolio = () => {
 
     return (
         <div className={style.portfolio}>
-            <Hero serverData={serverData}/>
+            <Hero/>
             <ClientsReview/>
         </div>
     )

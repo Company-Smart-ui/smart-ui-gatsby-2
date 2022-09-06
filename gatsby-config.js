@@ -45,6 +45,13 @@ module.exports = {
         image: `/logo-large.png`,
         siteUrl: `https://smart-ui-gatsby-2.vercel.app/`
     },
+    flags: {
+        DEV_SSR: true,
+        FAST_DEV: true,
+        DETECT_NODE_MUTATIONS: true,
+        QUERY_ON_DEMAND: true,
+        LAZY_IMAGES: true,
+    },
     plugins: [
 
         {

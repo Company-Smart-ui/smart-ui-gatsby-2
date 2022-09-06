@@ -3,8 +3,6 @@ import {Portfolio} from "../screens/portfolio/portfolio";
 
 import {graphql} from "gatsby";
 import {Seo} from "../components/SEO/SEO";
-import axios from "axios";
-import {API} from "../api/API";
 
 export const query = graphql`
   query ($language: String ,$pageName:[String] ) {
@@ -20,9 +18,9 @@ export const query = graphql`
   }
 `
 
-const PortfolioPage = ({serverData}) => {
+const PortfolioPage = () => {
 
-    return <Portfolio serverData={serverData}/>
+    return <Portfolio/>
 
 
 }
@@ -35,18 +33,3 @@ export const Head = (data) => {
     )
 }
 
-export async function getServerData() {
-    const resp = await axios(API.SINGLE_PROJECTS)
-        .catch(function (error) {
-            console.log(error.toJSON());
-            return {
-                status: 500,
-                headers: {},
-                props: {}
-            }
-        })
-    console.log('data portfolio:', resp.data)
-    return {
-        props: resp.data,
-    }
-}

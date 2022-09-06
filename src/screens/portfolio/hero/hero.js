@@ -16,8 +16,8 @@ import {FilterButtons} from "./filterButtons/filterButtons";
 //   submit: "Yes, confirm",
 // };
 
-export const Hero = ({serverData}) => {
-    const pre = JSON.stringify(serverData)
+export const Hero = () => {
+
     return (
         <section className={style.hero}>
             <div className="noise"/>
@@ -41,8 +41,6 @@ export const Hero = ({serverData}) => {
                         <button className="button">Contact the lead developer</button>
                     </div>
                 </div>
-                <h1>server data</h1>
-                <p style={{wordBreak: "break-all"}}>   {pre}  </p>
                 <div className="portfolio-block overlay">
                     <div className="filter-buttons">
                         <FilterButtons/>
