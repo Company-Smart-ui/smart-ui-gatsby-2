@@ -9,7 +9,8 @@ export const API = {
     LOGIN: endpoint + 'auth/local',
     ADMIN_CHECK: endpoint + "admin",
     HOME: endpoint + "home",
-    REVIEW_PORTFOLIO: endpoint + 'review-portfolios'
+    REVIEW_PORTFOLIO: endpoint + 'review-portfolios',
+    SINGLE_PROJECTS: endpoint + 'single-projects'
 }
 
 
