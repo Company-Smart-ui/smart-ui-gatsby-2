@@ -34,7 +34,6 @@ export const query = graphql`
   }
 `
 const SinglePortfolio = (props) => {
-    console.log(props.data)
     return <div className={style.singlePortfolio}>
         <div className="noise"></div>
         <div>

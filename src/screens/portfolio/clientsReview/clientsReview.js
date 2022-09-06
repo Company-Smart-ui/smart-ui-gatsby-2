@@ -21,7 +21,7 @@ export const ClientsReview = () => {
         }
       }
     `)
-    console.log(data)
+    // console.log(data)
     const itemsCount = {data: cards.length};
 
     return (

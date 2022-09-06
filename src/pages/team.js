@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import {graphql} from "gatsby";
 import {Seo} from "../components/SEO/SEO";
 
@@ -16,9 +16,8 @@ export const query = graphql`
     }
   }
 `
-const Team = ( ) => {
-
-    return <div style={{height:800 , background:'#fff'}}>
+const Team = () => {
+    return <div style={{height: 800, background: '#fff'}}>
 
 
     </div>
@@ -26,8 +25,8 @@ const Team = ( ) => {
 
 export default Team
 
-export const Head = (data) =>{
+export const Head = (data) => {
     return (
-        <Seo title={data.pageContext.pageName[0]} />
+        <Seo title={data.pageContext.pageName[0]}/>
     )
 }

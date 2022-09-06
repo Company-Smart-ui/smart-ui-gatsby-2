@@ -30,13 +30,13 @@ const strapiConfig = {
     ],
     queryLimit: 1000,
 };
-// const noTranslate = ['admin', 'login', 'dev-404-page', '404', '/:lang?/project/:uid', '/:lang?/cv/:uid']
-// const nt = noTranslate.map(n => {
-//     return {
-//         matchPath: n,
-//         languages: ['en']
-//     }
-// })
+const noTranslate = ['/dev-404-page/']
+const nt = noTranslate.map(n => {
+    return {
+        matchPath: n,
+        languages: ['en']
+    }
+})
 
 module.exports = {
     siteMetadata: {
@@ -49,8 +49,7 @@ module.exports = {
         DEV_SSR: true,
         FAST_DEV: true,
         DETECT_NODE_MUTATIONS: true,
-        QUERY_ON_DEMAND: true,
-        LAZY_IMAGES: true,
+        PARALLEL_SOURCING: true,
     },
     plugins: [
 
@@ -90,7 +89,7 @@ module.exports = {
                 languages: [`en`, `uk-UA`],
                 defaultLanguage: `en`,
                 debug: true,
-                // pages: nt
+                pages: nt
             }
         }
 
