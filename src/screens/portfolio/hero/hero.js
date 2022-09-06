@@ -41,6 +41,7 @@ export const Hero = ({serverData}) => {
                         <button className="button">Contact the lead developer</button>
                     </div>
                 </div>
+                <h1>server data</h1>
                 <p style={{wordBreak: "break-all"}}>   {pre}  </p>
                 <div className="portfolio-block overlay">
                     <div className="filter-buttons">
