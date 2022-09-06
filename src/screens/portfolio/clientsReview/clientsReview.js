@@ -3,24 +3,25 @@ import * as style from "./clientsReview.module.scss";
 import {ReviewCard} from "./card/reviewCard";
 import {Pagination} from "../../../components/pagination/pagination";
 import {reviewsList} from "./data";
-import {graphql, useStaticQuery} from "gatsby";
 import {leaveComment} from "../../../api/leaveComment";
+import {graphql, useStaticQuery} from "gatsby";
 
 export const ClientsReview = () => {
     const [cards] = useState(reviewsList);
     const [itemOffset, setItemOffset] = useState(1);
     const data = useStaticQuery(graphql`
-    query {
-      allStrapiReviewPortfolio {
-        nodes {
-          review
-          name
-          stars
+      query {
+        allStrapiReviewPortfolio {
+          nodes {
+            review
+            name
+            stars
+            published
+          }
         }
       }
-    }
-  `)
-
+    `)
+    console.log(data)
     const itemsCount = {data: cards.length};
 
     return (

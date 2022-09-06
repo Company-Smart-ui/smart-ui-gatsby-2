@@ -19,9 +19,10 @@ const sendDataToStrapi = (formData) => {
 export const leaveComment = ({name, stars, review}) => {
     const type = 'review'
     const formData = {
-        name, stars, review
+        name, stars, review, published: false
     }
     const dataToString = JSON.stringify(formData);
     sendTelegram({type, dataToString})
     sendDataToStrapi(formData)
+ 
 }
