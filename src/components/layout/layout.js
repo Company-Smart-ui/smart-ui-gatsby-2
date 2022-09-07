@@ -5,16 +5,16 @@ import "../../lazy.scss"
 import {Header} from "./header/header";
 // import {RedLine} from "./redLine/redLine";
 
- const  Layout = ( props) => {
+const Layout = (props) => {
     const path = props?.children?.props?.pageContext?.pageName[0];
 
     return (
         <div className={'layout'}>
-            <Header path={ path }/>
+            <Header path={path}/>
             <main className={'main'}>
                 {props.children}
             </main>
-          <Footer/>
+            <Footer/>
             {/*<RedLine/>*/}
         </div>
 

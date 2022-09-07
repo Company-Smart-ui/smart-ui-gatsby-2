@@ -20,6 +20,14 @@ const strapiConfig = {
       queryParams: {
         populate: "deep",
       },
+      
+    },
+    {
+      singularName: "team",
+      queryParams: {
+        populate: "deep",
+      },
+      
     },
   ],
   singleTypes: [

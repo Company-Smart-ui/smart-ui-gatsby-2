@@ -1,6 +1,5 @@
 import Telegram from '../images/telegram.svg';
 import Whatsapp from '../images/whatsapp.svg';
-import Linkedin from '../images/linkedin.svg';
 
 export const CONTACTS = [
     {
@@ -32,44 +31,3 @@ export const MESSENGERS = [
         alt: 'Telegram'
     }
 ]
-
-
-export const HEADS = {
-    "Alexander Klipkov": [
-        {
-            img: Linkedin,
-            link: '#',
-            alt: 'Linkedin'
-        },
-        {
-            img: Telegram,
-            link: 'https://t.me/alexgashkov1',
-            alt: 'Telegram'
-        }
-    ],
-    "Alexander Kozlov": [
-        {
-            img: Linkedin,
-            link: '#',
-            alt: 'Linkedin'
-        },
-        {
-            img: Telegram,
-            link: 'https://t.me/alexgashkov1',
-            alt: 'Telegram'
-        }
-    ],
-    "Alex Gashkov": [
-        {
-            img: Linkedin,
-            link: '#',
-            alt: 'Linkedin'
-        },
-        {
-            img: Telegram,
-            link: 'https://t.me/alexgashkov1',
-            alt: 'Telegram'
-        }
-    ],
-}
-

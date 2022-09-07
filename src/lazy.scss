@@ -1,3 +1,4 @@
+@import "var";
 
 .button {
   position: relative;
@@ -125,9 +126,13 @@
   }
 
 
-
   100% {
     stroke: #0cce6b;
     fill: #d9fcea;
   }
+}
+
+.portfolio.scrolled {
+
+  background-color: $LightPeriwinkle;
 }

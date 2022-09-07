@@ -132,12 +132,14 @@
     }
   }
 
-  img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    grid-column-start: 1;
-    grid-row-start: 1;
-    grid-row-end: 4;
+  :global {
+    .gatsby-image-wrapper {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      grid-column-start: 1;
+      grid-row-start: 1;
+      grid-row-end: 4;
+    }
   }
 }

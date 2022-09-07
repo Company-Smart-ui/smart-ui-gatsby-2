@@ -10,16 +10,16 @@ const sendDataToStrapi = (formData) => {
         })
         .then((value) => {
             if (value?.status === 200) {
-                toast.success('review will publish after checking', {theme: "dark"});
+                toast.success('Review will publish after checking', {theme: "dark"});
             }
         })
 
 
 }
-export const leaveComment = ({name, stars, review}) => {
+export const leaveComment = (data) => {
     const type = 'review'
     const formData = {
-        name, stars, review, published: false
+        ...data ,published: false
     }
     const dataToString = JSON.stringify(formData);
     sendTelegram({type, dataToString})

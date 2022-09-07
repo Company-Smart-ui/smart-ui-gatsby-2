@@ -3,31 +3,45 @@ import * as style from "./card.module.scss";
 import { useOpen } from "../../../../hooks/useOpen";
 import { Modal } from "../../../../components/layout/modal/modal";
 import { createPortal } from "react-dom";
-import { HEADS } from "../../../../global/data";
+import Linkedin from "../../../../images/linkedin.svg";
+import Telegram from "../../../../images/telegram.svg";
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 export const Card = ({ content }) => {
-  const { img, title, text, btn } = content;
+  const { position, name, telegram, linkedin, preview_photo, show_contact } = content;
   const {isOpen, onClose, onOpen}= useOpen(false);
+
+  const image = getImage(preview_photo?.localFile)
+
+  const data = []
+
+  if (telegram && linkedin) {
+    data.push({img: Telegram, link: telegram, alt: 'telegram'},{img: Linkedin, link: linkedin, alt: 'linkedin'})
+  } else if (telegram) {
+    data.push({img: Telegram, link: telegram, alt: 'telegram'})
+  } else if (linkedin) {
+    data.push({img: Linkedin, link: linkedin, alt: 'linkedin'})
+  }
   
   return (
     <div className={style.card}>
         <div className="img-wrapper">
-          <img src={img} alt={title} />
+          <GatsbyImage image={image} alt={name} />
         </div>
         <div className="content-wrapper">
-          <div className="content-title">{title}</div>
-          <div className="contentWrapperDescription">{text}</div>
-          <button className={["button", (isOpen ? 'disabledBtn' : '')].join(' ') } onClick={onOpen}>{btn}</button>
+          <div className="content-title">{name}</div>
+          <div className="contentWrapperDescription">{position}</div>
+          <button className={["button", (isOpen ? 'disabledBtn' : '')].join(' ') } onClick={onOpen}>Ask a question</button>
 
           {isOpen && createPortal(
             <>
               <div className={style.cardWrap}>
-                <Modal onClose={onClose} isMessage={(title === 'Alexander Klipkov') || (title ===  'Alexander Kozlov') || (title === 'Alex Gashkov')} title={`Message to ${title}`} data={HEADS[`${title}`]}>
+                <Modal onClose={onClose} isMessage={show_contact} data={data} title={`Leave message to ${name}`}>
                   <div className={style.modalHead}>
-                    <img className="md-only" src={img} alt={title}/>
-                    <h3>{`Leave message to ${title}`}</h3>
-                    <p>{text}</p>
-                    <p>{`Please leave one of your contacts, ${title} will contact you.`}</p>
+                    <GatsbyImage image={image} alt={name} />
+                    <h3>{`Leave message to ${name}`}</h3>
+                    <p>{position}</p>
+                    <p>{`Please leave one of your contacts, ${name} will contact you.`}</p>
                   </div>
                 </Modal>
               </div>

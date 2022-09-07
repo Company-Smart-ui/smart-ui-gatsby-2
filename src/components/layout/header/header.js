@@ -51,7 +51,8 @@ export const Header = ({path}) => {
     }, [onScrolled, offScrolled])
     const {isOpen, onToggle, onClose} = useOpen();
     useNoScroll(isOpen)
-    return <header className={[scrolled ? style.scrolled : " ", style.header, isOpen ? style.open : " "].join(' ')}>
+    return <header
+        className={[scrolled ? style.scrolled + " scrolled " : " ", style.header, isOpen ? style.open : " ", path].join(' ')}>
         <Burger {...{isOpen, onToggle}} />
         <div className={style.logo}>
             <Link to={NAVIGATION.home.link} language={currentLng}>

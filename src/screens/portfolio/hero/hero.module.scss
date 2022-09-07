@@ -22,7 +22,7 @@
     }
 
   }
-  
+
   :global {
     .noise {
       z-index: 1;
@@ -49,7 +49,7 @@
           height: 160px;
         }
 
-        transform:translate(10%, 10%);
+        transform: translate(10%, 10%);
       }
     }
 
@@ -151,7 +151,7 @@
         width: 921px;
       }
 
-      
+
       @include xxl {
         width: 1220px;
       }
@@ -172,25 +172,25 @@
         "optimization-section"
         "modal-button-section";
 
-        @include md {
-          grid-template-rows: 120px 1fr 80px;
-          grid-template-columns: auto minmax(300px, 1fr);
-          column-gap: 30px;
-          grid-template-areas:
+      @include md {
+        grid-template-rows: 120px 1fr 80px;
+        grid-template-columns: auto minmax(300px, 1fr);
+        column-gap: 30px;
+        grid-template-areas:
             "title-section title-section"
             "subtitle-section optimization-section"
             "modal-button-section optimization-section";
-        }
+      }
 
-        @include lg {
-          grid-template-rows: 1fr auto auto;
-          grid-template-columns: auto minmax(275px, 1fr);
-          column-gap: 60px;
-          grid-template-areas:
+      @include lg {
+        grid-template-rows: 1fr auto auto;
+        grid-template-columns: auto minmax(275px, 1fr);
+        column-gap: 60px;
+        grid-template-areas:
             "title-section optimization-section"
             "subtitle-section optimization-section"
             "modal-button-section optimization-section";
-        }
+      }
     }
 
     .title-section {
@@ -239,6 +239,21 @@
 
       @include lg {
         margin-top: 0;
+      }
+    }
+  }
+}
+
+.heroWrap {
+  :global {
+    .modal {
+      left: 50%;
+      transform: translateY(-100%) translateX(-50%);
+      top: 0;
+
+      &.open {
+        top: 50%;
+        transform: translateY(-50%) translateX(-50%);
       }
     }
   }

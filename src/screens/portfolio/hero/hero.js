@@ -5,19 +5,13 @@ import {listCardsProjects} from "./data";
 import {ProjectsList} from "../projectsList/projectsList";
 import {OptimizationCard} from "./optimizationCard/optimizationCard";
 import {FilterButtons} from "./filterButtons/filterButtons";
-
-// const modalText = {
-//   title: "Contact the lead developer",
-//   subtitle:
-//     "Please leave one of your contacts, lead developer will contact you.",
-//   input: "Contact the lead developer",
-//   textarea: "Your message*",
-//   resetBtn: "No, cancel",
-//   submit: "Yes, confirm",
-// };
+import {useOpen} from "../../../hooks/useOpen";
+import { Modal } from "../../../components/layout/modal/modal";
 
 export const Hero = () => {
+  const {isOpen, onClose, onOpen}= useOpen(false);
   return (
+    <>
     <section className={style.hero}>
       <div className="noise" />
       <div className="yCircle left" />
@@ -37,7 +31,7 @@ export const Hero = () => {
             <OptimizationCard result={98} />
           </div>
           <div className="modal-button-section overlay">
-            <button className="button">Contact the lead developer</button>
+            <button className={["button", (isOpen ? 'disabledBtn' : '')].join(' ') } onClick={onOpen}>Contact the lead developer</button>
           </div>
         </div>
         <div className="portfolio-block overlay">
@@ -59,5 +53,14 @@ export const Hero = () => {
         </div>
       </div>
     </section>
+    {
+        isOpen && 
+        <div className={style.heroWrap}>
+            <Modal onClose={onClose} title={'Contact the lead developer'}>
+                <h3>Contact the lead developer</h3>
+            </Modal>
+        </div>
+    }
+    </>
   );
 };
