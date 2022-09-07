@@ -36,15 +36,20 @@
 
       @include md {
         width: 210px;
-        padding: 0 10px;
+        padding: 0 16px;
       }
 
       @include lg {
         width: 275px;
+        padding: 0 22px;
       }
 
       @include xl {
         width: 318px;
+      }
+
+      @include xxl {
+        padding: 0 28px;
       }
     }
   }

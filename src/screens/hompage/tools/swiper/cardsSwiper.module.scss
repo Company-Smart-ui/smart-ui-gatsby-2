@@ -2,8 +2,7 @@
 
 .cardsSwiper {
   width: 275px;
-  margin: 0 auto;
-  margin-top: 24px;
+  margin: 24px auto 0;
   overflow: hidden;
   display: flex;
   align-items: stretch;
@@ -17,7 +16,8 @@
   }
 
   @include lg {
-    width: 520px;
+    width: 540px;
+    margin-top: 0;
   }
 
   @include xl {
