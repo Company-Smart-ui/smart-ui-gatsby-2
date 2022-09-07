@@ -1,7 +1,6 @@
 @import 'src/var';
 
 .cardsSwiper {
-  margin-top: 32px;
   width: 275px;
   margin: 0 auto;
   margin-top: 24px;
@@ -30,45 +29,45 @@
   }
 
   :global {
-      .swiper {
+    .swiper {
+      width: 100%;
+      height: 380px;
+      overflow: visible;
+
+      @include md {
         width: 100%;
-        height: 380px;
-        overflow: visible;
-
-        @include md {
-          width: 100%;
-        }
-
-        @include lg {
-          height: 333px;
-        }
-
-        @include xl {
-          height: 510px;
-        }
       }
 
-      .swiper-slide {
-        width: 275px;
-
-        @include sm {
-          width: 218px;
-        }
-        @include md {
-          width: 209px;
-        }
-
-        @include lg {
-          width: 173px;
-        }
-
-        @include xl {
-          width: 270px;
-        }
-
-        @include xxl {
-          width: 299px;
-        }
+      @include lg {
+        height: 333px;
       }
+
+      @include xl {
+        height: 510px;
+      }
+    }
+
+    .swiper-slide {
+      width: 275px;
+
+      @include sm {
+        width: 218px;
+      }
+      @include md {
+        width: 209px;
+      }
+
+      @include lg {
+        width: 173px;
+      }
+
+      @include xl {
+        width: 270px;
+      }
+
+      @include xxl {
+        width: 299px;
+      }
+    }
   }
 }
