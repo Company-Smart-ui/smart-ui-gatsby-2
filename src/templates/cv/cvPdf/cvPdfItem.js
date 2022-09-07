@@ -11,12 +11,13 @@ import PoppinsLight from './Poppins/Poppins-Light.ttf';
 import PoppinsRegular from './Poppins/Poppins-Regular.ttf';
 import PoppinsSemiBold from './Poppins/Poppins-SemiBold.ttf';
 
+
 // Create styles
 Font.register({ family: 'Poppins', fonts: [
-        { src: PoppinsRegular },
-        { src: PoppinsLight, fontWeight: 300 },
-        { src: PoppinsSemiBold, fontWeight: 600 },
-    ]});
+    { src: PoppinsRegular },
+    { src: PoppinsLight, fontWeight: 300 },
+    { src: PoppinsSemiBold, fontWeight: 600 },
+]});
 
 const styles = StyleSheet.create({
     body: {
@@ -194,14 +195,45 @@ const styles = StyleSheet.create({
 });
 
 // Create Document Component
-export function MyDocument({infoPdf}){
-const {numberPhone, emailUser, telegramUser, photoUser} = infoPdf;
+export function CVPdfItem({infoPdf}){
+    const {photoUser, name, lastName, job, description, numberPhone, emailUser, telegramUser, personalSkills1, personalSkills2, personalSkills3, experience, hardSkills, engLevel, ruLevel, uaLevel, engLevelFull, ruLevelFull, uaLevelFull} = infoPdf;
+    const listHardSkills = hardSkills.map((hardSkill) =>
+        <Text>{hardSkill}</Text>
+    );
+
+    const listExperience = experience.map(({time, work, company}) =>
+        <View style={styles.experienceItem}>
+            <View style={styles.experienceLeft}>
+                <Text style={{ fontWeight: 'black', marginBottom: 2}}>{company}</Text>
+                <Text style={{ fontWeight: 'thin' }}>{time}</Text>
+            </View>
+            <Text style={styles.experienceRight}>
+                {work}
+            </Text>
+        </View>
+    );
+
+    const descriptions = description.map((text) =>
+        <Text style={styles.description}>{text}</Text>
+    );
+    const listPersonalSkills1 = personalSkills1.map((personalSkillItem) =>
+        <Text>{personalSkillItem}</Text>
+    );
+    const listPersonalSkills2 = personalSkills2.map((personalSkillItem) =>
+        <Text>{personalSkillItem}</Text>
+    );
+    const listPersonalSkills3 = personalSkills3.map((personalSkillItem) =>
+        <Text>{personalSkillItem}</Text>
+    );
+
     return <Document>
         <Page size="A4" style={styles.body}>
             <Image src={bgFull} style={styles.pageBackground} fixed/>
             <View style={styles.sectionLeft}>
                 <Image src={bgDesktop} style={styles.pageBackground} />
                 <Image src={photoUser} style={styles.photo} />
+
+                {/* contact */}
                 <View style={styles.contact}>
                     <View style={styles.contactItem}>
                         <Image src={mobile} style={styles.iconMobile} />
@@ -237,6 +269,7 @@ const {numberPhone, emailUser, telegramUser, photoUser} = infoPdf;
                         </div>
                     </View>
                 </View>
+
                 {/* PERSONAL SKILLS */}
                 <View style={styles.personalSkills}>
                     <Text style={[styles.title, {borderBottom: 0}]}>
@@ -246,29 +279,13 @@ const {numberPhone, emailUser, telegramUser, photoUser} = infoPdf;
                         <Text style={styles.titleList}>main</Text>
                         <View style={styles.wrapList}>
                             <View>
-                                <Text>HTML5</Text>
-                                <Text>CSS3</Text>
-                                <Text>SCSS</Text>
-                                <Text>Java Script</Text>
-                                <Text>React.JS</Text>
+                                {listPersonalSkills1}
                             </View>
                             <View>
-                                <Text>Typescript</Text>
-                                <Text>Gatsby.JS</Text>
-                                <Text>Graphql</Text>
-                                <Text>Git</Text>
-                                <Text>Next.JS</Text>
-                                <Text>WorldPress</Text>
+                                {listPersonalSkills2}
                             </View>
                             <View>
-                                <Text>Bootstrap</Text>
-                                <Text>Tailwind</Text>
-                                <Text>Webpack</Text>
-                                <Text>Material-UI</Text>
-                                <Text>Gulp</Text>
-                                <Text>Redux</Text>
-                                <Text>PHP</Text>
-                                <Text>Node.JS</Text>
+                                {listPersonalSkills3}
                             </View>
                         </View>
                     </View>
@@ -298,69 +315,31 @@ const {numberPhone, emailUser, telegramUser, photoUser} = infoPdf;
             <View style={styles.sectionRight}>
                 <View style={styles.wrapTopBlock}>
                     <View style={styles.topBlock}>
-                        <Text style={styles.name}>victor </Text>
-                        <Text style={styles.lastName}>moskalev </Text>
-                        <Text style={styles.job}>Front-End teAM LEAD</Text>
+                        <Text style={styles.name}>{name} </Text>
+                        <Text style={styles.lastName}>{lastName} </Text>
+                        <Text style={styles.job}>{job}</Text>
                     </View>
-                    <Text style={styles.description}>
-                        Hello,my name is Victor Moskalev. I`m front-end developer with 4  years experience. For 3 years I`ve studied html, css, js and wordpress. Last 1.5 years I`ve worked with  React , Next js and Gatsby.
-                    </Text>
-                    <Text style={styles.description}>
-                        I live in Kharkiv, but I worked and still working with pepole all around the world. Looking for an entry-level position at a great company to be a hard-working asset to any team, to learn, grow and develop long-term.
-                    </Text>
-                    <Text style={styles.description}>
-                        Take your time, check my resume, see my skills, some of my works, my experience and when you are ready drop me a message.
-                    </Text>
+                    {descriptions}
                 </View>
+
                 {/* EXPERIENCE */}
                 <View style={styles.wrapSkills}>
                     <Text style={styles.title}>
                         EXPERIENCE
                     </Text>
-                    <View style={styles.experienceItem}>
-                        <View style={styles.experienceLeft}>
-                            <Text style={{ fontWeight: 'black', marginBottom: 2}}>freelance</Text>
-                            <Text style={{ fontWeight: 'thin' }}>2017</Text>
-                        </View>
-                        <Text style={styles.experienceRight}>
-                            freelance
-                        </Text>
-                    </View>
-                    <View style={styles.experienceItem}>
-                        <View style={styles.experienceLeft}>
-                            <Text style={{ fontWeight: 'black', marginBottom: 2}}>freelance</Text>
-                            <Text style={{ fontWeight: 'thin' }}>2020</Text>
-                        </View>
-                        <Text style={styles.experienceRight}>
-                            Frontend developer
-                        </Text>
-                    </View>
-                    <View style={styles.experienceItem}>
-                        <View style={styles.experienceLeft}>
-                            <Text style={{ fontWeight: 'black', marginBottom: 2}}>smart-ui</Text>
-                            <Text style={{ fontWeight: 'thin' }}>2021-22</Text>
-                        </View>
-                        <Text style={styles.experienceRightLast}>
-                            Team Lead frontend developer
-                        </Text>
-                    </View>
+                    {listExperience}
                 </View>
+
                 {/* Hard skills */}
                 <View style={styles.wrapSkills}>
                     <Text style={styles.title}>
                         Hard skills
                     </Text>
                     <View style={styles.hardSkillsList}>
-                        <Text>HTML5</Text>
-                        <Text>CSS3</Text>
-                        <Text>SCSS</Text>
-                        <Text>Java Script</Text>
-                        <Text>React.JS</Text>
-                        <Text>React.JS</Text>
-                        <Text>React.JS</Text>
-                        <Text>React.JS</Text>
+                        {listHardSkills}
                     </View>
                 </View>
+
                 {/* language */}
                 <View style={styles.wrapSkills}>
                     <Text style={styles.title}>
@@ -369,26 +348,26 @@ const {numberPhone, emailUser, telegramUser, photoUser} = infoPdf;
                     <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                         <View style={styles.languageItem}>
                             <Text style={styles.languageName}>
-                                English A2
+                                English {engLevel}
                             </Text>
                             <Text>
-                                Pre intermediate
+                                {engLevelFull}
                             </Text>
                         </View>
                         <View style={styles.languageItem}>
                             <Text style={styles.languageName}>
-                                Russian B1
+                                Russian {ruLevel}
                             </Text>
                             <Text>
-                                Intermediate
+                                {ruLevelFull}
                             </Text>
                         </View>
                         <View style={styles.languageItem}>
                             <Text style={styles.languageName}>
-                                Ukrainian B2
+                                Ukrainian {uaLevel}
                             </Text>
                             <Text>
-                                Upper Intermediate
+                                {uaLevelFull}
                             </Text>
                         </View>
                     </View>

@@ -3,23 +3,14 @@ import * as style from "./cv.module.scss";
 import photoVictor from "./cvPdf/photo-victor.png";
 import {ItemJob} from "./experience/experience";
 import {HardSkills} from "./hardSkills/hardSkills";
-import {MyDocument} from "./cvPdf/cvPdf";
-import { PDFViewer } from '@react-pdf/renderer';
-
-
+import CVPdf from "./cvPfd";
 
 const CV = ( ) => {
 
     return <div className={style.cv}>
 
-        <PDFViewer className="wrap-pdf">
-            <MyDocument infoPdf={{
-                numberPhone: '+34 634 839 752',
-                emailUser: 'info@smart-ui.pro',
-                photoUser: photoVictor,
-                telegramUser: 'telegramUser',
-            }}/>
-        </PDFViewer>
+        <CVPdf/>
+
         {/*<div className="container">
             <div className="hero">
                 <div className="photo">
