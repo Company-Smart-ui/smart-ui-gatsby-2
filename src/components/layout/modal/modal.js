@@ -5,9 +5,11 @@ import { useOnClickOutside } from "../../../hooks/useOnClickOutside";
 import { sendForm } from "../../../api/contactForm";
 import { useForm } from "react-hook-form";
 import { Messenger } from "../../../global/messengers/messengers";
+import { useNoScroll } from "../../../hooks/useNoScroll";
 
 export const Modal = ({ onClose, children, title = 'request consultation', nameClass = '', isMessage = false, data = '' }) => {
   const { isOpen: isFade, onOpen: fadeIn, onClose: fadeOut } = useOpen(false);
+  useNoScroll(isFade);
   const {
     register,
     handleSubmit,
