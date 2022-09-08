@@ -36,6 +36,17 @@
         .item {
           left: 15px;
         }
+
+        .overlay-block {
+          position: absolute;
+          background-color: #1E1E1E;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          z-index: 1;
+          opacity: 0.5;
+        }
       }
     }
 
@@ -74,7 +85,8 @@
     }
 
     .img-wrapper {
-      height: 165px;
+      height: 167px;
+      position: relative;
     }
 
     .content-description {

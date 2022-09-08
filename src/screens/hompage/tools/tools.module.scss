@@ -19,7 +19,7 @@
     .container-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto 40px;
+      grid-template-rows: auto auto auto;
       grid-template-areas:
         'title-container title-container'
         'vertical-block vertical-block'
@@ -27,7 +27,7 @@
 
       @include sm {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto 40px;
+        grid-template-rows: auto auto auto;
         grid-template-areas:
         'title-container .'
         'vertical-block vertical-block'
@@ -35,8 +35,8 @@
       }
 
       @include lg {
-        grid-template-columns: 300px 1fr;
-        grid-template-rows: auto 40px;
+        grid-template-columns: 255px 1fr;
+        grid-template-rows: auto auto;
         column-gap: 30px;
         grid-template-areas:
           'title-container vertical-block'
@@ -54,7 +54,6 @@
 
     .vertical-block {
       grid-area: vertical-block;
-      padding-bottom: 20px;
       margin-top: 44px;
       overflow: hidden;
 
@@ -73,10 +72,26 @@
 
     .buttons-block {
       grid-area: buttons-block;
+
+      @include md {
+        display: none;
+      }
     }
 
     .title-content {
       margin-top: 10px;
+
+      .title {
+        margin-top: 10px;
+
+        @include md {
+          margin-top: 22px;
+        }
+
+        @include xxl {
+          margin-top: 28px;
+        }
+      }
     }
 
     .description {
@@ -88,7 +103,7 @@
     }
 
     .swiperTips {
-      margin-top: 14px;
+      padding-top: 40px;
       color: $Gray;
     }
 
@@ -97,6 +112,15 @@
 
       @include md {
         min-width: 100%;
+        margin-top: 24px;
+      }
+
+      @include lg {
+        margin-top: 18px;
+      }
+
+      @include xxl {
+        margin-top: 28px;
       }
     }
   }
