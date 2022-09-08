@@ -57,10 +57,6 @@
     .footer-buttons {
       grid-area: footer-buttons;
       padding-top: 20px;
-
-      @include md {
-        display: none;
-      }
     }
 
     .noise {
@@ -85,10 +81,5 @@
       height: 100%;
     }
 
-    .pagination-wrapper {
-      @include md {
-        display: none;
-      }
-    }
   }
 }
