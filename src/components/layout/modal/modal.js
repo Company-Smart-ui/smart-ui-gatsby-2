@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useEffect } from "react";
 import { useOpen } from "../../../hooks/useOpen";
 import { useOnClickOutside } from "../../../hooks/useOnClickOutside";
@@ -6,9 +6,12 @@ import { sendForm } from "../../../api/contactForm";
 import { useForm } from "react-hook-form";
 import { Messenger } from "../../../global/messengers/messengers";
 import { useNoScroll } from "../../../hooks/useNoScroll";
+import StarRating from "react-svg-star-rating";
 
-export const Modal = ({ onClose, children, title = 'request consultation', nameClass = '', isMessage = false, data = '' }) => {
+export const Modal = ({ onClose, children, title = 'request consultation', nameClass = '', isMessage = false, data = '', isReview = false }) => {
   const { isOpen: isFade, onOpen: fadeIn, onClose: fadeOut } = useOpen(false);
+  const [rating, setRating] = useState(0);
+  const  [newValue, setValue]  = useState('');
   useNoScroll(isFade);
   const {
     register,
@@ -21,10 +24,11 @@ export const Modal = ({ onClose, children, title = 'request consultation', nameC
 
   function onSubmit(data, e) {
     e.preventDefault();
+    console.log(data)
 
-    sendForm({ type: title, data: { ...data } });
+    // sendForm({ type: title, data: { ...data } });
     reset();
-    fadeOut();
+    fadeOutHandle();
   }
 
   const modalRef = useRef();
@@ -43,6 +47,15 @@ export const Modal = ({ onClose, children, title = 'request consultation', nameC
       fadeIn();
     }, 1);
   }, [fadeIn]);
+
+  const handleOnClick = (rating) => {
+    console.log(rating)
+    setRating(rating);
+  };
+
+  useEffect(() => setValue(rating),[rating]);
+  console.log(newValue)
+
   return (
     <>
     <div className={[ nameClass, 'mask', (isFade ? 'open' : '')].join(" ")}></div>
@@ -52,6 +65,32 @@ export const Modal = ({ onClose, children, title = 'request consultation', nameC
       >
         {children}
         <form onSubmit={handleSubmit(onSubmit)} className='form'>
+          {
+            isReview && 
+                <> 
+                <div className="formField">
+                  <StarRating
+                    size={24}
+                    initialRating={0}
+                    unit="float"
+                    activeColor="yellow"
+                    handleOnClick={handleOnClick}                  
+                  /> 
+                  <span>{rating}</span>
+                  
+                  <input
+                   value={newValue} onChange={(event) => setValue(event.target.value)}
+                  {...register("rating", {
+                    required: { value: true, message: "Please, add rating" },
+                  })
+                  }
+                />
+                {errors.rating && (
+                  <span className="error">{errors.rating.message}</span>
+                )}
+                </div>
+                </>
+          }
             <label className="formField">
               <input
                 {...register("contact", {

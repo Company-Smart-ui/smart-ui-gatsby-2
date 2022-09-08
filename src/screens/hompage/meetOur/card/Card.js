@@ -30,7 +30,7 @@ export const Card = ({ content }) => {
               <div className={style.cardWrap}>
                 <Modal onClose={onClose} isMessage={show_contact} data={data} title={`Leave message to ${name}`}>
                   <div className={style.modalHead}>
-                    <GatsbyImage image={image} alt={name} />
+                    { image && <GatsbyImage image={image} alt={name} />}
                     <h3>{`Leave message to ${name}`}</h3>
                     <p>{position}</p>
                     <p>{`Please leave one of your contacts, ${name} will contact you.`}</p>
