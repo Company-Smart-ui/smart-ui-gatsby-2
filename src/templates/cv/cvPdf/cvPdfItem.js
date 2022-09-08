@@ -196,12 +196,17 @@ const styles = StyleSheet.create({
 
 // Create Document Component
 export function CVPdfItem({infoPdf}){
-    const {photoUser, name, lastName, job, description, numberPhone, emailUser, telegramUser, personalSkills1, personalSkills2, personalSkills3, experience, hardSkills, engLevel, ruLevel, uaLevel, engLevelFull, ruLevelFull, uaLevelFull} = infoPdf;
-    const listHardSkills = hardSkills.map((hardSkill) =>
-        <Text>{hardSkill}</Text>
+    const {photoUser, name, lastName, job, description, numberPhone, emailUser, telegramUser, personalSkills1, personalSkills2, personalSkills3, personalSkills4, personalSkills5, personalSkills6, experience, hardSkills, engLevel, ruLevel, uaLevel, engLevelFull, ruLevelFull, uaLevelFull} = infoPdf;
+    const listHardSkills = hardSkills?.map(({hardSkill, percent}) =>
+        <View style={{flexDirection: 'row', alignItems: 'center', marginBottom: 4}}>
+            <Text style={{width: '60%'}}>{hardSkill}</Text>
+            <View style={{width: '40%', backgroundColor: 'white', height: 3, borderRadius: '50%', overflow: 'hidden' }}>
+                <Text style={{width: `${percent}%`, backgroundColor: '#10BE43', height: 3, borderRadius: '50%'}}></Text>
+            </View>
+        </View>
     );
 
-    const listExperience = experience.map(({time, work, company}) =>
+    const listExperience = experience?.map(({time, work, company}) =>
         <View style={styles.experienceItem}>
             <View style={styles.experienceLeft}>
                 <Text style={{ fontWeight: 'black', marginBottom: 2}}>{company}</Text>
@@ -213,18 +218,28 @@ export function CVPdfItem({infoPdf}){
         </View>
     );
 
-    const descriptions = description.map((text) =>
+    const descriptions = description?.map((text) =>
         <Text style={styles.description}>{text}</Text>
     );
-    const listPersonalSkills1 = personalSkills1.map((personalSkillItem) =>
-        <Text>{personalSkillItem}</Text>
+    const listPersonalSkills1 = personalSkills1?.map((personalSkillItem) =>
+        <Text style={{marginBottom: 2}}>{personalSkillItem}</Text>
     );
-    const listPersonalSkills2 = personalSkills2.map((personalSkillItem) =>
-        <Text>{personalSkillItem}</Text>
+    const listPersonalSkills2 = personalSkills2?.map((personalSkillItem) =>
+        <Text style={{marginBottom: 2}}>{personalSkillItem}</Text>
     );
-    const listPersonalSkills3 = personalSkills3.map((personalSkillItem) =>
-        <Text>{personalSkillItem}</Text>
+    const listPersonalSkills3 = personalSkills3?.map((personalSkillItem) =>
+        <Text style={{marginBottom: 2}}>{personalSkillItem}</Text>
     );
+    const listPersonalSkills4 = personalSkills4?.map((personalSkillItem) =>
+        <Text style={{marginBottom: 2}}>{personalSkillItem}</Text>
+    );
+    const listPersonalSkills5 = personalSkills5?.map((personalSkillItem) =>
+        <Text style={{marginBottom: 2}}>{personalSkillItem}</Text>
+    );
+    const listPersonalSkills6 = personalSkills6?.map((personalSkillItem) =>
+        <Text style={{marginBottom: 2}}>{personalSkillItem}</Text>
+    );
+
 
     return <Document>
         <Page size="A4" style={styles.body}>
@@ -278,13 +293,13 @@ export function CVPdfItem({infoPdf}){
                     <View style={styles.blockList}>
                         <Text style={styles.titleList}>main</Text>
                         <View style={styles.wrapList}>
-                            <View>
+                            <View style={{width: '30%'}}>
                                 {listPersonalSkills1}
                             </View>
-                            <View>
+                            <View style={{width: '30%'}}>
                                 {listPersonalSkills2}
                             </View>
-                            <View>
+                            <View style={{width: '30%'}}>
                                 {listPersonalSkills3}
                             </View>
                         </View>
@@ -292,20 +307,14 @@ export function CVPdfItem({infoPdf}){
                     <View style={styles.blockList}>
                         <Text style={styles.titleList}>additional</Text>
                         <View style={styles.wrapListLast}>
-                            <View>
-                                <Text>Figma</Text>
-                                <Text>Adobe Photoshop</Text>
-                                <Text>WebStorm</Text>
-                                <Text>Visual studio code</Text>
+                            <View style={{width: '30%'}}>
+                                {listPersonalSkills4}
                             </View>
-                            <View>
-                                <Text>Accessibility</Text>
-                                <Text>Pagespeed optimization</Text>
-                                <Text>Adobe XD</Text>
+                            <View style={{width: '30%'}}>
+                                {listPersonalSkills5}
                             </View>
-                            <View>
-                                <Text>Linux (Ubuntu)</Text>
-                                <Text>Adobe Illustrator</Text>
+                            <View style={{width: '30%'}}>
+                                {listPersonalSkills6}
                             </View>
                         </View>
                     </View>
@@ -332,9 +341,10 @@ export function CVPdfItem({infoPdf}){
 
                 {/* Hard skills */}
                 <View style={styles.wrapSkills}>
-                    <Text style={styles.title}>
-                        Hard skills
-                    </Text>
+                    <View style={[styles.title, {flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}]}>
+                        <Text>Hard skills</Text>
+                        <Text style={{fontSize: 8, textTransform: 'lowercase', fontWeight: 'normal'}}>experience years +5</Text>
+                    </View>
                     <View style={styles.hardSkillsList}>
                         {listHardSkills}
                     </View>
