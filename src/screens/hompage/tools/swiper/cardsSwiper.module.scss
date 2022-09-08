@@ -16,16 +16,17 @@
   }
 
   @include lg {
-    width: 540px;
+    width: 100%;
+    max-width: 700px;
     margin-top: 0;
   }
 
   @include xl {
-    width: 810px;
+    max-width: 810px;
   }
 
   @include xxl {
-    width: 898px;
+    max-width: 898px;
   }
 
   :global {
@@ -58,15 +59,15 @@
       }
 
       @include lg {
-        width: 173px;
+        max-width: 213px;
       }
 
       @include xl {
-        width: 270px;
+        max-width: 270px;
       }
 
       @include xxl {
-        width: 299px;
+        max-width: 299px;
       }
     }
   }
