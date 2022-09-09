@@ -1,41 +1,73 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useEffect } from "react";
 import { useOpen } from "../../../hooks/useOpen";
 import { useOnClickOutside } from "../../../hooks/useOnClickOutside";
+import { sendForm } from "../../../api/contactForm";
+import { useForm } from "react-hook-form";
+import { Messenger } from "../../../global/messengers/messengers";
 import { useNoScroll } from "../../../hooks/useNoScroll";
-import { Form } from "./form/form";
+import StarRating from "react-svg-star-rating";
+import { leaveComment } from "../../../api/leaveComment";
 
-export const Modal = ({ children, title = 'request consultation', isMessage = false, data = '', isReview = false }) => {
-  const { isOpen, onOpen, onClose } = useOpen(false);
-  
-  useNoScroll(isOpen);
-
+export const Modal = ({ onClose, children, title = 'request consultation', isMessage = false, data = '', isReview = false }) => {
+  const { isOpen: isFade, onOpen: fadeIn, onClose: fadeOut } = useOpen(false);
+  const [rating, setRating] = useState('');
+  useNoScroll(isFade);
+  const {register, handleSubmit, reset, formState: { errors, isSubmitting }} = useForm({ mode: "onChange"});
+  function onSubmit(data, e) {
+    e.preventDefault();
+    isReview ? leaveComment({...data, rating}) : sendForm({ type: title, data: { ...data } });    
+    reset();
+    fadeOutHandle();
+  }
   const modalRef = useRef();
-
   const fadeOutHandle = () => {
-    onClose();
+    fadeOut();
     setTimeout(() => {
       onClose();
     }, 650);
   };
-
   useOnClickOutside(modalRef, fadeOutHandle);
-
   useEffect(() => {
     setTimeout(() => {
-      onOpen();
+      fadeIn();
     }, 1);
-  }, [onOpen]);
-
+  }, [fadeIn]);
+  const handleOnClick = (rating) => {
+    setRating(rating);
+  };
   return (
     <>
-    <div className={[ 'mask', (isOpen ? 'open' : '')].join(" ")}></div>
-      <div
-        ref={modalRef}
-        className={[ 'modal', (isOpen ? 'open' : '')].join(" ")}
-      >
+    <div className={[ 'mask', (isFade ? 'open' : '')].join(" ")}></div>
+      <div ref={modalRef} className={[ 'modal', (isFade ? 'open' : '')].join(" ")}>
         {children}
-        <Form isReview={isReview} title={title} isMessage={isMessage} data={data} hanlde={fadeOutHandle} />
+        <form onSubmit={handleSubmit(onSubmit)} className='form'>
+          {
+            isReview && 
+                <div className="formRating">
+                  <StarRating size={35} initialRating={0} unit="float" activeColor="yellow" handleOnClick={handleOnClick} />
+                </div>
+          }
+          <p>Write your comment</p>
+            <label className="formField">
+              <input
+                {...register("contact", { required: true, maxLength: { value: 150, message: "Not more than 150 symbols" }})}
+                placeholder={"Leave any contacts: ( telegram ,whatsapp, linkedin , etc.. )"}
+                type={"text"}
+              />
+              {errors.contact && (<span className="error">{errors.contact.message}</span>)}
+            </label>
+            <label className="formField">
+              <textarea {...register("message", { required: true, maxLength: { value: 300, message: "Not more than 300 symbols" },})} placeholder={"Your message*"}></textarea>
+              {errors.message && (<span className="error">{errors.message.message}</span>)}
+            </label>
+          <p className="md-only">Your data is safe and will not be passed on to third parties</p>
+          { isMessage && <Messenger data={data} /> }
+          <div className={"btns"}>
+            <button className="reset" type="reset" onClick={fadeOutHandle} disabled={isSubmitting}>No, cancel</button>
+            <button type="submit" className="button">Yes, confirm</button>
+          </div>
+        </form>
       </div>
     </>
   );
