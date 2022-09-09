@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
         color: "white",
         position: 'relative',
         flexDirection: 'row',
+        alignItems: 'flex-start',
         fontFamily: "Poppins",
         lineHeight: 1,
         fontSize: 8,
@@ -31,6 +32,7 @@ const styles = StyleSheet.create({
     sectionRight: {
         width: '45%',
         paddingRight: 30,
+        paddingTop: 45,
     },
     sectionLeft:{
         width: '55%',
@@ -50,13 +52,21 @@ const styles = StyleSheet.create({
         width: 32,
         height: 34,
     },
+    wrapTitle:{
+        borderBottom: '1px solid #6A6A6A',
+        marginBottom: 20,
+    },
     title: {
         fontSize: 15,
         textTransform: "uppercase",
         fontWeight: "black",
         paddingBottom: 10,
-        marginBottom: 20,
-        borderBottom: "1px solid #AEAEAE"
+    },
+    lineTitle:{
+        borderBottom: '1px solid #fff',
+        width: 47,
+        height: 1,
+        marginBottom: -1,
     },
     contactText: {
         marginBottom: 4,
@@ -70,9 +80,9 @@ const styles = StyleSheet.create({
         height: 210,
     },
     photo: {
-        marginTop: 50,
+        marginTop: 55,
         marginBottom: 60,
-        marginLeft: 70,
+        marginLeft: 83,
         width: 210,
         height: 230,
     },
@@ -88,26 +98,31 @@ const styles = StyleSheet.create({
         marginRight: 11,
     },
     iconTelegram: {
-        height: 22,
+        height: 20,
         width: 22,
+        marginTop: 5,
         marginRight: 13,
     },
     contact: {
-        paddingHorizontal: 30,
-        maxWidth: 190,
+        paddingLeft: 29,
+        paddingRight: 22,
+        maxWidth: 240,
+        width: '100%',
         marginBottom: 50,
+        fontSize: 10,
     },
     contactItem:{
         flexDirection: 'row',
-        borderBottom: '1px solid #AEAEAE',
-        paddingBottom: 13,
-        marginBottom: 10,
+        borderBottom: '0.5px solid #909090',
+        paddingBottom: 10,
+        marginBottom: 7,
     },
     contactItemLast:{
         flexDirection: 'row',
     },
     personalSkills: {
-        paddingHorizontal: 30,
+        paddingRight: 22,
+        paddingLeft: 29,
     },
     titleList: {
         textTransform: 'uppercase',
@@ -134,10 +149,10 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     wrapTopBlock: {
-        marginBottom: 35,
+        marginBottom: 30,
+        minHeight: 295,
     },
     topBlock: {
-        marginTop: 45,
         marginBottom: 20,
         textTransform: "uppercase",
     },
@@ -155,13 +170,13 @@ const styles = StyleSheet.create({
         fontSize: 20,
     },
     description: {
-        marginBottom: 13,
-        lineHeight: '1.2',
-        fontWeight: 100
+        marginBottom: 10,
+        lineHeight: '1.3',
+        fontWeight: 400
     },
     wrapSkills: {
-        marginBottom: 27,
-        paddingLeft: 25,
+        marginBottom: 25,
+        paddingLeft: 22,
     },
     experienceItem: {
         flexDirection: 'row',
@@ -199,9 +214,9 @@ export function CVPdfItem({infoPdf}){
     const {photoUser, name, lastName, job, description, numberPhone, emailUser, telegramUser, personalSkills1, personalSkills2, personalSkills3, personalSkills4, personalSkills5, personalSkills6, experience, hardSkills, engLevel, ruLevel, uaLevel, engLevelFull, ruLevelFull, uaLevelFull} = infoPdf;
     const listHardSkills = hardSkills?.map(({hardSkill, percent}) =>
         <View style={{flexDirection: 'row', alignItems: 'center', marginBottom: 4}}>
-            <Text style={{width: '60%'}}>{hardSkill}</Text>
-            <View style={{width: '40%', backgroundColor: 'white', height: 3, borderRadius: '50%', overflow: 'hidden' }}>
-                <Text style={{width: `${percent}%`, backgroundColor: '#10BE43', height: 3, borderRadius: '50%'}}></Text>
+            <Text style={{width: '65%'}}>{hardSkill}</Text>
+            <View style={{width: '35%', backgroundColor: 'white', height: 4, borderRadius: '50%', overflow: 'hidden' }}>
+                <Text style={{width: `${percent}%`, backgroundColor: '#10BE43', height: 4, borderRadius: '50%'}}></Text>
             </View>
         </View>
     );
@@ -222,22 +237,22 @@ export function CVPdfItem({infoPdf}){
         <Text style={styles.description}>{text}</Text>
     );
     const listPersonalSkills1 = personalSkills1?.map((personalSkillItem) =>
-        <Text style={{marginBottom: 2}}>{personalSkillItem}</Text>
+        <Text style={{marginBottom: 1, lineHeight: '1.3'}}>{personalSkillItem}</Text>
     );
     const listPersonalSkills2 = personalSkills2?.map((personalSkillItem) =>
-        <Text style={{marginBottom: 2}}>{personalSkillItem}</Text>
+        <Text style={{marginBottom: 1, lineHeight: '1.3'}}>{personalSkillItem}</Text>
     );
     const listPersonalSkills3 = personalSkills3?.map((personalSkillItem) =>
-        <Text style={{marginBottom: 2}}>{personalSkillItem}</Text>
+        <Text style={{marginBottom: 1, lineHeight: '1.3'}}>{personalSkillItem}</Text>
     );
     const listPersonalSkills4 = personalSkills4?.map((personalSkillItem) =>
-        <Text style={{marginBottom: 2}}>{personalSkillItem}</Text>
+        <Text style={{marginBottom: 1, lineHeight: '1.3'}}>{personalSkillItem}</Text>
     );
     const listPersonalSkills5 = personalSkills5?.map((personalSkillItem) =>
-        <Text style={{marginBottom: 2}}>{personalSkillItem}</Text>
+        <Text style={{marginBottom: 1, lineHeight: '1.3'}}>{personalSkillItem}</Text>
     );
     const listPersonalSkills6 = personalSkills6?.map((personalSkillItem) =>
-        <Text style={{marginBottom: 2}}>{personalSkillItem}</Text>
+        <Text style={{marginBottom: 1, lineHeight: '1.3'}}>{personalSkillItem}</Text>
     );
 
 
@@ -287,7 +302,7 @@ export function CVPdfItem({infoPdf}){
 
                 {/* PERSONAL SKILLS */}
                 <View style={styles.personalSkills}>
-                    <Text style={[styles.title, {borderBottom: 0}]}>
+                    <Text style={[styles.title, {borderBottom: 0, marginBottom: 15}]}>
                         PERSONAL SKILLS
                     </Text>
                     <View style={styles.blockList}>
@@ -333,17 +348,23 @@ export function CVPdfItem({infoPdf}){
 
                 {/* EXPERIENCE */}
                 <View style={styles.wrapSkills}>
-                    <Text style={styles.title}>
-                        EXPERIENCE
-                    </Text>
+                    <View style={styles.wrapTitle}>
+                        <Text style={styles.title}>
+                            EXPERIENCE
+                        </Text>
+                        <View style={styles.lineTitle}></View>
+                    </View>
                     {listExperience}
                 </View>
 
                 {/* Hard skills */}
                 <View style={styles.wrapSkills}>
-                    <View style={[styles.title, {flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}]}>
-                        <Text>Hard skills</Text>
-                        <Text style={{fontSize: 8, textTransform: 'lowercase', fontWeight: 'normal'}}>experience years +5</Text>
+                    <View style={styles.wrapTitle}>
+                        <View style={[styles.title, {flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}]}>
+                            <Text>Hard skills</Text>
+                            <Text style={{fontSize: 8, textTransform: 'lowercase', fontWeight: 'normal'}}>experience years +5</Text>
+                        </View>
+                        <View style={styles.lineTitle}></View>
                     </View>
                     <View style={styles.hardSkillsList}>
                         {listHardSkills}
@@ -352,15 +373,18 @@ export function CVPdfItem({infoPdf}){
 
                 {/* language */}
                 <View style={styles.wrapSkills}>
-                    <Text style={styles.title}>
-                        language
-                    </Text>
+                    <View style={styles.wrapTitle}>
+                        <Text style={styles.title}>
+                            language
+                        </Text>
+                        <View style={styles.lineTitle}></View>
+                    </View>
                     <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                         <View style={styles.languageItem}>
                             <Text style={styles.languageName}>
                                 English {engLevel}
                             </Text>
-                            <Text>
+                            <Text style={{lineHeight: '1.3', fontWeight: 300}}>
                                 {engLevelFull}
                             </Text>
                         </View>
@@ -368,7 +392,7 @@ export function CVPdfItem({infoPdf}){
                             <Text style={styles.languageName}>
                                 Russian {ruLevel}
                             </Text>
-                            <Text>
+                            <Text style={{lineHeight: '1.3', fontWeight: 300}}>
                                 {ruLevelFull}
                             </Text>
                         </View>
@@ -376,7 +400,7 @@ export function CVPdfItem({infoPdf}){
                             <Text style={styles.languageName}>
                                 Ukrainian {uaLevel}
                             </Text>
-                            <Text>
+                            <Text style={{lineHeight: '1.3', fontWeight: 300}}>
                                 {uaLevelFull}
                             </Text>
                         </View>

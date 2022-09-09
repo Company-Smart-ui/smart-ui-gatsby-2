@@ -20,7 +20,7 @@ const CVPdf = ( ) => {
                             "Take your time, check my resume, see my skills, some of my works, my experience and when you are ready drop me a message."],
                 numberPhone: '+34 634 839 752',
                 emailUser: 'info@smart-ui.pro',
-                telegramUser: 'telegramUser',
+                telegramUser: '@alexgashkov1',
                 personalSkills1: ['HTML5', 'CSS3', 'SCSS', 'Java Script', 'React.JS'],
                 personalSkills2: ['Typescript', 'Gatsby.JS', 'Graphql', 'Git', 'Next.JS', 'WorldPress'],
                 personalSkills3: ['Bootstrap', 'Tailwind', 'Webpack', 'Material-UI', 'Gulp', 'Redux', 'PHP', 'Node.JS'],
