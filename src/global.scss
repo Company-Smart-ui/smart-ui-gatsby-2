@@ -327,7 +327,6 @@ button {
   font-size: 13px;
   line-height: 1.2;
   transition: 0.2s;
-  min-width: 275px;
   color: $White;
   @include md {
     left: 16px;
@@ -388,10 +387,9 @@ button {
 
   .form {
     width: 100%;
-    margin: 0 auto;
+    margin: 0 auto 20px;
     position: relative;
     z-index: 1;
-    margin-bottom: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

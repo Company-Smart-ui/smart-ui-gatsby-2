@@ -1,57 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { SwiperButtons } from "../../../global/swiperButtons/SwiperButtons";
 import * as style from "./recentWorks.module.scss";
 import { WorksSwiper } from "./swiper/WorksSwiper";
 import { Pagination } from "../../../global/pagination/Pagination";
 import { useTranslation } from "react-i18next";
-import { graphql, useStaticQuery } from "gatsby";
+import { Loader } from "../../../global/loader/loader";
+import { useProjectsList } from "../../../hooks/useProjectsList";
 
 export const RecentWorks = () => {
   const [swiperRef, setSwiperRef] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [listOfProjects, setListOfProjects] = useState([]);
 
-  const data = useStaticQuery(graphql`
-    query {
-      allStrapiSingleProject {
-        nodes {
-          google_page_speed
-          id
-          main_img {
-            localFile {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
-          }
-          seo_description
-          project_name
-          seo_title
-          site_url
-          technologies {
-            name
-          }
-          technology {
-            icon {
-              name
-              localFile {
-                childImageSharp {
-                  gatsbyImageData
-                }
-              }
-            }
-            name
-          }
-        }
-      }
-    }
-  `);
-
-  useEffect(() => {
-    if (data) {
-      setListOfProjects(data.allStrapiSingleProject.nodes);
-    }
-  }, [data]);
+  const listOfProjects = useProjectsList();
 
   const slidePrevHandler = () => swiperRef.slidePrev();
   const slideNextHandler = () => swiperRef.slideNext();
@@ -72,29 +32,35 @@ export const RecentWorks = () => {
           <button className="button view-more-button overlay">
             {t("projects_btn")}
           </button>
-          <div className="content-container">
-            <div className="pagination-wrapper">
-              <Pagination
-                activeIdx={activeIndex}
-                sliderLength={listOfProjects.length}
-              />
-            </div>
-            <WorksSwiper
-              setActiveHandler={setActiveHandler}
-              swiperRef={swiperRef}
-              setSwiperRef={setSwiperRef}
-              listOfProjects={listOfProjects}
-            />
-          </div>
-          <div className="buttons-block overlay">
-            <SwiperButtons
-              onPrev={slidePrevHandler}
-              onNext={slideNextHandler}
-              sliderLength={listOfProjects.length}
-              activeIndex={activeIndex}
-              fill
-            />
-          </div>
+          {listOfProjects ? (
+            <>
+              <div className="content-container">
+                <div className="pagination-wrapper">
+                  <Pagination
+                    activeIdx={activeIndex}
+                    sliderLength={listOfProjects.length}
+                  />
+                </div>
+                <WorksSwiper
+                  setActiveHandler={setActiveHandler}
+                  swiperRef={swiperRef}
+                  setSwiperRef={setSwiperRef}
+                  listOfProjects={listOfProjects}
+                />
+              </div>
+              <div className="buttons-block overlay">
+                <SwiperButtons
+                  onPrev={slidePrevHandler}
+                  onNext={slideNextHandler}
+                  sliderLength={listOfProjects.length}
+                  activeIndex={activeIndex}
+                  fill
+                />
+              </div>
+            </>
+          ) : (
+            <Loader inside />
+          )}
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@ import React from "react";
 import * as style from "./projectCard.module.scss";
 import { PageSpeed } from "../../components/pageSpeed/pageSpeed";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 
 export const ProjectCard = ({ content }) => {
   const {
@@ -77,14 +77,14 @@ export const ProjectCard = ({ content }) => {
         <div className="content-wrapper">
           <div>
             <div className="content-title">{project_name}</div>
-            <a href={site_url} className="content-link">
+            <Link to={site_url} className="content-link">
               Website
-            </a>
+            </Link>
             <div className="content-description">{seo_description}</div>
           </div>
-          <a href={`project/${makeUrl}`} className="button">
+          <Link to={`/project/${makeUrl}`} className="button">
             Learn more
-          </a>
+          </Link>
         </div>
       </div>
     </div>
