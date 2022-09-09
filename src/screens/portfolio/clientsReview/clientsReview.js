@@ -70,7 +70,7 @@ export const ClientsReview = () => {
       isOpen && 
       <div className={style.reviewWrap}>
           <Modal onClose={onClose} title={'Leave a comment'} isReview={true}>
-              <h3>Contact the lead developer</h3>
+              <h3>Leave a comment</h3>
           </Modal>
       </div>
     }
