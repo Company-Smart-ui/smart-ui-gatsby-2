@@ -67,9 +67,11 @@ export const ProjectCard = ({ content }) => {
             </div>
           );
         })}
-        <div className="progress">
-          <PageSpeed result={google_page_speed} />
-        </div>
+        {google_page_speed && (
+          <div className="progress">
+            <PageSpeed result={google_page_speed} />
+          </div>
+        )}
         <div className="img-wrapper">
           {mainImage && <GatsbyImage alt={project_name} image={mainImage} />}
           <div className="overlay-block"></div>
@@ -77,9 +79,14 @@ export const ProjectCard = ({ content }) => {
         <div className="content-wrapper">
           <div>
             <div className="content-title">{project_name}</div>
-            <Link to={site_url} className="content-link">
+            <a
+              href={site_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="content-link"
+            >
               Website
-            </Link>
+            </a>
             <div className="content-description">{seo_description}</div>
           </div>
           <Link to={`/project/${makeUrl}`} className="button">
