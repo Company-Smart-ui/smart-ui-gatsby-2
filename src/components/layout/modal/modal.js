@@ -15,6 +15,7 @@ export const Modal = ({ onClose, children, title = 'request consultation', isMes
   useNoScroll(isFade);
   const {register, handleSubmit, reset, formState: { errors, isSubmitting }} = useForm({ mode: "onChange"});
   function onSubmit(data, e) {
+    console.log(data)
     e.preventDefault();
     isReview ? leaveComment({...data, rating}) : sendForm({ type: title, data: { ...data } });    
     reset();
