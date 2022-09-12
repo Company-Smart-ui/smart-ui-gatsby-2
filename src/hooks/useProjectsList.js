@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby";
 export const useProjectsList = () => {
   const data = useStaticQuery(graphql`
     query {
-      allStrapiSingleProject {
+      projects: allStrapiSingleProject {
         nodes {
           google_page_speed
           id
@@ -36,5 +36,5 @@ export const useProjectsList = () => {
       }
     }
   `);
-  return data.allStrapiSingleProject.nodes;
+  return data.projects.nodes;
 };

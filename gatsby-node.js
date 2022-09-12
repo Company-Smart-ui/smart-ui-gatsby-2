@@ -3,6 +3,7 @@ const ENDPOINT = "https://stark-refuge-01750.herokuapp.com/api/";
 const PAGES_API = ["home", "portfolio", "global"];
 const LANGUAGES = ["en", "uk-UA"];
 const path = require(`path`);
+const { graphql } = require("gatsby");
 
 const createField = async ({ lang }) => {
   const pages = [];
@@ -87,3 +88,29 @@ exports.createPages = async ({ actions, graphql }) => {
     });
   });
 };
+
+// const paginatePortfolio = async ({actions, graphql}) => {
+//   const portfolioTemplate = path.resolve(`src/screens/portfolio/portfolio.js`);
+//   const {errors, data} = await graphql(`
+//     query {
+//       allStrapiSingleProject {
+//         pageInfo {
+//           currentPage
+//           hasNextPage
+//           hasPreviousPage
+//           itemCount
+//           pageCount
+//           perPage
+//           totalCount
+//         }
+//         totalCount
+//       }
+//     }
+//   `);
+//
+//   console.log('Data!!!', data);
+//
+//   if (errors) {
+//     throw new Error("There was an error...");
+//   }
+// };

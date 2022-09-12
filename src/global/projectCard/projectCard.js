@@ -4,17 +4,15 @@ import { PageSpeed } from "../../components/pageSpeed/pageSpeed";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { graphql, Link, useStaticQuery } from "gatsby";
 
-export const ProjectCard = ({ content }) => {
-  const {
-    project_name,
-    site_url,
-    google_page_speed,
-    seo_description,
-    main_img,
-    technology,
-    technologies,
-  } = content;
-
+export const ProjectCard = ({
+  project_name,
+  site_url,
+  google_page_speed,
+  seo_description,
+  main_img,
+  technology,
+  technologies,
+}) => {
   const mainImage = getImage(main_img?.localFile);
 
   const mainTechnology = getImage(technology?.icon?.localFile);
@@ -45,6 +43,15 @@ export const ProjectCard = ({ content }) => {
 
   const getImageByName = (name) => list?.find((el) => el.name === name);
 
+  const shortedDescription = (str) => {
+    const arr = str.split(" ");
+
+    if (arr.length > 17) {
+      return arr.slice(0, 17).join(" ") + "...";
+    }
+    return str;
+  };
+
   return (
     <div className={style.projectCard}>
       <div className="cards-container">
@@ -63,7 +70,9 @@ export const ProjectCard = ({ content }) => {
                 transitionDuration: `${400 + i * 600}ms`,
               }}
             >
-              {img && <GatsbyImage alt={technology.name} image={img} />}
+              {img && technology.name && (
+                <GatsbyImage alt={technology.name} image={img} />
+              )}
             </div>
           );
         })}
@@ -73,7 +82,9 @@ export const ProjectCard = ({ content }) => {
           </div>
         )}
         <div className="img-wrapper">
-          {mainImage && <GatsbyImage alt={project_name} image={mainImage} />}
+          {mainImage && project_name && (
+            <GatsbyImage alt={project_name} image={mainImage} />
+          )}
           <div className="overlay-block"></div>
         </div>
         <div className="content-wrapper">
@@ -87,7 +98,9 @@ export const ProjectCard = ({ content }) => {
             >
               Website
             </a>
-            <div className="content-description">{seo_description}</div>
+            <div className="content-description">
+              {shortedDescription(seo_description)}
+            </div>
           </div>
           <Link to={`/project/${makeUrl}`} className="button">
             Learn more

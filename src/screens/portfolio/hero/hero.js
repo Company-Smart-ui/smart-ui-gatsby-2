@@ -56,7 +56,7 @@ export const Hero = () => {
                     {Array.isArray(listOfProjects) &&
                       listOfProjects.map((el) => (
                         <div key={el.id}>
-                          <ProjectCard content={el} />
+                          <ProjectCard {...el} />
                         </div>
                       ))}
                   </div>
@@ -81,3 +81,4 @@ export const Hero = () => {
     </>
   );
 };
+
