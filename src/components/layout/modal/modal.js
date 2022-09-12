@@ -8,35 +8,46 @@ import { Messenger } from "../../../global/messengers/messengers";
 import { useNoScroll } from "../../../hooks/useNoScroll";
 import StarRating from "react-svg-star-rating";
 import { leaveComment } from "../../../api/leaveComment";
+import { Loader } from "../../../global/loader/loader";
 
-export const Modal = ({ onClose, children, title = 'request consultation', isMessage = false, data = '', isReview = false }) => {
+export const Modal = ({ onClose, children, title = 'request consultation', isMessage = false, data = '', isReview = false, init = false }) => {
+  const [loading, setLoader] = useState(init);
   const { isOpen: isFade, onOpen: fadeIn, onClose: fadeOut } = useOpen(false);
   const [rating, setRating] = useState('');
-  useNoScroll(isFade);
   const {register, handleSubmit, reset, formState: { errors, isSubmitting }} = useForm({ mode: "onChange"});
+
+  useNoScroll(isFade);
+
   function onSubmit(data, e) {
-    console.log(data)
+    setLoader(newLoader => newLoader = !loading)
     e.preventDefault();
-    isReview ? leaveComment({...data, rating}) : sendForm({ type: title, data: { ...data } });    
+    isReview ? leaveComment({...data, rating}) : sendForm({ type: title, data: { ...data } });
     reset();
+    setLoader(newLoader => newLoader = !loading)
     fadeOutHandle();
   }
+
   const modalRef = useRef();
+  
   const fadeOutHandle = () => {
     fadeOut();
     setTimeout(() => {
       onClose();
     }, 650);
   };
+
   useOnClickOutside(modalRef, fadeOutHandle);
+
   useEffect(() => {
     setTimeout(() => {
       fadeIn();
     }, 1);
   }, [fadeIn]);
+
   const handleOnClick = (rating) => {
     setRating(rating);
   };
+
   return (
     <>
     <div className={[ 'mask', (isFade ? 'open' : '')].join(" ")}></div>
@@ -69,6 +80,7 @@ export const Modal = ({ onClose, children, title = 'request consultation', isMes
             <button type="submit" className="button">Yes, confirm</button>
           </div>
         </form>
+        {loading && <Loader />}
       </div>
     </>
   );
