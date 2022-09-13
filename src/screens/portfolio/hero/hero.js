@@ -1,18 +1,51 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as style from "./hero.module.scss";
 import { ProjectsList } from "../projectsList/projectsList";
-import { OptimizationCard } from "./optimizationCard/optimizationCard";
 import { FilterButtons } from "./filterButtons/filterButtons";
 import { useOpen } from "../../../hooks/useOpen";
 import { Modal } from "../../../components/layout/modal/modal";
 import { ProjectCard } from "../../../global/projectCard/projectCard";
 import { Loader } from "../../../global/loader/loader";
 import { useProjectsList } from "../../../hooks/useProjectsList";
+import { OptimizationCard } from "./optimizationCard/optimizationCard";
 
 export const Hero = () => {
   const { isOpen, onClose, onOpen } = useOpen(false);
+  const [filteredProjects, setFilteredProjects] = useState([]);
 
   const listOfProjects = useProjectsList();
+
+  const checkString = (item) => {
+    if (typeof item === "string") {
+      return item.toLowerCase();
+    }
+    return "";
+  };
+
+  const filterListHandler = (title) => {
+    if (title === "All") {
+      setFilteredProjects(listOfProjects);
+      return;
+    }
+    const arr = [];
+    listOfProjects?.forEach((item) => {
+      item.technologies.forEach(
+        (el) => checkString(el.name) === checkString(title) && arr.push(item)
+      );
+    });
+
+    const filterList = listOfProjects.filter(
+      (item) => checkString(item?.technology?.name) === checkString(title)
+    );
+
+    const joinArr = [...arr, ...filterList];
+
+    setFilteredProjects(joinArr);
+  };
+
+  useEffect(() => {
+    setFilteredProjects(listOfProjects);
+  }, [listOfProjects]);
 
   return (
     <>
@@ -46,15 +79,15 @@ export const Hero = () => {
           <div className="bg-container">
             <div className="container">
               <div className="filter-buttons">
-                <FilterButtons />
+                <FilterButtons filterLIstHandler={filterListHandler} />
               </div>
             </div>
             <div className="list-wrapper overlay">
               <div className="container-block">
                 {listOfProjects ? (
                   <div className="cards-list">
-                    {Array.isArray(listOfProjects) &&
-                      listOfProjects.map((el) => (
+                    {Array.isArray(filteredProjects) &&
+                      filteredProjects.map((el) => (
                         <div key={el.id}>
                           <ProjectCard {...el} />
                         </div>
@@ -65,7 +98,7 @@ export const Hero = () => {
                 )}
               </div>
               <div className="overlay">
-                <ProjectsList listCardsProjects={listOfProjects} />
+                <ProjectsList listCardsProjects={filteredProjects} />
               </div>
             </div>
           </div>
@@ -81,4 +114,3 @@ export const Hero = () => {
     </>
   );
 };
-

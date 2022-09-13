@@ -1,8 +1,8 @@
 import React from "react";
 import * as style from "./projectCard.module.scss";
-import { PageSpeed } from "../../components/pageSpeed/pageSpeed";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { graphql, Link, useStaticQuery } from "gatsby";
+import { PageSpeed } from "../../components/pageSpeed/pageSpeed";
 
 export const ProjectCard = ({
   project_name,
@@ -56,7 +56,9 @@ export const ProjectCard = ({
     <div className={style.projectCard}>
       <div className="cards-container">
         <div className="main-technology">
-          <GatsbyImage alt={technology?.name} image={mainTechnology} />
+          {mainTechnology && (
+            <GatsbyImage alt={technology?.name} image={mainTechnology} />
+          )}
         </div>
         {technologies?.slice(0, 2).map((el, i) => {
           const imgForCard = getImageByName(el.name);
@@ -70,9 +72,7 @@ export const ProjectCard = ({
                 transitionDuration: `${400 + i * 600}ms`,
               }}
             >
-              {img && technology.name && (
-                <GatsbyImage alt={technology.name} image={img} />
-              )}
+              {img && <GatsbyImage alt={"image"} image={img} />}
             </div>
           );
         })}
@@ -82,9 +82,7 @@ export const ProjectCard = ({
           </div>
         )}
         <div className="img-wrapper">
-          {mainImage && project_name && (
-            <GatsbyImage alt={project_name} image={mainImage} />
-          )}
+          {mainImage && <GatsbyImage alt={"image"} image={mainImage} />}
           <div className="overlay-block"></div>
         </div>
         <div className="content-wrapper">
