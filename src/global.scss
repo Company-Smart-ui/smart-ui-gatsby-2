@@ -401,6 +401,11 @@ button {
     }
   }
 
+  .formRating {
+    width: 100%;
+    margin: 15px 0;
+  }
+
   .btns {
     display: flex;
     justify-content: space-between;
@@ -431,6 +436,14 @@ button {
       left: calc((50% - 1720px / 2) + 84px);
     }
   }
+}
+
+.loader {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: $LimeGreen;
 }
 
 .mask {

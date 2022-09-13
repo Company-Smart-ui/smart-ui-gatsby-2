@@ -1,4 +1,4 @@
-@import 'src/var';
+@import "src/var";
 
 .review {
   position: relative;
@@ -45,7 +45,7 @@
         column-gap: 30px;
         grid-template-areas:
           "title-section . ."
-          "pagination-section review-section review-section"
+          "pagination-section review-section review-section";
       }
 
       @include xl {
@@ -54,7 +54,7 @@
         column-gap: 30px;
         grid-template-areas:
           "title-section ."
-          "pagination-section review-section review-section"
+          "pagination-section review-section review-section";
       }
     }
 
@@ -187,9 +187,30 @@
     }
 
     .button {
-
       @include xl {
         min-width: 300px;
+      }
+    }
+  }
+}
+
+.reviewWrap {
+  :global {
+    .modal {
+      left: 50%;
+      transform: translateY(-100%) translateX(-50%);
+      top: 0;
+
+      &.open {
+        top: 50%;
+        transform: translateY(-50%) translateX(-50%);
+      }
+
+      .form {
+        p {
+          color: $LightGray;
+          width: 100%;
+        }
       }
     }
   }

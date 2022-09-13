@@ -21,7 +21,7 @@ export const TeamSwiper = ({ activeIndexHandler, setSwiperRef }) => {
         preview_photo {
           localFile {
             childImageSharp {
-              gatsbyImageData
+              gatsbyImageData(width: 400, height: 400)
             }
           }
         }
@@ -53,14 +53,14 @@ export const TeamSwiper = ({ activeIndexHandler, setSwiperRef }) => {
           768: {
             slidesPerView: 3,
             spaceBetween: 0,
-            allowTouchMove: false,
-            grabCursor: false,
+            allowTouchMove: true,
+            grabCursor: true,
           },
           1024: {
             slidesPerView: 3,
             spaceBetween: 0,
-            allowTouchMove: false,
-            grabCursor: false,
+            allowTouchMove: true,
+            grabCursor: true,
           },
         }}
         grabCursor={true}

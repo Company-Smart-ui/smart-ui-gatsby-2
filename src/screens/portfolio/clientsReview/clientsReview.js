@@ -3,10 +3,12 @@ import * as style from "./clientsReview.module.scss";
 import { ReviewCard } from "./card/reviewCard";
 import { Pagination } from "../../../components/pagination/pagination";
 import { reviewsList } from "./data";
-import { leaveComment } from "../../../api/leaveComment";
 import { graphql, useStaticQuery } from "gatsby";
+import {useOpen} from "../../../hooks/useOpen";
+import { Modal } from "../../../components/layout/modal/modal";
 
 export const ClientsReview = () => {
+  const {isOpen, onClose, onOpen}= useOpen(false);
   const [cards] = useState(reviewsList);
   const [itemOffset, setItemOffset] = useState(1);
   const data = useStaticQuery(graphql`
@@ -25,6 +27,7 @@ export const ClientsReview = () => {
   const itemsCount = { data: cards.length };
 
   return (
+    <>
     <div className={`${style.review} vertical-padding`}>
       <div className="bCircle" />
       <div className="noise" />
@@ -38,16 +41,7 @@ export const ClientsReview = () => {
             <div className="subtitle">
               We will help to develop your best project based on your idea.
             </div>
-            <button
-              onClick={() => {
-                leaveComment({
-                  name: "Виктор",
-                  stars: 4,
-                  review: "крутая кнопка",
-                });
-              }}
-              className="button overlay"
-            >
+            <button className={["button", "overlay", (isOpen ? 'disabledBtn' : '')].join(' ') } onClick={onOpen}>
               Leave a comment
             </button>
           </div>
@@ -72,5 +66,14 @@ export const ClientsReview = () => {
         </div>
       </div>
     </div>
+    {
+      isOpen && 
+      <div className={style.reviewWrap}>
+          <Modal onClose={onClose} title={'Leave a comment'} isReview={true}>
+              <h3>Leave a comment</h3>
+          </Modal>
+      </div>
+    }
+    </>
   );
 };

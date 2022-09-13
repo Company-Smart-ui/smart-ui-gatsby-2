@@ -21,7 +21,7 @@ export const ProjectsList = ({ listCardsProjects }) => {
   ];
 
   return (
-    <section className={style.projectsList}>
+    <div className={style.projectsList}>
           <Pagination
             itemsPerPage={Number(itemsPerPage.value)}
             {...{
@@ -35,6 +35,6 @@ export const ProjectsList = ({ listCardsProjects }) => {
           changeHandler={setItemsPerPage}
           options={PerPageOptions}
         />
-    </section>
+    </div>
   );
 };

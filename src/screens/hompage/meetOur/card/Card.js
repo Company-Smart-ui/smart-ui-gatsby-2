@@ -13,20 +13,12 @@ export const Card = ({ content }) => {
 
   const image = getImage(preview_photo?.localFile)
 
-  const data = []
-
-  if (telegram && linkedin) {
-    data.push({img: Telegram, link: telegram, alt: 'telegram'},{img: Linkedin, link: linkedin, alt: 'linkedin'})
-  } else if (telegram) {
-    data.push({img: Telegram, link: telegram, alt: 'telegram'})
-  } else if (linkedin) {
-    data.push({img: Linkedin, link: linkedin, alt: 'linkedin'})
-  }
+  const data = [telegram && {img: Telegram, link: telegram, alt: 'telegram'}, linkedin && {img: Linkedin, link: linkedin, alt: 'linkedin'}];
   
   return (
     <div className={style.card}>
         <div className="img-wrapper">
-          <GatsbyImage image={image} alt={name} />
+          <GatsbyImage image={image} alt={name}/>
         </div>
         <div className="content-wrapper">
           <div className="content-title">{name}</div>
@@ -38,7 +30,7 @@ export const Card = ({ content }) => {
               <div className={style.cardWrap}>
                 <Modal onClose={onClose} isMessage={show_contact} data={data} title={`Leave message to ${name}`}>
                   <div className={style.modalHead}>
-                    <GatsbyImage image={image} alt={name} />
+                    { image && <GatsbyImage image={image} alt={name} />}
                     <h3>{`Leave message to ${name}`}</h3>
                     <p>{position}</p>
                     <p>{`Please leave one of your contacts, ${name} will contact you.`}</p>

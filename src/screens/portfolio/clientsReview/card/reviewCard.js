@@ -2,11 +2,10 @@ import React from 'react';
 import StarRating from "react-svg-star-rating";
 
 export const ReviewCard = ({ content }) => {
-  const { name, city, rating, comment } = content;
+  const { contact, rating, message } = content;
   return (
     <div className="review-item">
-      <div className="review-item-name">{name}</div>
-      <div className="review-item-city">{city}</div>
+      <div className="review-item-name">{contact}</div>
       <div className="review-item-rating">
         <StarRating
           isReadOnly
@@ -16,7 +15,7 @@ export const ReviewCard = ({ content }) => {
           activeColor="#FFDC60"
         />
       </div>
-      <div className="review-item-comment">{comment}</div>
+      <div className="review-item-comment">{message}</div>
     </div>
   );
 };
