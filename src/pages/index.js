@@ -2,6 +2,7 @@ import * as React from "react"
 import {HomePage} from "../screens/hompage/homePage";
 import {graphql} from "gatsby";
 import {Seo} from "../components/SEO/SEO";
+import componentDidMount from "../global/chatbot";
 
 export const query = graphql`
   query ($language: String  ) {
@@ -25,5 +26,7 @@ const Home = ( ) => {
 export default Home
 
 export const Head = () => (
-    <Seo title={'Home'}/>
+    <Seo title={'Home'}>
+      {componentDidMount()}
+      </Seo>
 )
