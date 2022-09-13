@@ -1,6 +1,7 @@
 import React from 'react';
 import {graphql} from "gatsby";
 import {Seo} from "../components/SEO/SEO";
+import {AllTeam} from "../screens/team/team";
 
 
 export const query = graphql`
@@ -17,10 +18,7 @@ export const query = graphql`
   }
 `
 const Team = () => {
-    return <div style={{height: 800, background: '#fff'}}>
-
-
-    </div>
+    return <AllTeam />
 };
 
 export default Team
