@@ -12,9 +12,9 @@ export const TeamItem = (props) =>{
             <div>{props.name}</div>
             <div>{props.direction}</div>
             <div>{props.level}</div>
-            <div>{props.price}</div>
+            <div>{props.price && `$${props.price}`}</div>
             <div>{props.english}</div>
-            <Link to={props.link }>More</Link>
+            <Link to={props.link} className={`button ${style.link}`}>More</Link>
         </div>
     )
 }

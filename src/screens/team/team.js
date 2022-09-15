@@ -34,7 +34,6 @@ export const AllTeam = (props) => {
         }
     }
     `);
-    console.log(data.allStrapiTeam.nodes[0].cv_photo.localFile.childrenImageSharp[0].gatsbyImageData);
     const global = data.allStrapiGlobal.nodes[0];
     const item = data.allStrapiTeam.nodes;
     return (
@@ -53,19 +52,19 @@ export const AllTeam = (props) => {
                         <span>{global.tr_team_action}</span>
                     </div>
                     <div className={style.gridBody}>
-                        {item.map((i) => {
+                        {item.map((i, k) => {
                             return (
                                 <TeamItem 
+                                key={k}
                                 img={i.cv_photo.localFile.childrenImageSharp[0].gatsbyImageData}
                                 name={i.name}
                                 direction={i.direction}
                                 level={i.level}
                                 price={i.price}
                                 english={i.english_level}
-                                link="/"
+                                link={'#'}
                                 />
                             )
-                            
                         })}
                     </div>
                 </div>

@@ -67,7 +67,10 @@
     line-height: 30px;
     display: grid;
     grid-template-columns: 175px 1fr 1fr 110px 35px 190px 188px;
+    border-top: 0.5px solid rgba(255, 255, 255, 0.5);
+    padding-top: 31px;
+    margin-bottom: 52px;
 }
 .gridBody{
-    border-bottom: 1px solid;
+    margin-bottom: 100px;
 }
