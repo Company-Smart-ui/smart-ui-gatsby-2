@@ -42,14 +42,13 @@ export const AllTeam = (props) => {
             <div className={style.teamWrapper}>
                 <h1>Specialists for outstaff</h1>
                 <div className={style.gridWrapper}>
-                    <div className={style.gridHead}>
-                        <span>{global.tr_team_photo}</span>
+                    <div className={`${style.gridHead} lg-only`}>
+                        <span></span>
                         <span>{global.tr_team_name}</span>
                         <span>{global.tr_team_direction}</span>
                         <span>{global.tr_team_level}</span>
-                        <span></span>
                         <span>{global.tr_team_english}</span>
-                        <span>{global.tr_team_action}</span>
+                        <span></span>
                     </div>
                     <div className={style.gridBody}>
                         {item.map((i, k) => {
@@ -57,11 +56,11 @@ export const AllTeam = (props) => {
                                 <TeamItem 
                                 key={k}
                                 img={i.cv_photo.localFile.childrenImageSharp[0].gatsbyImageData}
-                                name={i.name}
-                                direction={i.direction}
-                                level={i.level}
+                                name={i.name} nameTitle={global.tr_team_name}
+                                direction={i.direction} directionTitle={global.tr_team_direction}
+                                level={i.level} levelTitle={global.tr_team_level}
                                 price={i.price}
-                                english={i.english_level}
+                                english={i.english_level} englishTitle={global.tr_team_english}
                                 link={'#'}
                                 />
                             )

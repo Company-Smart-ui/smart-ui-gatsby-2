@@ -9,12 +9,28 @@ export const TeamItem = (props) =>{
             <div className={style.img}>
             {<GatsbyImage alt={props.name} image={getImage(props.img)}/>}
             </div>
-            <div>{props.name}</div>
-            <div>{props.direction}</div>
-            <div>{props.level}</div>
-            <div>{props.price && `$${props.price}`}</div>
-            <div>{props.english}</div>
-            <Link to={props.link} className={`button ${style.link}`}>More</Link>
+            <div className={style.name}>
+                <span className={`${style.subTitle} lg-end`}>{props.nameTitle}</span>
+                {props.name}
+            </div>
+            <div className={style.direction}>
+                {props.direction ? (<span className={`${style.subTitle} lg-end`}>{props.directionTitle}</span>) : ''}
+                {props.direction}
+            </div>
+            <div className={style.level}>
+                {props.level ? (<span className={`${style.subTitle} lg-end`}>{props.levelTitle}</span>) : ''}
+                <div className={style.levelRate}>
+                    <span>{props.level}</span> 
+                    <span className={style.price}>{props.price && `$${props.price}`}</span>
+                </div>
+            </div>
+            <div className={style.english}>
+                {props.english ? (<span className={`${style.subTitle} lg-end`}>{props.englishTitle}</span>) : ''}
+                {props.english}
+            </div>
+            <div className={style.link}>
+                <Link to={props.link} className="button">More</Link>
+            </div>
         </div>
     )
 }

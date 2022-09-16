@@ -62,14 +62,22 @@
     color: #fff;
 }
 .gridHead{
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 30px;
-    display: grid;
-    grid-template-columns: 175px 1fr 1fr 110px 35px 190px 188px;
-    border-top: 0.5px solid rgba(255, 255, 255, 0.5);
-    padding-top: 31px;
-    margin-bottom: 52px;
+    // display: none;
+    @include lg{
+        display: grid;
+        grid-template-columns:127px 1fr 1fr 170px 1fr 127px;
+        grid-column-gap: 20px;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 30px;
+        border-top: 0.5px solid rgba(255, 255, 255, 0.5);
+        padding-top: 31px;
+        margin-bottom: 52px;
+    }
+    @include xl{
+        grid-template-columns:188px 1fr 1fr 188px 1fr 188px;
+        grid-column-gap: 40px;
+    }
 }
 .gridBody{
     margin-bottom: 100px;
