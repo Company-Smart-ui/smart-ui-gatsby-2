@@ -8,7 +8,7 @@
     overflow: hidden;
     padding-top: 111px;
     @include md{
-        padding-top: 168px;
+        padding-top: 160px;
     }
     &:after{
         content: '';
@@ -50,9 +50,9 @@
         font-weight: 500;
         font-size: 55px;
         line-height: 100%;
-        letter-spacing: -0.025em;
+        letter-spacing: -0.008em;
         color: #FFFFFF;
-        margin-bottom: 31px;
+        margin-bottom: 37px;
         @include md{
             font-size: 80px;
         }
@@ -62,7 +62,6 @@
     color: #fff;
 }
 .gridHead{
-    // display: none;
     @include lg{
         display: grid;
         grid-template-columns:127px 1fr 1fr 170px 1fr 127px;
@@ -72,10 +71,10 @@
         line-height: 30px;
         border-top: 0.5px solid rgba(255, 255, 255, 0.5);
         padding-top: 31px;
-        margin-bottom: 52px;
+        margin-bottom: 40px;
     }
     @include xl{
-        grid-template-columns:188px 1fr 1fr 188px 1fr 188px;
+        grid-template-columns:195px 1fr 1fr 188px 1fr 195px;
         grid-column-gap: 40px;
     }
 }
