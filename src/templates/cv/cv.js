@@ -1,11 +1,9 @@
 import * as React from "react";
 import * as style from "./cv.module.scss";
 import chatIcon from "./chat-white.png";
-import { BlobProvider } from "@react-pdf/renderer";
-import { CVPdfItem } from "./cvPdf/cvPdfItem";
 import { shelestInfo } from "./cvPdf/teamInfo/ShelestInfo";
 
-const CV = () => {
+const Cv = () => {
   const {
     hardSkills,
     experience,
@@ -28,8 +26,8 @@ const CV = () => {
     ruLevelFull,
   } = shelestInfo;
 
-  const listHardSkills = hardSkills?.map(({ hardSkill, percent, years }) => (
-    <li>
+  const listHardSkills = hardSkills?.map(({ hardSkill, percent, years }, i) => (
+    <li key={i}>
       <p>{hardSkill}</p>
       <div className="line-experience">
         <div className="line-skill" style={{ width: `${percent}%` }}>
@@ -39,8 +37,8 @@ const CV = () => {
     </li>
   ));
 
-  const listExperience = experience?.map(({ time, work, company }) => (
-    <div className="wrap">
+  const listExperience = experience?.map(({ time, work, company }, i) => (
+    <div className="wrap" key={i}>
       <div className="company">
         <h4>{company}</h4>
         <p className="time">{time}</p>
@@ -50,23 +48,23 @@ const CV = () => {
   ));
 
   const descriptions = description?.map((text) => <p>{text}</p>);
-  const listPersonalSkills1 = personalSkills1?.map((personalSkillItem) => (
-    <li>{personalSkillItem}</li>
+  const listPersonalSkills1 = personalSkills1?.map((personalSkillItem, i) => (
+    <li key={i}>{personalSkillItem}</li>
   ));
-  const listPersonalSkills2 = personalSkills2?.map((personalSkillItem) => (
-    <li>{personalSkillItem}</li>
+  const listPersonalSkills2 = personalSkills2?.map((personalSkillItem, i) => (
+    <li key={i}>{personalSkillItem}</li>
   ));
-  const listPersonalSkills3 = personalSkills3?.map((personalSkillItem) => (
-    <li>{personalSkillItem}</li>
+  const listPersonalSkills3 = personalSkills3?.map((personalSkillItem, i) => (
+    <li key={i}>{personalSkillItem}</li>
   ));
-  const listPersonalSkills4 = personalSkills4?.map((personalSkillItem) => (
-    <li>{personalSkillItem}</li>
+  const listPersonalSkills4 = personalSkills4?.map((personalSkillItem, i) => (
+    <li key={i}>{personalSkillItem}</li>
   ));
-  const listPersonalSkills5 = personalSkills5?.map((personalSkillItem) => (
-    <li>{personalSkillItem}</li>
+  const listPersonalSkills5 = personalSkills5?.map((personalSkillItem, i) => (
+    <li key={i}>{personalSkillItem}</li>
   ));
-  const listPersonalSkills6 = personalSkills6?.map((personalSkillItem) => (
-    <li>{personalSkillItem}</li>
+  const listPersonalSkills6 = personalSkills6?.map((personalSkillItem, i) => (
+    <li key={i}>{personalSkillItem}</li>
   ));
 
   return (
@@ -143,21 +141,22 @@ const CV = () => {
           </div>
         </div>
         <div className="wrap__cv-button">
-          <BlobProvider document={<CVPdfItem infoPdf={shelestInfo} />}>
-            {({ url }) => {
-              if (url) {
-                return (
-                  <a className="button" href={url} download>
-                    Download CV
-                  </a>
-                );
-              }
-            }}
-          </BlobProvider>
+          {/*<BlobProvider document={<CVPdfItem infoPdf={shelestInfo} />}>*/}
+          {/*  {({ url, loading }) => {*/}
+          {/*    if (url && !loading) {*/}
+          {/*      return (*/}
+          {/*        <a className="button" href={url} download>*/}
+          {/*          Download CV*/}
+          {/*        </a>*/}
+          {/*      );*/}
+          {/*    }*/}
+          {/*  }}*/}
+          {/*</BlobProvider>*/}
+          <button className="button">Download CV</button>
         </div>
       </div>
     </div>
   );
 };
 
-export default CV;
+export default Cv;
