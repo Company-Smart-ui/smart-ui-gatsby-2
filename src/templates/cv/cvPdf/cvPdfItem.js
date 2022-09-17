@@ -1,5 +1,5 @@
 import React from 'react';
-import {Page, Text, Image, Document, StyleSheet, Font, View} from '@react-pdf/renderer';
+import {Document, Font, Image, Page, StyleSheet, Text, View} from '@react-pdf/renderer';
 import bgDesktop from "./background.png"
 import bgFull from "./bg-full-green.png"
 import mobile from "./mobile.png";
@@ -13,11 +13,13 @@ import PoppinsSemiBold from './Poppins/Poppins-SemiBold.ttf';
 
 
 // Create styles
-Font.register({ family: 'Poppins', fonts: [
-    { src: PoppinsRegular },
-    { src: PoppinsLight, fontWeight: 300 },
-    { src: PoppinsSemiBold, fontWeight: 600 },
-]});
+Font.register({
+    family: 'Poppins', fonts: [
+        {src: PoppinsRegular},
+        {src: PoppinsLight, fontWeight: 300},
+        {src: PoppinsSemiBold, fontWeight: 600},
+    ]
+});
 
 const styles = StyleSheet.create({
     body: {
@@ -34,7 +36,7 @@ const styles = StyleSheet.create({
         paddingRight: 30,
         paddingTop: 45,
     },
-    sectionLeft:{
+    sectionLeft: {
         width: '55%',
 
     },
@@ -52,7 +54,7 @@ const styles = StyleSheet.create({
         width: 32,
         height: 34,
     },
-    wrapTitle:{
+    wrapTitle: {
         borderBottom: '1px solid #6A6A6A',
         marginBottom: 20,
     },
@@ -62,7 +64,7 @@ const styles = StyleSheet.create({
         fontWeight: "black",
         paddingBottom: 10,
     },
-    lineTitle:{
+    lineTitle: {
         borderBottom: '1px solid #fff',
         width: 47,
         height: 1,
@@ -111,13 +113,13 @@ const styles = StyleSheet.create({
         marginBottom: 50,
         fontSize: 10,
     },
-    contactItem:{
+    contactItem: {
         flexDirection: 'row',
         borderBottom: '0.5px solid #909090',
         paddingBottom: 10,
         marginBottom: 7,
     },
-    contactItemLast:{
+    contactItemLast: {
         flexDirection: 'row',
     },
     personalSkills: {
@@ -182,40 +184,44 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         textTransform: "uppercase",
     },
-    experienceLeft:{
+    experienceLeft: {
         width: 90,
         borderRight: '0.5px solid #AEAEAE',
         marginRight: 10,
     },
-    experienceRight:{
+    experienceRight: {
         width: '100%',
         marginBottom: 12,
         paddingBottom: 10,
         borderBottom: '0.5px solid #AEAEAE',
     },
-    experienceRightLast:{
+    experienceRightLast: {
         width: '100%',
     },
     hardSkillsList: {
         lineHeight: '1.5',
     },
-    languageItem:{
+    languageItem: {
         width: '30%',
         maxWidth: 55,
     },
-    languageName:{
+    languageName: {
         marginBottom: 5,
         fontWeight: "demibold",
     },
 });
 
 // Create Document Component
-export function CVPdfItem({infoPdf}){
-    const {photoUser, name, lastName, job, description, numberPhone, emailUser, telegramUser, personalSkills1, personalSkills2, personalSkills3, personalSkills4, personalSkills5, personalSkills6, experience, hardSkills, engLevel, ruLevel, uaLevel, engLevelFull, ruLevelFull, uaLevelFull} = infoPdf;
+export function CVPdfItem({infoPdf}) {
+    const {
+        photoUser, name, lastName, job, description, numberPhone, emailUser, telegramUser,
+        personalSkills1, personalSkills2, personalSkills3, personalSkills4, personalSkills5, personalSkills6,
+        experience, hardSkills, engLevel, ruLevel, uaLevel, engLevelFull, ruLevelFull, uaLevelFull
+    } = infoPdf;
     const listHardSkills = hardSkills?.map(({hardSkill, percent}) =>
         <View style={{flexDirection: 'row', alignItems: 'center', marginBottom: 4}}>
             <Text style={{width: '65%'}}>{hardSkill}</Text>
-            <View style={{width: '35%', backgroundColor: 'white', height: 4, borderRadius: '50%', overflow: 'hidden' }}>
+            <View style={{width: '35%', backgroundColor: 'white', height: 4, borderRadius: '50%', overflow: 'hidden'}}>
                 <Text style={{width: `${percent}%`, backgroundColor: '#10BE43', height: 4, borderRadius: '50%'}}></Text>
             </View>
         </View>
@@ -224,8 +230,8 @@ export function CVPdfItem({infoPdf}){
     const listExperience = experience?.map(({time, work, company}) =>
         <View style={styles.experienceItem}>
             <View style={styles.experienceLeft}>
-                <Text style={{ fontWeight: 'black', marginBottom: 2}}>{company}</Text>
-                <Text style={{ fontWeight: 'thin' }}>{time}</Text>
+                <Text style={{fontWeight: 'black', marginBottom: 2}}>{company}</Text>
+                <Text style={{fontWeight: 'thin'}}>{time}</Text>
             </View>
             <Text style={styles.experienceRight}>
                 {work}
@@ -260,13 +266,13 @@ export function CVPdfItem({infoPdf}){
         <Page size="A4" style={styles.body}>
             <Image src={bgFull} style={styles.pageBackground} fixed/>
             <View style={styles.sectionLeft}>
-                <Image src={bgDesktop} style={styles.pageBackground} />
-                <Image src={photoUser} style={styles.photo} />
+                <Image src={bgDesktop} style={styles.pageBackground}/>
+                <Image src={photoUser} style={styles.photo}/>
 
                 {/* contact */}
                 <View style={styles.contact}>
                     <View style={styles.contactItem}>
-                        <Image src={mobile} style={styles.iconMobile} />
+                        <Image src={mobile} style={styles.iconMobile}/>
                         <div>
                             <Text style={styles.contactText}>
                                 Phone
@@ -277,7 +283,7 @@ export function CVPdfItem({infoPdf}){
                         </div>
                     </View>
                     <View style={styles.contactItem}>
-                        <Image src={email} style={styles.iconEmail} />
+                        <Image src={email} style={styles.iconEmail}/>
                         <div>
                             <Text style={styles.contactText}>
                                 Email
@@ -288,7 +294,7 @@ export function CVPdfItem({infoPdf}){
                         </div>
                     </View>
                     <View style={styles.contactItemLast}>
-                        <Image src={telegram} style={styles.iconTelegram} />
+                        <Image src={telegram} style={styles.iconTelegram}/>
                         <div>
                             <Text style={styles.contactText}>
                                 Telegram
@@ -360,9 +366,14 @@ export function CVPdfItem({infoPdf}){
                 {/* Hard skills */}
                 <View style={styles.wrapSkills}>
                     <View style={styles.wrapTitle}>
-                        <View style={[styles.title, {flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}]}>
+                        <View style={[styles.title, {
+                            flexDirection: 'row',
+                            justifyContent: 'space-between',
+                            alignItems: 'center'
+                        }]}>
                             <Text>Hard skills</Text>
-                            <Text style={{fontSize: 8, textTransform: 'lowercase', fontWeight: 'normal'}}>experience years +5</Text>
+                            <Text style={{fontSize: 8, textTransform: 'lowercase', fontWeight: 'normal'}}>experience
+                                years +5</Text>
                         </View>
                         <View style={styles.lineTitle}></View>
                     </View>
@@ -406,8 +417,8 @@ export function CVPdfItem({infoPdf}){
                         </View>
                     </View>
                 </View>
-           </View>
-           <Image src={logoSmartUI} style={styles.logoSmartUI} fixed/>
+            </View>
+            <Image src={logoSmartUI} style={styles.logoSmartUI} fixed/>
         </Page>
     </Document>
 }
