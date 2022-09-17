@@ -12,12 +12,16 @@
     .container-grid {
       display: grid;
       grid-template-columns: 1fr;
-      grid-template-rows: auto, auto, 40px, auto;
+      grid-template-rows: auto auto auto auto;
       grid-template-areas:
         'title-block'
         'container-block'
         'footer-buttons'
         'whole-team-button';
+    }
+
+    .title-block {
+      grid-area: title-block;
     }
 
     .img-block {
@@ -51,11 +55,8 @@
     }
 
     .footer-buttons {
-      margin-top: 20px;
-
-      @include md {
-        display: none;
-      }
+      grid-area: footer-buttons;
+      padding-top: 20px;
     }
 
     .noise {
@@ -63,6 +64,7 @@
     }
 
     .whole-team-button {
+      grid-area: whole-team-button;
       margin-top: 20px;
       min-width: 165px;
 
@@ -73,15 +75,11 @@
     }
 
     .container-block {
+      grid-area: container-block;
       overflow: hidden;
       margin-top: 24px;
       height: 100%;
     }
 
-    .pagination-wrapper {
-      @include md {
-        display: none;
-      }
-    }
   }
 }

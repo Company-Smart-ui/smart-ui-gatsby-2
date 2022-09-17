@@ -1,4 +1,5 @@
 @import "src/var";
+
 .footer {
   padding-top: 30px;
   position: relative;
@@ -20,6 +21,7 @@
 
   .logo {
     margin-bottom: 40px;
+
     img {
       width: 247px;
       @include md {
@@ -112,12 +114,11 @@
       width: 16px;
       margin-left: 20px;
       @include md {
-        margin: 0;
-        margin-right: 20px;
+        margin: 0 20px 0 0;
       }
     }
 
-    p {
+     > p {
       &:first-of-type {
         color: $title;
         font-size: 20px;
@@ -146,15 +147,15 @@
       color: $title;
       font-size: 15px;
       margin-bottom: 20px;
-      @include md{
+      @include md {
         font-size: 25px;
         width: auto;
         margin: 0;
       }
-      @include lg{
+      @include lg {
         font-size: 18px;
       }
-      @include xl{
+      @include xl {
         font-size: 16px;
       }
     }
@@ -162,26 +163,29 @@
 
   .backTo {
     font-size: 15px;
-    span{
+
+    span {
       width: auto;
       display: flex;
       align-items: center;
       color: $title;
     }
-    @include md{
+
+    @include md {
       font-size: 25px;
     }
-    @include lg{
+    @include lg {
       font-size: 18px;
     }
-    @include xl{
+    @include xl {
       font-size: 16px;
     }
-    img{
+
+    img {
       height: 0.9em;
       object-fit: contain;
       margin-right: 5px;
-      @include lg{
+      @include lg {
         height: 1.4em;
         margin-right: 15px;
       }

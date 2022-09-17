@@ -19,7 +19,7 @@
 
     .grid-container {
       display: grid;
-      grid-template-rows: 250px 210 1fr 40px;
+      grid-template-rows: 250px 210px 1fr 40px;
       grid-template-columns: 100%;
       grid-template-areas:
         'title'
@@ -49,6 +49,11 @@
       }
     }
 
+    h2::after {
+      content: ".";
+      color: $LimeGreen;
+    }
+
     .title {
       grid-area: title;
       max-width: 275px;
@@ -68,8 +73,7 @@
 
       @include md {
         max-width: 190px;
-        margin: 0 auto;
-        margin-top: auto;
+        margin: auto auto 0;
       }
 
       @include lg {

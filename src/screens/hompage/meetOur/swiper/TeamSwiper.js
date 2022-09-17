@@ -1,22 +1,42 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Card } from "../card/Card";
-import { teamList } from "../card/TeamList";
 import * as style from "./teamSwiper.module.scss";
+import { graphql, useStaticQuery } from "gatsby";
 
 import "swiper/css";
 import "swiper/css/free-mode";
 
-export const TeamSwiper = ({
-  activeIndexHandler,
-  setSwiperRef,
-  loop
-}) => {
+export const TeamSwiper = ({ activeIndexHandler, setSwiperRef }) => {
+
+  const data = useStaticQuery(graphql`
+  query {
+    allStrapiTeam {
+      nodes {
+        linkedin
+        name
+        position
+        telegram
+        show_contact
+        preview_photo {
+          localFile {
+            childImageSharp {
+              gatsbyImageData(width: 400, height: 400)
+            }
+          }
+        }
+      }
+    }
+  }
+  `)
+
+  const employees = Array.isArray(data.allStrapiTeam.nodes) ? data.allStrapiTeam.nodes : [];
+
   return (
     <div className={style.teamSwiper}>
       <Swiper
         onSwiper={setSwiperRef}
-        spaceBetween={32}
+        spaceBetween={0}
         initialSlide={1}
         slidesPerView={0}
         freeMode={true}
@@ -24,37 +44,35 @@ export const TeamSwiper = ({
         breakpoints={{
           375: {
             slidesPerView: 1,
-            spaceBetween: 16
+            spaceBetween: 0,
           },
           576: {
-            slidesPerView: 2,
-            spaceBetween: 0
+            slidesPerView: 1,
+            spaceBetween: 0,
           },
           768: {
             slidesPerView: 3,
             spaceBetween: 0,
-            allowTouchMove: false,
-            grabCursor: false,
+            allowTouchMove: true,
+            grabCursor: true,
           },
           1024: {
             slidesPerView: 3,
-            spaceBetween: 32,
+            spaceBetween: 0,
+            allowTouchMove: true,
+            grabCursor: true,
           },
-          1440: {
-            slidesPerView: 3,
-            spaceBetween: 32,
-          }
         }}
         grabCursor={true}
         speed={800}
-        loop={loop}
+        loop={false}
         onSlideChange={activeIndexHandler}
       >
-        {teamList.map((el, index) => (
-          <SwiperSlide key={el.name}>
-            <Card content={el}  indexEl={index} loop={loop} />
-          </SwiperSlide>
-        ))}
+        {employees.map((el, i) => (
+            <SwiperSlide key={i}>
+              <Card content={el} key={i}/>
+            </SwiperSlide>
+          ))}
       </Swiper>
     </div>
   );

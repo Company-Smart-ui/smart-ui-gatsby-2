@@ -2,8 +2,15 @@
 
 
 .card {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 0 12px;
+
+  @include lg {
+    padding: 0 10px;
+  }
+
+  @include xxl {
+    padding: 0 19px;
+  }
 
   :global {
     .cards-container {
@@ -12,10 +19,17 @@
       border-radius: 8px;
       background-color: $LightPeriwinkle;
       text-align: start;
-      margin-left: 6px;
+
+      @include md {
+        padding: 4px;
+      }
 
       &.active {
         background-color: $MediumSeaGreen;
+
+        @include md {
+          background-color: $LightPeriwinkle;
+        }
       }
     }
 

@@ -1,18 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import * as style from "./meetOur.module.scss";
 import { TeamSwiper } from "./swiper/TeamSwiper";
 import { SwiperButtons } from "../../../global/swiperButtons/SwiperButtons";
 import { teamList } from "./card/TeamList";
 import { Pagination } from "../../../global/pagination/Pagination";
+import { useTranslation } from "react-i18next";
+import { I18nextContext, Link } from "gatsby-plugin-react-i18next";
 
 export const MeetOur = () => {
+  const { language: currentLng } = useContext(I18nextContext);
+  const { t } = useTranslation();
   const [activeIndex, setActiveIndex] = useState(0);
   const [swiperRef, setSwiperRef] = useState(null);
-  
+
   const activeIndexHandler = () => setActiveIndex(swiperRef?.realIndex);
-  
-    const slidePrevHandler = () => swiperRef.slidePrev();
-    const slideNextHandler = () => swiperRef.slideNext();
+
+  const slidePrevHandler = () => swiperRef.slidePrev();
+  const slideNextHandler = () => swiperRef.slideNext();
 
   useEffect(() => {
     setActiveIndex(0);
@@ -26,8 +30,8 @@ export const MeetOur = () => {
         <div className="container-grid">
           <div className="title-block">
             <div className="title-container">
-              <h2 className="h2">Meet Our Team</h2>
-              <p className="subtitle">Expert Team Member</p>
+              <h2 className="h2">{t("team_title")}</h2>
+              <p className="subtitle">{t("team_text")}</p>
               <div className="pagination-wrapper">
                 <Pagination
                   activeIdx={activeIndex}
@@ -37,23 +41,29 @@ export const MeetOur = () => {
             </div>
           </div>
           <div className="container-block overlay">
-              <TeamSwiper
-                activeIndexHandler={activeIndexHandler}
-                swiperRef={swiperRef}
-                setSwiperRef={setSwiperRef}
-                loop
-              />
+            <TeamSwiper
+              activeIndexHandler={activeIndexHandler}
+              swiperRef={swiperRef}
+              setSwiperRef={setSwiperRef}
+              teamList={teamList}
+            />
           </div>
           <div className="footer-buttons overlay">
             <SwiperButtons
               onPrev={slidePrevHandler}
               onNext={slideNextHandler}
-              loop
+              activeIndex={activeIndex}
+              sliderLength={teamList.length}
+              fill
             />
           </div>
-          <button className="container button whole-team-button overlay">
-            The whole team
-          </button>
+          <Link
+            className="container button whole-team-button overlay"
+            to={"/team/"}
+            language={currentLng}
+          >
+            {t("team_btn")}
+          </Link>
         </div>
       </div>
     </div>

@@ -1,0 +1,143 @@
+@import 'src/var';
+
+.projectCard {
+  width: 275px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1)) drop-shadow(0px 16px 16px rgba(0, 0, 0, 0.05));
+  margin: 0 auto;
+
+  :global {
+    .cards-container {
+      background-color: $White;
+      border-radius: 8px;
+      overflow: hidden;
+      min-width: 275px;
+      position: relative;
+
+      .main-technology {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        z-index: 2;
+
+        img {
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      &:hover {
+        .technology-list {
+          left: 15px;
+          transition: left;
+          transition-duration: 400ms;
+        }
+
+        .item {
+          left: 15px;
+        }
+
+        .overlay-block {
+          position: absolute;
+          background-color: #1E1E1E;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          z-index: 1;
+          opacity: 0.5;
+        }
+      }
+    }
+
+    .item {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      left: -85px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 2;
+      transition: left;
+    }
+
+    .content-wrapper {
+      padding: 20px;
+      min-height: 232px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      @include md {
+        align-items: flex-start;
+        min-height: 232px;
+      }
+    }
+
+    .progress {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 40px;
+      height: 40px;
+      z-index: 2;
+    }
+
+    .img-wrapper {
+      height: 167px;
+      position: relative;
+    }
+
+    .content-description {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.2;
+      color: $Gray;
+      text-align: start;
+      margin-top: 8px;
+      min-height: 40px;
+
+      @include md {
+        margin-top: 10px;
+      }
+
+      @include lg {
+        font-size: 12px;
+      }
+    }
+
+    .content-title {
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: -0.045em;
+      text-align: start;
+
+      @include md {
+        font-size: 20px;
+      }
+
+      @include lg {
+        font-size: 16px;
+      }
+    }
+
+    .content-link {
+      color: $MediumSeaGreen;
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .button {
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: -0.04em;
+      background-color: $MediumSeaGreen;
+      padding: 12px 38px;
+      line-height: 1.7;
+      min-width: 172px;
+      margin: 0 auto;
+    }
+  }
+}

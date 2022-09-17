@@ -1,23 +1,22 @@
-import React  from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Card } from "../card/Card";
 import * as style from "./cardsSwiper.module.scss";
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 import "swiper/css";
 import "swiper/css/free-mode";
-import {graphql, useStaticQuery} from "gatsby";
-
+import { graphql, useStaticQuery } from "gatsby";
 
 export const CardsSwiper = ({
   setActiveHandler,
   setSwiperRef,
   activeIndex,
 }) => {
-    const {t} = useTranslation();
+  const { t } = useTranslation();
 
-    const dataImg = useStaticQuery(graphql`
+  const dataImg = useStaticQuery(graphql`
     query {
-     img: allStrapiComponentCardsCardTools {
+      img: allStrapiComponentCardsCardTools {
         edges {
           node {
             Img {
@@ -31,17 +30,18 @@ export const CardsSwiper = ({
         }
       }
     }
-  `)
+  `);
 
-    const cardImages= dataImg?.img?.edges||[];
+  const cardImages = dataImg?.img?.edges || [];
 
-    const translatedText = t("tools_cards", { returnObjects: true })||[];
-    let cardData = [];
-        if(Array.isArray(translatedText)){
-              cardData =  translatedText.map((text, i)=>{
-                return {...text ,img:cardImages[i]?.node?.Img   }
-            })
-        }
+  const translatedText = t("tools_cards", { returnObjects: true }) || [];
+  let cardData = [];
+  if (Array.isArray(translatedText)) {
+    cardData = translatedText.map((text, i) => {
+      return { ...text, img: cardImages[i]?.node?.Img };
+    });
+  }
+
   return (
     <div className={style.cardsSwiper}>
       <Swiper
@@ -52,7 +52,7 @@ export const CardsSwiper = ({
         breakpoints={{
           375: {
             slidesPerView: 1,
-            spaceBetween: 8
+            spaceBetween: 8,
           },
           576: {
             slidesPerView: 2,
@@ -61,11 +61,11 @@ export const CardsSwiper = ({
           768: {
             slidesPerView: 3,
             spaceBetween: 0,
-          }
+          },
         }}
         grabCursor={true}
         speed={400}
-        loop={true}
+        loop={false}
         onSlideChange={setActiveHandler}
       >
         {cardData.map((el, index) => (

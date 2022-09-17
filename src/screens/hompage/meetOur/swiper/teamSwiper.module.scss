@@ -7,11 +7,17 @@
   display: flex;
   align-items: stretch;
   height: calc(100% + 100px);
-  padding-left: 10px;
-  padding-right: 10px;
 
-  @include sm {
-    width: 100%;
+  @include md {
+    width: 628px;
+  }
+
+  @include lg {
+    width: 824px;
+  }
+
+  @include xl {
+    width: 950px;
   }
 
   :global {
@@ -21,17 +27,30 @@
 
       @include sm {
         width: 100%;
-        overflow: hidden;
-      }
-
-      @include xl {
-        margin: 0 112px;
       }
     }
 
     .swiper-slide {
-      padding-left: 10px;
-      padding-right: 10px;
+      width: 275px;
+      padding: 0 20px;
+
+      @include md {
+        width: 210px;
+        padding: 0 16px;
+      }
+
+      @include lg {
+        width: 275px;
+        padding: 0 22px;
+      }
+
+      @include xl {
+        width: 318px;
+      }
+
+      @include xxl {
+        padding: 0 28px;
+      }
     }
   }
 }

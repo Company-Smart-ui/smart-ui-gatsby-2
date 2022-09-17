@@ -1,10 +1,12 @@
-import React  from 'react';
+import React from 'react';
 import {graphql} from "gatsby";
+import {Seo} from "../components/SEO/SEO";
+import componentDidMount from '../global/chatbot';
 
 
 export const query = graphql`
-  query ($language: String ,$pageName:String ) {
-   locales: allLocale(filter: {language: {eq: $language}, ns: {eq: $pageName}}) {
+  query ($language: String ,$pageName:[String] ) {
+   locales: allLocale(filter: {language: {eq: $language}, ns: {in: $pageName}}) {
       edges {
         node { 
           ns
@@ -15,12 +17,19 @@ export const query = graphql`
     }
   }
 `
-const Team = ( ) => {
-
-    return <div>
+const Team = () => {
+    return <div style={{height: 800, background: '#fff'}}>
 
 
     </div>
 };
 
 export default Team
+
+export const Head = (data) => {
+    return (
+        <Seo title={data.pageContext.pageName[0]}>
+          {componentDidMount()}
+        </Seo>
+    )
+}

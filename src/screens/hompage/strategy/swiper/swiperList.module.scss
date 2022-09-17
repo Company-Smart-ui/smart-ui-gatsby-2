@@ -9,14 +9,31 @@
   font-weight: 300;
   line-height: 1.28;
 
-  @include lg {
-    display: none;
-  }
-
   :global {
     .swiper-list-item {
+
       &:not(:first-child) {
         margin-top: 50px;
+
+        @include lg {
+          margin-top: 0;
+        }
+      }
+
+      @include lg {
+        display: contents;
+      }
+
+      .title-block {
+        @include lg {
+          min-width: 220px;
+        }
+      }
+    }
+
+    .second-column-title {
+      @include lg {
+        text-align: end;
       }
     }
 
@@ -38,7 +55,6 @@
       line-height: 1.28;
       font-weight: 300;
       opacity: 0.5;
-      text-align: justify;
     }
 
     // Swiper 
@@ -50,13 +66,19 @@
     }
 
     .swiper-slide {
-      background-size: cover;
-      background-position: center;
+      @include lg {
+        display: contents;
+      }
     }
 
-    .mySwiper2 {
-      height: 100%;
-      width: 100%;
+    .swiper-wrapper {
+      @include lg {
+        display: grid;
+        row-gap: 40px;
+        column-gap: 30px;
+        grid-template-columns: 200px 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+      }
     }
 
     .mySwiper {

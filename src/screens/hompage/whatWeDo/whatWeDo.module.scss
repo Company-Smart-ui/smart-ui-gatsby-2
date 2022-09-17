@@ -183,7 +183,7 @@
       @include sm {
         display: flex;
         justify-content: flex-end;
-        margin-right: 30px;
+        margin-right: 33px;
       }
     }
 
@@ -206,6 +206,21 @@
 
     .button {
       min-width: 158px;
+    }
+  }
+}
+
+.whatWeDoWrap {
+  :global {
+    .modal {
+      left: 50%;
+      transform: translateY(-100%) translateX(-50%);
+      top: 0;
+
+      &.open {
+        top: 50%;
+        transform: translateY(-50%) translateX(-50%);
+      }
     }
   }
 }

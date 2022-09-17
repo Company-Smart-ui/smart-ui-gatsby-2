@@ -1,56 +1,71 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import {graphql, Link} from "gatsby"
+import {NAVIGATION} from "../components/layout/header/header";
 
 // styles
 const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
+    color: "#232129",
+    padding: "150px 96px",
+
 }
 const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
+    marginTop: 0,
+    marginBottom: 64,
+    maxWidth: 320,
 }
 
 const paragraphStyles = {
-  marginBottom: 48,
+    marginBottom: 48,
 }
 const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
+    color: "#8A6534",
+    padding: 4,
+    backgroundColor: "#FFF4DB",
+    fontSize: "1.25rem",
+    borderRadius: 4,
 }
 
 // markup
+
+export const query = graphql`
+  query ($language: String  ) {
+   locales: allLocale(filter: {language: {eq: $language}, ns: {in:[   "global"]}}) {
+      edges {
+        node { 
+          ns
+          language
+          data 
+        }
+      }
+    }
+  }
+`
 const NotFoundPage = (props) => {
 
-  console.log(props.location.pathname)
-  return (
-    <main style={pageStyles}>
-      <title>Not found</title>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry{" "}
-        <span role="img" aria-label="Pensive emoji">
+
+    return (
+        <main style={pageStyles}>
+            <title>Not found</title>
+            <h1 style={headingStyles}>Page not found</h1>
+            <p style={paragraphStyles}>
+                Sorry{" "}
+                <span role="img" aria-label="Pensive emoji">
           😔
         </span>{" "}
-        we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
-  )
+                we couldn’t find what you were looking for.
+                <br/>
+                {process.env.NODE_ENV === "development" ? (
+                    <>
+                        <br/>
+                        Try creating a page in <code style={codeStyles}>src/pages/</code>.
+                        <br/>
+                    </>
+                ) : null}
+                <br/>
+                <Link to={NAVIGATION.home.link}>Go home</Link>.
+            </p>
+        </main>
+    )
 }
 
 export default NotFoundPage

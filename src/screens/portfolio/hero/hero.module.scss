@@ -3,73 +3,102 @@
 .hero {
   padding: 120px 0 40px 0;
   position: relative;
+
   @include md {
     padding: 140px 0 80px 0;
   }
-  @include lg {
-    padding: 230px 0 80px 0;
-  }
 
   @include lg {
-    padding: 245px 0 80px 0;
+    padding: 200px 0 80px 0;
   }
 
   .overlay {
     z-index: 2;
     position: relative;
+
     h1 {
       margin-bottom: 10px;
       position: relative;
     }
-  }
 
-  .speed {
-    background: rgba(250, 253, 255, 0.9);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-    .top {
-      border-bottom: 2px solid #d3d4dc;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
   }
 
   :global {
-    .yCircle{
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 24vw;
-      &.left{
-        transform:translate(-60% , -60%);
-      }
-      &.right{
-        height:80px;
+    .noise {
+      z-index: 1;
+    }
 
-        @include xl{
+    .yCircle {
+      position: absolute;
+      left: 50%;
+      top: 240px;
+      height: 380px;
+
+
+      @include md {
+        height: 150px;
+        top: -75px;
+        left: -75px;
+      }
+
+
+      &.right {
+        height: 80px;
+
+        @include xl {
           height: 160px;
         }
-        transform:translate(10% , 10%);
+
+        transform: translate(10%, 10%);
       }
     }
+
     .bCircle {
       position: absolute;
-      top: 60px;
+      top: 0;
       bottom: 200px;
       left: 100%;
+      height: 500px;
       transform: translateX(max(-50%, calc(-35vw + 100px)));
-      @include sm {
-        top: 0;
-        bottom: 0;
+      display: none;
+
+      @include md {
+        display: block;
       }
-      @include lg {
-        top: 20px;
-        bottom: 20px;
+    }
+
+    .portfolio-block {
+      margin-top: 28px;
+      position: relative;
+    }
+
+    .filter-buttons {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      row-gap: 12px;
+      overflow-x: auto;
+      padding: 12px 6px;
+
+      /* width */
+      &::-webkit-scrollbar {
+        height: 6px;
       }
 
-      @include xl {
-        left: min(100%, calc(50% + 800px));
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: #13CC00;
+        border-radius: 30px;
+      }
+
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: #555;
       }
     }
 
@@ -97,13 +126,16 @@
         transform: none;
         top: 75px;
         opacity: 0;
+
         @include md {
           left: 84px;
           max-width: 600px;
         }
+
         @include lg {
           max-width: 750px;
         }
+
         @include xxl {
           left: calc((50% - 1720px / 2) + 84px);
         }
@@ -119,6 +151,119 @@
         &.open {
           opacity: 1;
         }
+      }
+    }
+
+    .bg-container {
+      background-image: url("./img/bg-react.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .listWrapper {
+      padding-top: 60px;
+      padding-bottom: 60px;
+
+      @include lg {
+        padding-top: 108px;
+        padding-bottom: 108px;
+      }
+    }
+
+    .grid-container {
+      display: grid;
+      position: relative;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto;
+      grid-template-areas:
+        "title-section"
+        "subtitle-section"
+        "optimization-section"
+        "modal-button-section";
+
+      @include md {
+        grid-template-rows: 120px 1fr 80px;
+        grid-template-columns: auto minmax(300px, 1fr);
+        column-gap: 30px;
+        grid-template-areas:
+            "title-section title-section"
+            "subtitle-section optimization-section"
+            "modal-button-section optimization-section";
+      }
+
+      @include lg {
+        grid-template-rows: 1fr auto auto;
+        grid-template-columns: auto minmax(275px, 1fr);
+        column-gap: 60px;
+        grid-template-areas:
+            "title-section optimization-section"
+            "subtitle-section optimization-section"
+            "modal-button-section optimization-section";
+      }
+    }
+
+    .title-section {
+      grid-area: title-section;
+    }
+
+    .subtitle-section {
+      grid-area: subtitle-section;
+
+      .subtitle {
+        @include md {
+          margin: 0;
+        }
+
+        @include lg {
+          margin-top: 24px;
+        }
+      }
+    }
+
+    .optimization-section {
+      grid-area: optimization-section;
+      min-width: 275px;
+    }
+
+    .modal-button-section {
+      grid-area: modal-button-section;
+      margin-top: 24px;
+      min-width: 100%;
+
+      .button {
+        width: 275px;
+        margin-left: auto;
+        margin-right: auto;
+
+        @include md {
+          margin: 0 0 auto;
+          width: 220px;
+        }
+
+        @include lg {
+          margin-top: 45px;
+          width: 300px;
+        }
+      }
+
+      @include lg {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.heroWrap {
+  :global {
+    .modal {
+      left: 50%;
+      transform: translateY(-100%) translateX(-50%);
+      top: 0;
+
+      &.open {
+        top: 50%;
+        transform: translateY(-50%) translateX(-50%);
       }
     }
   }

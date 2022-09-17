@@ -1,0 +1,21 @@
+@import "src/var";
+
+.cardsList {
+  margin: 0 auto;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  width: 275px;
+
+  @include md {
+    width: 574px;
+  }
+
+  @include xl {
+    width: 873px;
+  }
+
+  @include xxl {
+    width: 1172px;
+  }
+}
