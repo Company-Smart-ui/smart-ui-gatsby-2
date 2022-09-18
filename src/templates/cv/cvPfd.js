@@ -1,15 +1,14 @@
-import * as React from "react"
-import * as style from "./cv.module.scss";
-import {CVPdfItem} from "./cvPdf/cvPdfItem";
-import {PDFViewer} from '@react-pdf/renderer';
-import {moskalevInfo} from "./cvPdf/teamInfo/MoskalevInfo";
+import * as React from "react";
+import { CVPdfItem } from "./cvPdf/cvPdfItem";
+import { moskalevInfo } from "./cvPdf/teamInfo/MoskalevInfo";
 
+import * as style from "./cv.module.scss";
 
 const CVPdf = () => {
-    return <div className={style.cv}>
-        <PDFViewer className="wrap-pdf">
-            <CVPdfItem infoPdf={moskalevInfo}/>
-        </PDFViewer>
+  return (
+    <div className={style.cv}>
+      <CVPdfItem infoPdf={moskalevInfo} />
     </div>
-}
-export default CVPdf
+  );
+};
+export default CVPdf;

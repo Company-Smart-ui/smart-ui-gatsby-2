@@ -1,8 +1,9 @@
 import React from "react";
-import * as style from "./projectCard.module.scss";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { graphql, Link, useStaticQuery } from "gatsby";
 import { PageSpeed } from "../../components/pageSpeed/pageSpeed";
+
+import * as style from "./projectCard.module.scss";
 
 export const ProjectCard = ({
   project_name,

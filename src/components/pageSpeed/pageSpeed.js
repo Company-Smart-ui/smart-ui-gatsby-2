@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import * as style from "./pageSpeed.module.scss";
 
 export const PageSpeed = ({ result = 39 }) => {
@@ -36,17 +37,17 @@ export const PageSpeed = ({ result = 39 }) => {
       style={{ opacity: animation === " " ? 0 : 1 }}
       className={style.pageSpeed}
     >
-      <svg className="progress__svg" viewBox="0 0 120 120">
+      <svg className={style.progressSvg} viewBox="0 0 120 120">
         <circle
           style={{ strokeDasharray: stroke, animationName: animation }}
-          className="svg-line"
+          className={style.svgLine}
           r="56"
           cx="60"
           cy="60"
           strokeWidth="8"
         ></circle>
       </svg>
-      <span style={{ color: textC }} className="progress-text">
+      <span style={{ color: textC }} className={style.progressText}>
         {result}
       </span>
     </div>
