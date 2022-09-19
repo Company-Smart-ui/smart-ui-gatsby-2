@@ -9,12 +9,12 @@ const Layout = (props) => {
     const path = props?.children?.props?.pageContext?.pageName[0];
 
     return (
-        <div className={'layout'}>
+        <div className={`layout ${path}`}>
             <Header path={path}/>
             <main className={'main'}>
                 {props.children}
             </main>
-            <Footer/>
+            <Footer />
             {/*<RedLine/>*/}
         </div>
 

@@ -56,6 +56,7 @@ export const Footer = ( ) => {
                     </Modal>
         }
         <GetInTouch />
+        
         <footer className={style.footer}>
          <div className="container">
             <div className={style.row}>

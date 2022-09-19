@@ -38,6 +38,7 @@
     span{
       box-shadow: none;
       top: calc(50% - 1.5px);
+      background-color: $GrayBlue!important;
       &:nth-child(1){
         transform:rotate(45deg);
       }

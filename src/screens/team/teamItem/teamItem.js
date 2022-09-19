@@ -18,7 +18,7 @@ export const TeamItem = (props) =>{
                 {props.direction}
             </div>
             <div className={style.level}>
-                {props.level ? (<span className={`${style.subTitle} lg-end`}>{props.levelTitle}</span>) : ''}
+                {props.level || props.price ? (<span className={`${style.subTitle} lg-end`}>{props.levelTitle}</span>) : ''}
                 <div className={style.levelRate}>
                     <span>{props.level}</span> 
                     <span className={style.price}>{props.price && `$${props.price}`}</span>

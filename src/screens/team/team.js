@@ -38,6 +38,7 @@ export const AllTeam = (props) => {
     const item = data.allStrapiTeam.nodes;
     return (
         <div className={style.team}>
+            <div className={style.logo}></div>
             <div className="noise"></div>
             <div className={style.teamWrapper}>
                 <h1>Specialists for outstaff</h1>
