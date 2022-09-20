@@ -29,6 +29,29 @@
             height: 100%;
             z-index: 0;
         }
+        .button__chat{
+            position: fixed;
+            bottom: 25%;
+            right: 5px;
+            max-width: 75px;
+            min-width: 0;
+            padding: 10px;
+            border-radius: 50%;
+            z-index: 3;
+            @include lg{
+              padding: 15px;
+              right: 15px;
+            }
+            @include xxl{
+              right: calc((50% - 1720px / 2) + 85px);
+            }
+            img{
+              max-width: 35px;
+              @include lg{
+                max-width: 40px;
+              }
+            }
+          }
     }
     &Wrapper{
         position: relative;

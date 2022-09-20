@@ -26,15 +26,15 @@
         grid-row-gap: 0;
         color: #fff;
         padding: 13px 0 8px;
+        &:hover{
+            background: rgba(255, 255, 255, 0.07);
+            box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(23px);
+        }
     }
     @include xl{
         grid-template-columns:195px 1fr 1fr 188px 1fr 195px;
         grid-column-gap: 40px;
-    }
-    &:hover{
-        background: rgba(255, 255, 255, 0.07);
-        box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(23px);
     }
     &>div{
         display: flex;

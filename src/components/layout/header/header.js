@@ -48,10 +48,11 @@ export const Header = ({path}) => {
         return () => window.removeEventListener('scroll', scrollHandler)
     }, [onScrolled, offScrolled])
     const {isOpen, onToggle, onClose} = useOpen();
-    useNoScroll(isOpen)
+    useNoScroll(isOpen);
+    const headerClass = path === 'team' ? style.headerDark : " ";
     return (
-        // <header className={`${style.header} ${path} ${scrolled ? style.scrolled + " scrolled " : ""} ${isOpen ? style.open : ""}`}>
-        <header className={[style.header, path, scrolled ? style.scrolled + " scrolled " : " ", isOpen ? style.open : " "].join(" ")}>
+        // <header className={[scrolled ? style.scrolled + " scrolled " : " ", style.header, isOpen ? style.open : " ", headerClass].join(' ')}></header>
+        <header className={`${scrolled ? style.scrolled + " scrolled " : " "} ${style.header} ${isOpen ? style.open : " "} ${headerClass}`}>
         <Burger {...{isOpen, onToggle}} />
         <div className={style.logo}>
             <Link to={NAVIGATION.home.link} language={currentLng}>

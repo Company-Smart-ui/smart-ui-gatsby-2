@@ -43,7 +43,7 @@ export const BackToTop = () => {
  
 
 
-export const Footer = ( ) => {
+export const Footer = ({path}) => {
     const {isOpen, onClose, onOpen}= useOpen(false);
             const {t} = useTranslation();
             const translatedText = t("Footer", { returnObjects: true })||[];
@@ -55,7 +55,7 @@ export const Footer = ( ) => {
                         <h3>Leave your message</h3>
                     </Modal>
         }
-        <GetInTouch />
+        {path !== 'team' && <GetInTouch />}
         
         <footer className={style.footer}>
          <div className="container">

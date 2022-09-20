@@ -14,7 +14,7 @@ const Layout = (props) => {
             <main className={'main'}>
                 {props.children}
             </main>
-            <Footer />
+            <Footer path={path}/>
             {/*<RedLine/>*/}
         </div>
 
