@@ -50,7 +50,8 @@ export const Header = ({path}) => {
     const {isOpen, onToggle, onClose} = useOpen();
     useNoScroll(isOpen)
     return (
-        <header className={`${style.header} ${path} ${path === 'team' ? style.headerDark : ''} ${scrolled ? style.scrolled + " scrolled " : ""} ${isOpen ? style.open : ""}`}>
+        // <header className={`${style.header} ${path} ${scrolled ? style.scrolled + " scrolled " : ""} ${isOpen ? style.open : ""}`}>
+        <header className={[style.header, path, scrolled ? style.scrolled + " scrolled " : " ", isOpen ? style.open : " "].join(" ")}>
         <Burger {...{isOpen, onToggle}} />
         <div className={style.logo}>
             <Link to={NAVIGATION.home.link} language={currentLng}>
