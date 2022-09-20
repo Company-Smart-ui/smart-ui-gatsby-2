@@ -24,8 +24,6 @@ export const Header = ({path}) => {
     const {isOpen: scrolled, onOpen: onScrolled, onClose: offScrolled} = useOpen();
     const {t} = useTranslation();
     const dataHeader = t("Header", {returnObjects: true});
-
-
     const translatedNavigation = {}
     try {
         const dataNav = Array.isArray(dataHeader) && dataHeader.filter(d => d?.__component === "header.header-menu")[0]
@@ -50,9 +48,11 @@ export const Header = ({path}) => {
         return () => window.removeEventListener('scroll', scrollHandler)
     }, [onScrolled, offScrolled])
     const {isOpen, onToggle, onClose} = useOpen();
-    useNoScroll(isOpen)
-    return <header
-        className={[scrolled ? style.scrolled + " scrolled " : " ", style.header, isOpen ? style.open : " ", path].join(' ')}>
+    useNoScroll(isOpen);
+    const headerClass = path === 'team' ? style.headerDark : " ";
+    return (
+        // <header className={[scrolled ? style.scrolled + " scrolled " : " ", style.header, isOpen ? style.open : " ", headerClass].join(' ')}></header>
+        <header className={`${scrolled ? style.scrolled + " scrolled " : " "} ${style.header} ${isOpen ? style.open : " "} ${headerClass}`}>
         <Burger {...{isOpen, onToggle}} />
         <div className={style.logo}>
             <Link to={NAVIGATION.home.link} language={currentLng}>
@@ -78,6 +78,6 @@ export const Header = ({path}) => {
                          src={"./menuImg.jpg"} alt={""}/>
         </div>
 
-    </header>
+    </header>)
 };
 

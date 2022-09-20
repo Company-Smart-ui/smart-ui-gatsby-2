@@ -47,7 +47,37 @@
       background-color: rgba(255, 255, 255, 0.98);
     }
   }
-
+  &Dark{
+    :global{
+      .nav{
+        a{
+          color: #737373;
+          &.active{color: #fff}
+        }
+      }
+      .burger{
+        span{
+          background-color: #fff;
+        }
+        
+      }
+    }
+    &.scrolled{
+      :global{
+        .nav{
+          a{
+            color: #737373;
+            &.active{color: #27272E}
+          }
+        }
+        .burger{
+          span{
+            background-color:$GrayBlue;
+          }
+        }
+      }
+    }
+  }
 }
 
 .logo {

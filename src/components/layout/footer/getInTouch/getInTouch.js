@@ -34,7 +34,7 @@ export const GetInTouch = () => {
   }
 
   return (
-    <div className={style.wrapper}>
+    <div className={`${style.wrapper} getInTouch`}>
       <div className="noise"></div>
       <div className="container">
         <h2 className="h2">{formTitle.text}</h2>

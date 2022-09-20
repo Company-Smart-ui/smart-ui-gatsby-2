@@ -1,5 +1,27 @@
 @import "var";
 
+/* width */
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+body::-webkit-scrollbar-track {
+  background: rgba(241, 241, 241, 0.6);
+  &:hover {
+    background: rgba(241, 241, 241, 1);
+  }
+}
+
+/* Handle */
+body::-webkit-scrollbar-thumb {
+  background: $LimeGreen;
+
+  &:hover {
+    background-color: $Lime;
+  }
+}
+
 body,
 html {
   height: 100%;
@@ -226,29 +248,6 @@ button {
 
 .nowrap {
   white-space: nowrap;
-}
-
-/* width */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: rgba(241, 241, 241, 0.6);
-
-  &:hover {
-    background: rgba(241, 241, 241, 1);
-  }
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: $LimeGreen;
-
-  &:hover {
-    background-color: $Lime;
-  }
 }
 
 // form elements
