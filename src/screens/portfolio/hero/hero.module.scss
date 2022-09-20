@@ -79,6 +79,27 @@
       row-gap: 12px;
       overflow-x: auto;
       padding: 12px 6px;
+
+      /* width */
+      &::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: #13CC00;
+        border-radius: 30px;
+      }
+
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
     }
 
     .openBtn {
@@ -133,19 +154,6 @@
       }
     }
 
-    .list-wrapper {
-      width: 100%;
-      padding: 30px 50px 50px;
-
-      @include md {
-        padding: 30px 70px 70px;
-      }
-
-      @include lg {
-        padding: 30px 100px 150px;
-      }
-    }
-
     .bg-container {
       background-image: url("./img/bg-react.png");
       background-repeat: no-repeat;
@@ -153,30 +161,14 @@
       background-size: cover;
     }
 
-    .cards-list {
-      margin: 30px auto 0;
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-      padding: 50px 24px;
-      width: 632px;
+    .listWrapper {
+      padding-top: 60px;
+      padding-bottom: 60px;
 
-      @include xl {
-        width: 921px;
+      @include lg {
+        padding-top: 108px;
+        padding-bottom: 108px;
       }
-
-
-      @include xxl {
-        width: 1220px;
-      }
-    }
-
-    .container-block {
-      overflow: auto;
-    }
-
-    .reset-padding-right {
-      padding-right: 0;
     }
 
     .grid-container {

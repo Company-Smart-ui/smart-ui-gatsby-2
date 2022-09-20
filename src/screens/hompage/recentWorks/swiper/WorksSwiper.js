@@ -42,11 +42,12 @@ export const WorksSwiper = ({
         loop={false}
         onSlideChange={() => setActiveHandler(swiperRef?.realIndex)}
       >
-        {listOfProjects.map((el) => (
-          <SwiperSlide key={el.id}>
-            <ProjectCard content={el} />
-          </SwiperSlide>
-        ))}
+        {Array.isArray(listOfProjects) &&
+          listOfProjects.map((el) => (
+            <SwiperSlide key={el.id}>
+              <ProjectCard {...el} />
+            </SwiperSlide>
+          ))}
       </Swiper>
     </div>
   );

@@ -93,9 +93,6 @@ $secondFontColor: #8F8F8F;
         background-color: transparent;
         padding: 0;
       }
-      @include xxl{
-
-      }
       &__desktop{
         display: none;
         @include xl{
@@ -141,6 +138,8 @@ $secondFontColor: #8F8F8F;
     .wrap{
       border-bottom: 1px solid $borderColor;
       padding: 30px 0;
+      position: relative;
+      z-index: 1;
       @include lg{
         padding: 50px 85px;
         display: flex;

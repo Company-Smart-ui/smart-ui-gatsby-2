@@ -1,18 +1,85 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as style from "./hero.module.scss";
-import { ProjectsList } from "../projectsList/projectsList";
-import { OptimizationCard } from "./optimizationCard/optimizationCard";
+import { PaginationList } from "../paginationList/paginationList";
 import { FilterButtons } from "./filterButtons/filterButtons";
 import { useOpen } from "../../../hooks/useOpen";
 import { Modal } from "../../../components/layout/modal/modal";
-import { ProjectCard } from "../../../global/projectCard/projectCard";
-import { Loader } from "../../../global/loader/loader";
 import { useProjectsList } from "../../../hooks/useProjectsList";
+import { OptimizationCard } from "./optimizationCard/optimizationCard";
+import { useWindowResize } from "../../../hooks/useWindowResize";
+import { Loader } from "../../../global/loader/loader";
+import { ProjectsList } from "./projectsList/projectsList";
 
 export const Hero = () => {
   const { isOpen, onClose, onOpen } = useOpen(false);
+  const [filteredProjects, setFilteredProjects] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [cardsPerPage, setCardsPerPage] = useState(2);
+  const [loading, setLoading] = useState(true);
 
-  const listOfProjects = useProjectsList();
+  const size = useWindowResize();
+  const listProjects = useProjectsList();
+
+  const checkString = (item) => {
+    if (typeof item === "string") {
+      return item.toLowerCase();
+    }
+    return "";
+  };
+
+  // Tab buttons
+
+  const filterListHandler = (title) => {
+    setCurrentPage(1);
+    if (title === "All") {
+      setFilteredProjects(listProjects);
+      return;
+    }
+    const arr = [];
+    listProjects?.forEach((item) => {
+      item.technologies.forEach(
+        (el) => checkString(el.name) === checkString(title) && arr.push(item)
+      );
+    });
+
+    const filterList = listProjects.filter(
+      (item) => checkString(item?.technology?.name) === checkString(title)
+    );
+
+    const joinArr = [...arr, ...filterList];
+
+    setFilteredProjects(joinArr);
+  };
+
+  //Pagination of cards
+
+  const sliceCardsArrPerPage = (currentPage, cardsPerPage) => {
+    const indexOfLastCard = currentPage * cardsPerPage;
+    const indexOfFirstCard = indexOfLastCard - cardsPerPage;
+
+    return filteredProjects.slice(indexOfFirstCard, indexOfLastCard);
+  };
+
+  const setCountCardsPerScreenSize = (size) => {
+    if (size < 768) {
+      return 2;
+    } else if (size >= 768 && size < 1440) {
+      return 4;
+    } else if (size >= 1440 && size < 1720) {
+      return 6;
+    }
+    return 8;
+  };
+
+  useEffect(() => {
+    setFilteredProjects(listProjects);
+    setLoading(false);
+    const cardsPerPage = setCountCardsPerScreenSize(size);
+
+    setCardsPerPage(cardsPerPage);
+  }, [listProjects, size]);
+
+  const projectsList = sliceCardsArrPerPage(currentPage, cardsPerPage);
 
   return (
     <>
@@ -46,26 +113,24 @@ export const Hero = () => {
           <div className="bg-container">
             <div className="container">
               <div className="filter-buttons">
-                <FilterButtons />
+                <FilterButtons filterLIstHandler={filterListHandler} />
               </div>
             </div>
-            <div className="list-wrapper overlay">
-              <div className="container-block">
-                {listOfProjects ? (
-                  <div className="cards-list">
-                    {Array.isArray(listOfProjects) &&
-                      listOfProjects.map((el) => (
-                        <div key={el.id}>
-                          <ProjectCard content={el} />
-                        </div>
-                      ))}
-                  </div>
-                ) : (
-                  <Loader inside />
-                )}
-              </div>
+            <div className="listWrapper overlay container">
+              {!loading ? (
+                <ProjectsList currentsCard={projectsList} />
+              ) : (
+                <Loader inside />
+              )}
               <div className="overlay">
-                <ProjectsList listCardsProjects={listOfProjects} />
+                {filteredProjects.length > cardsPerPage && (
+                  <PaginationList
+                    listCardsProjects={filteredProjects}
+                    cardsPerPage={cardsPerPage}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                  />
+                )}
               </div>
             </div>
           </div>

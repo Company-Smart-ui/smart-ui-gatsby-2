@@ -1,20 +1,19 @@
 import React from "react";
-import * as style from "./projectCard.module.scss";
-import { PageSpeed } from "../../components/pageSpeed/pageSpeed";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { graphql, Link, useStaticQuery } from "gatsby";
+import { PageSpeed } from "../../components/pageSpeed/pageSpeed";
 
-export const ProjectCard = ({ content }) => {
-  const {
-    project_name,
-    site_url,
-    google_page_speed,
-    seo_description,
-    main_img,
-    technology,
-    technologies,
-  } = content;
+import * as style from "./projectCard.module.scss";
 
+export const ProjectCard = ({
+  project_name,
+  site_url,
+  google_page_speed,
+  seo_description,
+  main_img,
+  technology,
+  technologies,
+}) => {
   const mainImage = getImage(main_img?.localFile);
 
   const mainTechnology = getImage(technology?.icon?.localFile);
@@ -45,11 +44,22 @@ export const ProjectCard = ({ content }) => {
 
   const getImageByName = (name) => list?.find((el) => el.name === name);
 
+  const shortedDescription = (str) => {
+    const arr = str.split(" ");
+
+    if (arr.length > 17) {
+      return arr.slice(0, 17).join(" ") + "...";
+    }
+    return str;
+  };
+
   return (
     <div className={style.projectCard}>
       <div className="cards-container">
         <div className="main-technology">
-          <GatsbyImage alt={technology?.name} image={mainTechnology} />
+          {mainTechnology && (
+            <GatsbyImage alt={technology?.name} image={mainTechnology} />
+          )}
         </div>
         {technologies?.slice(0, 2).map((el, i) => {
           const imgForCard = getImageByName(el.name);
@@ -63,7 +73,7 @@ export const ProjectCard = ({ content }) => {
                 transitionDuration: `${400 + i * 600}ms`,
               }}
             >
-              {img && <GatsbyImage alt={technology.name} image={img} />}
+              {img && <GatsbyImage alt={"image"} image={img} />}
             </div>
           );
         })}
@@ -73,7 +83,7 @@ export const ProjectCard = ({ content }) => {
           </div>
         )}
         <div className="img-wrapper">
-          {mainImage && <GatsbyImage alt={project_name} image={mainImage} />}
+          {mainImage && <GatsbyImage alt={"image"} image={mainImage} />}
           <div className="overlay-block"></div>
         </div>
         <div className="content-wrapper">
@@ -87,7 +97,9 @@ export const ProjectCard = ({ content }) => {
             >
               Website
             </a>
-            <div className="content-description">{seo_description}</div>
+            <div className="content-description">
+              {shortedDescription(seo_description)}
+            </div>
           </div>
           <Link to={`/project/${makeUrl}`} className="button">
             Learn more

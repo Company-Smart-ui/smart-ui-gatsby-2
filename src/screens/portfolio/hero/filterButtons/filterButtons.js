@@ -11,7 +11,7 @@ const filterOptions = [
   { title: "Wordpress", link: "#" },
 ];
 
-export const FilterButtons = () => {
+export const FilterButtons = ({ filterLIstHandler }) => {
   const [activeButton, setActiveButton] = useState(0);
 
   const { filterButtons, active } = style;
@@ -24,7 +24,10 @@ export const FilterButtons = () => {
           className={`${filterButtons} ${
             index === activeButton ? `${active}` : " "
           }`}
-          onClick={() => setActiveButton(index)}
+          onClick={() => {
+            setActiveButton(index);
+            filterLIstHandler(title);
+          }}
         >
           {title}
         </button>

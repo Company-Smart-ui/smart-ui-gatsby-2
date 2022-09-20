@@ -18,7 +18,7 @@ export const Pagination = ({
     [itemOffset, itemsPerPage, length]
   );
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % length;
+    const newOffset = (event.selected + 1) % length;
     setItemOffset(newOffset);
   };
   const btnNext = (
@@ -44,10 +44,7 @@ export const Pagination = ({
           gradientUnits="userSpaceOnUse"
         >
           <stop stopColor="#737373" />
-          <stop
-            offset="1"
-            stopColor="#737373"
-          />
+          <stop offset="1" stopColor="#737373" />
         </linearGradient>
       </defs>
     </svg>
@@ -55,11 +52,11 @@ export const Pagination = ({
   return (
     <ReactPaginate
       nextLabel={btnNext}
-      onPageChange={handlePageClick}
-      pageRangeDisplayed={2}
-      marginPagesDisplayed={1}
-      pageCount={pageCount}
       previousLabel={btnNext}
+      onPageChange={handlePageClick}
+      pageRangeDisplayed={1}
+      marginPagesDisplayed={2}
+      pageCount={pageCount}
       pageClassName="page-item"
       pageLinkClassName="page-link"
       previousClassName="page-item"

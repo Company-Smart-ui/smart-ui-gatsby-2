@@ -4,37 +4,35 @@
   height: 100%;
   transition: 0.3s;
 
-  :global {
-    .progress__svg {
-      height: 100%;
-      width: 100%;
-    }
+}
 
-    .progress-text {
-      color: rgb(253, 89, 89);
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      top: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 100%;
-      font-weight: 900;
-    }
+.progressSvg {
+  height: 100%;
+  width: 100%;
+}
 
-    .svg-line {
-      fill: rgba(253, 6, 6, 0.205);
-      transform: rotate(-87.9537deg);
-      transform-origin: 50% 50%;
-      stroke: red;
-      stroke-linecap: round;
-      animation-duration: 2s;
-      animation-fill-mode: forwards;
-      stroke-dasharray: 1, 360;
-      transition: 2.5s;
-    }
-  }
+.svgLine {
+  fill: rgba(253, 6, 6, 0.205);
+  transform: rotate(-87.9537deg);
+  transform-origin: 50% 50%;
+  stroke: red;
+  stroke-linecap: round;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  stroke-dasharray: 1, 360;
+  transition: 2.5s;
+}
 
+.progressText {
+  color: rgb(253, 89, 89);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100%;
+  font-weight: 900;
 }
