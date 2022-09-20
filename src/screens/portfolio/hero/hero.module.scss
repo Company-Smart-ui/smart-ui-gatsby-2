@@ -164,6 +164,8 @@
     .listWrapper {
       padding-top: 60px;
       padding-bottom: 60px;
+      min-height: 1020px;
+      position: relative;
 
       @include lg {
         padding-top: 108px;

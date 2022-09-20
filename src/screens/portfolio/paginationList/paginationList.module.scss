@@ -1,6 +1,7 @@
 .projectsList {
   display: flex;
   justify-content: space-between;
-  margin-top: 47px;
   max-width: 1528px;
+  position: absolute;
+  bottom: 50px;
 }

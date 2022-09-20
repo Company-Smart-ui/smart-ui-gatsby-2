@@ -1,38 +1,32 @@
 import * as React from "react";
-import {Portfolio} from "../screens/portfolio/portfolio";
+import { Portfolio } from "../screens/portfolio/portfolio";
 
-import {graphql} from "gatsby";
-import {Seo} from "../components/SEO/SEO";
+import { graphql } from "gatsby";
+import { Seo } from "../components/SEO/SEO";
 import componentDidMount from "../global/chatbot";
 
 export const query = graphql`
-  query ($language: String ,$pageName:[String] ) {
-   locales: allLocale(filter: {language: {eq: $language}, ns: {in: $pageName}}) {
+  query ($language: String, $pageName: [String]) {
+    locales: allLocale(
+      filter: { language: { eq: $language }, ns: { in: $pageName } }
+    ) {
       edges {
-        node { 
+        node {
           ns
           language
-          data 
+          data
         }
       }
     }
   }
-`
+`;
 
 const PortfolioPage = () => {
+  return <Portfolio />;
+};
 
-    return <Portfolio/>
-
-
-}
-
-export default PortfolioPage
+export default PortfolioPage;
 
 export const Head = (data) => {
-    return (
-        <Seo title={data.pageContext.pageName[0]}>
-          {componentDidMount()}
-        </Seo>
-    )
-}
-
+  return <Seo title={data.pageContext.pageName[0]}>{componentDidMount()}</Seo>;
+};

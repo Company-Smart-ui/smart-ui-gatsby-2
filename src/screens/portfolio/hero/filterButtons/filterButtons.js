@@ -1,36 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "gatsby";
 import * as style from "./filterButtons.module.scss";
 
 const filterOptions = [
-  { title: "All", link: "#" },
-  { title: "Angular", link: "#" },
-  { title: "Gatsby", link: "#" },
-  { title: "HTML", link: "#" },
-  { title: "React", link: "#" },
-  { title: "Next.Js", link: "#" },
-  { title: "Wordpress", link: "#" },
+  { title: "All", link: "all" },
+  { title: "Angular", link: "angular" },
+  { title: "Gatsby", link: "gatsby" },
+  { title: "HTML", link: "html" },
+  { title: "React", link: "react" },
+  { title: "Next.Js", link: "next.js" },
+  { title: "Wordpress", link: "wordpress" },
 ];
 
-export const FilterButtons = ({ filterLIstHandler }) => {
-  const [activeButton, setActiveButton] = useState(0);
-
+export const FilterButtons = ({ filterQuery, filterListHandler }) => {
   const { filterButtons, active } = style;
 
   return (
     <>
-      {filterOptions.map(({ title }, index) => (
-        <button
+      {filterOptions.map(({ title, link }, index) => (
+        <Link
+          to={`?technologies=${link}`}
           key={title}
           className={`${filterButtons} ${
-            index === activeButton ? `${active}` : " "
+            link === filterQuery ? `${active}` : " "
           }`}
-          onClick={() => {
-            setActiveButton(index);
-            filterLIstHandler(title);
-          }}
+          onClick={() => filterListHandler(link)}
         >
           {title}
-        </button>
+        </Link>
       ))}
     </>
   );
