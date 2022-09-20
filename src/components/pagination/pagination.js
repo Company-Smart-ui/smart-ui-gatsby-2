@@ -4,22 +4,21 @@ import * as styles from "./pagination.module.scss";
 
 export const Pagination = ({
   itemsPerPage,
-  itemOffset,
-  setItemOffset,
+  currentPage,
+  setCurrentPage,
   length,
 }) => {
   const [pageCount, setPageCount] = useState(0);
   useEffect(
     () => {
-      // const endOffset = itemOffset + itemsPerPage;
       setPageCount(Math.ceil(length / itemsPerPage));
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [itemOffset, itemsPerPage, length]
+    [currentPage, itemsPerPage, length]
   );
   const handlePageClick = (event) => {
-    const newOffset = (event.selected + 1) % length;
-    setItemOffset(newOffset);
+    const newCurrentPage = (event.selected + 1) % length;
+    setCurrentPage(newCurrentPage);
   };
   const btnNext = (
     <svg

@@ -24,7 +24,9 @@ export const FilterButtons = ({ filterQuery, filterListHandler }) => {
           className={`${filterButtons} ${
             link === filterQuery ? `${active}` : " "
           }`}
-          onClick={() => filterListHandler(link)}
+          onClick={() => {
+            filterListHandler(link);
+          }}
         >
           {title}
         </Link>

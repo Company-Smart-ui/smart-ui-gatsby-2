@@ -13,8 +13,8 @@ export const PaginationList = ({
       {listCardsProjects && (
         <Pagination
           itemsPerPage={cardsPerPage}
-          itemOffset={currentPage}
-          setItemOffset={setCurrentPage}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
           length={listCardsProjects.length}
         />
       )}
