@@ -2,7 +2,6 @@ import * as React from "react";
 import * as style from "./team.module.scss";
 import {TeamItem} from "./teamItem/teamItem";
 import { useStaticQuery, graphql } from "gatsby";
-import chatIcon from '../../images/chat-white.png';
 
 export const AllTeam = (props) => {
     const data = useStaticQuery(graphql`
@@ -41,9 +40,6 @@ export const AllTeam = (props) => {
         <div className={style.team}>
             <div className={style.logo}></div>
             <div className="noise"></div>
-            <button className="button button__chat">
-                <img src={chatIcon} alt="chatIcon"/>
-            </button>
             <div className={style.teamWrapper}>
                 <h1>Specialists for outstaff</h1>
                 <div className={style.gridWrapper}>
