@@ -16,7 +16,6 @@
         grid-column-gap: 22px;
     }
     @include sm{
-        font-weight: 700;
         font-size: 15px;
         line-height: 22px;
     }
@@ -25,6 +24,7 @@
         grid-template-rows: 1fr;
         grid-column-gap: 20px;
         grid-row-gap: 0;
+        font-weight: 700;
         color: #fff;
         padding: 13px 0 8px;
         border-top: none;
