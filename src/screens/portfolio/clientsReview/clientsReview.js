@@ -3,7 +3,7 @@ import * as style from "./clientsReview.module.scss";
 import { ReviewCard } from "./card/reviewCard";
 import { Pagination } from "../../../components/pagination/pagination";
 import { reviewsList } from "./data";
-import { graphql, useStaticQuery } from "gatsby";
+// import { graphql, useStaticQuery } from "gatsby";
 import { useOpen } from "../../../hooks/useOpen";
 import { Modal } from "../../../components/layout/modal/modal";
 
@@ -11,20 +11,20 @@ export const ClientsReview = () => {
   const { isOpen, onClose, onOpen } = useOpen(false);
   const [cards] = useState(reviewsList);
   const [itemOffset, setItemOffset] = useState(1);
-  const data = useStaticQuery(graphql`
-    query {
-      allStrapiReviewPortfolio {
-        nodes {
-          review
-          name
-          stars
-          published
-        }
-      }
-    }
-  `);
+  // const data = useStaticQuery(graphql`
+  //   query {
+  //     allStrapiReviewPortfolio {
+  //       nodes {
+  //         review
+  //         name
+  //         stars
+  //         published
+  //       }
+  //     }
+  //   }
+  // `);
 
-  console.log(data);
+  // console.log(data);
 
   const itemsCount = { data: cards.length };
 

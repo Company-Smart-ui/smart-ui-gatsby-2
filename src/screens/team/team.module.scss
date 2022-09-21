@@ -62,7 +62,7 @@
 .gridHead{
     @include lg{
         display: grid;
-        grid-template-columns:127px 1fr 1fr 170px 1fr 127px;
+        grid-template-columns:127px 1fr 127px;
         grid-column-gap: 20px;
         font-weight: 500;
         font-size: 20px;
@@ -72,10 +72,21 @@
         margin-bottom: 40px;
     }
     @include xl{
-        grid-template-columns:195px 1fr 1fr 188px 1fr 195px;
+        grid-template-columns:195px 1fr 195px;
         grid-column-gap: 40px;
     }
 }
 .gridBody{
     margin-bottom: 100px;
+}
+.centerRow{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    @include lg{
+        grid-template-columns: 1fr 1fr 188px 1fr;
+        grid-template-rows: 1fr;
+        grid-column-gap: 20px;
+        grid-row-gap: 0;
+    }
 }
