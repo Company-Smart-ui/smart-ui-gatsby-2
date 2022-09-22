@@ -45,10 +45,12 @@ export const AllTeam = (props) => {
                 <div className={style.gridWrapper}>
                     <div className={`${style.gridHead} lg-only`}>
                         <span></span>
-                        <span>{global.tr_team_name}</span>
-                        <span>{global.tr_team_direction}</span>
-                        <span>{global.tr_team_level}</span>
-                        <span>{global.tr_team_english}</span>
+                        <div className={style.centerRow}>
+                            <span>{global.tr_team_name}</span>
+                            <span>{global.tr_team_direction}</span>
+                            <span>{global.tr_team_level}</span>
+                            <span>{global.tr_team_english}</span>
+                        </div>
                         <span></span>
                     </div>
                     <div className={style.gridBody}>
