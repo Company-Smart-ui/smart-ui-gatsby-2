@@ -1,14 +1,53 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
-import chatIcon from "./chat-white.png";
 import { shelestInfo } from "./cvPdf/teamInfo/ShelestInfo";
 import * as style from "./cv.module.scss";
-import { BlobProvider } from "@react-pdf/renderer";
-import { CVPdfItem } from "./cvPdf/cvPdfItem";
+import { getImage } from "gatsby-plugin-image";
+import { Hero } from "./components/hero";
+// import { BlobProvider } from "@react-pdf/renderer";
+// import { CVPdfItem } from "./cvPdf/cvPdfItem";
+import { graphql } from "gatsby";
 
-const Cv = () => {
+export const query = graphql`
+  query ($language: String, $pageId: String) {
+    locales: allLocale(
+      filter: { language: { eq: $language }, ns: { in: ["global"] } }
+    ) {
+      edges {
+        node {
+          ns
+          language
+          data
+        }
+      }
+    }
+    cv: allStrapiTeam(filter: { id: { eq: $pageId } }) {
+      edges {
+        node {
+          id
+          name
+          description {
+            data {
+              description
+            }
+          }
+          direction
+          cv_photo {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+const Cv = (props) => {
+  const team = props?.data?.cv?.edges[0]?.node;
   const [ready, setReady] = useState(false);
-
+  console.log(props);
   const {
     hardSkills,
     experience,
@@ -19,10 +58,6 @@ const Cv = () => {
     personalSkills4,
     personalSkills5,
     personalSkills6,
-    job,
-    name,
-    lastName,
-    photoUser,
     engLevel,
     engLevelFull,
     uaLevel,
@@ -81,27 +116,16 @@ const Cv = () => {
   return (
     <div className={style.cv}>
       {/*<CVPdf/>*/}
-      <button className="button button__chat">
-        <img src={chatIcon} alt="chatIcon" />
-      </button>
       <div className="container">
-        <div className="hero">
-          <div className="photo">
-            <picture>
-              <img src={photoUser} alt="photoUser" />
-            </picture>
-            <button className="button">Chat</button>
-          </div>
-          <div className="description">
-            <div className="wrap-name">
-              <h1>
-                <span>{name} </span> {lastName}
-              </h1>
-              <p className="job">{job}</p>
-            </div>
-            <div className="content">{descriptions}</div>
-          </div>
-        </div>
+        <Hero
+          img={getImage(
+            team.cv_photo.localFile.childImageSharp.gatsbyImageData
+          )}
+          name={team.name}
+          chat="Chat"
+          direction={team.direction}
+          description={team.description.data.description}
+        />
         <div className="skills">
           <div className="skill">
             <div className="skill__hard">
@@ -151,7 +175,7 @@ const Cv = () => {
             {listExperience}
           </div>
         </div>
-        <div className="wrap__cv-button">
+        {/* <div className="wrap__cv-button">
           {ready && (
             <BlobProvider document={<CVPdfItem infoPdf={shelestInfo} />}>
               {({ url, loading }) => {
@@ -165,7 +189,7 @@ const Cv = () => {
               }}
             </BlobProvider>
           )}
-        </div>
+        </div> */}
       </div>
     </div>
   );
