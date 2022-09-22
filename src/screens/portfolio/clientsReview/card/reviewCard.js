@@ -1,21 +1,21 @@
-import React from 'react';
+import React from "react";
 import StarRating from "react-svg-star-rating";
 
 export const ReviewCard = ({ content }) => {
-  const { contact, rating, message } = content;
+  const { name, stars, review } = content;
   return (
     <div className="review-item">
-      <div className="review-item-name">{contact}</div>
+      <div className="review-item-name">{name}</div>
       <div className="review-item-rating">
         <StarRating
           isReadOnly
           size={22}
-          initialRating={rating}
-          unit="float"
+          initialRating={stars}
+          unit="full"
           activeColor="#FFDC60"
         />
       </div>
-      <div className="review-item-comment">{message}</div>
+      <div className="review-item-comment">{review}</div>
     </div>
   );
 };

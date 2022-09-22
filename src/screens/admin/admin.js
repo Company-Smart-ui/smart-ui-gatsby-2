@@ -4,7 +4,7 @@ import { Cookies } from "react-cookie";
 import { useOpen } from "../../hooks/useOpen";
 import axios from "axios";
 import { API } from "../../api/API";
-import { Link, navigate } from "gatsby";
+import { navigate } from "gatsby";
 import { Loader } from "../../global/loader/loader";
 import { ContactCard } from "./contactCard/contactCard";
 import { FilterMessages } from "./filterMessages/filterMessages";
@@ -109,11 +109,18 @@ export const Admin = () => {
     return contactsArr;
   };
 
+  const logoutHandler = (e) => {
+    cookies.remove("jwt");
+    navigate("/login");
+  };
+
   return (
     <section className={style.admin}>
       {loading && <Loader />}
       <div className="container">
-        <Link to={"/login"}> Logout </Link>
+        <button className="button" onClick={logoutHandler}>
+          Logout
+        </button>
         <FilterMessages
           contacts={contacts}
           activeIndex={activeIndex}

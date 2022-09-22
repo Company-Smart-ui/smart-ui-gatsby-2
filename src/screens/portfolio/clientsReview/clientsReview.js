@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as style from "./clientsReview.module.scss";
 import { ReviewCard } from "./card/reviewCard";
-import { Pagination } from "../../../components/pagination/pagination";
-import { reviewsList } from "./data";
 import { graphql, useStaticQuery } from "gatsby";
 import { useOpen } from "../../../hooks/useOpen";
 import { Modal } from "../../../components/layout/modal/modal";
+import { PaginationList } from "../paginationList/paginationList";
+import { sliceItemsPerPage } from "../hero/handlers/handlers";
+import { Loader } from "../../../global/loader/loader";
 
 export const ClientsReview = () => {
   const { isOpen, onClose, onOpen } = useOpen(false);
-  const [cards] = useState(reviewsList);
-  const [itemOffset, setItemOffset] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [dataArr, setDataArr] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   const data = useStaticQuery(graphql`
     query {
       allStrapiReviewPortfolio {
@@ -24,9 +27,18 @@ export const ClientsReview = () => {
     }
   `);
 
-  console.log(data);
+  useEffect(() => {
+    if (data) {
+      const list = data?.allStrapiReviewPortfolio?.nodes.filter(
+        (item) => item.published
+      );
 
-  const itemsCount = { data: cards.length };
+      setDataArr(list);
+      setLoading(false);
+    }
+  }, [data]);
+
+  const paginatedList = dataArr && sliceItemsPerPage(dataArr, currentPage, 2);
 
   return (
     <>
@@ -54,24 +66,28 @@ export const ClientsReview = () => {
                 Leave a comment
               </button>
             </div>
-            <div className="review-section">
-              <div className="title">What others are saying</div>
-              <div className="list">
-                {cards.slice(0, 2).map((el) => (
-                  <ReviewCard key={el.id} content={el} />
-                ))}
+            {!loading ? (
+              <div className="review-section">
+                <div className="title">What others are saying</div>
+                <div className="list">
+                  {paginatedList.map((el, i) => (
+                    <ReviewCard key={i} content={el} />
+                  ))}
+                </div>
               </div>
-            </div>
-            <div className="pagination-section overlay">
-              <Pagination
-                itemsPerPage={2}
-                {...{
-                  itemOffset,
-                  setItemOffset,
-                  length: itemsCount.data,
-                }}
-              />
-            </div>
+            ) : (
+              <Loader inside />
+            )}
+            {dataArr.length > 2 && (
+              <div className="paginationSection overlay">
+                <PaginationList
+                  listCardsProjects={dataArr}
+                  cardsPerPage={2}
+                  currentPage={currentPage}
+                  setCurrentPage={setCurrentPage}
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>

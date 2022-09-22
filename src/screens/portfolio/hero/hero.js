@@ -12,6 +12,7 @@ import { PaginationList } from "../paginationList/paginationList";
 import {
   parseTechnologies,
   setCountCardsPerScreenSize,
+  sliceItemsPerPage,
 } from "./handlers/handlers";
 
 export const Hero = () => {
@@ -90,16 +91,11 @@ export const Hero = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  //Pagination of cards
-
-  const sliceCardsArrPerPage = (currentPage, cardsPerPage) => {
-    const indexOfLastCard = currentPage * cardsPerPage;
-    const indexOfFirstCard = indexOfLastCard - cardsPerPage;
-
-    return filteredArr.slice(indexOfFirstCard, indexOfLastCard);
-  };
-
-  const projectsList = sliceCardsArrPerPage(currentPage, cardsPerPage);
+  const projectsList = sliceItemsPerPage(
+    filteredArr,
+    currentPage,
+    cardsPerPage
+  );
 
   return (
     <>
@@ -146,12 +142,14 @@ export const Hero = () => {
                 <Loader inside />
               )}
               {filteredArr.length > cardsPerPage && !loading && (
-                <PaginationList
-                  listCardsProjects={filteredArr}
-                  cardsPerPage={cardsPerPage}
-                  currentPage={currentPage}
-                  setCurrentPage={setCurrentPage}
-                />
+                <div className="paginationSection">
+                  <PaginationList
+                    listCardsProjects={filteredArr}
+                    cardsPerPage={cardsPerPage}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                  />
+                </div>
               )}
             </div>
           </div>

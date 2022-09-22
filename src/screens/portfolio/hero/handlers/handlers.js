@@ -17,3 +17,10 @@ export const parseTechnologies = () => {
     return parsed.technologies;
   }
 };
+
+export const sliceItemsPerPage = (arr, currentPage, itemsPerPage) => {
+  const indexOfLastCard = currentPage * itemsPerPage;
+  const indexOfFirstCard = indexOfLastCard - itemsPerPage;
+
+  return arr.slice(indexOfFirstCard, indexOfLastCard);
+};
