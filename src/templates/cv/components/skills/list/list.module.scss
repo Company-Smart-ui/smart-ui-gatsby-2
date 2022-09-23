@@ -1,0 +1,28 @@
+@import "src/var";
+$lightBorder: rgba(106, 106, 106, 0.7);
+$xs: 420px;
+@mixin xs {
+  @media (min-width: $xs) {
+    @content;
+  }
+}
+.skill {
+  &List {
+    @include xs {
+      width: 50%;
+      padding-right: 20px;
+    }
+
+    ul {
+      border-bottom: 0.5px solid $lightBorder;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+
+      &:last-child {
+        border-bottom: 0;
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+}
