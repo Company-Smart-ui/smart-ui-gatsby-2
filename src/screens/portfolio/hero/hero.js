@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as style from "./hero.module.scss";
 import { useOpen } from "../../../hooks/useOpen";
 import { Modal } from "../../../components/layout/modal/modal";
@@ -10,10 +10,10 @@ import { ProjectsList } from "./projectsList/projectsList";
 import { Loader } from "../../../global/loader/loader";
 import { PaginationList } from "../paginationList/paginationList";
 import {
-  parseTechnologies,
   setCountCardsPerScreenSize,
   sliceItemsPerPage,
 } from "./handlers/handlers";
+import { useQueryParam } from "../../../hooks/useQueryParam";
 
 export const Hero = () => {
   const { isOpen, onClose, onOpen } = useOpen(false);
@@ -21,75 +21,58 @@ export const Hero = () => {
   const [cardsPerPage, setCardsPerPage] = useState(2);
   const [loading, setLoading] = useState(true);
   const [filteredArr, setFilteredArr] = useState([]);
-  const [filterQuery, setFilterQuery] = useState("");
+  const [query, setQuery] = useState("");
+
+  const [search, setSearch] = useQueryParam("technologies", "");
   const [projects] = useState(useProjectsList());
 
   const size = useWindowResize();
 
-  const checkString = (item) => {
-    if (typeof item === "string") {
-      return item.toLowerCase();
-    }
-    return "";
-  };
-
   // Tab buttons
 
-  const filterListHandler = useCallback(
-    (title) => {
-      setCurrentPage(1);
-      setFilterQuery(title);
+  const getProjectsList = (title) => {
+    const filterList1 = [];
+    projects?.forEach((el) => {
+      el?.technologies.forEach(({ name }) => {
+        if (name.toLowerCase() === title.toLowerCase()) {
+          filterList1.push(el);
+        }
+      });
+    });
 
-      if (title === "all") {
-        setFilteredArr(projects);
-      } else {
-        const arr = [];
-        projects?.forEach((item) => {
-          item.technologies.forEach(
-            (el) =>
-              checkString(el.name) === checkString(title) && arr.push(item)
-          );
-        });
+    const filterList2 = projects.filter(
+      ({ technology: { name } }) => name.toLowerCase() === title.toLowerCase()
+    );
 
-        const filterList = projects.filter(
-          (item) => checkString(item?.technology?.name) === checkString(title)
-        );
+    return [...filterList1, ...filterList2];
+  };
 
-        const joinArr = [...arr, ...filterList];
+  const filterListHandler = (title) => {
+    setQuery(title);
+    setSearch(title);
 
-        setFilteredArr(joinArr);
-      }
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [projects, filterQuery]
-  );
+    if (title === "all") {
+      setFilteredArr(projects);
+    } else {
+      const joinedArr = getProjectsList(title);
+      setFilteredArr(joinedArr);
+    }
+  };
 
   useEffect(() => {
     const cardsPerPage = setCountCardsPerScreenSize(size);
     setCardsPerPage(cardsPerPage);
-    setCurrentPage(1);
-  }, [size]);
 
-  useEffect(() => {
-    if (!projects) {
+    if (search) {
+      filterListHandler(search);
     } else {
+      filterListHandler("all");
+    }
+    if (projects) {
       setLoading(false);
-
-      //Check query
-      const query = parseTechnologies();
-      if (typeof window !== "undefined") {
-        const url = window.location.href;
-
-        if (!query) {
-          window.location.href = `${url}?technologies=all`;
-          filterListHandler(query);
-        } else if (typeof query === "string") {
-          filterListHandler(query);
-        }
-      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [search, size]);
 
   const projectsList = sliceItemsPerPage(
     filteredArr,
@@ -130,7 +113,7 @@ export const Hero = () => {
             <div className="container">
               <div className="filter-buttons">
                 <FilterButtons
-                  filterQuery={filterQuery}
+                  query={query}
                   filterListHandler={filterListHandler}
                 />
               </div>
