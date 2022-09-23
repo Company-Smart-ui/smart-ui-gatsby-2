@@ -2,42 +2,17 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Card } from "../card/Card";
 import * as style from "./teamSwiper.module.scss";
-import { graphql, useStaticQuery } from "gatsby";
 
 import "swiper/css";
 import "swiper/css/free-mode";
 
-export const TeamSwiper = ({ activeIndexHandler, setSwiperRef }) => {
-
-  const data = useStaticQuery(graphql`
-  query {
-    allStrapiTeam {
-      nodes {
-        linkedin
-        name
-        position
-        telegram
-        show_contact
-        preview_photo {
-          localFile {
-            childImageSharp {
-              gatsbyImageData(width: 400, height: 400)
-            }
-          }
-        }
-      }
-    }
-  }
-  `)
-
-  const employees = Array.isArray(data.allStrapiTeam.nodes) ? data.allStrapiTeam.nodes : [];
-
+export const TeamSwiper = ({ activeIndexHandler, setSwiperRef, teamList }) => {
   return (
     <div className={style.teamSwiper}>
       <Swiper
         onSwiper={setSwiperRef}
         spaceBetween={0}
-        initialSlide={1}
+        initialSlide={0}
         slidesPerView={0}
         freeMode={true}
         className="mySwiper"
@@ -68,11 +43,11 @@ export const TeamSwiper = ({ activeIndexHandler, setSwiperRef }) => {
         loop={false}
         onSlideChange={activeIndexHandler}
       >
-        {employees.map((el, i) => (
-            <SwiperSlide key={i}>
-              <Card content={el} key={i}/>
-            </SwiperSlide>
-          ))}
+        {teamList.map((el, i) => (
+          <SwiperSlide key={i}>
+            <Card content={el} key={i} />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

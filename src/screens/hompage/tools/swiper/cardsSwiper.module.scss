@@ -59,15 +59,7 @@
       }
 
       @include lg {
-        max-width: 213px;
-      }
-
-      @include xl {
-        max-width: 270px;
-      }
-
-      @include xxl {
-        max-width: 299px;
+        width: calc(100% / 3);
       }
     }
   }

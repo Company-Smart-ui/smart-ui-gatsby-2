@@ -2,10 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import * as style from "./meetOur.module.scss";
 import { TeamSwiper } from "./swiper/TeamSwiper";
 import { SwiperButtons } from "../../../global/swiperButtons/SwiperButtons";
-import { teamList } from "./card/TeamList";
 import { Pagination } from "../../../global/pagination/Pagination";
 import { useTranslation } from "react-i18next";
 import { I18nextContext, Link } from "gatsby-plugin-react-i18next";
+import { graphql, useStaticQuery } from "gatsby";
 
 export const MeetOur = () => {
   const { language: currentLng } = useContext(I18nextContext);
@@ -22,6 +22,31 @@ export const MeetOur = () => {
     setActiveIndex(0);
   }, []);
 
+  const data = useStaticQuery(graphql`
+    query {
+      allStrapiTeam {
+        nodes {
+          linkedin
+          name
+          position
+          telegram
+          show_contact
+          preview_photo {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(width: 400, height: 400)
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const employees = Array.isArray(data.allStrapiTeam.nodes)
+    ? data.allStrapiTeam.nodes
+    : [];
+
   return (
     <div className={`${style.meetOur} vertical-padding`}>
       <div className="noise" />
@@ -35,7 +60,7 @@ export const MeetOur = () => {
               <div className="pagination-wrapper">
                 <Pagination
                   activeIdx={activeIndex}
-                  sliderLength={teamList.length}
+                  sliderLength={employees.length}
                 />
               </div>
             </div>
@@ -45,7 +70,7 @@ export const MeetOur = () => {
               activeIndexHandler={activeIndexHandler}
               swiperRef={swiperRef}
               setSwiperRef={setSwiperRef}
-              teamList={teamList}
+              teamList={employees}
             />
           </div>
           <div className="footer-buttons overlay">
@@ -53,7 +78,7 @@ export const MeetOur = () => {
               onPrev={slidePrevHandler}
               onNext={slideNextHandler}
               activeIndex={activeIndex}
-              sliderLength={teamList.length}
+              sliderLength={employees.length}
               fill
             />
           </div>

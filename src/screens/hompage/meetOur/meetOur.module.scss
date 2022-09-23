@@ -67,11 +67,6 @@
       grid-area: whole-team-button;
       margin-top: 20px;
       min-width: 165px;
-
-      @include md {
-        min-width: 200px;
-        margin-top: 50px;
-      }
     }
 
     .container-block {
