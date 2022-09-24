@@ -33,7 +33,6 @@ export const useQueryParam = (
       const { protocol, pathname, host } = window.location;
       const newUrl = `${protocol}//${host}${pathname}?${query.toString()}`;
       window.history.pushState({}, "", newUrl);
-      console.log(window.location);
     }
   };
 

@@ -48,14 +48,16 @@ export const Hero = () => {
   };
 
   const filterListHandler = (title) => {
+    setCurrentPage(1);
     setQuery(title);
-    setSearch(title);
 
-    if (title === "all") {
+    if (title === "/") {
       setFilteredArr(projects);
+      setSearch("");
     } else {
       const joinedArr = getProjectsList(title);
       setFilteredArr(joinedArr);
+      setSearch(title);
     }
   };
 
@@ -66,7 +68,7 @@ export const Hero = () => {
     if (search) {
       filterListHandler(search);
     } else {
-      filterListHandler("all");
+      filterListHandler("/");
     }
     if (projects) {
       setLoading(false);

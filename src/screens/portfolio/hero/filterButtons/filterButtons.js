@@ -2,7 +2,7 @@ import React from "react";
 import * as style from "./filterButtons.module.scss";
 
 const filterOptions = [
-  { title: "All", link: "all" },
+  { title: "All", link: "/" },
   { title: "Angular", link: "angular" },
   { title: "Gatsby", link: "gatsby" },
   { title: "HTML", link: "html" },
@@ -13,7 +13,7 @@ const filterOptions = [
 
 export const FilterButtons = ({ query, filterListHandler }) => (
   <>
-    {filterOptions.map(({ title, link }, index) => (
+    {filterOptions.map(({ title, link }) => (
       <button
         key={title}
         className={[
