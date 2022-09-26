@@ -51,7 +51,6 @@ export const Header = ({path}) => {
     useNoScroll(isOpen);
     const headerClass = path === 'team' ? style.headerDark : " ";
     return (
-        // <header className={[scrolled ? style.scrolled + " scrolled " : " ", style.header, isOpen ? style.open : " ", headerClass].join(' ')}></header>
         <header className={`${scrolled ? style.scrolled + " scrolled " : " "} ${style.header} ${isOpen ? style.open : " "} ${headerClass}`}>
         <Burger {...{isOpen, onToggle}} />
         <div className={style.logo}>

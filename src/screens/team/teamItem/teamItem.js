@@ -4,6 +4,10 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import * as style from "./teamItem.module.scss";
 
 export const TeamItem = (props) => {
+  const makeUrl =
+    typeof props.name === "string"
+      ? props.name.replace(/[ ,./!@#$%^&*(?)=:;'"]/g, "_").toLowerCase()
+      : "";
   return (
     <div className={style.item}>
       <div className={style.img}>
@@ -51,7 +55,7 @@ export const TeamItem = (props) => {
         </div>
       </div>
       <div className={style.link}>
-        <Link to={props.link} className="button">
+        <Link to={`/team/${makeUrl}`} className="button">
           More
         </Link>
       </div>

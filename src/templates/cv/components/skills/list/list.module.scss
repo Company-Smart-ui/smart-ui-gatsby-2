@@ -1,0 +1,67 @@
+@import "src/var";
+$lightBorder: rgba(106, 106, 106, 0.7);
+$xs: 420px;
+@mixin xs {
+  @media (min-width: $xs) {
+    @content;
+  }
+}
+.list {
+  width: 100%;
+  margin-bottom: 30px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  @include lg {
+    margin-bottom: 0;
+
+    &:first-child {
+      padding-right: 20px;
+      border-right: 0.5px solid rgba(106, 106, 106, 0.7);
+    }
+  }
+  h4 {
+    text-transform: uppercase;
+    font-size: 17px;
+    margin: 0 0 20px;
+    @include md {
+      font-size: 20px;
+    }
+  }
+  &Wrapp {
+    display: block;
+  }
+  &Item {
+    @include sm {
+      display: grid;
+      grid-column-gap: 10px;
+      grid-template-columns: repeat(3, 1fr);
+      padding-top: 25px;
+      padding-bottom: 25px;
+      & + .listItem:not(:nth-child(2)) {
+        border-top: 0.5px solid $lightBorder;
+        padding-top: 25px;
+      }
+
+      &:nth-child(1) {
+        border-bottom: 0.5px solid $lightBorder;
+        padding-top: 0;
+      }
+    }
+    @include lg {
+      grid-column-gap: 40px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  ul {
+    width: 100%;
+    margin-bottom: 10px;
+    border-bottom: 0.5px solid $lightBorder;
+    padding-bottom: 10px;
+    @include sm {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+  }
+}
