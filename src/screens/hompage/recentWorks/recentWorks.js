@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SwiperButtons } from "../../../global/swiperButtons/SwiperButtons";
 import * as style from "./recentWorks.module.scss";
 import { WorksSwiper } from "./swiper/WorksSwiper";
@@ -6,10 +6,14 @@ import { Pagination } from "../../../global/pagination/Pagination";
 import { useTranslation } from "react-i18next";
 import { Loader } from "../../../global/loader/loader";
 import { useProjectsList } from "../../../hooks/useProjectsList";
+import { useWindowResize } from "../../../hooks/useWindowResize";
 
 export const RecentWorks = () => {
   const [swiperRef, setSwiperRef] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [countElementFromEnd, setCountElementFromEnd] = useState(1);
+
+  const size = useWindowResize();
 
   const listOfProjects = useProjectsList();
 
@@ -19,6 +23,16 @@ export const RecentWorks = () => {
   const setActiveHandler = (idx) => setActiveIndex(idx);
 
   const { t } = useTranslation();
+
+  useEffect(() => {
+    if (size < 768) {
+      setCountElementFromEnd(1);
+    } else if (size >= 768 && size < 1440) {
+      setCountElementFromEnd(2);
+    } else {
+      setCountElementFromEnd(3);
+    }
+  }, [size]);
 
   return (
     <div className={`${style.recentWorks} vertical-padding`}>
@@ -55,6 +69,8 @@ export const RecentWorks = () => {
                   sliderLength={listOfProjects.length}
                   activeIndex={activeIndex}
                   fill
+                  doubleEnd
+                  countElementFromEnd={countElementFromEnd}
                 />
               </div>
             </>

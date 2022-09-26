@@ -6,21 +6,29 @@ import { Pagination } from "../../../global/pagination/Pagination";
 import { useTranslation } from "react-i18next";
 import { I18nextContext, Link } from "gatsby-plugin-react-i18next";
 import { graphql, useStaticQuery } from "gatsby";
+import { useWindowResize } from "../../../hooks/useWindowResize";
 
 export const MeetOur = () => {
   const { language: currentLng } = useContext(I18nextContext);
   const { t } = useTranslation();
   const [activeIndex, setActiveIndex] = useState(0);
   const [swiperRef, setSwiperRef] = useState(null);
+  const [countElementFromEnd, setCountElementFromEnd] = useState(1);
 
   const activeIndexHandler = () => setActiveIndex(swiperRef?.realIndex);
 
   const slidePrevHandler = () => swiperRef.slidePrev();
   const slideNextHandler = () => swiperRef.slideNext();
 
+  const size = useWindowResize();
+
   useEffect(() => {
-    setActiveIndex(0);
-  }, []);
+    if (size < 768) {
+      setCountElementFromEnd(1);
+    } else {
+      setCountElementFromEnd(3);
+    }
+  }, [size]);
 
   const data = useStaticQuery(graphql`
     query {
@@ -80,6 +88,8 @@ export const MeetOur = () => {
               activeIndex={activeIndex}
               sliderLength={employees.length}
               fill
+              doubleEnd
+              countElementFromEnd={countElementFromEnd}
             />
           </div>
           <Link

@@ -8,10 +8,12 @@ export const SwiperButtons = ({
   sliderLength,
   activeIndex,
   loop,
-  fill
+  fill,
+  doubleEnd,
+  countElementFromEnd,
 }) => {
-
-  const disableButton = fill ? 'gray-button' : 'transparent-button'
+  const disableButton = fill ? "gray-button" : "transparent-button";
+  const getLastElement = doubleEnd ? countElementFromEnd : 1;
 
   return (
     <div className={style.swiperButtons}>
@@ -22,7 +24,11 @@ export const SwiperButtons = ({
       <CircleButton
         onClick={onNext}
         toLeft
-        classes={loop || activeIndex !== sliderLength - 1 ? "fillButton" : disableButton}
+        classes={
+          loop || activeIndex !== sliderLength - getLastElement
+            ? "fillButton"
+            : disableButton
+        }
       />
     </div>
   );
