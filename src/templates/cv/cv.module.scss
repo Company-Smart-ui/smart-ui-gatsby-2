@@ -1,0 +1,59 @@
+@import "src/var";
+
+$colorAccent: $Lime;
+$borderColor: #6a6a6a;
+$colorGrey: #10be43;
+$lightBorder: rgba(106, 106, 106, 0.7);
+
+$xs: 420px;
+@mixin xs {
+  @media (min-width: $xs) {
+    @content;
+  }
+}
+
+.cv {
+  padding: 150px 0;
+  font-size: clamp(16px, 10vw - 80px, 20px);
+  background-image: url("./background.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: $White;
+  @include lg {
+    padding: 200px 0;
+  }
+
+  .wrapCvButton {
+    .button {
+      margin: auto;
+      max-width: 100px;
+    }
+  }
+
+  :global {
+    .button__chat {
+      position: fixed;
+      bottom: 25%;
+      right: 5px;
+      max-width: 75px;
+      min-width: 0;
+      padding: 10px;
+      border-radius: 50%;
+      z-index: 1;
+      @include lg {
+        padding: 15px;
+        right: 15px;
+      }
+      @include xxl {
+        right: calc((50% - 1720px / 2) + 85px);
+      }
+
+      img {
+        max-width: 35px;
+        @include lg {
+          max-width: 40px;
+        }
+      }
+    }
+  }
+}

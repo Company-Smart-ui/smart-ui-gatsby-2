@@ -1,0 +1,178 @@
+@import "src/var";
+
+$colorAccent: $Lime;
+$borderColor: #6a6a6a;
+$colorGrey: #10be43;
+$lightBorder: rgba(106, 106, 106, 0.7);
+$xs: 420px;
+@mixin xs {
+  @media (min-width: $xs) {
+    @content;
+  }
+}
+.skills {
+  font-size: 15px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 50px;
+  @include lg {
+    grid-template-columns: repeat(2, 50%);
+    grid-column-gap: 40px;
+    grid-row-gap: 100px;
+  }
+  .personalSkills {
+    display: grid;
+    grid-template-columns: 1fr;
+    @include lg {
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 20px;
+    }
+  }
+}
+
+.skillHard {
+  ul {
+    width: 100%;
+  }
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    &:hover {
+      .lineSkill:after {
+        opacity: 1;
+      }
+    }
+    @include md {
+      margin-bottom: 0;
+    }
+  }
+  .lineExperience {
+    position: relative;
+    height: 6px;
+    width: 50%;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.25);
+    @include xs {
+      max-width: 115px;
+    }
+    @include sm {
+      max-width: 200px;
+    }
+    @include lg {
+      width: 115px;
+    }
+
+    .lineSkill {
+      border-radius: 10px;
+      background: $colorGrey;
+      height: 6px;
+      top: 0;
+      left: 0;
+      position: absolute;
+      @include md {
+        display: block;
+        position: relative;
+      }
+      &:after {
+        content: attr(data-title) "+";
+        top: -20px;
+        left: 0;
+        position: absolute;
+        text-align: left;
+        width: 100%;
+        transition: 0.3s;
+        @include md {
+          opacity: 0;
+          text-align: right;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+.experience {
+  flex-direction: column;
+  .wrap {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 20px;
+    @include sm {
+      margin-bottom: 0;
+      flex-direction: row;
+    }
+
+    &:last-child {
+      .work {
+        border: 0;
+      }
+    }
+  }
+
+  h4 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    margin-top: 0;
+    text-transform: uppercase;
+  }
+}
+
+.company {
+  width: 100%;
+  @include sm {
+    width: 50%;
+    padding-right: 20px;
+    border-right: 0.5px solid $lightBorder;
+    padding-bottom: 25px;
+  }
+}
+.work {
+  width: 100%;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+  border-bottom: 0.5px solid $lightBorder;
+  @include sm {
+    width: 50%;
+    margin-left: 20px;
+  }
+}
+
+.time {
+  color: rgba(255, 255, 255, 0.6);
+}
+.skillGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 50px;
+}
+.language {
+  grid-template-columns: 1fr;
+  grid-row-gap: 20px;
+  @include sm {
+    grid-column-gap: 20px;
+    grid-row-gap: 0;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include lg {
+    grid-column-gap: 40px;
+  }
+  &Item {
+    width: 100%;
+    @include sm {
+      margin: 0;
+      max-width: 120px;
+      &:last-child {
+        max-width: 100px;
+        padding-right: 0;
+      }
+    }
+  }
+
+  &Name {
+    font-weight: 500;
+  }
+}

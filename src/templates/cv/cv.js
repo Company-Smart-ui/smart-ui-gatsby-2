@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { getImage } from "gatsby-plugin-image";
 import { Hero } from "./components/hero/hero";
 import { Skills } from "./components/skills/skills";
-// import { BlobProvider } from "@react-pdf/renderer";
-// import { CVPdfItem } from "./cvPdf/cvPdfItem";
+import { BlobProvider } from "@react-pdf/renderer";
+import { CVPdfItem } from "./cvPdf/cvPdfItem";
 import { graphql } from "gatsby";
 
 export const query = graphql`
@@ -88,6 +88,24 @@ const Cv = (props) => {
   const global = props?.data?.global?.edges[0]?.node;
   const [ready, setReady] = useState(false);
 
+  const userInfo = {
+    hardSkillTitle: global.tr_hard_skills,
+    hardSkill: team.hard_skills ? team.hard_skills.skills : "",
+    experiensceYearsTitle: global.tr_experiensce_years,
+    experiensceYears: team.hard_skills
+      ? team.hard_skills.experiensce_years
+      : "",
+    language: global.tr_language,
+    english: global.tr_team_english,
+    englishLevel: team.english_level,
+    otherLanguage: team.language,
+    personalSkillTitle: global.tr_personal_skills,
+    personalSkill: team.personal_skills ? team.personal_skills : "",
+    mainTitle: global.tr_main,
+    additionalTitle: global.tr_additional,
+    experienceTitle: global.tr_experience,
+    experience: team.experience ? team.experience : "",
+  };
   useEffect(() => {
     setTimeout(() => {
       setReady(true);
@@ -105,27 +123,31 @@ const Cv = (props) => {
           name={team.name}
           chat="Chat"
           direction={team.direction}
-          description={team.description.data.description}
+          description={
+            team.description.data ? team.description.data.description : ""
+          }
         />
         <Skills
           hardSkillTitle={global.tr_hard_skills}
-          hardSkill={team.hard_skills.skills}
+          hardSkill={team.hard_skills ? team.hard_skills.skills : ""}
           experiensceYearsTitle={global.tr_experiensce_years}
-          experiensceYears={team.hard_skills.experiensce_years}
+          experiensceYears={
+            team.hard_skills ? team.hard_skills.experiensce_years : ""
+          }
           language={global.tr_language}
           english={global.tr_team_english}
           englishLevel={team.english_level}
           otherLanguage={team.language}
           personalSkillTitle={global.tr_personal_skills}
-          personalSkill={team.personal_skills}
-          experienceTitle={global.tr_experience}
+          personalSkill={team.personal_skills ? team.personal_skills : ""}
           mainTitle={global.tr_main}
           additionalTitle={global.tr_additional}
-          experience={team.experience}
+          experienceTitle={global.tr_experience}
+          experience={team.experience ? team.experience : ""}
         />
         <div className={style.wrapCvButton}>
-          {/* {ready && (
-            <BlobProvider document={<CVPdfItem infoPdf={shelestInfo} />}>
+          {ready && (
+            <BlobProvider document={<CVPdfItem infoPdf={userInfo} />}>
               {({ url, loading }) => {
                 if (url && !loading) {
                   return (
@@ -136,7 +158,7 @@ const Cv = (props) => {
                 }
               }}
             </BlobProvider>
-          )} */}
+          )}
         </div>
       </div>
     </div>

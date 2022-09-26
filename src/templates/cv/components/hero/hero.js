@@ -8,7 +8,7 @@ export const Hero = (props) => {
     <div className={style.hero}>
       <div className={style.photo}>
         <GatsbyImage alt={props.name} image={props.img} />
-        <button className="button">{props.chat}</button>
+        <button className={`button ${style.buttonChat}`}>{props.chat}</button>
       </div>
       <div className={style.description}>
         <div className={style.wrapName}>
@@ -18,11 +18,12 @@ export const Hero = (props) => {
           </h1>
           <p className={style.job}>{props.direction}</p>
         </div>
-        <div
-          className={style.content}
-          dangerouslySetInnerHTML={{ __html: props.description }}
-        />
-        {}
+        {props.description && (
+          <div
+            className={style.content}
+            dangerouslySetInnerHTML={{ __html: props.description }}
+          />
+        )}
       </div>
     </div>
   );

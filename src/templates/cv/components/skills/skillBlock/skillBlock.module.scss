@@ -1,19 +1,59 @@
-.skillBlock {
-  :global {
-    .skillMain {
-      color: #000;
-    }
+@import "src/var";
+$colorAccent: $Lime;
+$borderColor: #6a6a6a;
+$colorGrey: #10be43;
+$lightBorder: rgba(106, 106, 106, 0.7);
+$xs: 420px;
+@mixin xs {
+  @media (min-width: $xs) {
+    @content;
   }
 }
+
+.skillBlock {
+  margin-bottom: 0;
+  &Full {
+    grid-column: 1 / -1;
+  }
+  &Content {
+    display: grid;
+  }
+}
+
 .title {
-  border-bottom: 1px solid #6a6a6a;
-  font-size: 20px;
-  line-height: 1;
-  margin-bottom: 25px;
-  padding-bottom: 25px;
-  position: relative;
   text-transform: uppercase;
+  line-height: 1;
+  font-size: 17px;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid $borderColor;
+  position: relative;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  @include sm {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  @include md {
+    font-size: 20px;
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    height: 1px;
+    width: 47px;
+    background: #fff;
+    bottom: -1px;
+    left: 0;
+  }
+  span {
+    display: block;
+    font-size: 15px;
+    text-transform: none;
+    margin-top: 10px;
+    @include sm {
+      margin-top: 0;
+    }
+  }
 }
