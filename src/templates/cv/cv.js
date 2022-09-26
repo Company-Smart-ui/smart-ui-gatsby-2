@@ -1,6 +1,5 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
-import chatIcon from "./chat-white.png";
 import { shelestInfo } from "./cvPdf/teamInfo/ShelestInfo";
 import * as style from "./cv.module.scss";
 import { BlobProvider } from "@react-pdf/renderer";
@@ -81,9 +80,6 @@ const Cv = () => {
   return (
     <div className={style.cv}>
       {/*<CVPdf/>*/}
-      <button className="button button__chat">
-        <img src={chatIcon} alt="chatIcon" />
-      </button>
       <div className="container">
         <div className="hero">
           <div className="photo">

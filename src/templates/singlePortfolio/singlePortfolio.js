@@ -5,6 +5,8 @@ import { graphql } from "gatsby";
 import { Block } from "../../components/simpleBlock/block";
 import { Background } from "./components/background/portfolioBackGround";
 import { FlexibleBlock } from "./components/flexibleBlock/portfolioFlexibleBlock";
+import { Seo } from "../../components/SEO/SEO";
+import componentDidMount from "../../global/chatbot";
 
 export const query = graphql`
   query ($language: String, $pageId: String) {
@@ -189,3 +191,8 @@ const SinglePortfolio = (props) => {
 };
 
 export default SinglePortfolio;
+
+export const Head = (props) => {
+  const title = props?.data?.project?.edges[0]?.node?.project_name;
+  return <Seo title={title}>{componentDidMount()}</Seo>;
+};
