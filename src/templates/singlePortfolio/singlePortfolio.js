@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { Fragment } from "react";
 import * as style from "./singlePortfolio.module.scss";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { graphql } from "gatsby";
@@ -92,16 +92,17 @@ export const query = graphql`
 const SinglePortfolio = (props) => {
   const propProj = props?.data?.project?.edges[0]?.node;
   const propGlobal = props?.data?.global?.nodes[0];
-  console.log(props);
+  const mainImg =
+    propProj?.main_img?.localFile?.childImageSharp?.gatsbyImageData;
   return (
     <div className={style.singlePortfolio}>
       {Background()}
       <div className="container">
-        {propProj.main_img && (
+        {mainImg && (
           <GatsbyImage
-            alt={propProj.project_name ? propProj.project_name : ""}
+            alt={propProj?.project_name ? propProj.project_name : ""}
             image={getImage(
-              propProj.main_img.localFile.childImageSharp.gatsbyImageData
+              propProj?.main_img.localFile.childImageSharp.gatsbyImageData
             )}
           />
         )}
@@ -130,18 +131,18 @@ const SinglePortfolio = (props) => {
               {propProj.content_management_systems.length > 0 && (
                 <Block class="modified" title={propGlobal.tr_cms + ":"}>
                   <ul className="category">
-                    {propProj.content_management_systems.map((i) => {
-                      return <li>{i.name}</li>;
-                    })}
+                    {propProj.content_management_systems.map((i) => (
+                      <li key={i.name}>{i.name}</li>
+                    ))}
                   </ul>
                 </Block>
               )}
               {propProj.technologies.length > 0 && (
                 <Block class="modified" title={propGlobal.tr_technology + ":"}>
                   <ul className="category">
-                    {propProj.technologies.map((i) => {
-                      return <li>{i.name}</li>;
-                    })}
+                    {propProj.technologies.map((i) => (
+                      <li key={i.name}>{i.name}</li>
+                    ))}
                   </ul>
                 </Block>
               )}
@@ -178,11 +179,10 @@ const SinglePortfolio = (props) => {
             )}
           </div>
         </div>
-
         {propProj.Blocks &&
-          propProj.Blocks.map((i) => {
-            return FlexibleBlock(i);
-          })}
+          propProj.Blocks.map((i, idx) => (
+            <Fragment key={idx}>{FlexibleBlock(i)}</Fragment>
+          ))}
       </div>
     </div>
   );
