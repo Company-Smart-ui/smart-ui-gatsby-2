@@ -87,25 +87,24 @@ const Cv = (props) => {
   const team = props?.data?.cv?.edges[0]?.node;
   const global = props?.data?.global?.edges[0]?.node;
   const [ready, setReady] = useState(false);
-
-  const userInfo = {
-    hardSkillTitle: global.tr_hard_skills,
-    hardSkill: team.hard_skills ? team.hard_skills.skills : "",
-    experiensceYearsTitle: global.tr_experiensce_years,
-    experiensceYears: team.hard_skills
-      ? team.hard_skills.experiensce_years
-      : "",
-    language: global.tr_language,
-    english: global.tr_team_english,
-    englishLevel: team.english_level,
-    otherLanguage: team.language,
-    personalSkillTitle: global.tr_personal_skills,
-    personalSkill: team.personal_skills ? team.personal_skills : "",
-    mainTitle: global.tr_main,
-    additionalTitle: global.tr_additional,
-    experienceTitle: global.tr_experience,
-    experience: team.experience ? team.experience : "",
-  };
+  // const userInfo = {
+  //   hardSkillTitle: global.tr_hard_skills,
+  //   hardSkill: team.hard_skills ? team.hard_skills.skills : "",
+  //   experiensceYearsTitle: global.tr_experiensce_years,
+  //   experiensceYears: team.hard_skills
+  //     ? team.hard_skills.experiensce_years
+  //     : "",
+  //   language: global.tr_language,
+  //   english: global.tr_team_english,
+  //   englishLevel: team.english_level,
+  //   otherLanguage: team.language,
+  //   personalSkillTitle: global.tr_personal_skills,
+  //   personalSkill: team.personal_skills ? team.personal_skills : "",
+  //   mainTitle: global.tr_main,
+  //   additionalTitle: global.tr_additional,
+  //   experienceTitle: global.tr_experience,
+  //   experience: team.experience ? team.experience : "",
+  // };
   useEffect(() => {
     setTimeout(() => {
       setReady(true);
@@ -117,36 +116,40 @@ const Cv = (props) => {
       {/*<CVPdf/>*/}
       <div className="container">
         <Hero
-          img={getImage(
-            team.cv_photo.localFile.childImageSharp.gatsbyImageData
-          )}
-          name={team.name}
+          img={
+            team?.cv_photo.localFile.childImageSharp.gatsbyImageData
+              ? getImage(
+                  team?.cv_photo.localFile.childImageSharp.gatsbyImageData
+                )
+              : ""
+          }
+          name={team?.name}
           chat="Chat"
-          direction={team.direction}
+          direction={team?.direction}
           description={
-            team.description.data ? team.description.data.description : ""
+            team?.description.data ? team?.description.data.description : ""
           }
         />
         <Skills
-          hardSkillTitle={global.tr_hard_skills}
-          hardSkill={team.hard_skills ? team.hard_skills.skills : ""}
-          experiensceYearsTitle={global.tr_experiensce_years}
+          hardSkillTitle={global?.tr_hard_skills}
+          hardSkill={team?.hard_skills ? team?.hard_skills.skills : ""}
+          experiensceYearsTitle={global?.tr_experiensce_years}
           experiensceYears={
-            team.hard_skills ? team.hard_skills.experiensce_years : ""
+            team?.hard_skills ? team?.hard_skills.experiensce_years : ""
           }
-          language={global.tr_language}
-          english={global.tr_team_english}
-          englishLevel={team.english_level}
-          otherLanguage={team.language}
-          personalSkillTitle={global.tr_personal_skills}
-          personalSkill={team.personal_skills ? team.personal_skills : ""}
-          mainTitle={global.tr_main}
-          additionalTitle={global.tr_additional}
-          experienceTitle={global.tr_experience}
-          experience={team.experience ? team.experience : ""}
+          language={global?.tr_language}
+          english={global?.tr_team_english}
+          englishLevel={team?.english_level}
+          otherLanguage={team?.language}
+          personalSkillTitle={global?.tr_personal_skills}
+          personalSkill={team?.personal_skills ? team?.personal_skills : ""}
+          mainTitle={global?.tr_main}
+          additionalTitle={global?.tr_additional}
+          experienceTitle={global?.tr_experience}
+          experience={team?.experience ? team?.experience : ""}
         />
         <div className={style.wrapCvButton}>
-          {ready && (
+          {/* {ready && (
             <BlobProvider document={<CVPdfItem infoPdf={userInfo} />}>
               {({ url, loading }) => {
                 if (url && !loading) {
@@ -158,7 +161,7 @@ const Cv = (props) => {
                 }
               }}
             </BlobProvider>
-          )}
+          )} */}
         </div>
       </div>
     </div>

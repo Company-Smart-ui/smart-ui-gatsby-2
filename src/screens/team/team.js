@@ -24,12 +24,10 @@ export const AllTeam = (props) => {
       }
       allStrapiGlobal {
         nodes {
-          tr_team_action
           tr_team_direction
           tr_team_english
           tr_team_level
           tr_team_name
-          tr_team_photo
         }
       }
     }
