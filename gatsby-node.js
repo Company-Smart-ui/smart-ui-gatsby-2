@@ -87,6 +87,33 @@ exports.createPages = async ({ actions, graphql }) => {
       },
     });
   });
+
+  const cv = path.resolve(
+    `src/templates/cv/cv.js`
+  );
+  const resultCv = await graphql(`
+    query {
+      allStrapiTeam {
+        edges {
+          node {
+            id
+            name
+          }
+        }
+      }
+    }
+  `);
+  resultCv.data.allStrapiTeam.edges.forEach((edge) => {
+    createPage({
+      path: `team/${edge.node.name
+        .replace(/[ ,./!@#$%^&*(?)=:;'"]/g, "_")
+        .toLowerCase()}`,
+      component: cv,
+      context: {
+        pageId: edge.node.id,
+      },
+    });
+  });
 };
 
 // const paginatePortfolio = async ({actions, graphql}) => {

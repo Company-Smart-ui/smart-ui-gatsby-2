@@ -40,6 +40,26 @@ body {
   .crisp-client .cc-52lo[data-full-view=true][data-last-operator-face=false] .cc-kegp .cc-1oun .cc-1qth .cc-lgzk .cc-3ycs[data-is-ongoing=false],
   .crisp-client .cc-52lo[data-last-operator-face=false] .cc-kegp .cc-1oun .cc-1qth .cc-lgzk .cc-3ycs[data-is-ongoing=false] {
     background-image: url('images/chat-white.png') !important;
+  .crisp-client .cc-52lo .cc-1s3d,
+  .crisp-client .cc-52lo .cc-1801:before,
+  .crisp-client .cc-52lo .cc-1801:after {
+    background-color: #13cc00 !important;
+  }
+  .crisp-client
+    .cc-52lo[data-full-view="true"][data-last-operator-face="false"]
+    .cc-kegp
+    .cc-1oun
+    .cc-1qth
+    .cc-lgzk
+    .cc-3ycs[data-is-ongoing="false"],
+  .crisp-client
+    .cc-52lo[data-last-operator-face="false"]
+    .cc-kegp
+    .cc-1oun
+    .cc-1qth
+    .cc-lgzk
+    .cc-3ycs[data-is-ongoing="false"] {
+    background-image: url("images/chat-white.png") !important;
     width: 20.5px !important;
     height: 20.5px !important;
     top: 50% !important;
