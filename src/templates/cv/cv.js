@@ -7,7 +7,6 @@ import { Skills } from "./components/skills/skills";
 import { BlobProvider } from "@react-pdf/renderer";
 import { CVPdfItem } from "./cvPdf/cvPdfItem";
 import { graphql } from "gatsby";
-import { PDFViewer } from "@react-pdf/renderer";
 
 export const query = graphql`
   query ($language: String, $pageId: String) {
@@ -88,11 +87,16 @@ export const query = graphql`
     }
   }
 `;
+
 const Cv = (props) => {
   const team = props?.data?.cv?.edges[0]?.node;
   const global = props?.data?.global?.edges[0]?.node;
   const [ready, setReady] = useState(false);
-
+  useEffect(() => {
+    setTimeout(() => {
+      setReady(true);
+    }, 0);
+  }, []);
   const userInfo = {
     numberPhone: team?.phone,
     emailUser: team?.email,
@@ -118,12 +122,6 @@ const Cv = (props) => {
     experienceTitle: global?.tr_experience,
     experience: team?.experience ? team?.experience : "",
   };
-
-  useEffect(() => {
-    setTimeout(() => {
-      setReady(true);
-    }, 0);
-  }, []);
 
   return (
     <div className={style.cv}>
