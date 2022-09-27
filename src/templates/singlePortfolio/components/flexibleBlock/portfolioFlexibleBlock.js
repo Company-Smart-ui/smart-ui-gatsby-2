@@ -1,8 +1,9 @@
 import React, { Fragment } from "react";
 import * as style from "./portfolioFlexibleBlock.module.scss";
 import { Block } from "../../../../components/simpleBlock/block";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-export const FlexibleBlock = (props) => {
+export const FlexibleBlock = ({ props }) => {
   return (
     <>
       {props.title_text && (
@@ -16,30 +17,31 @@ export const FlexibleBlock = (props) => {
           ))}
         </div>
       )}
-      {props.img &&
-        (props.mobile_img === true ? (
-          <div className={`picture-mobile ${style.pictureMobile}`}>
-            <div className="picture-mobile__wrap">
-              {props.img.map((t) => (
-                <Fragment key={t.url}>
-                  <picture>
-                    <img src={t.url} alt={t.alternativeText} />
-                  </picture>
-                </Fragment>
+      {props.mobile_img ? (
+        <div className={`picture-mobile ${style.pictureMobile}`}>
+          <div className="picture-mobile__wrap">
+            {Array.isArray(props.img) &&
+              props.img.map((t) => (
+                <GatsbyImage
+                  key={t.alternativeText}
+                  alt={t.alternativeText}
+                  image={getImage(t?.localFile.childImageSharp.gatsbyImageData)}
+                />
               ))}
-            </div>
           </div>
-        ) : (
-          <div className={`picture-desktop ${style.pictureDesktop}`}>
-            {props.img.map((t) => (
-              <Fragment key={t.url}>
-                <picture>
-                  <img src={t.url} alt={t.alternativeText} />
-                </picture>
-              </Fragment>
+        </div>
+      ) : (
+        <div className={`picture-desktop ${style.pictureDesktop}`}>
+          {Array.isArray(props.img) &&
+            props.img.map((t) => (
+              <GatsbyImage
+                key={t.alternativeText}
+                alt={t.alternativeText}
+                image={getImage(t?.localFile.childImageSharp.gatsbyImageData)}
+              />
             ))}
-          </div>
-        ))}
+        </div>
+      )}
     </>
   );
 };

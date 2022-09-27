@@ -70,6 +70,11 @@ export const query = graphql`
               img {
                 url
                 alternativeText
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
+                }
               }
               mobile_img
             }
@@ -96,6 +101,7 @@ const SinglePortfolio = (props) => {
   const propGlobal = props?.data?.global?.nodes[0];
   const mainImg =
     propProj?.main_img?.localFile?.childImageSharp?.gatsbyImageData;
+
   return (
     <div className={style.singlePortfolio}>
       {Background()}
@@ -182,9 +188,13 @@ const SinglePortfolio = (props) => {
           </div>
         </div>
         {propProj.Blocks &&
-          propProj.Blocks.map((i, idx) => (
-            <Fragment key={idx}>{FlexibleBlock(i)}</Fragment>
-          ))}
+          propProj.Blocks.map((i, idx) => {
+            return (
+              <Fragment key={idx}>
+                <FlexibleBlock props={i} />
+              </Fragment>
+            );
+          })}
       </div>
     </div>
   );
