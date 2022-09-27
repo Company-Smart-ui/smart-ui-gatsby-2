@@ -4,26 +4,39 @@ import { Block } from "./skillBlock/skillBlock";
 import { List } from "./list/list";
 
 export const Skills = (props) => {
+  const {
+    hardSkillTitle,
+    hardSkill,
+    experiensceYearsTitle,
+    experiensceYears,
+    languageTitle,
+    englishTitle,
+    englishLevel,
+    otherLanguage,
+    personalSkillTitle,
+    personalSkill,
+    mainTitle,
+    additionalTitle,
+    experienceTitle,
+    experience,
+  } = props.info;
+
   return (
     <div className={style.skills}>
-      {props.personalSkill && (
-        <Block
-          title={props.personalSkillTitle}
-          full
-          classes={style.personalSkills}
-        >
+      {personalSkill && (
+        <Block title={personalSkillTitle} full classes={style.personalSkills}>
           <>
-            {props.personalSkill.main && (
+            {personalSkill.main && (
               <List
                 classes="skillMain"
-                title={props.mainTitle}
-                content={props.personalSkill.main}
+                title={mainTitle}
+                content={personalSkill.main}
               />
             )}
-            {props.personalSkill.additional && (
+            {personalSkill.additional && (
               <List
-                title={props.additionalTitle}
-                content={props.personalSkill.additional}
+                title={additionalTitle}
+                content={personalSkill.additional}
               />
             )}
           </>
@@ -31,19 +44,18 @@ export const Skills = (props) => {
       )}
 
       <div className={style.skillGrid}>
-        {props.hardSkill && (
+        {hardSkill && (
           <Block
-            title={props.hardSkillTitle}
+            title={hardSkillTitle}
             classes={style.skillHard}
             subTitle={
-              props.experiensceYears &&
-              `${props.experiensceYearsTitle} ${props.experiensceYears}+`
+              experiensceYears &&
+              `${experiensceYearsTitle} ${experiensceYears}+`
             }
           >
             <ul>
-              {props.hardSkill.map((i, key) => {
-                const percent =
-                  (i.experiensce_years / props.experiensceYears) * 100;
+              {hardSkill.map((i, key) => {
+                const percent = (i.experiensce_years / experiensceYears) * 100;
                 return (
                   <li key={key}>
                     <p>{i.text}</p>
@@ -60,12 +72,12 @@ export const Skills = (props) => {
             </ul>
           </Block>
         )}
-        <Block classes={style.language} title={props.language}>
+        <Block classes={style.language} title={languageTitle}>
           <div className={style.languageItem}>
-            <p className={style.languageName}>{props.english}</p>
-            <p>{props.englishLevel}</p>
+            <p className={style.languageName}>{englishTitle}</p>
+            <p>{englishLevel}</p>
           </div>
-          {props.otherLanguage?.map((i, key) => {
+          {otherLanguage?.map((i, key) => {
             return (
               <div className={style.languageItem} key={key}>
                 <p className={style.languageName}>{i.text}</p>
@@ -76,9 +88,9 @@ export const Skills = (props) => {
         </Block>
       </div>
 
-      {props.experience.length > 0 && (
-        <Block classes={style.experience} title={props.experienceTitle}>
-          {props.experience.map((i, key) => {
+      {experience.length > 0 && (
+        <Block classes={style.experience} title={experienceTitle}>
+          {experience.map((i, key) => {
             return (
               <div className={style.wrap} key={key}>
                 <div className={style.company}>

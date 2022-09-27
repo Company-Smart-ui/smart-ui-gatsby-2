@@ -62,7 +62,8 @@ $xs: 420px;
       max-width: 200px;
     }
     @include lg {
-      width: 115px;
+      max-width: 206px;
+      width: 206px;
     }
 
     .lineSkill {

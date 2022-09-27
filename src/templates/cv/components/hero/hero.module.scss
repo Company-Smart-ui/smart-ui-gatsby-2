@@ -36,6 +36,12 @@ $lightBorder: rgba(106, 106, 106, 0.7);
   .buttonChat {
     display: block;
     margin-top: 20px;
+    max-width: 188px;
+    min-width: 188px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 23px;
+    padding: 25px 10px;
   }
 }
 .description {
@@ -53,6 +59,8 @@ $lightBorder: rgba(106, 106, 106, 0.7);
     padding-bottom: 15px;
     text-transform: uppercase;
     border-bottom: 0.5px solid rgba(255, 255, 255, 0.5);
+    width: 100%;
+    max-width: 685px;
     @include lg {
       margin-bottom: 60px;
     }

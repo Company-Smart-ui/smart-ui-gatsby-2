@@ -1,11 +1,8 @@
-import * as React from "react"
+import * as React from "react";
 import Cv from "../templates/cv/cv";
 
-const CVPage = ( ) => {
+const CVPage = () => {
+  return <Cv />;
+};
 
-    return <Cv/>
-
-
-}
-
-export default CVPage
+export default CVPage;

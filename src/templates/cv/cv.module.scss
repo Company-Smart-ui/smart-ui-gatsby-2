@@ -5,13 +5,6 @@ $borderColor: #6a6a6a;
 $colorGrey: #10be43;
 $lightBorder: rgba(106, 106, 106, 0.7);
 
-$xs: 420px;
-@mixin xs {
-  @media (min-width: $xs) {
-    @content;
-  }
-}
-
 .cv {
   padding: 150px 0;
   font-size: clamp(16px, 10vw - 80px, 20px);
@@ -23,10 +16,20 @@ $xs: 420px;
     padding: 200px 0;
   }
 
+  // delete after
+  iframe {
+    width: 50%;
+    min-height: 800px;
+    margin: 0 auto;
+    display: block;
+  }
+  //
+
   .wrapCvButton {
-    .button {
-      margin: auto;
-      max-width: 100px;
+    margin: 50px auto 0;
+    max-width: 100px;
+    @include lg {
+      margin: 100px auto 0;
     }
   }
 
