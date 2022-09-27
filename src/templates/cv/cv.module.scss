@@ -15,19 +15,9 @@ $lightBorder: rgba(106, 106, 106, 0.7);
   @include lg {
     padding: 200px 0;
   }
-
-  // delete after
-  iframe {
-    width: 50%;
-    min-height: 800px;
-    margin: 0 auto;
-    display: block;
-  }
-  //
-
   .wrapCvButton {
     margin: 50px auto 0;
-    max-width: 100px;
+    max-width: 188px;
     @include lg {
       margin: 100px auto 0;
     }

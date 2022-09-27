@@ -7,7 +7,7 @@ import { Skills } from "./components/skills/skills";
 import { BlobProvider } from "@react-pdf/renderer";
 import { CVPdfItem } from "./cvPdf/cvPdfItem";
 import { graphql } from "gatsby";
-// import { PDFViewer } from "@react-pdf/renderer";
+import { PDFViewer } from "@react-pdf/renderer";
 
 export const query = graphql`
   query ($language: String, $pageId: String) {
