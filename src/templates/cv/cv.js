@@ -98,25 +98,31 @@ const Cv = (props) => {
     }, 0);
   }, []);
   const userInfo = {
-    numberPhone: team?.phone,
-    emailUser: team?.email,
-    telegramUser: team?.telegram,
-    photoUser: team?.cv_photo.url,
-    photoUserGatsby:
-      team?.cv_photo?.localFile?.childImageSharp?.gatsbyImageData,
-    userDescription: team?.description?.data?.description,
-    userName: team?.name,
-    userDirection: team?.direction,
+    numberPhone: team?.phone ? team?.phone : "",
+    emailUser: team?.email ? team?.email : "",
+    telegramUser: team?.telegram ? team?.telegram : "",
+    photoUser: team?.cv_photo ? team?.cv_photo.url : "",
+    photoUserGatsby: team?.cv_photo
+      ? team?.cv_photo?.localFile?.childImageSharp?.gatsbyImageData
+      : "",
+    userDescription: team?.description?.data
+      ? team?.description?.data?.description
+      : "",
+    userName: team?.name ? team?.name : "",
+    userDirection: team?.direction ? team?.direction : "",
     hardSkillTitle: global?.tr_hard_skills,
     hardSkill: team?.hard_skills ? team?.hard_skills?.skills : "",
     experiensceYearsTitle: global?.tr_experiensce_years,
-    experiensceYears: team?.hard_skills?.experiensce_years,
+    experiensceYears:
+      team?.hard_skills & team?.hard_skills?.experiensce_years
+        ? team?.hard_skills?.experiensce_years
+        : "",
     languageTitle: global?.tr_language,
     englishTitle: global?.tr_team_english,
-    englishLevel: team?.english_level,
-    otherLanguage: team?.language,
+    englishLevel: team?.english_level ? team?.english_level : "",
+    otherLanguage: team?.language ? team?.language : "",
     personalSkillTitle: global?.tr_personal_skills,
-    personalSkill: team?.personal_skills,
+    personalSkill: team?.personal_skills ? team?.personal_skills : "",
     mainTitle: global?.tr_main,
     additionalTitle: global?.tr_additional,
     experienceTitle: global?.tr_experience,
