@@ -97,7 +97,6 @@ const SinglePortfolio = (props) => {
   const propProj = props?.data?.project?.edges[0]?.node;
   const mainImg =
     propProj?.main_img?.localFile?.childImageSharp?.gatsbyImageData;
-  console.log(propProj);
   return (
     <div className={style.singlePortfolio}>
       {Background()}
