@@ -65,8 +65,8 @@ export const Footer = ({ path }) => {
           <h3>Leave your message</h3>
         </Modal>
       )}
-      {path !== "team" || (path.startsWith("team") && <GetInTouch />)}
-
+      {/*{path !== "team" || (path.startsWith("team") && <GetInTouch />)}*/}
+      {path !== "team" ? <GetInTouch /> : ""}
       <footer className={style.footer}>
         <div className="container">
           <div className={style.row}>
