@@ -14,7 +14,7 @@ import mobileDevice from "./mobile.png";
 export const query = graphql`
   query ($language: String, $pageId: String) {
     locales: allLocale(
-      filter: { language: { eq: $language }, ns: { in: [$pageId, "global"] } }
+      filter: { language: { eq: $language }, ns: { in: ["global"] } }
     ) {
       edges {
         node {
@@ -207,7 +207,7 @@ const SinglePortfolio = (props) => {
                         <div className={style.scroll}>
                           <span>{t("tr_scroll_to_explore")}</span>
                         </div>
-                        <div className={style.mobileWrapp}>
+                        <div key={key} className={style.mobileWrapp}>
                           <div className={style.mobileImg}>
                             {i.img.map((t) => (
                               <GatsbyImage
