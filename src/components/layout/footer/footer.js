@@ -10,7 +10,6 @@ import * as style from "./footer.module.scss";
 import { Modal } from "../modal/modal";
 import { useOpen } from "../../../hooks/useOpen";
 import { useTranslation } from "react-i18next";
-import { t } from "i18next";
 
 const ContactUs = ({ info }) => {
   return (
