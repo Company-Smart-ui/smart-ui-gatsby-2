@@ -17,20 +17,7 @@ export const FlexibleBlock = ({ props }) => {
           ))}
         </div>
       )}
-      {props.mobile_img ? (
-        <div className={`picture-mobile ${style.pictureMobile}`}>
-          <div className="picture-mobile__wrap">
-            {Array.isArray(props.img) &&
-              props.img.map((t) => (
-                <GatsbyImage
-                  key={t.alternativeText}
-                  alt={t.alternativeText}
-                  image={getImage(t?.localFile.childImageSharp.gatsbyImageData)}
-                />
-              ))}
-          </div>
-        </div>
-      ) : (
+      {!props.mobile_img && (
         <div className={`picture-desktop ${style.pictureDesktop}`}>
           {Array.isArray(props.img) &&
             props.img.map((t) => (
