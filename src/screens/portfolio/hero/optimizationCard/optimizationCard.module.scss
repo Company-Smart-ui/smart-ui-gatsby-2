@@ -1,10 +1,10 @@
 @import "src/var";
 
-.optimization_card {
+.optimizationCard {
   margin: 0 auto;
   flex-direction: column;
   display: flex;
-  max-width: 275px;
+  max-width: 350px;
   background-color: rgba(250, 253, 255, 0.9);
   box-shadow: 0 3.1339px 3.1339px rgba(0, 0, 0, 0.25);
 
@@ -45,25 +45,43 @@
     }
 
     .widget {
+      display: flex;
       flex-direction: column;
+      justify-content: space-around;
       align-items: center;
+      max-height: 225px;
+      padding: 20px;
+      aspect-ratio: 350/215;
 
       .title {
         margin-top: 10px;
         font-size: 14px;
         font-weight: 500;
         line-height: 1.5;
+
+        @include lg {
+          font-size: 18px;
+        }
       }
 
       .check {
         font-size: 14px;
         font-weight: 300;
         line-height: 1.5;
+
+        @include lg {
+          font-size: 18px;
+        }
       }
 
       .control {
         width: 80px;
         height: 80px;
+
+        @include lg {
+          width: 100px;
+          height: 100px;
+        }
       }
 
       .progress-text {
@@ -77,12 +95,20 @@
         font-weight: 500;
         line-height: 1.2;
         color: $GrayBlue;
+
+        @include lg {
+          font-size: 17px;
+        }
       }
 
       .description {
         font-size: 8px;
         margin-top: 5px;
         line-height: 1.33;
+
+        @include lg {
+          font-size: 10px;
+        }
       }
     }
   }

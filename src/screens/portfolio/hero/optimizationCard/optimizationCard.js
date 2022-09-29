@@ -6,7 +6,7 @@ import * as style from "./optimizationCard.module.scss";
 
 export const OptimizationCard = ({ result }) => {
   return (
-    <div className={style.optimization_card}>
+    <div className={style.optimizationCard}>
       <div className="wrapper">
         <div className="img">
           <img src={PageSpeedLogo} alt="pagespeed_logo" />
@@ -21,9 +21,9 @@ export const OptimizationCard = ({ result }) => {
           <img src={Info} alt="info" />
         </div>
       </div>
-      <div className="wrapper widget">
+      <div className="widget">
         <div className="control">
-          <PageSpeed result={result} />
+          <PageSpeed result={result} largeResult />
         </div>
         <div className="title">Efficiency</div>
         <div className="check">Website optimization check</div>
