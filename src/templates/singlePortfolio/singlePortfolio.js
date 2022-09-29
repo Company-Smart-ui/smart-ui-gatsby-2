@@ -53,6 +53,11 @@ export const query = graphql`
           content_management_systems {
             name
           }
+          adaptive {
+            data {
+              adaptive
+            }
+          }
           services {
             data {
               services
@@ -172,17 +177,17 @@ const SinglePortfolio = (props) => {
                   </Block>
                 </div>
               )}
-              <div className={`${style.right} ${style.lists}`}>
-                <Block title="Адаптивний дизайн">
-                  <div>
-                    <ul>
-                      <li>Десктоп</li>
-                      <li>Планшет</li>
-                      <li>Мобільна версії</li>
-                    </ul>
-                  </div>
-                </Block>
-              </div>
+              {propProj.adaptive && (
+                <div className={`${style.right} ${style.lists}`}>
+                  <Block title={t("tr_adaptive_design")}>
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: propProj.adaptive.data.adaptive,
+                      }}
+                    />
+                  </Block>
+                </div>
+              )}
               {propProj.site_url && (
                 <a
                   href={propProj.site_url}
@@ -194,32 +199,37 @@ const SinglePortfolio = (props) => {
                 </a>
               )}
             </div>
-            <div className={style.mobileWrapp}>
+            <div className={style.mainInfoImg}>
               {propProj.Blocks &&
                 propProj.Blocks.map((i, key) => {
                   return (
                     i.mobile_img && (
                       <>
-                        <div className={style.mobileImg}>
-                          {i.img.map((t) => (
-                            <GatsbyImage
-                              key={t.alternativeText}
-                              alt={t.alternativeText}
-                              image={getImage(
-                                t?.localFile.childImageSharp.gatsbyImageData
-                              )}
-                            />
-                          ))}
+                        <div className={style.scroll}>
+                          <span>{t("tr_scroll_to_explore")}</span>
                         </div>
-                        <div key={key} className={style.mobileDevice}>
-                          <img
-                            src={mobileDevice}
-                            alt={
-                              propProj?.project_name
-                                ? propProj.project_name
-                                : ""
-                            }
-                          />
+                        <div className={style.mobileWrapp}>
+                          <div className={style.mobileImg}>
+                            {i.img.map((t) => (
+                              <GatsbyImage
+                                key={t.alternativeText}
+                                alt={t.alternativeText}
+                                image={getImage(
+                                  t?.localFile.childImageSharp.gatsbyImageData
+                                )}
+                              />
+                            ))}
+                          </div>
+                          <div className={style.mobileDevice}>
+                            <img
+                              src={mobileDevice}
+                              alt={
+                                propProj?.project_name
+                                  ? propProj.project_name
+                                  : ""
+                              }
+                            />
+                          </div>
                         </div>
                       </>
                     )
