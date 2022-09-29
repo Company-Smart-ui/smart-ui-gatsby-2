@@ -77,14 +77,15 @@ export const Skills = (props) => {
             <p className={style.languageName}>{englishTitle}</p>
             <p>{englishLevel}</p>
           </div>
-          {otherLanguage?.map((i, key) => {
-            return (
-              <div className={style.languageItem} key={key}>
-                <p className={style.languageName}>{i.text}</p>
-                <p>{i.level}</p>
-              </div>
-            );
-          })}
+          {otherLanguage &&
+            otherLanguage?.map((i, key) => {
+              return (
+                <div className={style.languageItem} key={key}>
+                  <p className={style.languageName}>{i.text}</p>
+                  <p>{i.level}</p>
+                </div>
+              );
+            })}
         </Block>
       </div>
 

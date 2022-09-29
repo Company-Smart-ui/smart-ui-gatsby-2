@@ -55,6 +55,8 @@ export const ClientsReview = () => {
               <div className="subtitle">
                 We will help to develop your best project based on your idea.
               </div>
+            </div>
+            <div className="button-grid">
               <button
                 className={[
                   "button",

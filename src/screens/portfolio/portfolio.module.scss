@@ -19,6 +19,7 @@
     .bCircle {
       background-color: $Blue;
     }
+
     .noise {
       top: 0;
       left: 0;
@@ -49,7 +50,6 @@
       @include md {
         font-size: 19px;
         line-height: 1.53;
-        margin-bottom: 45px;
       }
 
       @include lg {

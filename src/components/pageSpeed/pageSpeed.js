@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import * as style from "./pageSpeed.module.scss";
 
-export const PageSpeed = ({ result = 39 }) => {
+export const PageSpeed = ({ result = 39, largeResult }) => {
   const [textC, settextC] = useState("red");
   const [animation, setAnimation] = useState(" ");
   const [stroke, setStroke] = useState(`0 , 360`);
@@ -47,7 +47,13 @@ export const PageSpeed = ({ result = 39 }) => {
           strokeWidth="8"
         ></circle>
       </svg>
-      <span style={{ color: textC }} className={style.progressText}>
+      <span
+        style={{ color: textC }}
+        className={[
+          style.progressText,
+          largeResult ? style.largeText : "",
+        ].join(" ")}
+      >
         {result}
       </span>
     </div>

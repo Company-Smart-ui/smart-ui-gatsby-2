@@ -2,6 +2,7 @@
 
 .review {
   position: relative;
+  background-color: #DEF0F6;
 
   :global {
     .yCircle {
@@ -23,6 +24,10 @@
         top: 0;
         bottom: 200px;
       }
+
+      @include lg {
+        display: none;
+      }
     }
 
     .noise {
@@ -33,27 +38,30 @@
     .container-grid {
       display: grid;
       grid-template-columns: 1fr;
-      grid-template-rows: auto auto auto;
+      grid-template-rows: auto auto auto auto;
       grid-template-areas:
         "title-section"
+        "button-grid"
         "review-section"
         "pagination-section";
 
       @include lg {
         grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: auto auto;
+        grid-template-rows: auto 98px auto;
         column-gap: 30px;
         grid-template-areas:
           "title-section . ."
+          "button-grid review-section review-section"
           "pagination-section review-section review-section";
       }
 
       @include xl {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto;
-        column-gap: 30px;
+        grid-template-rows: auto 110px auto;
+        column-gap: 72px;
         grid-template-areas:
           "title-section ."
+          "pagination-section review-section review-section"
           "pagination-section review-section review-section";
       }
     }
@@ -61,7 +69,7 @@
     .title-section {
       grid-area: title-section;
       position: relative;
-      max-width: 275px;
+      max-width: 350px;
 
       @include lg {
         max-width: 100%;
@@ -76,9 +84,13 @@
     .review-section {
       grid-area: review-section;
       min-width: 275px;
-      padding-top: 24px;
+      margin-top: 24px;
       position: relative;
       min-height: 300px;
+
+      @include lg {
+        margin-top: 0;
+      }
 
       .title {
         color: $MediumSeaGreen;
@@ -88,7 +100,7 @@
 
         @include lg {
           position: absolute;
-          top: -50px;
+          top: -75px;
         }
       }
 
@@ -97,11 +109,23 @@
       }
     }
 
+    .button-grid {
+      grid-area: button-grid;
+      max-width: 275px;
+
+      @include lg {
+        padding-top: 30px;
+      }
+    }
+
     .paginationSection {
       grid-area: pagination-section;
-      margin-top: 24px;
-      margin-right: auto;
       position: static;
+      margin: 24px auto 0;
+
+      @include lg {
+        margin-left: 0;
+      }
     }
 
     // Card item
@@ -112,7 +136,7 @@
       max-width: 100%;
 
       @include md {
-        max-width: calc(50%);
+        width: 50%;
       }
 
       &:not(:first-child) {
