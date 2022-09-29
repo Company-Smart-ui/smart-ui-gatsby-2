@@ -1,32 +1,13 @@
 @import 'src/var';
 
 .cardsSwiper {
-  width: 275px;
-  margin: 24px auto 0;
+  margin-top: 24px;
   overflow: hidden;
   display: flex;
   align-items: stretch;
-
-  @include sm {
-    width: 436px;
-  }
-
-  @include md {
-    width: 628px;
-  }
-
-  @include lg {
-    width: 100%;
-    max-width: 700px;
-    margin-top: 0;
-  }
-
-  @include xl {
-    max-width: 810px;
-  }
-
-  @include xxl {
-    max-width: 898px;
+  max-width: 275px;
+  @include sm{
+    max-width: none;
   }
 
   :global {

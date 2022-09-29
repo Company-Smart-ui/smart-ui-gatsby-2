@@ -1,6 +1,7 @@
 @import "src/var";
 .swipeTo {
   font-size: 15px;
+  display: inline-block;
   span{
     width: auto;
     display: flex;
@@ -19,6 +20,7 @@
     height: 0.9em;
     object-fit: contain;
     margin-right: 5px;
+    width: auto;
     @include lg{
       height: 1.4em;
       margin-right: 15px;

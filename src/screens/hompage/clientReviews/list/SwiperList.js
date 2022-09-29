@@ -12,7 +12,7 @@ export const SwiperList = ({ content }) => {
           size={14}
           initialRating={rating}
           unit="float"
-          activeColor="green"
+          activeColor="#13CC00"
         />
         <span>{rating}</span>
       </div>

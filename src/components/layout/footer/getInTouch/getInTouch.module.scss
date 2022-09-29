@@ -28,8 +28,14 @@
   .img {
     width: fit-content;
     margin: 0 auto;
+    @include md{
+      margin-top: -16%;
+    }
     @include lg {
       margin-bottom: -31%;
+    }
+    @include xxl{
+      margin-top: -14%;
     }
 
     img {
@@ -59,6 +65,9 @@
         &::-moz-placeholder {
           color: $White;
         }
+      }
+      textarea{
+        height: 60px;
       }
     }
 

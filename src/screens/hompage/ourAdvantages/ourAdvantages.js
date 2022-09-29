@@ -55,6 +55,9 @@ export const OurAdvantages = () => {
             activeIndex={activeIndex}
           />
         </div>
+        <div className="wrap-button">
+          <a href="#" className="button">Review</a>
+        </div>
       </div>
     </section>
   );

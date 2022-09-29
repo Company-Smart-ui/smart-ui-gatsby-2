@@ -8,6 +8,9 @@
   background-size: cover;
   color: $White;
   position: relative;
+  @include lg{
+    padding-bottom: 45px !important;
+  }
 
   :global {
     .gCircle {
@@ -88,9 +91,14 @@
       }
     }
 
+    .wrap-button{
+      margin: auto;
+      text-align: center;
+    }
     .button {
       margin: 17px auto 0;
       min-width: 192px;
+      display: inline-block;
 
       @include md {
         margin-top: 50px;

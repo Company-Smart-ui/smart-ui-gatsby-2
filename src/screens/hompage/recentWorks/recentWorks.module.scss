@@ -62,13 +62,22 @@
 
     .content-container {
       grid-area: content-container;
+      margin: 0 auto;
+      width: 275px;
 
+      @include md {
+        width: 600px;
+      }
       @include lg {
-        margin-top: 0;
+        min-height: 100%;
+        width: 600px;
         display: flex;
         flex-direction: column;
         gap: 20px;
         min-width: 538px;
+      }
+      @include xl {
+        width: 950px;
       }
     }
 
@@ -84,6 +93,11 @@
     .subtitle {
       @include lg {
         font-size: 17px;
+      }
+    }
+    .pagination-wrapper{
+      @include md{
+        margin-left: 20px;
       }
     }
 

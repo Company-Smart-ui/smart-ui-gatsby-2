@@ -1,26 +1,11 @@
 @import 'src/var';
 
 .worksSwiper {
-  margin: 0 auto;
-  width: 275px;
-  margin-top: 24px;
+  margin: 24px 0 auto;
   overflow: hidden;
   display: flex;
   align-items: stretch;
   height: 100%;
-
-  @include md {
-    width: 600px;
-  }
-
-  @include lg {
-    min-height: 100%;
-    width: 600px;
-  }
-
-  @include xl {
-    width: 950px;
-  }
 
   :global {
     .swiper {

@@ -7,19 +7,18 @@
   background-repeat: no-repeat;
   background-position: right top;
 
-  @include md {
+  @include lg {
     background-image: url('./upwork_label_tablet.png');
     background-size: contain;
   }
 
   :global {
     .green {
-      color: $MediumSeaGreen;
+      color: $Lime;
     }
 
     .grid-container {
       display: grid;
-      grid-template-rows: 250px 210px 1fr 40px;
       grid-template-columns: 100%;
       grid-template-areas:
         'title'
@@ -56,10 +55,12 @@
 
     .title {
       grid-area: title;
-      max-width: 275px;
 
       @include md {
-        max-width: 100%;
+        max-width: 275px;
+      }
+      @include lg{
+        max-width: none;
       }
     }
 
@@ -69,19 +70,15 @@
       line-height: 1;
       font-weight: 500;
       font-family: $fontTitle;
-      max-width: 275px;
 
       @include md {
-        max-width: 190px;
         margin: auto auto 0;
+        max-width: 275px;
       }
 
       @include lg {
         margin: auto;
-      }
-
-      @include xxl {
-        max-width: 360px;
+        max-width: 350px;
       }
     }
 
@@ -94,7 +91,7 @@
         font-size: 29px;
       }
 
-      @include xxl {
+      @include lg {
         font-size: 40px;
         font-weight: 500;
       }
@@ -103,7 +100,10 @@
     .bg-upwork-title {
       background-image: url('./upwork_title.png');
       background-repeat: no-repeat;
-      background-position: left bottom;
+      background-position: -35px bottom;
+      @include lg{
+        background-position: 0 bottom;
+      }
     }
 
     .content {
@@ -127,6 +127,7 @@
     .button {
       min-width: 190px;
       margin-top: 24px;
+      display: inline-block;
     }
 
     .list-title {
@@ -135,8 +136,11 @@
       line-height: 1;
       letter-spacing: -0.045em;
       margin-top: 16px;
+      margin-bottom: 10px;
       font-family: $fontTitle;
-
+      @include md{
+        margin-bottom: 23px;
+      }
       @include xxl {
         font-size: 40px;
       }
@@ -144,17 +148,22 @@
 
     .list-rating {
       font-size: 14px;
-      margin-top: 8px;
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
       gap: 12px;
+      @include md{
+        margin-bottom: 15px;
+      }
+      svg{
+        margin-right: 4px;
+      }
     }
 
     .list-review {
       font-size: 16px;
       line-height: 1.28;
       margin-top: 8px;
-      text-align: justify;
       color: $Gray;
 
       @include lg {
@@ -172,6 +181,13 @@
       font-weight: 500;
       line-height: 1.5;
       letter-spacing: -0.045em;
+      @include md{
+        margin-top: 30px;
+        margin-bottom: 40px;
+        &:last-child{
+          margin-bottom: 0;
+        }
+      }
     }
 
     .swiper {

@@ -44,7 +44,7 @@ export const Hero = () => {
                     <button className={["button", (isOpen ? 'disabledBtn' : '')].join(' ') } onClick={onOpen} > Get Started </button>
                     <Contact/>
                 </div>
-                  <SwipeTo/>
+                <SwipeTo toLink={"#whatWeDo"}/>
             </div>
 
         </div>
