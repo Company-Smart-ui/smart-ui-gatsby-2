@@ -2,6 +2,7 @@ import * as React from "react";
 import * as style from "./team.module.scss";
 import { TeamItem } from "./teamItem/teamItem";
 import { useStaticQuery, graphql } from "gatsby";
+import { useTranslation } from "react-i18next";
 
 export const AllTeam = (props) => {
   const data = useStaticQuery(graphql`
@@ -22,18 +23,10 @@ export const AllTeam = (props) => {
           }
         }
       }
-      allStrapiGlobal {
-        nodes {
-          tr_team_direction
-          tr_team_english
-          tr_team_level
-          tr_team_name
-        }
-      }
     }
   `);
-  const global = data.allStrapiGlobal.nodes[0];
   const item = data.allStrapiTeam.nodes;
+  const { t } = useTranslation();
   return (
     <div className={style.team}>
       <div className={style.logo}></div>
@@ -44,10 +37,10 @@ export const AllTeam = (props) => {
           <div className={`${style.gridHead} lg-only`}>
             <span></span>
             <div className={style.centerRow}>
-              <span>{global.tr_team_name}</span>
-              <span>{global.tr_team_direction}</span>
-              <span>{global.tr_team_level}</span>
-              <span>{global.tr_team_english}</span>
+              <span>{t("tr_team_name")}</span>
+              <span>{t("tr_team_direction")}</span>
+              <span>{t("tr_team_level")}</span>
+              <span>{t("tr_team_english")}</span>
             </div>
             <span></span>
           </div>
@@ -60,15 +53,16 @@ export const AllTeam = (props) => {
                     i.cv_photo.localFile.childrenImageSharp[0].gatsbyImageData
                   }
                   name={i.name}
-                  nameTitle={global.tr_team_name}
+                  nameTitle={t("tr_team_name")}
                   direction={i.direction}
-                  directionTitle={global.tr_team_direction}
+                  directionTitle={t("tr_team_direction")}
                   level={i.level}
-                  levelTitle={global.tr_team_level}
+                  levelTitle={t("tr_team_level")}
                   price={i.price}
                   english={i.english_level}
-                  englishTitle={global.tr_team_english}
+                  englishTitle={t("tr_team_english")}
                   link={i.name}
+                  more={t("tr_more")}
                 />
               );
             })}

@@ -56,7 +56,7 @@ export const TeamItem = (props) => {
       </div>
       <div className={style.link}>
         <Link to={`/team/${makeUrl}`} className="button">
-          More
+          {props.more}
         </Link>
       </div>
     </div>

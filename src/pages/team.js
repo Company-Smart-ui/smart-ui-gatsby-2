@@ -1,33 +1,30 @@
-import React from 'react';
-import {graphql} from "gatsby";
-import {Seo} from "../components/SEO/SEO";
-import {AllTeam} from "../screens/team/team";
-import componentDidMount from '../global/chatbot';
-
+import React from "react";
+import { graphql } from "gatsby";
+import { Seo } from "../components/SEO/SEO";
+import { AllTeam } from "../screens/team/team";
+import componentDidMount from "../global/chatbot";
 
 export const query = graphql`
-  query ($language: String ,$pageName:[String] ) {
-   locales: allLocale(filter: {language: {eq: $language}, ns: {in: $pageName}}) {
+  query ($language: String) {
+    locales: allLocale(
+      filter: { language: { eq: $language }, ns: { in: ["global"] } }
+    ) {
       edges {
-        node { 
+        node {
           ns
           language
-          data 
+          data
         }
       }
     }
   }
-`
+`;
 const Team = () => {
-    return <AllTeam />
+  return <AllTeam />;
 };
 
-export default Team
+export default Team;
 
 export const Head = (data) => {
-    return (
-        <Seo title={data.pageContext.pageName[0]}>
-          {componentDidMount()}
-        </Seo>
-    )
-}
+  return <Seo title={data.pageContext.pageName[0]}>{componentDidMount()}</Seo>;
+};
