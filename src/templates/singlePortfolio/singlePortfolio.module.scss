@@ -5,6 +5,12 @@ $borderColor: rgba(255, 255, 255, 0.3);
 $categoryBg: rgba(217, 217, 217, 0.5);
 $pictureBg: rgba(255, 255, 255, 0.1);
 $secondFontColor: #8f8f8f;
+$xs: 375px;
+@mixin xs {
+  @media (min-width: $xs) {
+    @content;
+  }
+}
 
 .singlePortfolio {
   margin-top: 120px;
@@ -12,6 +18,7 @@ $secondFontColor: #8f8f8f;
   position: relative;
   color: $White;
   font-size: clamp(18px, 6vw - 20px, 24px);
+  font-weight: 400;
   padding-bottom: 100px;
   background-image: url("./logo-wp.png");
   background-repeat: no-repeat;
@@ -19,14 +26,102 @@ $secondFontColor: #8f8f8f;
   @include xl {
     padding-bottom: 150px;
   }
-  :global {
-    .container {
-      max-width: 1325px;
-      @include xl {
-        padding: 0;
-        border: 1px solid $borderColor;
+  h1 {
+    color: white;
+    font-size: clamp(40px, 10vw - 20px, 80px);
+  }
+  .lists {
+    ul {
+      padding-left: 20px;
+      list-style: disc;
+    }
+  }
+  .wrap {
+    border-bottom: 1px solid $borderColor;
+    padding: 30px 0;
+    position: relative;
+    z-index: 1;
+    @include lg {
+      padding: 50px 0;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+  }
+  .left {
+    width: 100%;
+    @include lg {
+      width: 50%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      .block {
+        width: 100%;
       }
     }
+  }
+  .right {
+    width: 100%;
+    @include lg {
+      width: 50%;
+      max-width: 470px;
+      margin-left: auto;
+      padding-left: 80px;
+    }
+  }
+  .category {
+    display: flex;
+    align-items: flex-start;
+    li {
+      margin-right: 10px;
+      padding: 0 23px;
+      background: $categoryBg;
+      border-radius: 20.5px;
+      color: $White;
+    }
+  }
+  .mainInfo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    @include lg {
+      padding-right: 130px;
+    }
+  }
+  .textInfo {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    @include md {
+      padding-right: 50px;
+      flex: 1;
+      max-width: 643px;
+    }
+  }
+  .siteUrl {
+    word-break: break-all;
+  }
+  .modified {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    :global {
+      .subtitle {
+        margin-bottom: 0;
+      }
+    }
+  }
+  :global {
+    .container {
+      max-width: 1341px;
+      position: relative;
+      z-index: 1;
+      @include xxl {
+        padding: 0;
+      }
+    }
+
     .button__wrap {
       text-align: center;
       a {
@@ -49,10 +144,7 @@ $secondFontColor: #8f8f8f;
         margin-bottom: 0;
       }
     }
-    h1 {
-      color: white;
-      font-size: clamp(40px, 10vw - 20px, 80px);
-    }
+
     .subtitle {
       font-weight: 600;
       text-transform: uppercase;
@@ -66,33 +158,10 @@ $secondFontColor: #8f8f8f;
         margin-bottom: 30px;
       }
     }
-    .wrap {
-      border-bottom: 1px solid $borderColor;
-      padding: 30px 0;
-      position: relative;
-      z-index: 1;
-      @include lg {
-        padding: 50px 85px;
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-      }
-    }
-    .left {
-      @include lg {
-        width: 50%;
-      }
-    }
-    .right {
-      @include lg {
-        width: 50%;
-        max-width: 470px;
-        margin-left: auto;
-        padding-left: 80px;
-      }
-    }
+
     .block {
       margin-bottom: 35px;
+      width: 100%;
       @include md {
         margin-bottom: 50px;
       }
@@ -101,34 +170,140 @@ $secondFontColor: #8f8f8f;
       & > div {
         color: #8f8f8f;
       }
-      &.modified {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        .subtitle {
-          margin-bottom: 0;
-        }
-      }
       &:last-child {
         margin-bottom: 30px;
       }
     }
-    .category {
-      display: flex;
-      align-items: flex-start;
-      li {
-        margin-right: 10px;
-        padding: 0 23px;
-        background: $categoryBg;
-        border-radius: 20.5px;
-        color: $White;
-      }
-    }
+
     picture {
       background: $pictureBg;
       display: block;
       text-align: center;
       font-size: 0;
     }
+  }
+}
+.heroImg {
+  position: relative;
+  margin: 0 auto;
+  padding-top: 30px;
+  width: 210px;
+  overflow: hidden;
+  @include xs {
+    width: 350px;
+  }
+  @include sm {
+    width: 470px;
+  }
+  @include md {
+    width: 630px;
+  }
+  @include lg {
+    width: 700px;
+  }
+  @include xl {
+    width: 1015px;
+  }
+}
+.heroImgDevice {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+.heroImgWrapp {
+  width: 165px;
+  height: 113px;
+  position: absolute;
+  top: 30px;
+  left: 22px;
+  padding: 4px;
+  & > div {
+    width: 100%;
+    height: 100%;
+  }
+  @include xs {
+    width: 278px;
+    height: 191px;
+    left: 35px;
+    padding: 8px;
+  }
+  @include sm {
+    width: 372px;
+    height: 255px;
+    left: 48px;
+    padding: 10px;
+  }
+  @include md {
+    width: 498px;
+    height: 341px;
+    left: 64px;
+    padding: 13px;
+  }
+  @include lg {
+    width: 554px;
+    height: 380px;
+    left: 71px;
+    padding: 15px;
+  }
+  @include xl {
+    width: 804px;
+    height: 551px;
+    left: 102px;
+    padding: 22px;
+  }
+}
+.mobileWrapp {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  width: 210px;
+  height: 410px;
+  padding: 11px 14px 12px;
+  @include md {
+    margin: 0;
+  }
+  @include xl {
+    width: 385px;
+    height: 754px;
+    padding: 22px 28px 23px;
+  }
+}
+.mobileDevice {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 11px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 85px;
+    height: 31px;
+    z-index: 2;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("data:image/svg+xml,%3Csvg width='164' height='31' viewBox='0 0 164 31' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H164C162.396 0.633367 161.327 2.16514 161.286 3.88899L161.242 5.74719C161.242 19.6939 149.936 31 135.989 31H28.0112C14.0644 31 2.75841 19.6939 2.75841 5.74719L2.71399 3.88899C2.67278 2.16514 1.60381 0.633367 0 0Z' fill='%23004D66'/%3E%3C/svg%3E%0A");
+    @include xl {
+      width: 164px;
+      top: 22px;
+    }
+  }
+}
+.mobileImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px 20px 19px 20px;
+  position: relative;
+  overflow-y: auto;
+  z-index: 1;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  @include xl {
+    border-radius: 34px 36px 30px 33px;
   }
 }
