@@ -79,6 +79,7 @@ export const MeetOur = () => {
               swiperRef={swiperRef}
               setSwiperRef={setSwiperRef}
               teamList={employees}
+              button={t("tr_ask_a_question")}
             />
           </div>
           <div className="footer-buttons overlay">

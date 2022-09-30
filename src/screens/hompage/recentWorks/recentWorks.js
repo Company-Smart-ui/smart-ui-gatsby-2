@@ -60,6 +60,7 @@ export const RecentWorks = () => {
                   swiperRef={swiperRef}
                   setSwiperRef={setSwiperRef}
                   listOfProjects={listOfProjects}
+                  button={t("tr_learn_more")}
                 />
               </div>
               <div className="buttons-block overlay">

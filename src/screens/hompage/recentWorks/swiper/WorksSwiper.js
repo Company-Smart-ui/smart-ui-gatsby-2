@@ -11,6 +11,7 @@ export const WorksSwiper = ({
   setActiveHandler,
   setSwiperRef,
   listOfProjects,
+  button,
 }) => {
   return (
     <div className={style.worksSwiper}>
@@ -45,7 +46,7 @@ export const WorksSwiper = ({
         {Array.isArray(listOfProjects) &&
           listOfProjects.map((el) => (
             <SwiperSlide key={el.id}>
-              <ProjectCard {...el} />
+              <ProjectCard button={button} {...el} />
             </SwiperSlide>
           ))}
       </Swiper>

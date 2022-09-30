@@ -6,7 +6,12 @@ import * as style from "./teamSwiper.module.scss";
 import "swiper/css";
 import "swiper/css/free-mode";
 
-export const TeamSwiper = ({ activeIndexHandler, setSwiperRef, teamList }) => {
+export const TeamSwiper = ({
+  activeIndexHandler,
+  setSwiperRef,
+  teamList,
+  button,
+}) => {
   return (
     <div className={style.teamSwiper}>
       <Swiper
@@ -45,7 +50,7 @@ export const TeamSwiper = ({ activeIndexHandler, setSwiperRef, teamList }) => {
       >
         {teamList.map((el, i) => (
           <SwiperSlide key={i}>
-            <Card content={el} key={i} />
+            <Card button={button} content={el} key={i} />
           </SwiperSlide>
         ))}
       </Swiper>
