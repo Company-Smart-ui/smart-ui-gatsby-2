@@ -120,76 +120,82 @@ const SinglePortfolio = (props) => {
           </div>
         )}
         <div>
-          {propProj.project_name && (
+          {propProj?.project_name && (
             <div className={style.wrap}>
-              <h1>{propProj.project_name}</h1>
+              <h1>{propProj?.project_name}</h1>
             </div>
           )}
           <div className={`${style.mainInfo} ${style.wrap}`}>
             <div className={style.textInfo}>
-              {propProj.technology.name && (
+              {propProj?.technology.name && (
                 <Block class={style.modified} title={t("tr_category") + ":"}>
                   <ul className={style.category}>
-                    <li>{propProj.technology.name}</li>
+                    <li>{propProj?.technology.name}</li>
                   </ul>
                 </Block>
               )}
-              {propProj.site_url && (
+              {propProj?.site_url && (
                 <Block
                   class={`${style.modified} ${style.siteUrl}`}
                   title={t("tr_site") + ":"}
-                  text={propProj.site_url}
+                  text={propProj?.site_url}
                 />
               )}
-              {propProj.content_management_systems.length > 0 && (
+              {propProj?.content_management_systems.length > 0 && (
                 <Block class={style.modified} title={t("tr_cms") + ":"}>
                   <ul className={style.category}>
-                    {propProj.content_management_systems.map((i) => (
-                      <li key={i.name}>{i.name}</li>
+                    {propProj?.content_management_systems.map((i, key) => (
+                      <li key={key}>{i.name}</li>
                     ))}
                   </ul>
                 </Block>
               )}
-              {propProj.technologies.length > 0 && (
+              {propProj?.technologies.length > 0 && (
                 <Block class={style.modified} title={t("tr_technology") + ":"}>
                   <ul className={style.category}>
-                    {propProj.technologies.map((i) => (
-                      <li key={i.name}>{i.name}</li>
+                    {propProj?.technologies.map((i, key) => (
+                      <li key={key}>{i.name}</li>
                     ))}
                   </ul>
                 </Block>
               )}
-              {propProj.description_text?.data?.description_text && (
+              {propProj?.description_text?.data?.description_text && (
                 <Block
                   title={t("tr_review")}
-                  text={t(propProj.description_text.data.description_text)}
+                  text={t(propProj?.description_text?.data?.description_text)}
                 />
               )}
-              {propProj.services && (
+              {propProj?.services && (
                 <div className={`${style.left} ${style.lists}`}>
                   <Block title={t("tr_services")}>
                     <div
                       dangerouslySetInnerHTML={{
-                        __html: propProj.services.data.services,
+                        __html: propProj?.services?.data?.services.replace(
+                          /(\r\n|\n|\r)/gm,
+                          ""
+                        ),
                       }}
                     />
                   </Block>
                 </div>
               )}
-              {propProj.adaptive && (
+              {propProj?.adaptive && (
                 <div className={`${style.right} ${style.lists}`}>
                   <Block title={t("tr_adaptive_design")}>
                     <div
                       dangerouslySetInnerHTML={{
-                        __html: propProj.adaptive.data.adaptive,
+                        __html: propProj?.adaptive?.data?.adaptive.replace(
+                          /(\r\n|\n|\r)/gm,
+                          ""
+                        ),
                       }}
                     />
                   </Block>
                 </div>
               )}
-              {propProj.site_url && (
+              {propProj?.site_url && (
                 <a
-                  href={propProj.site_url}
+                  href={propProj?.site_url}
                   className="button"
                   target="_blank"
                   rel="noreferrer"
@@ -199,19 +205,25 @@ const SinglePortfolio = (props) => {
               )}
             </div>
             <div className={style.mainInfoImg}>
-              {propProj.Blocks &&
-                propProj.Blocks.map((i, key) => {
-                  return (
-                    i.mobile_img && (
-                      <>
-                        <div className={style.scroll}>
-                          <span>{t("tr_scroll_to_explore")}</span>
-                        </div>
+              {propProj?.Blocks && (
+                <>
+                  {propProj?.Blocks.map((i, key) => {
+                    return i.mobile_img ? (
+                      <div key={key} className={style.scroll}>
+                        <span>{t("tr_scroll_to_explore")}</span>
+                      </div>
+                    ) : (
+                      ""
+                    );
+                  })}
+                  {propProj?.Blocks.map((i, key) => {
+                    return (
+                      i.mobile_img && (
                         <div key={key} className={style.mobileWrapp}>
                           <div className={style.mobileImg}>
-                            {i.img.map((t) => (
+                            {i.img.map((t, key) => (
                               <GatsbyImage
-                                key={t.alternativeText}
+                                key={key}
                                 alt={t.alternativeText}
                                 image={getImage(
                                   t?.localFile.childImageSharp.gatsbyImageData
@@ -230,15 +242,16 @@ const SinglePortfolio = (props) => {
                             />
                           </div>
                         </div>
-                      </>
-                    )
-                  );
-                })}
+                      )
+                    );
+                  })}
+                </>
+              )}
             </div>
           </div>
         </div>
-        {propProj.Blocks &&
-          propProj.Blocks.map((i, idx) => {
+        {propProj?.Blocks &&
+          propProj?.Blocks.map((i, idx) => {
             return (
               <Fragment key={idx}>
                 <FlexibleBlock props={i} />
