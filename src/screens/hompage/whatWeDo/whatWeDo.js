@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import ScrollableAnchor from 'react-scrollable-anchor';
+import ScrollableAnchor from "react-scrollable-anchor";
 import * as style from "./whatWeDo.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { SwiperButtons } from "../../../global/swiperButtons/SwiperButtons";
 import { useTranslation } from "react-i18next";
-import {Modal} from "../../../components/layout/modal/modal";
-import {useOpen} from "../../../hooks/useOpen";
+import { Modal } from "../../../components/layout/modal/modal";
+import { useOpen } from "../../../hooks/useOpen";
 
 import "swiper/css";
 import { Pagination } from "../../../global/pagination/Pagination";
@@ -15,7 +15,7 @@ export const WhatWeDo = () => {
   const [swiper, setSwiper] = useState(null);
   const [secondSwiper, setSecondSwiper] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const {isOpen, onClose, onOpen}= useOpen(false);
+  const { isOpen, onClose, onOpen } = useOpen(false);
 
   const slidePrevHandler = () => {
     swiper.slidePrev();
@@ -34,8 +34,8 @@ export const WhatWeDo = () => {
 
   return (
     <>
-    <ScrollableAnchor id={'whatWeDo'}>
-      <section className={`${style.whatWeDo} vertical-padding`}>
+      <ScrollableAnchor id={"whatWeDo"}>
+        <section className={`${style.whatWeDo} vertical-padding`}>
           <div className="container">
             <div className="grid">
               <div className="description-grid">
@@ -44,11 +44,11 @@ export const WhatWeDo = () => {
                 <div className="noise" />
                 <h2 className="h2 overlay">{t("whatwedo_title")}</h2>
                 <Swiper
-                    onSwiper={setSwiper}
-                    slidesPerView={1}
-                    className="mySwiper2"
-                    allowTouchMove={false}
-                    onSlideChange={() => setActiveIndex(swiper.realIndex)}
+                  onSwiper={setSwiper}
+                  slidesPerView={1}
+                  className="mySwiper2"
+                  allowTouchMove={false}
+                  onSlideChange={() => setActiveIndex(swiper.realIndex)}
                 >
                   <SwiperSlide>
                     <p className="description">{firstSlide.top_text}</p>
@@ -59,25 +59,34 @@ export const WhatWeDo = () => {
                 </Swiper>
               </div>
               <div className="pagination">
-                <button className={["button", (isOpen ? 'disabledBtn' : '')].join(' ') } onClick={onOpen}>{t("whatwedo_btn")}</button>
-                <Pagination activeIdx={activeIndex} sliderLength={2} whiteTheme />
+                <button
+                  className={["button", isOpen ? "disabledBtn" : ""].join(" ")}
+                  onClick={onOpen}
+                >
+                  {t("whatwedo_btn")}
+                </button>
+                <Pagination
+                  activeIdx={activeIndex}
+                  sliderLength={2}
+                  whiteTheme
+                />
               </div>
               <div className="work-list">
                 <div className="dividerLine" />
                 <Swiper
-                    onSwiper={setSecondSwiper}
-                    slidesPerView={1}
-                    allowTouchMove={false}
-                    className="mySwiper"
+                  onSwiper={setSecondSwiper}
+                  slidesPerView={1}
+                  allowTouchMove={false}
+                  className="mySwiper"
                 >
                   <SwiperSlide>
                     <>
                       <p className="subtitle">{firstSlide.bottom_title}</p>
                       <ul
-                          dangerouslySetInnerHTML={{
-                            __html: firstSlide.bottom_text,
-                          }}
-                          className="list-descriptions"
+                        dangerouslySetInnerHTML={{
+                          __html: firstSlide.bottom_text,
+                        }}
+                        className="list-descriptions"
                       />
                     </>
                   </SwiperSlide>
@@ -85,10 +94,10 @@ export const WhatWeDo = () => {
                     <>
                       <p className="subtitle">{secondSlide.bottom_title}</p>
                       <ul
-                          dangerouslySetInnerHTML={{
-                            __html: secondSlide.bottom_text,
-                          }}
-                          className="list-descriptions"
+                        dangerouslySetInnerHTML={{
+                          __html: secondSlide.bottom_text,
+                        }}
+                        className="list-descriptions"
                       />
                     </>
                   </SwiperSlide>
@@ -96,28 +105,27 @@ export const WhatWeDo = () => {
               </div>
               <div className="footer overlay">
                 <SwiperButtons
-                    onPrev={slidePrevHandler}
-                    onNext={slideNextHandler}
-                    sliderLength={2}
-                    activeIndex={activeIndex}
+                  onPrev={slidePrevHandler}
+                  onNext={slideNextHandler}
+                  sliderLength={2}
+                  activeIndex={activeIndex}
                 />
               </div>
               <div className="info-link">
                 <div className="horizontal-line" />
-                <a href="/">Book a consultation</a>
+                <a href="/">{t("tr_book_a_consultation")}</a>
               </div>
             </div>
           </div>
-      </section>
-    </ScrollableAnchor>
-    {
-        isOpen && 
+        </section>
+      </ScrollableAnchor>
+      {isOpen && (
         <div className={style.whatWeDoWrap}>
-            <Modal onClose={onClose} title={'Ask a question'}>
-                <h3>Ask a question</h3>
-            </Modal>
+          <Modal onClose={onClose} title={"Ask a question"}>
+            <h3>Ask a question</h3>
+          </Modal>
         </div>
-    }
+      )}
     </>
   );
 };

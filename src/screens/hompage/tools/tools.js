@@ -44,7 +44,10 @@ export const Tools = () => {
                   {t("tools_btn")}
                 </button>
                 <div className="swiperTips">
-                  <SwipeTo toLink={'#strategy'}/>
+                  <SwipeTo
+                    toLink={"#strategy"}
+                    text={t("tr_scroll_to_explore")}
+                  />
                 </div>
               </div>
             </div>

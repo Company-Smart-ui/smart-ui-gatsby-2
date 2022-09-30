@@ -24,7 +24,7 @@ const copyright = {
   text: "© 2022 Smart-UI. All Rights Reserved",
 };
 
-export const BackToTop = () => {
+export const BackToTop = ({ text }) => {
   const scroll = () => {
     window.scrollTo({
       top: 0,
@@ -36,10 +36,10 @@ export const BackToTop = () => {
   return (
     <button onClick={scroll} className={style.backTo}>
       <span className="lg-only">
-        <img src={Scroll} alt="back to top" /> Back to top
+        <img src={Scroll} alt="back to top" /> {text}
       </span>
       <span className="lg-end">
-        <img src={Img} alt="back to top" /> Back to top
+        <img src={Img} alt="back to top" /> {text}
       </span>
     </button>
   );
@@ -58,7 +58,7 @@ export const Footer = ({ path }) => {
         className={["openBtn", isOpen ? "disabledBtn" : ""].join(" ")}
         onClick={onOpen}
       >
-        request consultation
+        {t("tr_return_message")}
       </button>
       {isOpen && (
         <Modal onClose={onClose}>
@@ -86,7 +86,7 @@ export const Footer = ({ path }) => {
           </div>
           <div className={style.bottom}>
             <p>{copyright.text}</p>
-            <BackToTop />
+            <BackToTop text={t("tr_back_to_top")} />
           </div>
         </div>
       </footer>
