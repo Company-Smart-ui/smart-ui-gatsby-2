@@ -162,7 +162,7 @@ const SinglePortfolio = (props) => {
               {propProj?.description_text?.data?.description_text && (
                 <Block
                   title={t("tr_review")}
-                  text={t(propProj.description_text.data.description_text)}
+                  text={t(propProj?.description_text?.data?.description_text)}
                 />
               )}
               {propProj?.services && (
@@ -170,7 +170,7 @@ const SinglePortfolio = (props) => {
                   <Block title={t("tr_services")}>
                     <div
                       dangerouslySetInnerHTML={{
-                        __html: propProj.services.data.services,
+                        __html: propProj?.services?.data?.services,
                       }}
                     />
                   </Block>
