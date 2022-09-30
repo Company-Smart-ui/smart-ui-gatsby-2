@@ -93,6 +93,13 @@ p {
   height: 100%;
   min-height: 100vh;
   background-color: $White;
+  &.projects {
+    header {
+      height: 76px;
+      padding-top: 16px;
+      padding-bottom: 26px;
+    }
+  }
 }
 
 header,
