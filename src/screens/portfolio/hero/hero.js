@@ -9,6 +9,7 @@ import { FilterButtons } from "./filterButtons/filterButtons";
 import { ProjectsList } from "./projectsList/projectsList";
 import { Loader } from "../../../global/loader/loader";
 import { PaginationList } from "../paginationList/paginationList";
+import { useTranslation } from "react-i18next";
 import {
   setCountCardsPerScreenSize,
   sliceItemsPerPage,
@@ -25,7 +26,7 @@ export const Hero = () => {
 
   const [search, setSearch] = useQueryParam("technologies", "");
   const [projects] = useState(useProjectsList());
-
+  const { t } = useTranslation();
   const size = useWindowResize();
 
   // Tab buttons
@@ -122,7 +123,10 @@ export const Hero = () => {
             </div>
             <div className="listWrapper overlay container">
               {!loading ? (
-                <ProjectsList currentsCard={projectsList} />
+                <ProjectsList
+                  button={t("tr_learn_more")}
+                  currentsCard={projectsList}
+                />
               ) : (
                 <Loader inside />
               )}

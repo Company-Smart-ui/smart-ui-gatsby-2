@@ -13,6 +13,7 @@ export const ProjectCard = ({
   main_img,
   technology,
   technologies,
+  button,
 }) => {
   const mainImage = getImage(main_img?.localFile);
 
@@ -102,7 +103,7 @@ export const ProjectCard = ({
             </div>
           </div>
           <Link to={`/project/${makeUrl}`} className="button">
-            Learn more
+            {button}
           </Link>
         </div>
       </div>
