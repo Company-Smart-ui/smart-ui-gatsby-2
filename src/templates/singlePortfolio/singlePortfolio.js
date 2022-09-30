@@ -180,7 +180,11 @@ const SinglePortfolio = (props) => {
                 </div>
               )}
               {propProj?.adaptive && (
-                <div className={`${style.right} ${style.lists}`}>
+                <div
+                  className={`${
+                    propProj?.services ? style.right : style.left
+                  } ${style.lists}`}
+                >
                   <Block title={t("tr_adaptive_design")}>
                     <div
                       dangerouslySetInnerHTML={{
@@ -194,14 +198,16 @@ const SinglePortfolio = (props) => {
                 </div>
               )}
               {propProj?.site_url && (
-                <a
-                  href={propProj?.site_url}
-                  className="button"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {t("tr_view_site")}
-                </a>
+                <div className={style.siteLink}>
+                  <a
+                    href={propProj?.site_url}
+                    className="button"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {t("tr_view_site")}
+                  </a>
+                </div>
               )}
             </div>
             <div className={style.mainInfoImg}>
