@@ -66,7 +66,17 @@ export const Footer = ({ path }) => {
         </Modal>
       )}
       {/*{path !== "team" || (path.startsWith("team") && <GetInTouch />)}*/}
-      {path !== "team" ? <GetInTouch /> : ""}
+      {path !== "team" ? (
+        <GetInTouch
+          title={t("tr_get_in_touch_title")}
+          name={t("tr_first_name")}
+          email={t("tr_email_address")}
+          message={t("tr_message")}
+          submit={t("tr_submit")}
+        />
+      ) : (
+        ""
+      )}
       <footer className={style.footer}>
         <div className="container">
           <div className={style.row}>

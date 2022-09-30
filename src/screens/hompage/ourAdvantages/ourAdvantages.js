@@ -56,7 +56,9 @@ export const OurAdvantages = () => {
           />
         </div>
         <div className="wrap-button">
-          <a href="#" className="button">Review</a>
+          <a href="#" className="button">
+            {t("tr_review")}
+          </a>
         </div>
       </div>
     </section>

@@ -6,18 +6,7 @@ import { sendForm } from "../../../../api/contactForm";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const formTitle = {
-  text: "Lets Get In Touch",
-};
-
-const defaultData = {
-  firstName: "First name:",
-  email: "E-mail adsress:",
-  text: "Message:",
-  button: "Submit",
-};
-
-export const GetInTouch = () => {
+export const GetInTouch = (props) => {
   const {
     register,
     handleSubmit,
@@ -38,7 +27,7 @@ export const GetInTouch = () => {
     <div className={`${style.wrapper} getInTouch`}>
       <div className="noise"></div>
       <div className="container">
-        <h2 className="h2">{formTitle.text}</h2>
+        <h2 className="h2">{props.title}</h2>
         <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
           <label className="formField">
             <input
@@ -51,7 +40,7 @@ export const GetInTouch = () => {
                   message: "Please, use only letters",
                 },
               })}
-              placeholder={defaultData.firstName}
+              placeholder={props.name}
               type={"text"}
             />
             {errors.firstName && (
@@ -69,7 +58,7 @@ export const GetInTouch = () => {
                   message: "Please, use correct email",
                 },
               })}
-              placeholder={defaultData.email}
+              placeholder={props.email}
               type={"email"}
             />
             {errors.email && (
@@ -83,14 +72,14 @@ export const GetInTouch = () => {
                 required: true,
                 maxLength: { value: 300, message: "Not more than 300 symbols" },
               })}
-              placeholder={defaultData.text}
+              placeholder={props.message}
             ></textarea>
             {errors.message && (
               <span className="error">{errors.message.message}</span>
             )}
           </label>
           <button className="button" type="submit" disabled={isSubmitting}>
-            {defaultData.button}
+            {props.submit}
           </button>
         </form>
         <ToastContainer position="top-center"></ToastContainer>
