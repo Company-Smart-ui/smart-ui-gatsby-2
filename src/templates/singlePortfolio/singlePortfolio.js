@@ -170,7 +170,10 @@ const SinglePortfolio = (props) => {
                   <Block title={t("tr_services")}>
                     <div
                       dangerouslySetInnerHTML={{
-                        __html: propProj?.services?.data?.services,
+                        __html: propProj?.services?.data?.services.replace(
+                          /(\r\n|\n|\r)/gm,
+                          ""
+                        ),
                       }}
                     />
                   </Block>
@@ -181,7 +184,10 @@ const SinglePortfolio = (props) => {
                   <Block title={t("tr_adaptive_design")}>
                     <div
                       dangerouslySetInnerHTML={{
-                        __html: propProj?.adaptive?.data?.adaptive,
+                        __html: propProj?.adaptive?.data?.adaptive.replace(
+                          /(\r\n|\n|\r)/gm,
+                          ""
+                        ),
                       }}
                     />
                   </Block>
