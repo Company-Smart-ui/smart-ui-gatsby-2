@@ -10,7 +10,6 @@ import componentDidMount from "../../global/chatbot";
 import { useTranslation } from "react-i18next";
 import desctopDevice from "./desctop.png";
 import mobileDevice from "./mobile.png";
-
 export const query = graphql`
   query ($language: String, $pageId: String) {
     locales: allLocale(
