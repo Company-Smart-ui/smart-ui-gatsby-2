@@ -10,6 +10,7 @@ import componentDidMount from "../../global/chatbot";
 import { useTranslation } from "react-i18next";
 import desctopDevice from "./desctop.png";
 import mobileDevice from "./mobile.png";
+
 export const query = graphql`
   query ($language: String, $pageId: String) {
     locales: allLocale(
@@ -143,8 +144,8 @@ const SinglePortfolio = (props) => {
               {propProj?.content_management_systems.length > 0 && (
                 <Block class={style.modified} title={t("tr_cms") + ":"}>
                   <ul className={style.category}>
-                    {propProj?.content_management_systems.map((i) => (
-                      <li key={i.name}>{i.name}</li>
+                    {propProj?.content_management_systems.map((i, key) => (
+                      <li key={key}>{i.name}</li>
                     ))}
                   </ul>
                 </Block>
@@ -152,8 +153,8 @@ const SinglePortfolio = (props) => {
               {propProj?.technologies.length > 0 && (
                 <Block class={style.modified} title={t("tr_technology") + ":"}>
                   <ul className={style.category}>
-                    {propProj?.technologies.map((i) => (
-                      <li key={i.name}>{i.name}</li>
+                    {propProj?.technologies.map((i, key) => (
+                      <li key={key}>{i.name}</li>
                     ))}
                   </ul>
                 </Block>
@@ -198,19 +199,25 @@ const SinglePortfolio = (props) => {
               )}
             </div>
             <div className={style.mainInfoImg}>
-              {propProj?.Blocks &&
-                propProj?.Blocks.map((i, key) => {
-                  return (
-                    i.mobile_img && (
-                      <>
-                        <div className={style.scroll}>
-                          <span>{t("tr_scroll_to_explore")}</span>
-                        </div>
+              {propProj?.Blocks && (
+                <>
+                  {propProj?.Blocks.map((i, key) => {
+                    return i.mobile_img ? (
+                      <div key={key} className={style.scroll}>
+                        <span>{t("tr_scroll_to_explore")}</span>
+                      </div>
+                    ) : (
+                      ""
+                    );
+                  })}
+                  {propProj?.Blocks.map((i, key) => {
+                    return (
+                      i.mobile_img && (
                         <div key={key} className={style.mobileWrapp}>
                           <div className={style.mobileImg}>
-                            {i.img.map((t) => (
+                            {i.img.map((t, key) => (
                               <GatsbyImage
-                                key={t.alternativeText}
+                                key={key}
                                 alt={t.alternativeText}
                                 image={getImage(
                                   t?.localFile.childImageSharp.gatsbyImageData
@@ -229,10 +236,11 @@ const SinglePortfolio = (props) => {
                             />
                           </div>
                         </div>
-                      </>
-                    )
-                  );
-                })}
+                      )
+                    );
+                  })}
+                </>
+              )}
             </div>
           </div>
         </div>
