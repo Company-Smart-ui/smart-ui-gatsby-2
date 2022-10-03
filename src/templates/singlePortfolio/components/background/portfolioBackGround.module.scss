@@ -12,10 +12,10 @@
   background-color: $White;
   position: fixed;
   right: 0;
-  bottom: 15%;
-  padding: 5px 10px 0;
+  bottom: 80px;
+  padding: 11px 12px 0;
   z-index: 1;
-  transform: skewY(-30deg);
+  transform: skewY(-40deg);
   @include sm {
     padding: 5px 19px 0;
   }
@@ -51,10 +51,12 @@
   }
 
   img {
-    max-width: 100px;
+    max-width: 26px;
+    transform: skewY(39deg) rotate(-42deg);
 
     @include xl {
       max-width: 180px;
+      transform: none;
     }
   }
 }

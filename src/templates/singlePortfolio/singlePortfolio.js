@@ -1,14 +1,15 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import * as style from "./singlePortfolio.module.scss";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import componentDidMount from "../../global/chatbot";
 import { graphql } from "gatsby";
 import { Block } from "../../components/simpleBlock/block";
 import { Background } from "./components/background/portfolioBackGround";
 import { FlexibleBlock } from "./components/flexibleBlock/portfolioFlexibleBlock";
 import { Seo } from "../../components/SEO/SEO";
-import componentDidMount from "../../global/chatbot";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { Hero } from "./components/hero/hero";
 import { useTranslation } from "react-i18next";
-import desctopDevice from "./desctop.png";
+import { useWindowResize } from "../../hooks/useWindowResize";
 import mobileDevice from "./mobile.png";
 
 export const query = graphql`
@@ -95,6 +96,15 @@ export const query = graphql`
 const SinglePortfolio = (props) => {
   const { t } = useTranslation();
   const propProj = props?.data?.project?.edges[0]?.node;
+  const size = useWindowResize();
+  const [isMobile, setMobile] = useState();
+  useEffect(() => {
+    if (size >= 768) {
+      setMobile(false);
+    } else {
+      setMobile(true);
+    }
+  }, [size]);
   const mainImg =
     propProj?.main_img?.localFile?.childImageSharp?.gatsbyImageData;
   return (
@@ -102,22 +112,11 @@ const SinglePortfolio = (props) => {
       {Background()}
       <div className="container">
         {mainImg && (
-          <div className={style.heroImg}>
-            <div className={style.heroImgDevice}>
-              <img
-                src={desctopDevice}
-                alt={propProj?.project_name ? propProj.project_name : ""}
-              />
-            </div>
-            <div className={style.heroImgWrapp}>
-              <GatsbyImage
-                alt={propProj?.project_name ? propProj.project_name : ""}
-                image={getImage(
-                  propProj?.main_img.localFile.childImageSharp.gatsbyImageData
-                )}
-              />
-            </div>
-          </div>
+          <Hero
+            name={propProj?.project_name ? propProj.project_name : ""}
+            imgDesc={mainImg}
+            imgMob={propProj?.Blocks && propProj?.Blocks}
+          />
         )}
         <div>
           {propProj?.project_name && (
@@ -210,50 +209,52 @@ const SinglePortfolio = (props) => {
                 </div>
               )}
             </div>
-            <div className={style.mainInfoImg}>
-              {propProj?.Blocks && (
-                <>
-                  {propProj?.Blocks.map((i, key) => {
-                    return i.mobile_img ? (
-                      <div key={key} className={style.scroll}>
-                        <span>{t("tr_scroll_to_explore")}</span>
-                      </div>
-                    ) : (
-                      ""
-                    );
-                  })}
-                  {propProj?.Blocks.map((i, key) => {
-                    return (
-                      i.mobile_img && (
-                        <div key={key} className={style.mobileWrapp}>
-                          <div className={style.mobileImg}>
-                            {i.img.map((t, key) => (
-                              <GatsbyImage
-                                key={key}
-                                alt={t.alternativeText}
-                                image={getImage(
-                                  t?.localFile.childImageSharp.gatsbyImageData
-                                )}
-                              />
-                            ))}
-                          </div>
-                          <div className={style.mobileDevice}>
-                            <img
-                              src={mobileDevice}
-                              alt={
-                                propProj?.project_name
-                                  ? propProj.project_name
-                                  : ""
-                              }
-                            />
-                          </div>
+            {!isMobile && (
+              <div className={style.mainInfoImg}>
+                {propProj?.Blocks && (
+                  <>
+                    {propProj?.Blocks.map((i, key) => {
+                      return i.mobile_img ? (
+                        <div key={key} className={style.scroll}>
+                          <span>{t("tr_scroll_to_explore")}</span>
                         </div>
-                      )
-                    );
-                  })}
-                </>
-              )}
-            </div>
+                      ) : (
+                        ""
+                      );
+                    })}
+                    {propProj?.Blocks.map((i, key) => {
+                      return (
+                        i.mobile_img && (
+                          <div key={key} className={style.mobileWrapp}>
+                            <div className={style.mobileImg}>
+                              {i.img.map((t, key) => (
+                                <GatsbyImage
+                                  key={key}
+                                  alt={t.alternativeText}
+                                  image={getImage(
+                                    t?.localFile.childImageSharp.gatsbyImageData
+                                  )}
+                                />
+                              ))}
+                            </div>
+                            <div className={style.mobileDevice}>
+                              <img
+                                src={mobileDevice}
+                                alt={
+                                  propProj?.project_name
+                                    ? propProj.project_name
+                                    : ""
+                                }
+                              />
+                            </div>
+                          </div>
+                        )
+                      );
+                    })}
+                  </>
+                )}
+              </div>
+            )}
           </div>
         </div>
         {propProj?.Blocks &&

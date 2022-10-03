@@ -45,5 +45,11 @@ $borderColor: rgba(255, 255, 255, 0.3);
 .pictureDesktop {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 10px;
+  @include md {
+    gap: 30px;
+  }
+  @include lg {
+    gap: 50px;
+  }
 }

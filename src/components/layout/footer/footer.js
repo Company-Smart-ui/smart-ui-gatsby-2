@@ -58,7 +58,7 @@ export const Footer = ({ path }) => {
         className={["openBtn", isOpen ? "disabledBtn" : ""].join(" ")}
         onClick={onOpen}
       >
-        {t("tr_return_message")}
+        <span>{t("tr_return_message")}</span>
       </button>
       {isOpen && (
         <Modal onClose={onClose}>

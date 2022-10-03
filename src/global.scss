@@ -64,8 +64,13 @@ body {
       height: 40px !important;
     }
   }
-
-  .crisp-client .cc-52lo .cc-kegp .cc-1oun .cc-1qth {
+  .crisp-client .cc-52lo[data-full-view="true"] .cc-kegp .cc-1oun,
+  .crisp-client .cc-52lo .cc-kegp .cc-1oun {
+    bottom: 151px !important;
+    right: 6px !important;
+  }
+  .crisp-client .cc-52lo .cc-kegp .cc-1oun .cc-1qth,
+  .crisp-client .cc-52lo[data-full-view="true"] .cc-kegp .cc-1oun .cc-1qth {
     width: 38px !important;
     height: 38px !important;
     @include lg {
@@ -95,9 +100,28 @@ p {
   background-color: $White;
   &.projects {
     header {
-      height: 76px;
-      padding-top: 16px;
-      padding-bottom: 26px;
+      height: auto;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      transition: padding 0.2s;
+      &.scrolled {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: #1e1e1e;
+      }
+      @include md {
+        height: 76px;
+        padding-top: 16px;
+        padding-bottom: 26px;
+      }
+      .burger {
+        span {
+          background-color: #fff;
+          @include md {
+            background-color: #27272e;
+          }
+        }
+      }
     }
   }
 }
@@ -363,21 +387,25 @@ button {
 
 .openBtn {
   position: fixed;
-  top: calc(50vh + 137px);
-  left: 5px;
-  transform: rotate(-90deg) translateY(50%);
+  top: 162px;
+  left: 7px;
   transform-origin: 0;
-  padding: 10px;
   z-index: 50;
-  min-width: 275px;
-  margin: 0 auto;
   background: $Lime;
-  border-radius: 8px;
-  font-weight: 500;
-  font-size: 13px;
-  line-height: 1.2;
+  border-radius: 3px;
   transition: 0.2s;
-  color: $White;
+  height: 169px;
+  width: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  span {
+    transform: rotate(-90deg);
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1.2;
+    color: $White;
+  }
   @include md {
     left: 16px;
     margin: 0;

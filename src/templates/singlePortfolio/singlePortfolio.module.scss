@@ -1,7 +1,7 @@
 @import "src/var";
 
 $bgColor: #1e1e1e;
-$borderColor: rgba(255, 255, 255, 0.3);
+$borderColor: rgba(255, 255, 255, 0.1);
 $categoryBg: rgba(217, 217, 217, 0.5);
 $pictureBg: rgba(255, 255, 255, 0.1);
 $secondFontColor: #8f8f8f;
@@ -13,22 +13,39 @@ $xs: 375px;
 }
 
 .singlePortfolio {
-  margin-top: 76px;
+  padding-top: 115px;
   background-color: $bgColor;
   position: relative;
   color: $White;
-  font-size: clamp(18px, 6vw - 20px, 24px);
+  font-size: 15px;
+  line-height: 23px;
   font-weight: 400;
   padding-bottom: 100px;
   background-image: url("./logo-wp.png");
   background-repeat: no-repeat;
   background-position: left center;
+  @include md {
+    margin-top: 76px;
+    padding-top: 0;
+    font-size: 24px;
+    line-height: 36px;
+  }
   @include xl {
     padding-bottom: 150px;
   }
   h1 {
     color: white;
-    font-size: clamp(40px, 10vw - 20px, 80px);
+    font-weight: 500;
+    font-size: 60px;
+    line-height: 60px;
+    letter-spacing: -0.03em;
+    padding-top: 17px;
+    @include md {
+      font-weight: 700;
+      padding-top: 0;
+      font-size: 80px;
+      line-height: 100px;
+    }
   }
   .lists {
     ul {
@@ -38,7 +55,7 @@ $xs: 375px;
   }
   .wrap {
     border-bottom: 1px solid $borderColor;
-    padding: 30px 0;
+    padding: 21px 0;
     position: relative;
     z-index: 1;
     @include lg {
@@ -78,7 +95,7 @@ $xs: 375px;
     align-items: flex-start;
     li {
       margin-right: 10px;
-      padding: 0 23px;
+      padding: 3px 13px;
       background: $categoryBg;
       border-radius: 20.5px;
       color: $White;
@@ -109,11 +126,6 @@ $xs: 375px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    :global {
-      .subtitle {
-        margin-bottom: 0;
-      }
-    }
   }
   :global {
     .container {
@@ -143,6 +155,10 @@ $xs: 375px;
       display: inline-block;
       margin-bottom: 30px;
       font-size: 18px;
+      width: 100%;
+      @include md {
+        width: auto;
+      }
       @include lg {
         margin-bottom: 0;
       }
@@ -151,30 +167,37 @@ $xs: 375px;
     .subtitle {
       font-weight: 600;
       text-transform: uppercase;
-      margin-bottom: 15px;
-      margin-right: 10px;
-      font-size: clamp(16px, 10vw - 20px, 24px);
+      margin-right: 5px;
+      font-size: 20px;
+      line-height: 30px;
+      margin-bottom: 10px;
+      & + * {
+        margin-bottom: 10px;
+      }
+      @include md {
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 36px;
+      }
       @include lg {
         margin-bottom: 20px;
-      }
-      @include xl {
-        margin-bottom: 30px;
+        margin-right: 10px;
+        & + * {
+          margin-bottom: 20px;
+        }
       }
     }
 
     .block {
-      margin-bottom: 35px;
+      margin-bottom: 25px;
       width: 100%;
       @include md {
-        margin-bottom: 50px;
+        margin-bottom: 10px;
       }
       p,
       ul,
       & > div {
         color: #8f8f8f;
-      }
-      &:last-child {
-        margin-bottom: 30px;
       }
     }
 
@@ -185,81 +208,6 @@ $xs: 375px;
       font-size: 0;
     }
   }
-}
-.heroImg {
-  position: relative;
-  margin: 0 auto;
-  padding-top: 30px;
-  width: 210px;
-  overflow: hidden;
-  @include xs {
-    width: 350px;
-  }
-  @include sm {
-    width: 470px;
-  }
-  @include md {
-    width: 630px;
-  }
-  @include lg {
-    width: 700px;
-  }
-  @include xl {
-    width: 1015px;
-  }
-}
-.heroImgDevice {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-}
-.heroImgWrapp {
-  width: 165px;
-  height: 113px;
-  position: absolute;
-  top: 30px;
-  left: 22px;
-  padding: 4px;
-  & > div {
-    width: 100%;
-    height: 100%;
-  }
-  @include xs {
-    width: 278px;
-    height: 191px;
-    left: 35px;
-    padding: 8px;
-  }
-  @include sm {
-    width: 372px;
-    height: 255px;
-    left: 48px;
-    padding: 10px;
-  }
-  @include md {
-    width: 498px;
-    height: 341px;
-    left: 64px;
-    padding: 13px;
-  }
-  @include lg {
-    width: 554px;
-    height: 380px;
-    left: 71px;
-    padding: 15px;
-  }
-  @include xl {
-    width: 804px;
-    height: 551px;
-    left: 102px;
-    padding: 22px;
-  }
-}
-.mainInfoImg {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 .mobileWrapp {
   position: relative;
