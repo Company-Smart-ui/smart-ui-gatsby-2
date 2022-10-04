@@ -108,6 +108,9 @@ p {
         padding-top: 10px;
         padding-bottom: 10px;
         background-color: #1e1e1e;
+        @include md {
+          background-color: #fff;
+        }
       }
       @include md {
         height: 76px;
