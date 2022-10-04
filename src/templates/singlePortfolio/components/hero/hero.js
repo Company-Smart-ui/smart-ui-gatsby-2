@@ -16,26 +16,29 @@ export const Hero = (props) => {
     }
   }, [size]);
   return isMobile ? (
-    props.imgMob.map((i, key) => {
-      return (
-        i.mobile_img && (
-          <div key={key} className={style.mobileWrapp}>
-            <div className={style.mobileImg}>
-              {i.img.map((t, key) => (
-                <GatsbyImage
-                  key={key}
-                  alt={t.alternativeText}
-                  image={getImage(t?.localFile.childImageSharp.gatsbyImageData)}
-                />
-              ))}
+    props.imgMob &&
+      props.imgMob.map((i, key) => {
+        return (
+          i.mobile_img && (
+            <div key={key} className={style.mobileWrapp}>
+              <div className={style.mobileImg}>
+                {i.img.map((t, key) => (
+                  <GatsbyImage
+                    key={key}
+                    alt={t.alternativeText}
+                    image={getImage(
+                      t?.localFile.childImageSharp.gatsbyImageData
+                    )}
+                  />
+                ))}
+              </div>
+              <div className={style.mobileDevice}>
+                <img src={mobileDevice} alt={props.name && props.name} />
+              </div>
             </div>
-            <div className={style.mobileDevice}>
-              <img src={mobileDevice} alt={props.name && props.name} />
-            </div>
-          </div>
-        )
-      );
-    })
+          )
+        );
+      })
   ) : (
     <div className={style.heroImg}>
       <div className={style.heroImgDevice}>
