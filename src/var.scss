@@ -16,8 +16,8 @@ $MediumSeaGreen: #27B674  ;
 $Blue : #4947E5;
 $Yellow:#FFD247;
 
-$fontTitle :'DM Sans';
-$fontText:'Poppins';
+$fontTitle :'DM Sans', 'Montserrat';
+$fontText:'Poppins', 'Montserrat';
 
 $border: #E3E6E9;
 $title: #6F6C8F;
@@ -52,3 +52,28 @@ $LightGray: #939397;
   }
 };
 
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-SemiBold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 600;
+}
