@@ -8,6 +8,7 @@ import { useWindowResize } from "../../../../hooks/useWindowResize";
 export const Hero = (props) => {
   const size = useWindowResize();
   const [isMobile, setMobile] = useState();
+
   useEffect(() => {
     if (size >= 768) {
       setMobile(false);
