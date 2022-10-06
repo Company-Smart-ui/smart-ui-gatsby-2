@@ -1,13 +1,17 @@
 import React from "react"
 import {useSiteMetadata} from "../../hooks/useSiteMetadata";
+import {useChatBot} from "../../hooks/useChatBot";
+
 function ucFirst(str) {
     if (!str) return str;
 
     return str[0].toUpperCase() + str.slice(1);
 }
-export const Seo = ({ title, description, pathname, children }) => {
-    const { title: defaultTitle, description: defaultDescription, image, siteUrl, twitterUsername } = useSiteMetadata()
-    const clearTitle =  (title? title +' | '+  defaultTitle:defaultTitle )
+
+export const Seo = ({title, description, pathname, children}) => {
+
+    const {title: defaultTitle, description: defaultDescription, image, siteUrl, twitterUsername} = useSiteMetadata()
+    const clearTitle = (title ? title + ' | ' + defaultTitle : defaultTitle)
     const seo = {
         title: ucFirst(clearTitle),
         description: description || defaultDescription,
@@ -15,19 +19,21 @@ export const Seo = ({ title, description, pathname, children }) => {
         url: `${siteUrl}${pathname || ``}`,
         twitterUsername,
     }
+
+    useChatBot();
     return (
         <>
             <title>{seo.title}</title>
-            <meta name="description" content={seo.description} />
-            <meta name="image" content={seo.image} />
-            <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:title" content={seo.title} />
-            <meta name="twitter:url" content={seo.url} />
-            <meta name="twitter:description" content={seo.description} />
-            <meta name="twitter:image" content={seo.image} />
-            <meta name="twitter:creator" content={seo.twitterUsername} />
+            <meta name="description" content={seo.description}/>
+            <meta name="image" content={seo.image}/>
+            <meta name="twitter:card" content="summary_large_image"/>
+            <meta name="twitter:title" content={seo.title}/>
+            <meta name="twitter:url" content={seo.url}/>
+            <meta name="twitter:description" content={seo.description}/>
+            <meta name="twitter:image" content={seo.image}/>
+            <meta name="twitter:creator" content={seo.twitterUsername}/>
 
-            {children&&children}
+            {children && children}
         </>
     )
 }

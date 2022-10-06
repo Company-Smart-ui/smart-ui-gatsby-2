@@ -1,9 +1,8 @@
 import * as React from "react";
-import { Portfolio } from "../screens/portfolio/portfolio";
+import {Portfolio} from "../screens/portfolio/portfolio";
 
-import { graphql } from "gatsby";
-import { Seo } from "../components/SEO/SEO";
-import componentDidMount from "../global/chatbot";
+import {graphql} from "gatsby";
+import {Seo} from "../components/SEO/SEO";
 
 export const query = graphql`
   query ($language: String, $pageName: [String]) {
@@ -22,11 +21,11 @@ export const query = graphql`
 `;
 
 const PortfolioPage = () => {
-  return <Portfolio />;
+    return <Portfolio/>;
 };
 
 export default PortfolioPage;
 
 export const Head = (data) => {
-  return <Seo title={data.pageContext.pageName[0]}>{componentDidMount()}</Seo>;
+    return <Seo title={data.pageContext.pageName[0]}/>
 };
