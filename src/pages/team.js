@@ -2,7 +2,6 @@ import React from 'react';
 import {graphql} from "gatsby";
 import {Seo} from "../components/SEO/SEO";
 import {AllTeam} from "../screens/team/team";
-import componentDidMount from '../global/chatbot';
 
 
 export const query = graphql`
@@ -19,7 +18,7 @@ export const query = graphql`
   }
 `
 const Team = () => {
-    return <AllTeam />
+    return <AllTeam/>
 };
 
 export default Team
@@ -27,7 +26,6 @@ export default Team
 export const Head = (data) => {
     return (
         <Seo title={data.pageContext.pageName[0]}>
-          {componentDidMount()}
         </Seo>
     )
 }

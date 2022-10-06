@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, {useEffect, useState} from "react";
 import * as style from "./ourAdvantages.module.scss";
-import { SwiperButtons } from "../../../global/swiperButtons/SwiperButtons";
-import { AdvantagesSwiper } from "./swiper/AdvantagesSwiper";
-import { Pagination } from "../../../global/pagination/Pagination";
-import { useTranslation } from "react-i18next";
+import {SwiperButtons} from "../../../global/swiperButtons/SwiperButtons";
+import {AdvantagesSwiper} from "./swiper/AdvantagesSwiper";
+import {Pagination} from "../../../global/pagination/Pagination";
+import {useTranslation} from "react-i18next";
 
 export const OurAdvantages = () => {
   const [swiperRef, setSwiperRef] = useState(null);
@@ -16,51 +16,46 @@ export const OurAdvantages = () => {
     setActiveIndex(0);
   }, []);
 
-  const { t } = useTranslation();
+  const {t} = useTranslation();
 
-  const cardsList = t("advantages_cards", { returnObjects: true });
+  const cardsList = t("advantages_cards", {returnObjects: true});
 
   return (
-    <section className={`${style.ourAdvantages} vertical-padding`}>
-      <div className="noise" />
-      <div className="container">
-        <div className="clock-mobile" />
-        <div className="illustration-tablet" />
-        <div className="upperBlock">
-          <div className="title-block">
-            <div className="bCircle md-only" />
-            <div className="gCircle" />
-            <h2 className="h2 overlay">{t("advantages_title")}</h2>
-            <div className="subtitle">{t("advantages_text")}</div>
-          </div>
-          <div className="pagination-wrapper">
-            <Pagination
-              activeIdx={activeIndex}
-              sliderLength={cardsList.length}
-              whiteTheme
+      <section className={`${style.ourAdvantages} vertical-padding`}>
+        <div className="noise"/>
+        <div className="container">
+          <div className="clock-mobile"/>
+          <div className="illustration-tablet"/>
+          <div className="upperBlock">
+            <div className="title-block">
+              <div className="bCircle md-only"/>
+              <div className="gCircle"/>
+              <h2 className="h2 overlay">{t("advantages_title")}</h2>
+              <div className="subtitle">{t("advantages_text")}</div>
+            </div>
+            <div className="pagination-wrapper">
+              <Pagination
+                  activeIdx={activeIndex}
+                  sliderLength={cardsList.length}
+                  whiteTheme
+              />
+            </div>
+            <AdvantagesSwiper
+                swiperRef={swiperRef}
+                setSwiperRef={setSwiperRef}
+                setActiveIndex={setActiveIndex}
+                cardsList={cardsList}
             />
           </div>
-          <AdvantagesSwiper
-            swiperRef={swiperRef}
-            setSwiperRef={setSwiperRef}
-            setActiveIndex={setActiveIndex}
-            cardsList={cardsList}
-          />
+          <div className="footer-buttons overlay">
+            <SwiperButtons
+                onPrev={slidePrevHandler}
+                onNext={slideNextHandler}
+                sliderLength={cardsList.length}
+                activeIndex={activeIndex}
+            />
+          </div>
         </div>
-        <div className="footer-buttons overlay">
-          <SwiperButtons
-            onPrev={slidePrevHandler}
-            onNext={slideNextHandler}
-            sliderLength={cardsList.length}
-            activeIndex={activeIndex}
-          />
-        </div>
-        <div className="wrap-button">
-          <a href="#" className="button">
-            {t("tr_review")}
-          </a>
-        </div>
-      </div>
-    </section>
+      </section>
   );
 };
