@@ -7,17 +7,17 @@ $xxl: 1720px;
 $Lime: #13CC00;
 $LimeGreen: #388E3C;
 $GrayBlue: #27272E;
-$Gray:#737373;
+$Gray: #737373;
 
 $LightPeriwinkle: #ECF2F6;
-$White:  #FFFFFF ;
-$MediumSeaGreen: #27B674  ;
+$White: #FFFFFF;
+$MediumSeaGreen: #27B674;
 
-$Blue : #4947E5;
-$Yellow:#FFD247;
+$Blue: #4947E5;
+$Yellow: #FFD247;
 
-$fontTitle: 'DM Sans', 'Montserrat';
-$fontText: 'Poppins', 'Montserrat';
+$fontTitle: 'DM Sans', 'Yanone Kaffeesatz';
+$fontText: 'Poppins', 'Yanone Kaffeesatz';
 
 $border: #E3E6E9;
 $title: #6F6C8F;
@@ -27,53 +27,38 @@ $LightGray: #939397;
 
 
 @mixin sm {
-  @media (min-width:$sm) {
+  @media (min-width: $sm) {
     @content
   }
-};
+}
+
+;
 @mixin md {
-  @media (min-width:$md) {
+  @media (min-width: $md) {
     @content
   }
-};
+}
+
+;
 @mixin lg {
-  @media (min-width:$lg) {
+  @media (min-width: $lg) {
     @content
   }
-};
+}
+
+;
 @mixin xl {
-  @media (min-width:$xl) {
+  @media (min-width: $xl) {
     @content
   }
-};
+}
+
+;
 @mixin xxl {
-  @media (min-width:$xxl) {
+  @media (min-width: $xxl) {
     @content
   }
-};
+}
 
+;
 
-@font-face {
-  font-family: "Montserrat";
-  src: url("/fonts/Montserrat/Montserrat-Light.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 300;
-}
-@font-face {
-  font-family: "Montserrat";
-  src: url("/fonts/Montserrat/Montserrat-Regular.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 400;
-}
-@font-face {
-  font-family: "Montserrat";
-  src: url("/fonts/Montserrat/Montserrat-Medium.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 500;
-}
-@font-face {
-  font-family: "Montserrat";
-  src: url("/fonts/Montserrat/Montserrat-SemiBold.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 600;
-}

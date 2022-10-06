@@ -1,8 +1,9 @@
-@import 'src/var';
+@import "src/var";
 
 .projectCard {
   width: 275px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1)) drop-shadow(0px 16px 16px rgba(0, 0, 0, 0.05));
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1))
+    drop-shadow(0px 16px 16px rgba(0, 0, 0, 0.05));
   margin: 0 auto;
 
   :global {
@@ -38,7 +39,7 @@
 
         .overlay-block {
           position: absolute;
-          background-color: #1E1E1E;
+          background-color: #1e1e1e;
           top: 0;
           left: 0;
           bottom: 0;
@@ -86,6 +87,7 @@
     .img-wrapper {
       height: 167px;
       position: relative;
+      overflow: hidden;
     }
 
     .content-description {
