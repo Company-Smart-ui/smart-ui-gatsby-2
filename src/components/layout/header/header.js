@@ -56,7 +56,8 @@ export const Header = ({ path }) => {
   const { isOpen, onToggle, onClose } = useOpen();
   useNoScroll(isOpen);
   const headerClass =
-    path === "team" || path.startsWith("team") ? style.headerDark : " ";
+    path === "team" || path.startsWith("team") ? style.headerDark : "" ||
+    path === "project" || path.startsWith("project") ? style.headerProject : "";
 
   //   console.log(path);
   return (

@@ -87,6 +87,9 @@
       background-color: rgba(255, 255, 255, 0.98);
     }
   }
+  &Project{
+    background: #1a1a1a !important;
+  }
   &Dark{
     :global{
       .nav{
@@ -105,10 +108,11 @@
     }
     &.scrolled{
       :global{
+        background: #1a1a1a;
         .nav{
           a{
             color: #737373;
-            &.active{color: #27272E}
+            &.active{color: #fff}
           }
         }
         .burger{
