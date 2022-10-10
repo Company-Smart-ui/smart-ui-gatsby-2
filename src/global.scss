@@ -402,6 +402,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: $fontText;
   span {
     transform: rotate(-90deg);
     font-weight: 500;

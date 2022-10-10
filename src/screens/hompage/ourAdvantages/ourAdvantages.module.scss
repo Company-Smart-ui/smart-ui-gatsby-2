@@ -75,6 +75,7 @@
 
     .title-block {
       position: relative;
+      z-index: 1;
       @include md {
         max-width: 457px;
       }
