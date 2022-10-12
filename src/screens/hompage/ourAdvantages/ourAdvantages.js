@@ -4,6 +4,7 @@ import {SwiperButtons} from "../../../global/swiperButtons/SwiperButtons";
 import {AdvantagesSwiper} from "./swiper/AdvantagesSwiper";
 import {Pagination} from "../../../global/pagination/Pagination";
 import {useTranslation} from "react-i18next";
+import { StaticImage } from "gatsby-plugin-image";
 
 export const OurAdvantages = () => {
   const [swiperRef, setSwiperRef] = useState(null);
@@ -22,6 +23,10 @@ export const OurAdvantages = () => {
 
   return (
       <section className={`${style.ourAdvantages} vertical-padding`}>
+        <StaticImage 
+          src="../whatWeDo/line_background_grid.png"
+          style={{position:'absolute', height: '100%', top:'0'}}
+         />
         <div className="noise"/>
         <div className="container">
           <div className="clock-mobile"/>

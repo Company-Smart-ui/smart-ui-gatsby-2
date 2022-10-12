@@ -5,6 +5,7 @@ import { Pagination } from "../../../global/pagination/Pagination";
 import { SwiperButtons } from "../../../global/swiperButtons/SwiperButtons";
 import { SwiperList } from "./swiper/SwiperList";
 import {useTranslation} from "react-i18next";
+import { StaticImage } from "gatsby-plugin-image";
 
 export const Strategy = () => {
   const {t} = useTranslation();
@@ -19,6 +20,10 @@ export const Strategy = () => {
   return (
       <ScrollableAnchor id={'strategy'} >
         <section className={`${style.strategy} vertical-padding`}>
+          <StaticImage
+            src="../whatWeDo/line_background_grid.png"
+            style={{position:'absolute', height:'100%', top:0}}
+           />
           <div className="noise" />
           <div className="container">
             <div className="gCircle" />
