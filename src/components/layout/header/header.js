@@ -69,7 +69,7 @@ export const Header = ({ path }) => {
       <Burger {...{ isOpen, onToggle }} />
       <div className={style.logo}>
         <Link to={NAVIGATION.home.link} language={currentLng}>
-          <img src={Logo} alt="logo" />
+          <StaticImage width={180} className={style.staticImg} src={'../../../images/smart-ui.svg'} alt="logo" />
         </Link>
       </div>
 

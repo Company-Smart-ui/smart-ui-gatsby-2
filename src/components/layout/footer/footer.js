@@ -1,16 +1,13 @@
 import React from "react";
-
 import {Contact} from "../../../global/contact/contact";
-import Logo from "../../../images/smart-ui.svg";
 import {Link} from "gatsby";
-import Img from "./pointer.svg";
-import Scroll from "./scroll.svg";
 import {GetInTouch} from "./getInTouch/getInTouch";
 import * as style from "./footer.module.scss";
 import {Modal} from "../modal/modal";
 import {useOpen} from "../../../hooks/useOpen";
 import {useTranslation} from "react-i18next";
 import {useAddClientFont} from "../../../hooks/useAddClientFont";
+import { StaticImage } from "gatsby-plugin-image";
 
 const ContactUs = ({info}) => {
     return (
@@ -37,10 +34,10 @@ export const BackToTop = ({text}) => {
     return (
         <button onClick={scroll} className={style.backTo}>
       <span className="lg-only">
-        <img src={Scroll} alt="back to top"/> {text}
+        <StaticImage width={17.6} className={style.staticImg} src={'./scroll.svg'} alt="back to top"/> {text}
       </span>
             <span className="lg-end">
-        <img src={Img} alt="back to top"/> {text}
+        <StaticImage width={17.6} className={style.staticImg} src={'./pointer.svg'} alt="back to top"/> {text}
       </span>
         </button>
     );
@@ -87,7 +84,11 @@ export const Footer = ({path, lang}) => {
                         <div className={style.nav}>
                             <div className={style.logo}>
                                 <Link to={"/"}>
-                                    <img src={Logo} alt="Logo"/>
+                                    <StaticImage 
+                                    width={302}
+                                    className={style.staticImg}
+                                    src={'../../../images/smart-ui.svg'} 
+                                    alt="Logo"/>
                                 </Link>
                             </div>
                             <Contact/>

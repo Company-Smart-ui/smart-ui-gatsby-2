@@ -9,6 +9,7 @@ import { useOpen } from "../../../hooks/useOpen";
 
 import "swiper/css";
 import { Pagination } from "../../../global/pagination/Pagination";
+import { StaticImage } from "gatsby-plugin-image";
 
 export const WhatWeDo = () => {
   const { t } = useTranslation();
@@ -36,6 +37,10 @@ export const WhatWeDo = () => {
     <>
       <ScrollableAnchor id={"whatWeDo"}>
         <section className={`${style.whatWeDo} vertical-padding`}>
+          <StaticImage 
+            src="./line_background_grid.png" 
+            style={{position:'absolute', top: 0, height:'100%'}} 
+            />
           <div className="container">
             <div className="grid">
               <div className="description-grid">
