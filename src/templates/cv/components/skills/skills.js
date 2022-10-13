@@ -12,28 +12,27 @@ export const Skills = (props) => {
         englishTitle,
         englishLevel,
         otherLanguage,
-        personalSkillTitle,
-        personalSkill,
         mainTitle,
         additionalTitle,
+        hardSkills,
         workExperience,
     } = props.info;
     return (
         <div className={style.skills}>
-            {personalSkill && (
-                <Block title={personalSkillTitle} full classes={style.personalSkills}>
+            {hardSkills && (
+                <Block title={"Hard Skills "} full classes={style.personalSkills}>
                     <>
-                        {personalSkill.main && (
+                        {hardSkills.main && (
                             <List
                                 classes="skillMain"
                                 title={mainTitle}
-                                content={personalSkill.main}
+                                content={hardSkills.main}
                             />
                         )}
-                        {personalSkill.additional && (
+                        {hardSkills.additional && (
                             <List
                                 title={additionalTitle}
-                                content={personalSkill.additional}
+                                content={hardSkills.additional}
                             />
                         )}
                     </>

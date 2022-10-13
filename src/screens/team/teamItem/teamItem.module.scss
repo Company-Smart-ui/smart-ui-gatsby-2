@@ -11,9 +11,10 @@
   padding: 30px 0 25px;
   border-top: 0.3px solid rgba(255, 255, 255, 0.5);
   transition: background 0.2s linear, box-shadow 0.2s linear,
-    backdrop-filter 0.2s linear;
+  backdrop-filter 0.2s linear;
+  justify-content: center;
   @media screen and (min-width: 375px) {
-    grid-template-columns: 114px minmax(150px, 300px);
+    grid-template-columns: 114px minmax(150px, 200px);
     grid-template-rows: 1fr 40px;
     grid-column-gap: 22px;
   }
@@ -55,7 +56,10 @@
 
   .levelRate {
     display: flex;
-    justify-content: space-between;
+    @include lg {
+      justify-content: space-between;
+    }
+
     width: 100%;
   }
 
