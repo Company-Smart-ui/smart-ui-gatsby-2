@@ -89,7 +89,7 @@ export const Skills = (props) => {
                 </Block>
             </div>
 
-            {workExperience.length > 0 && (
+            {typeof workExperience === "object" && workExperience.length > 0 && (
                 <Block classes={style.experience} title={"work experience"}>
                     {workExperience.map((i, key) => {
                         return (
