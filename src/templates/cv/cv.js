@@ -1,12 +1,20 @@
 import * as React from "react";
-import {useEffect, useState} from "react";
+import { useState, useRef, Suspense } from "react";
 import * as style from "./cv.module.scss";
-import {getImage} from "gatsby-plugin-image";
-import {Hero} from "./components/hero/hero";
-import {Skills} from "./components/skills/skills";
-import {BlobProvider} from "@react-pdf/renderer";
-import {CVPdfItem} from "./cvPdf/cvPdfItem";
-import {graphql} from "gatsby";
+import { getImage } from "gatsby-plugin-image";
+import { Hero } from "./components/hero/hero";
+import { Skills } from "./components/skills/skills";
+import { graphql } from "gatsby";
+
+const CVPdfItem = React.lazy(() =>
+  import("./cvPdf/cvPdfItem").then((module) => ({ default: module.CVPdfItem }))
+);
+
+const BlobProvider = React.lazy(() =>
+  import("@react-pdf/renderer").then((module) => ({
+    default: module.BlobProvider,
+  }))
+);
 
 export const query = graphql`
   query ($language: String, $pageId: String) {
@@ -62,7 +70,7 @@ export const query = graphql`
             text
             level
           }
-          technology_experience { 
+          technology_experience {
             skills {
               text
               experiensce_years
@@ -88,71 +96,84 @@ export const query = graphql`
 `;
 
 const Cv = (props) => {
-    const team = props?.data?.cv?.edges[0]?.node;
-    const global = props?.data?.global?.edges[0]?.node;
-    const [ready, setReady] = useState(false);
-    useEffect(() => {
-        setTimeout(() => {
-            setReady(true);
-        }, 0);
-    }, []);
-    const userInfo = {
-        numberPhone: team?.phone ? team?.phone : "",
-        emailUser: team?.email ? team?.email : "",
-        telegramUser: team?.telegram ? team?.telegram : "",
-        photoUser: team?.cv_photo ? team?.cv_photo.url : "",
-        photoUserGatsby: team?.cv_photo
-            ? team?.cv_photo?.localFile?.childImageSharp?.gatsbyImageData
-            : "",
-        userDescription: team?.description?.data
-            ? team?.description?.data?.description
-            : "",
-        userName: team?.name ? team?.name : "",
-        userDirection: team?.direction ? team?.direction : "",
-        technologyExperience: team?.technology_experience?.skills || [],
-        experienceYearsTitle: global?.tr_experiensce_years,
-        languageTitle: global?.tr_language,
-        englishTitle: global?.tr_team_english,
-        englishLevel: team?.english_level ? team?.english_level : "",
-        otherLanguage: team?.language ? team?.language : "",
-        personalSkillTitle: global?.tr_personal_skills,
-        hardSkills: team?.hard_skills || {},
-        mainTitle: global?.tr_main,
-        additionalTitle: global?.tr_additional,
-        workExperience: team?.work_experience,
-    };
+  const team = props?.data?.cv?.edges[0]?.node;
+  const global = props?.data?.global?.edges[0]?.node;
+  const [ready, setReady] = useState(false);
+  const userInfo = {
+    numberPhone: team?.phone ? team?.phone : "",
+    emailUser: team?.email ? team?.email : "",
+    telegramUser: team?.telegram ? team?.telegram : "",
+    photoUser: team?.cv_photo ? team?.cv_photo.url : "",
+    photoUserGatsby: team?.cv_photo
+      ? team?.cv_photo?.localFile?.childImageSharp?.gatsbyImageData
+      : "",
+    userDescription: team?.description?.data
+      ? team?.description?.data?.description
+      : "",
+    userName: team?.name ? team?.name : "",
+    userDirection: team?.direction ? team?.direction : "",
+    technologyExperience: team?.technology_experience?.skills || [],
+    experienceYearsTitle: global?.tr_experiensce_years,
+    languageTitle: global?.tr_language,
+    englishTitle: global?.tr_team_english,
+    englishLevel: team?.english_level ? team?.english_level : "",
+    otherLanguage: team?.language ? team?.language : "",
+    personalSkillTitle: global?.tr_personal_skills,
+    hardSkills: team?.hard_skills || {},
+    mainTitle: global?.tr_main,
+    additionalTitle: global?.tr_additional,
+    workExperience: team?.work_experience,
+    experience: 5,
+  };
 
-    return (
-        <div className={style.cv}>
-            <div className="container">
-                <Hero
-                    img={
-                        userInfo.photoUserGatsby ? getImage(userInfo.photoUserGatsby) : ""
-                    }
-                    name={userInfo.userName}
-                    chat="Chat"
-                    direction={userInfo.userDirection}
-                    description={userInfo.userDescription ? userInfo.userDescription : ""}
-                />
-                <Skills info={userInfo}/>
-                <div className={style.wrapCvButton}>
-                    {ready && false && (
-                        <BlobProvider document={<CVPdfItem infoPdf={userInfo}/>}>
-                            {({url, loading}) => {
-                                if (url && !loading) {
-                                    return (
-                                        <a className="button" href={url} download>
-                                            Download CV
-                                        </a>
-                                    );
-                                }
-                            }}
-                        </BlobProvider>
-                    )}
-                </div>
-            </div>
+  const linkRef = useRef();
+
+  const handleDownloadClick = () => {
+    if (ready) return;
+    setReady(true);
+  };
+
+  return (
+    <div className={style.cv}>
+      <div className="container">
+        <Hero
+          img={
+            userInfo.photoUserGatsby ? getImage(userInfo.photoUserGatsby) : ""
+          }
+          name={userInfo.userName}
+          chat="Chat"
+          direction={userInfo.userDirection}
+          description={userInfo.userDescription ? userInfo.userDescription : ""}
+        />
+        <Skills info={userInfo} />
+        <div className={style.wrapCvButton}>
+          <a
+            ref={linkRef}
+            id="download"
+            className="button"
+            onClick={handleDownloadClick}
+          >
+            Download CV
+          </a>
+          {ready && (
+            <Suspense>
+              <BlobProvider document={<CVPdfItem infoPdf={userInfo} />}>
+                {({ url, loading }) => {
+                  if (url && !loading) {
+                    const downloadBtnElement =
+                      document.getElementById("download");
+                    downloadBtnElement.setAttribute("download", "download");
+                    downloadBtnElement.setAttribute("href", url);
+                    linkRef?.current.click();
+                  }
+                }}
+              </BlobProvider>
+            </Suspense>
+          )}
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Cv;
