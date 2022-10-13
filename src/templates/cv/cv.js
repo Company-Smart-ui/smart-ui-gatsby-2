@@ -62,8 +62,7 @@ export const query = graphql`
             text
             level
           }
-          technology_experience {
-            experiensce_years
+          technology_experience { 
             skills {
               text
               experiensce_years
@@ -112,7 +111,6 @@ const Cv = (props) => {
         userDirection: team?.direction ? team?.direction : "",
         technologyExperience: team?.technology_experience?.skills || [],
         experienceYearsTitle: global?.tr_experiensce_years,
-        experienceYears: team?.technology_experience?.experiensce_years || "",
         languageTitle: global?.tr_language,
         englishTitle: global?.tr_team_english,
         englishLevel: team?.english_level ? team?.english_level : "",

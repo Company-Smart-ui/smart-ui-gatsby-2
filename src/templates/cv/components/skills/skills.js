@@ -52,7 +52,10 @@ export const Skills = (props) => {
                     >
                         <ul>
                             {technologyExperience.map((i, key) => {
-                                const percent = (i.experiensce_years / experienceYears) * 100;
+                                let percent = (i.experiensce_years / 5) * 100;
+                                if (percent > 100) {
+                                    percent = 100
+                                }
                                 return (
                                     <li key={key}>
                                         <p>{i.text}</p>
