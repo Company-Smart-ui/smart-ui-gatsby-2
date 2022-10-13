@@ -22,7 +22,7 @@
   .logo {
     margin-bottom: 40px;
 
-    .staticImg {
+    img {
       width: 247px;
       @include md {
         width: 302px;
@@ -183,7 +183,7 @@
       font-size: 16px;
     }
 
-    .staticImg {
+    img {
       height: 0.9em;
       object-fit: contain;
       margin-right: 5px;
