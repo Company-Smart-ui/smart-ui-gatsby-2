@@ -340,7 +340,7 @@ export function CVPdfItem(props) {
                             <Text style={styles.lastName}>{name[1]} </Text>
                             <Text style={styles.job}>{userDirection}</Text>
                         </View>
-                        {userDescription &&
+                        {userDescription && description &&
                             description.map((i, key) => {
                                 return (
                                     <Text key={key} style={styles.description}>
@@ -374,7 +374,7 @@ export function CVPdfItem(props) {
                         )}
 
                         {/* TECNOLOGY  Experience*/}
-                        {technologyExperience && (
+                        {technologyExperience.length > 0 && (
                             <View style={styles.wrapSkills}>
                                 <View style={styles.wrapTitle}>
                                     <View
@@ -460,7 +460,7 @@ export function CVPdfItem(props) {
                                         {englishLevel}
                                     </Text>
                                 </View>
-                                {otherLanguage &&
+                                {otherLanguage.length > 0 &&
                                     otherLanguage?.map((i, key) => {
                                         return (
                                             <View style={styles.languageItem} key={key}>
