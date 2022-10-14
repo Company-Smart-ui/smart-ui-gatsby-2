@@ -213,15 +213,18 @@ const styles = StyleSheet.create({
 });
 
 
-const Personal = (props) => {
+const List = (props) => {
+    const mainArray = props?.skill.map((t) => t.text).join(" ").split(",");
+    let column = Math.round(mainArray.length / 5) || 1;
+    column = column > 3 ? 3 : column;
     return (
         <View style={styles.blockList}>
             <Text style={styles.titleList}>{props.title}</Text>
             <View style={props.classes}>
-                {props?.skill?.map((i, key) => {
-                    const text = i.text.trim();
+                {mainArray.map((i, key) => {
+                    const text = i.trim();
                     return (
-                        <View style={{width: "30%"}} key={key}>
+                        <View style={{width: 100 / column - 2 + "%"}} key={key}>
                             <Text style={{marginBottom: 1, lineHeight: "1.3"}}>
                                 {text}
                             </Text>
@@ -247,9 +250,7 @@ export function CVPdfItem(props) {
         telegramUser,
         userName,
         userDirection,
-        experienceTitle,
         workExperience,
-        hardSkillTitle,
         technologyExperience,
         languageTitle,
         englishTitle,
@@ -318,12 +319,12 @@ export function CVPdfItem(props) {
                             >
                                 {"Hard Skills "}
                             </Text>
-                            <Personal
+                            <List
                                 title={mainTitle}
                                 skill={hardSkills?.main}
                                 classes={styles.wrapList}
                             />
-                            <Personal
+                            <List
                                 title={additionalTitle}
                                 skill={hardSkills?.additional}
                                 classes={styles.wrapListLast}
@@ -349,11 +350,11 @@ export function CVPdfItem(props) {
                             })}
                     </View>
                     <View style={styles.sectionRightBottom}>
-                        {/* EXPERIENCE */}
+                        {/*WORK EXPERIENCE */}
                         {workExperience.length > 0 && (
                             <View style={styles.wrapSkills}>
                                 <View style={styles.wrapTitle}>
-                                    <Text style={styles.title}>{experienceTitle}</Text>
+                                    <Text style={styles.title}>{"WORK EXPERIENCE"}</Text>
                                     <View style={styles.lineTitle}></View>
                                 </View>
                                 {workExperience?.map((i, key) => {
@@ -372,7 +373,7 @@ export function CVPdfItem(props) {
                             </View>
                         )}
 
-                        {/* Hard skills */}
+                        {/* TECNOLOGY  Experience*/}
                         {technologyExperience && (
                             <View style={styles.wrapSkills}>
                                 <View style={styles.wrapTitle}>
@@ -386,14 +387,14 @@ export function CVPdfItem(props) {
                                             },
                                         ]}
                                     >
-                                        <Text>{hardSkillTitle}</Text>
+                                        <Text>{"TECNOLOGY "}</Text>
                                         <Text
                                             style={{
                                                 fontSize: 8,
                                                 fontWeight: "normal",
                                             }}
                                         >
-                                            Experience years (1... 5+)
+                                            experience years (1... 5+)
                                         </Text>
                                     </View>
                                     <View style={styles.lineTitle}></View>
