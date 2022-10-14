@@ -6,13 +6,9 @@ import { Hero } from "./components/hero/hero";
 import { Skills } from "./components/skills/skills";
 import { graphql } from "gatsby";
 
-const CVPdfItem = React.lazy(() =>
-  import("./cvPdf/cvPdfItem").then((module) => ({ default: module.CVPdfItem }))
-);
-
-const BlobProvider = React.lazy(() =>
-  import("@react-pdf/renderer").then((module) => ({
-    default: module.BlobProvider,
+const PdfDownloader = React.lazy(() =>
+  import("./helpers/pdfDownloader").then((module) => ({
+    default: module.PdfDownloader,
   }))
 );
 
@@ -157,17 +153,7 @@ const Cv = (props) => {
           </a>
           {ready && (
             <Suspense>
-              <BlobProvider document={<CVPdfItem infoPdf={userInfo} />}>
-                {({ url, loading }) => {
-                  if (url && !loading) {
-                    const downloadBtnElement =
-                      document.getElementById("download");
-                    downloadBtnElement.setAttribute("download", "download");
-                    downloadBtnElement.setAttribute("href", url);
-                    linkRef?.current.click();
-                  }
-                }}
-              </BlobProvider>
+              <PdfDownloader linkRef={linkRef} userInfo={userInfo} />
             </Suspense>
           )}
         </div>
