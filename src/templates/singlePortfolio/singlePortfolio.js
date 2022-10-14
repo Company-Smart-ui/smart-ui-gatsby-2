@@ -11,6 +11,7 @@ import {Hero} from "./components/hero/hero";
 import {useTranslation} from "react-i18next";
 import {useWindowResize} from "../../hooks/useWindowResize";
 import mobileDevice from "./mobile.png";
+import { StaticImage } from "gatsby-plugin-image";
 
 export const query = graphql`
   query ($language: String, $pageId: String) {
@@ -109,6 +110,10 @@ const SinglePortfolio = (props) => {
         propProj?.main_img?.localFile?.childImageSharp?.gatsbyImageData;
     return (
         <div className={style.singlePortfolio}>
+            <StaticImage 
+                src="./logo-wp.png"
+                style={{position:'absolute'}}
+             />
             {Background()}
             <div className="container">
                 {mainImg && (
