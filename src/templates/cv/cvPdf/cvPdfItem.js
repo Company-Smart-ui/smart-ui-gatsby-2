@@ -259,10 +259,6 @@ export function CVPdfItem(props) {
 
     const name = userName.split(" ");
     const description = userDescription.replace(/(<([^>]+)>)/gi, "").split("\n");
-
-    console.log(technologyExperience);
-
-
     return (
         <Document>
             <Page size="A4" style={styles.body}>
@@ -394,7 +390,6 @@ export function CVPdfItem(props) {
                                         <Text
                                             style={{
                                                 fontSize: 8,
-                                                textTransform: "lowercase",
                                                 fontWeight: "normal",
                                             }}
                                         >
