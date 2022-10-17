@@ -4,8 +4,14 @@ import { Contact } from "../../../global/contact/contact";
 import { StaticImage } from "gatsby-plugin-image";
 import { SwipeTo } from "../../../global/swipeTo/swipeTo";
 import { useTranslation } from "react-i18next";
-import { Modal } from "../../../components/layout/modal/modal";
 import { useOpen } from "../../../hooks/useOpen";
+import { Suspense } from "react";
+
+const Modal = React.lazy(() =>
+  import("../../../components/layout/modal/modal").then((module) => ({
+    default: module.Modal,
+  }))
+);
 
 export const Hero = () => {
   const { t } = useTranslation();
@@ -75,9 +81,11 @@ export const Hero = () => {
       </section>
       {isOpen && (
         <div className={style.heroWrap}>
-          <Modal onClose={onClose} title={"Get started"}>
-            <h3>{t("tr_get_started")}</h3>
-          </Modal>
+          <Suspense>
+            <Modal onClose={onClose} title={"Get started"}>
+              <h3>{t("tr_get_started")}</h3>
+            </Modal>
+          </Suspense>
         </div>
       )}
     </>

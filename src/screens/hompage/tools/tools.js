@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import * as style from "./tools.module.scss";
 import { Pagination } from "../../../global/pagination/Pagination";
 import { CardsSwiper } from "./swiper/CardsSwiper";
@@ -6,8 +6,14 @@ import { SwiperButtons } from "../../../global/swiperButtons/SwiperButtons";
 
 import { SwipeTo } from "../../../global/swipeTo/swipeTo";
 import { useTranslation } from "react-i18next";
-import { Modal } from "../../../components/layout/modal/modal";
+// import { Modal } from "../../../components/layout/modal/modal";
 import { useOpen } from "../../../hooks/useOpen";
+
+const Modal = React.lazy(() =>
+  import("../../../components/layout/modal/modal").then((module) => ({
+    default: module.Modal,
+  }))
+);
 
 export const Tools = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -78,9 +84,11 @@ export const Tools = () => {
       </div>
       {isOpen && (
         <div className={style.toolsWrap}>
-          <Modal onClose={onClose} title={`${t("tools_btn")}`}>
-            <h3>{t("tools_btn")}</h3>
-          </Modal>
+          <Suspense>
+            <Modal onClose={onClose} title={`${t("tools_btn")}`}>
+              <h3>{t("tools_btn")}</h3>
+            </Modal>
+          </Suspense>
         </div>
       )}
     </>
