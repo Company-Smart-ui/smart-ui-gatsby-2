@@ -135,7 +135,6 @@ const Cv = (props) => {
     setReady(true);
     showLoadPdf();
   };
-  console.log(userInfo.hardSkills);
 
   return (
     <div className={style.cv}>
