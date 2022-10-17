@@ -18,7 +18,6 @@ $lightBorder: rgba(106, 106, 106, 0.7);
     padding: 200px 0;
   }
 
-
   :global {
     .button__chat {
       position: fixed;
@@ -58,7 +57,7 @@ $lightBorder: rgba(106, 106, 106, 0.7);
 
 .loader {
   position: absolute;
-  background-color: #13CC00;
+  background-color: #13cc00;
   border-radius: 5px;
 
   img {
