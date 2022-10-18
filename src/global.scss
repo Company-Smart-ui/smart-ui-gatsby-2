@@ -129,6 +129,10 @@ p {
   }
 }
 
+.ua-font *{
+  font-family: $uaFontText !important;
+  letter-spacing: 0.3px !important;
+}
 header,
 footer {
   flex-grow: 0;
