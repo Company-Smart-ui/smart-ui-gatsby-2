@@ -20,7 +20,6 @@
       margin-bottom: 10px;
       position: relative;
     }
-
   }
 
   :global {
@@ -34,13 +33,11 @@
       top: 240px;
       height: 380px;
 
-
       @include md {
         height: 150px;
         top: -75px;
         left: -75px;
       }
-
 
       &.right {
         height: 80px;
@@ -92,7 +89,7 @@
 
       /* Handle */
       &::-webkit-scrollbar-thumb {
-        background: #13CC00;
+        background: #13cc00;
         border-radius: 30px;
       }
 
@@ -196,9 +193,9 @@
         grid-template-columns: auto minmax(300px, 1fr);
         column-gap: 30px;
         grid-template-areas:
-            "title-section title-section"
-            "subtitle-section optimization-section"
-            "modal-button-section optimization-section";
+          "title-section title-section"
+          "subtitle-section optimization-section"
+          "modal-button-section optimization-section";
       }
 
       @include lg {
@@ -206,9 +203,9 @@
         grid-template-columns: auto minmax(275px, 350px);
         column-gap: 60px;
         grid-template-areas:
-            "title-section optimization-section"
-            "subtitle-section optimization-section"
-            "modal-button-section optimization-section";
+          "title-section optimization-section"
+          "subtitle-section optimization-section"
+          "modal-button-section optimization-section";
       }
     }
 
@@ -258,21 +255,6 @@
 
       @include lg {
         margin-top: 0;
-      }
-    }
-  }
-}
-
-.heroWrap {
-  :global {
-    .modal {
-      left: 50%;
-      transform: translateY(-100%) translateX(-50%);
-      top: 0;
-
-      &.open {
-        top: 50%;
-        transform: translateY(-50%) translateX(-50%);
       }
     }
   }

@@ -99,3 +99,43 @@ $lightBorder: rgba(106, 106, 106, 0.7);
     }
   }
 }
+.modalTeam {
+  :global {
+    .btns {
+      .button,
+      .reset {
+        @include sm {
+          max-width: 180px;
+          min-width: 180px;
+          padding: 20px;
+        }
+      }
+    }
+    .form {
+      margin-top: 20px;
+    }
+  }
+}
+.modalHead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include sm {
+    flex-direction: row;
+  }
+  p {
+    margin-bottom: 10px;
+  }
+  &Text {
+    flex: 1;
+  }
+  :global {
+    .gatsby-image-wrapper {
+      width: 102px;
+      height: 102px;
+      @include sm {
+        margin-right: 32px;
+      }
+    }
+  }
+}

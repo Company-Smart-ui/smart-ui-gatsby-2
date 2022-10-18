@@ -1,5 +1,4 @@
-@import 'src/var';
-
+@import "src/var";
 
 .card {
   border-radius: 8px;
@@ -55,18 +54,6 @@
 .cardWrap {
   :global {
     .modal {
-      left: 50%;
-      transform: translateY(-100%) translateX(-50%);
-      top: 0;
-      @include md {
-        max-width: 750px;
-      }
-
-      &.open {
-        top: 50%;
-        transform: translateY(-50%) translateX(-50%);
-      }
-
       .form {
         p {
           display: none;
@@ -79,11 +66,10 @@
 
       .btns {
         margin: auto;
-        justify-content: space-between;
+        justify-content: flex-end;
         width: 100%;
         @include md {
           margin: 0;
-          width: auto;
         }
 
         button {
@@ -127,7 +113,8 @@
     gap: 5px 10px;
   }
 
-  h3, p {
+  h3,
+  p {
     margin: 0 0 10px;
     @include md {
       margin: 0;
@@ -140,10 +127,14 @@
     .gatsby-image-wrapper {
       width: 100px;
       height: 100px;
-      border-radius: 50%;
+
+      overflow: hidden;
       grid-column-start: 1;
       grid-row-start: 1;
       grid-row-end: 4;
+      img {
+        border-radius: 50%;
+      }
     }
   }
 }
