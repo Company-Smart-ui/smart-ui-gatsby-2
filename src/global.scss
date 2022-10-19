@@ -67,7 +67,11 @@ body {
   .crisp-client .cc-52lo[data-full-view="true"] .cc-kegp .cc-1oun,
   .crisp-client .cc-52lo .cc-kegp .cc-1oun {
     bottom: 151px !important;
-    right: 6px !important;
+    right: 14px !important;
+    @include xl{
+      bottom: 300px !important;
+      right: 65px !important;
+    }
   }
   .crisp-client .cc-52lo .cc-kegp .cc-1oun .cc-1qth,
   .crisp-client .cc-52lo[data-full-view="true"] .cc-kegp .cc-1oun .cc-1qth {

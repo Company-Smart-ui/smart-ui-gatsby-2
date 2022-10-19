@@ -16,8 +16,9 @@
   padding: 11px 12px 0;
   z-index: 1;
   transform: skewY(-40deg);
+  box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.1);
   @include sm {
-    padding: 5px 19px 0;
+    padding: 10px 19px 0;
   }
 
   @include lg {
@@ -29,6 +30,7 @@
     transform: skewY(0deg);
     background-color: transparent;
     padding: 0;
+    box-shadow: none;
   }
   @include xxl {
     right: 0;
