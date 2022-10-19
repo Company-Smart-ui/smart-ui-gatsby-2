@@ -138,6 +138,8 @@ const Cv = (props) => {
 
   return (
     <div className={style.cv}>
+      <div className={style.logo}></div>
+      <div className="noise"></div>
       <div className="container">
         <Hero
           img={
