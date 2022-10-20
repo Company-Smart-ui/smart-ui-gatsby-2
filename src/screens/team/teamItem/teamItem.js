@@ -11,7 +11,13 @@ export const TeamItem = (props) => {
   return (
     <div className={style.item}>
       <div className={style.img}>
-        {<GatsbyImage alt={props.name} image={getImage(props.img)} />}
+        {
+          <GatsbyImage
+            alt={props.name}
+            image={getImage(props.img)}
+            backgroundColor="rgda(0, 0, 0, 0)"
+          />
+        }
       </div>
       <div className={style.centerRow}>
         <div>

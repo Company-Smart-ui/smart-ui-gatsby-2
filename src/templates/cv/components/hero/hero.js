@@ -12,7 +12,13 @@ export const Hero = (props) => {
   return (
     <div className={style.hero}>
       <div className={style.photo}>
-        {props?.img && <GatsbyImage alt={props?.name} image={props?.img} />}
+        {props?.img && (
+          <GatsbyImage
+            alt={props?.name}
+            image={props?.img}
+            backgroundColor="rgda(0, 0, 0, 0)"
+          />
+        )}
 
         <button onClick={onOpen} className={`button ${style.buttonChat}`}>
           {props?.chat}
