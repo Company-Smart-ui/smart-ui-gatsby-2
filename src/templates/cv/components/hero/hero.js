@@ -17,7 +17,7 @@ export const Hero = (props) => {
             alt={props?.name}
             image={props?.img}
             placeholderStyle={{
-              backgroundColor: false,
+              backgroundColor: "rgba(0, 0, 0, 0)",
             }}
           />
         )}

@@ -16,7 +16,7 @@ export const TeamItem = (props) => {
             alt={props.name}
             image={getImage(props.img)}
             placeholderStyle={{
-              backgroundColor: false,
+              backgroundColor: "rgba(0, 0, 0, 0)",
             }}
           />
         }
