@@ -25,7 +25,6 @@
     transition: 0.1s;
   }
   @include xl {
-
     padding: 45px max(150px, calc(50% - 670px));
     grid-template-columns: 190px 1fr;
   }
@@ -37,13 +36,13 @@
   &.open {
     background-color: #fff;
     transition: all 0.3s 0s;
-  
+
     .menu {
       opacity: 1;
       left: 0;
       transition: inherit;
     }
-  
+
     .messengers {
       li {
         transform: translate(0);
@@ -51,20 +50,20 @@
         opacity: 1;
       }
     }
-  
+
     :global {
       .navItemAnimation {
         opacity: 1;
         pointer-events: all;
         transform: translate(0);
       }
-  
+
       .langItem.langItem {
         transform: translate(0);
         pointer-events: all;
         opacity: 1;
       }
-  
+
       .messengers {
         li {
           transform: translate(0);
@@ -87,58 +86,65 @@
       background-color: rgba(255, 255, 255, 0.98);
     }
   }
-  &Project{
+  &Project {
     background: #1a1a1a !important;
+    &.open {
+      background: #fff !important;
+    }
   }
-  &Dark{
-    :global{
-      .nav{
-        a{
+  &Dark {
+    :global {
+      .nav {
+        a {
           color: #737373;
-          &.active{color: #fff}
+          &.active {
+            color: #fff;
+          }
         }
       }
-      .burger{
-        span{
+      .burger {
+        span {
           transition: all 0.3s linear;
           background-color: #fff;
         }
-        
       }
     }
-    &.scrolled{
-      :global{
+    &.scrolled {
+      :global {
         background: #1a1a1a;
-        .nav{
-          a{
+        .nav {
+          a {
             color: #737373;
-            &.active{color: #fff}
+            &.active {
+              color: #fff;
+            }
           }
         }
-        .burger{
-          span{
-            background-color:$GrayBlue;
+        .burger {
+          span {
+            background-color: #fff;
           }
         }
       }
     }
-    &.open{
-      :global{
-        .nav{
-          a{
-            &.active{color: #27272E}
+    &.open {
+      background: #fff;
+      :global {
+        .nav {
+          a {
+            &.active {
+              color: #27272e;
+            }
           }
         }
-        .langItem{
-          a.active{
-            color: #13CC00;
+        .langItem {
+          a.active {
+            color: #13cc00;
           }
         }
       }
-      
     }
   }
-  
 }
 
 .logo {
@@ -163,7 +169,6 @@
   }
 }
 
-
 .menu {
   transition: all 0.1s linear;
   position: fixed;
@@ -186,7 +191,6 @@
   }
 
   :global {
-
     .nav {
       margin-bottom: 2vh;
       width: 100%;
@@ -206,7 +210,6 @@
         padding: 0 3vw;
         justify-content: flex-start;
       }
-
     }
 
     .menuImg {
@@ -227,4 +230,3 @@
     }
   }
 }
-
