@@ -27,6 +27,8 @@ export const GetInTouch = (props) => {
     <div className={`${style.wrapper} getInTouch`}>
       <StaticImage 
         src="./line_background_grid.png"
+        alt={""}
+        quality={1}
         style={{position: 'absolute', height: '100%', top: 0}}
       />
       <div className="noise"></div>

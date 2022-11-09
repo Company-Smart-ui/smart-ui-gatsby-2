@@ -38,7 +38,8 @@ export const WhatWeDo = () => {
       <ScrollableAnchor id={"whatWeDo"}>
         <section className={`${style.whatWeDo} vertical-padding`}>
           <StaticImage 
-            src="./line_background_grid.png" 
+            src="./line_background_grid.png"
+            alt={""}
             style={{position:'absolute', top: 0, height:'100%'}} 
             />
           <div className="container">
@@ -125,7 +126,7 @@ export const WhatWeDo = () => {
         </section>
       </ScrollableAnchor>
       {isOpen && (
-        <div className={style.whatWeDoWrap}>
+        <div  >
           <Modal onClose={onClose} title={"Ask a question"}>
             <h3>Ask a question</h3>
           </Modal>

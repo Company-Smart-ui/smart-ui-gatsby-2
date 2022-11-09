@@ -25,7 +25,7 @@ export default Team
 
 export const Head = (data) => {
     return (
-        <Seo title={data.pageContext.pageName[0]}>
-        </Seo>
+        <Seo title={data.pageContext.pageName[0]}/>
+
     )
 }

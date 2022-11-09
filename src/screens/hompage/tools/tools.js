@@ -77,7 +77,7 @@ export const Tools = () => {
         </div>
       </div>
       {isOpen && (
-        <div className={style.toolsWrap}>
+        <div  >
           <Modal onClose={onClose} title={`${t("tools_btn")}`}>
             <h3>{t("tools_btn")}</h3>
           </Modal>
