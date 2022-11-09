@@ -67,7 +67,11 @@ body {
   .crisp-client .cc-52lo[data-full-view="true"] .cc-kegp .cc-1oun,
   .crisp-client .cc-52lo .cc-kegp .cc-1oun {
     bottom: 151px !important;
-    right: 6px !important;
+    right: 14px !important;
+    @include xl {
+      bottom: 270px !important;
+      right: 65px !important;
+    }
   }
   .crisp-client .cc-52lo .cc-kegp .cc-1oun .cc-1qth,
   .crisp-client .cc-52lo[data-full-view="true"] .cc-kegp .cc-1oun .cc-1qth {
@@ -104,10 +108,18 @@ p {
       padding-top: 40px;
       padding-bottom: 40px;
       transition: padding 0.2s;
+      &.open {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: #fff;
+      }
       &.scrolled {
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding-top: 15px;
+        padding-bottom: 15px;
         background-color: #1e1e1e;
+        &.open {
+          background-color: #fff;
+        }
         @include md {
           background-color: #fff;
         }
@@ -129,6 +141,10 @@ p {
   }
 }
 
+.ua-font * {
+  font-family: $uaFontText !important;
+  letter-spacing: 0.3px !important;
+}
 header,
 footer {
   flex-grow: 0;
@@ -435,38 +451,39 @@ button {
 
 .modal {
   background: $GrayBlue;
-  position: fixed;
+  margin: auto;
   z-index: 103;
-  top: 41vh;
-  left: 0;
   border-radius: 8px;
   width: 100%;
-  max-width: calc(100% - 55px);
   padding: 20px 15px;
-  transform: translate(-100%, -50%);
+  transform: translate(0, -100%);
   transition: 0.65s ease-in-out;
   @include md {
     max-width: 547px;
-    padding: 20px 40px;
+    padding: 35px 30px;
   }
-
+  @include lg {
+    max-width: 750px;
+    padding: 45px 40px 40px;
+  }
   h3 {
     color: $White;
-    font-size: 16px;
+    font-size: 20px;
     font-family: $fontText;
-    font-weight: 400;
+    font-weight: 600;
     margin-bottom: 10px;
   }
 
   p {
-    font-size: 14px;
+    font-size: 12px;
+    line-height: 24px;
     color: $LightGray;
     margin-bottom: 25px;
   }
 
   .form {
     width: 100%;
-    margin: 0 auto 20px;
+    margin: 0 auto;
     position: relative;
     z-index: 1;
     display: flex;
@@ -487,33 +504,47 @@ button {
 
   .btns {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
     order: 2;
-    @include md {
-      justify-content: start;
+    width: 100%;
+    @include sm {
+      justify-content: flex-end;
+      flex-direction: row;
+      align-items: center;
       order: 1;
     }
   }
-
+  .reset {
+    margin-bottom: 20px;
+    @include sm {
+      margin-bottom: 0;
+    }
+  }
   .button,
   .reset {
-    margin: 0 5px;
+    width: 100%;
+    @include sm {
+      width: auto;
+      margin-left: 10px;
+    }
+
+    @include lg {
+      margin-left: 35px;
+    }
     @media (max-width: $md) {
       font-size: 10px;
       min-width: 115px;
     }
   }
 
+  .formField input,
+  .formField textarea {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
   &.open {
-    left: 45px;
-    transform: translate(0, -50%);
-    @include md {
-      left: 84px;
-    }
-    @include xxl {
-      left: calc((50% - 1720px / 2) + 84px);
-    }
+    transform: translate(0, 0);
   }
 }
 
@@ -531,12 +562,15 @@ button {
   left: 0;
   bottom: 0;
   right: 0;
-  background: $GrayBlue;
+  background: rgba($GrayBlue, 0.5);
   opacity: 0;
   transition: 0.65s ease-in-out;
   z-index: 102;
 
   &.open {
-    opacity: 0.5;
+    opacity: 1;
+    display: flex;
+    padding: 20px;
+    overflow: auto;
   }
 }

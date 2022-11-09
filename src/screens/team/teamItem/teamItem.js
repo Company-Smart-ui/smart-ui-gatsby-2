@@ -11,7 +11,15 @@ export const TeamItem = (props) => {
   return (
     <div className={style.item}>
       <div className={style.img}>
-        {<GatsbyImage alt={props.name} image={getImage(props.img)} />}
+        {
+          <GatsbyImage
+            alt={props.name}
+            image={getImage(props.img)}
+            placeholderStyle={{
+              backgroundColor: "rgba(0, 0, 0, 0)",
+            }}
+          />
+        }
       </div>
       <div className={style.centerRow}>
         <div>

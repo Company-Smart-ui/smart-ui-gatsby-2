@@ -1,4 +1,4 @@
-@import 'src/var';
+@import "src/var";
 
 .tools {
   position: relative;
@@ -21,17 +21,17 @@
       grid-template-columns: 1fr 1fr;
       grid-template-rows: auto auto auto;
       grid-template-areas:
-        'title-container title-container'
-        'vertical-block vertical-block'
-        'buttons-block buttons-block';
+        "title-container title-container"
+        "vertical-block vertical-block"
+        "buttons-block buttons-block";
 
       @include sm {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto auto;
         grid-template-areas:
-        'title-container .'
-        'vertical-block vertical-block'
-        'buttons-block buttons-block';
+          "title-container ."
+          "vertical-block vertical-block"
+          "buttons-block buttons-block";
       }
 
       @include lg {
@@ -39,8 +39,8 @@
         grid-template-rows: auto auto;
         column-gap: 30px;
         grid-template-areas:
-          'title-container vertical-block'
-          '. buttons-block';
+          "title-container vertical-block"
+          ". buttons-block";
       }
 
       @include xl {
@@ -73,10 +73,10 @@
         flex-direction: column;
         gap: 20px;
       }
-      @include xxl{
+      @include xxl {
         max-width: none;
       }
-      .pagination-wrapper{
+      .pagination-wrapper {
         padding-left: 15px;
         @include xxl {
           padding-left: 19px;
@@ -133,21 +133,6 @@
 
       @include xxl {
         margin-top: 28px;
-      }
-    }
-  }
-}
-
-.toolsWrap {
-  :global {
-    .modal {
-      left: 50%;
-      transform: translateY(-100%) translateX(-50%);
-      top: 0;
-
-      &.open {
-        top: 50%;
-        transform: translateY(-50%) translateX(-50%);
       }
     }
   }

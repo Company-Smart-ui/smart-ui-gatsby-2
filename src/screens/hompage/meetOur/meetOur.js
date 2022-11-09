@@ -51,9 +51,7 @@ export const MeetOur = () => {
     }
   `);
 
-  const employees = Array.isArray(data.allStrapiTeam.nodes)
-    ? data.allStrapiTeam.nodes
-    : [];
+  const employees = Array.isArray(data.allStrapiTeam.nodes) ? data.allStrapiTeam.nodes : [];
 
   return (
     <div className={`${style.meetOur} vertical-padding`}>
@@ -66,38 +64,17 @@ export const MeetOur = () => {
               <h2 className="h2">{t("team_title")}</h2>
               <p className="subtitle">{t("team_text")}</p>
               <div className="pagination-wrapper">
-                <Pagination
-                  activeIdx={activeIndex}
-                  sliderLength={employees.length}
-                />
+                <Pagination activeIdx={activeIndex} sliderLength={employees.length} />
               </div>
             </div>
           </div>
           <div className="container-block overlay">
-            <TeamSwiper
-              activeIndexHandler={activeIndexHandler}
-              swiperRef={swiperRef}
-              setSwiperRef={setSwiperRef}
-              teamList={employees}
-              button={t("tr_ask_a_question")}
-            />
+            <TeamSwiper activeIndexHandler={activeIndexHandler} swiperRef={swiperRef} setSwiperRef={setSwiperRef} teamList={employees} button={t("tr_ask_a_question")} />
           </div>
           <div className="footer-buttons overlay">
-            <SwiperButtons
-              onPrev={slidePrevHandler}
-              onNext={slideNextHandler}
-              activeIndex={activeIndex}
-              sliderLength={employees.length}
-              fill
-              doubleEnd
-              countElementFromEnd={countElementFromEnd}
-            />
+            <SwiperButtons onPrev={slidePrevHandler} onNext={slideNextHandler} activeIndex={activeIndex} sliderLength={employees.length} fill doubleEnd countElementFromEnd={countElementFromEnd} />
           </div>
-          <Link
-            className="container button whole-team-button overlay"
-            to={"/team/"}
-            language={currentLng}
-          >
+          <Link className="container button whole-team-button overlay" to={"/team/"} language={currentLng}>
             {t("team_btn")}
           </Link>
         </div>

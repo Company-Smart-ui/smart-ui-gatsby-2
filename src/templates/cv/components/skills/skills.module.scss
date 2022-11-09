@@ -163,14 +163,6 @@ $xs: 420px;
   }
   &Item {
     width: 100%;
-    @include sm {
-      margin: 0;
-      max-width: 120px;
-      &:last-child {
-        max-width: 100px;
-        padding-right: 0;
-      }
-    }
   }
 
   &Name {
