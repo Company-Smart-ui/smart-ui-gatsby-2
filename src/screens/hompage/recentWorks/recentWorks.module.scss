@@ -1,10 +1,7 @@
-@import 'src/var';
+@import "src/var";
 
 .recentWorks {
-  background-color: #ECF2F6;
-  background-image: url('./img/react.png');
-  background-repeat: no-repeat;
-  background-position: right;
+  background-color: #ecf2f6;
 
   :global {
     .works-swiper {
@@ -23,18 +20,18 @@
       grid-template-columns: 1fr 1fr;
       grid-template-rows: auto auto auto auto;
       grid-template-areas:
-           'title-container .'
-            'view-more-button .'
-            'content-container content-container'
-            'buttons-block buttons-block';
+        "title-container ."
+        "view-more-button ."
+        "content-container content-container"
+        "buttons-block buttons-block";
 
       @include md {
         grid-template-columns: 1fr 1fr;
         grid-template-areas:
-          'title-container .'
-          'view-more-button .'
-          'content-container content-container'
-          'buttons-block buttons-block';
+          "title-container ."
+          "view-more-button ."
+          "content-container content-container"
+          "buttons-block buttons-block";
       }
 
       @include lg {
@@ -42,9 +39,9 @@
         column-gap: 10px;
         grid-template-rows: auto auto auto;
         grid-template-areas:
-          'title-container content-container'
-          'view-more-button content-container'
-          '. buttons-block';
+          "title-container content-container"
+          "view-more-button content-container"
+          ". buttons-block";
       }
 
       @include xl {
@@ -95,12 +92,11 @@
         font-size: 17px;
       }
     }
-    .pagination-wrapper{
-      @include md{
+    .pagination-wrapper {
+      @include md {
         margin-left: 20px;
       }
     }
-
 
     .button {
       max-width: 50%;

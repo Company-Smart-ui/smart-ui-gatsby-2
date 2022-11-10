@@ -4,6 +4,7 @@ import { Pagination } from "../../../global/pagination/Pagination";
 import { SwiperButtons } from "../../../global/swiperButtons/SwiperButtons";
 import { ReviewSwiper } from "./swiper/ReviewSwiper";
 import { useTranslation } from "react-i18next";
+import { StaticImage } from "gatsby-plugin-image";
 
 export const ClientReviews = () => {
   const [swiperRef, setSwiperRef] = useState(null);
@@ -14,10 +15,14 @@ export const ClientReviews = () => {
 
   const { t } = useTranslation();
 
-  const link = t('reviews_link', { returnObjects: true });
+  const link = t("reviews_link", { returnObjects: true });
 
   return (
     <div className={`${style.clientReviews} vertical-padding`}>
+      <StaticImage
+        src="./upwork_label_mobile.png"
+        style={{ position: "absolute", right: 0, top: 0, width: "535px" }}
+      />
       <div className="bg-upwork-title">
         <div className="noise" />
         <div className="container">
@@ -31,8 +36,13 @@ export const ClientReviews = () => {
               <div className="subtitle">{t("reviews_text")}</div>
             </div>
             <div className="review">
-              <div dangerouslySetInnerHTML={{ __html: t("reviews_right_title") }} className="review-title" />
-              <a href={link.url} className="button">{link.text}</a>
+              <div
+                dangerouslySetInnerHTML={{ __html: t("reviews_right_title") }}
+                className="review-title"
+              />
+              <a href={link.url} className="button">
+                {link.text}
+              </a>
             </div>
             <div className="content">
               <Pagination sliderLength={2} activeIdx={activeIndex} />

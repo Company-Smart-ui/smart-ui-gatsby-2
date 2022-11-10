@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 import { I18nextContext, Link } from "gatsby-plugin-react-i18next";
 import { graphql, useStaticQuery } from "gatsby";
 import { useWindowResize } from "../../../hooks/useWindowResize";
+import { StaticImage } from "gatsby-plugin-image";
 
 export const MeetOur = () => {
   const { language: currentLng } = useContext(I18nextContext);
@@ -59,7 +60,13 @@ export const MeetOur = () => {
     <div className={`${style.meetOur} vertical-padding`}>
       <div className="noise" />
       <div className="container">
-        <div className="img-block" />
+        <div className="img-block">
+          <StaticImage
+            src="./mobile_illustration.png"
+            style={{ position: "absolute", top: 0, height: "100%" }}
+          />
+        </div>
+
         <div className="container-grid">
           <div className="title-block">
             <div className="title-container">
