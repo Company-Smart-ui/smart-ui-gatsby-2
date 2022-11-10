@@ -33,7 +33,7 @@ export const BackToTop = ({ text }) => {
   };
 
   return (
-    <button onClick={scroll} className={style.backTo}>
+    <button aria-label="Scroll" onClick={scroll} className={style.backTo}>
       <span className="lg-only">
         <img src={scroll_img} alt="back to top" /> {text}
       </span>

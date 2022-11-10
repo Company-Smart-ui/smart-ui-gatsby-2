@@ -3,6 +3,14 @@ import React from "react";
 import { CVPdfItem } from "../cvPdf/cvPdfItem";
 
 export const PdfDownloader = ({ linkRef, userInfo, hideLoaderPdf }) => {
+  let onlyOnce = ()=>{
+    if(!linkRef||linkRef.current.dataset.dataClicked){
+      return
+    }
+      linkRef.current.click();
+    linkRef.current.dataset.dataClicked="true";
+  }
+
   return (
     <BlobProvider document={<CVPdfItem infoPdf={userInfo} />}>
       {({ url, loading }) => {
@@ -13,7 +21,8 @@ export const PdfDownloader = ({ linkRef, userInfo, hideLoaderPdf }) => {
             userInfo?.userName + " Smart Ui"
           );
           downloadBtnElement.setAttribute("href", url);
-          linkRef?.current.click();
+          onlyOnce();
+          onlyOnce= ()=>{}
           hideLoaderPdf();
         }
       }}

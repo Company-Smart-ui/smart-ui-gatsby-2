@@ -16,7 +16,7 @@ const Layout = (props) => {
         } else{
             setPageURL(false);
         }
-    })
+    },[])
     return (
         <div className={`layout ${path.startsWith("project") && "projects"} ${pageURL === true ? 'ua-font' : ''}`}>
             <Header path={path}/>
