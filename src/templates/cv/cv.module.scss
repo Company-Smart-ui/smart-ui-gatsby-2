@@ -9,22 +9,37 @@ $lightBorder: rgba(106, 106, 106, 0.7);
   padding: 150px 0;
   position: relative;
   font-size: clamp(16px, 10vw - 80px, 20px);
-  background-image: url("./background.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-color: #1E1E1E;
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 115.89%);
+  backdrop-filter: blur(225px);
+  overflow: hidden;
   color: $White;
   @include lg {
     padding: 200px 0;
   }
-  .wrapCvButton {
-    margin: 50px auto 0;
-    max-width: 188px;
-    @include lg {
-      margin: 100px auto 0;
-    }
+  .logo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./logo.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
   }
-
   :global {
+    .noise{
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 0;
+    }
+    .container{
+      position: relative;
+      z-index: 1;
+    }
     .button__chat {
       position: fixed;
       bottom: 25%;
@@ -49,5 +64,25 @@ $lightBorder: rgba(106, 106, 106, 0.7);
         }
       }
     }
+  }
+}
+
+.wrapCvButton {
+  position: relative;
+  margin: 50px auto 0;
+  max-width: 188px;
+  @include lg {
+    margin: 100px auto 0;
+  }
+}
+
+.loader {
+  position: absolute;
+  background-color: #13cc00;
+  border-radius: 5px;
+
+  img {
+    height: 50px;
+    width: 50px;
   }
 }

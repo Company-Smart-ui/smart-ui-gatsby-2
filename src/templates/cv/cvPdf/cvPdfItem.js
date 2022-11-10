@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   sectionRight: {
     width: "45%",
     paddingRight: 30,
-    paddingTop: 0,
+    paddingTop: 50,
     flexDirection: "column",
     justifyContent: "space-between",
   },
@@ -90,11 +90,11 @@ const styles = StyleSheet.create({
     height: 210,
   },
   photo: {
-    marginTop: 55,
+    marginTop: 60,
     marginBottom: 60,
     marginLeft: 83,
     width: 210,
-    height: 230,
+    height: 210,
   },
   iconMobile: {
     height: 27,
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
     fontSize: 40,
     marginBottom: 10,
     fontWeight: "black",
-    color: "#10BE43",
+    color: "#10be43",
   },
   job: {
     fontSize: 20,
@@ -220,12 +220,35 @@ const styles = StyleSheet.create({
   },
 });
 
+const List = (props) => {
+  const mainArray = props?.skill
+    .map((t) => t.text)
+    .join(" ")
+    .split(",");
+  let column = Math.round(mainArray.length / 5) || 1;
+  column = column > 3 ? 3 : column;
+  return (
+    <View style={styles.blockList}>
+      <Text style={styles.titleList}>{props.title}</Text>
+      <View style={props.classes}>
+        {mainArray.map((i, key) => {
+          const text = i.trim();
+          return (
+            <View style={{ width: 100 / column - 2 + "%" }} key={key}>
+              <Text style={{ marginBottom: 1, lineHeight: "1.3" }}>{text}</Text>
+            </View>
+          );
+        })}
+      </View>
+    </View>
+  );
+};
+
 // Create Document Component
 export function CVPdfItem(props) {
   const {
     userDescription,
-    personalSkillTitle,
-    personalSkill,
+    hardSkills,
     mainTitle,
     additionalTitle,
     photoUser,
@@ -234,12 +257,8 @@ export function CVPdfItem(props) {
     telegramUser,
     userName,
     userDirection,
-    experienceTitle,
-    experience,
-    experiensceYearsTitle,
-    experiensceYears,
-    hardSkillTitle,
-    hardSkill,
+    workExperience,
+    technologyExperience,
     languageTitle,
     englishTitle,
     otherLanguage,
@@ -248,27 +267,6 @@ export function CVPdfItem(props) {
 
   const name = userName.split(" ");
   const description = userDescription.replace(/(<([^>]+)>)/gi, "").split("\n");
-
-  const Personal = (props) => {
-    return (
-      <View style={styles.blockList}>
-        <Text style={styles.titleList}>{props.title}</Text>
-        <View style={props.classes}>
-          {props?.skill?.map((i, key) => {
-            const text = i.text.trim();
-            return (
-              <View style={{ width: "30%" }} key={key}>
-                <Text style={{ marginBottom: 1, lineHeight: "1.3" }}>
-                  {text}
-                </Text>
-              </View>
-            );
-          })}
-        </View>
-      </View>
-    );
-  };
-
   return (
     <Document>
       <Page size="A4" style={styles.body}>
@@ -320,22 +318,22 @@ export function CVPdfItem(props) {
             )}
           </View>
 
-          {/* PERSONAL SKILLS */}
-          {personalSkill && (
+          {/* HARD SKILLS */}
+          {hardSkills && (
             <View style={styles.personalSkills}>
               <Text
                 style={[styles.title, { borderBottom: 0, marginBottom: 15 }]}
               >
-                {personalSkillTitle}
+                {"Hard Skills "}
               </Text>
-              <Personal
+              <List
                 title={mainTitle}
-                skill={personalSkill?.main}
+                skill={hardSkills?.main}
                 classes={styles.wrapList}
               />
-              <Personal
+              <List
                 title={additionalTitle}
-                skill={personalSkill?.additional}
+                skill={hardSkills?.additional}
                 classes={styles.wrapListLast}
               />
             </View>
@@ -359,14 +357,14 @@ export function CVPdfItem(props) {
               })}
           </View>
           <View style={styles.sectionRightBottom}>
-            {/* EXPERIENCE */}
-            {experience.length > 0 && (
+            {/*WORK EXPERIENCE */}
+            {workExperience.length > 0 && (
               <View style={styles.wrapSkills}>
                 <View style={styles.wrapTitle}>
-                  <Text style={styles.title}>{experienceTitle}</Text>
+                  <Text style={styles.title}>{"WORK EXPERIENCE"}</Text>
                   <View style={styles.lineTitle}></View>
                 </View>
-                {experience?.map((i, key) => {
+                {workExperience?.map((i, key) => {
                   return (
                     <View style={styles.experienceItem} key={key}>
                       <View style={styles.experienceLeft}>
@@ -382,8 +380,8 @@ export function CVPdfItem(props) {
               </View>
             )}
 
-            {/* Hard skills */}
-            {hardSkill && (
+            {/* TECNOLOGY  Experience*/}
+            {technologyExperience && (
               <View style={styles.wrapSkills}>
                 <View style={styles.wrapTitle}>
                   <View
@@ -396,23 +394,22 @@ export function CVPdfItem(props) {
                       },
                     ]}
                   >
-                    <Text>{hardSkillTitle}</Text>
+                    <Text>{"TECNOLOGY "}</Text>
                     <Text
                       style={{
                         fontSize: 8,
-                        textTransform: "lowercase",
                         fontWeight: "normal",
                       }}
                     >
-                      {experiensceYearsTitle} {experiensceYears}+
+                      experience years (1... 5+)
                     </Text>
                   </View>
                   <View style={styles.lineTitle}></View>
                 </View>
                 <View style={styles.hardSkillsList}>
-                  {hardSkill?.map((i, key) => {
-                    const percent =
-                      (i.experiensce_years / experiensceYears) * 100;
+                  {technologyExperience?.map((i, key) => {
+                    let percent = (i.experiensce_years / 5) * 100;
+                    percent = percent > 100 ? 100 : percent;
                     return (
                       <View
                         key={key}
@@ -422,7 +419,10 @@ export function CVPdfItem(props) {
                           marginBottom: 4,
                         }}
                       >
-                        <Text style={{ width: "65%" }}>{i.text}</Text>
+                        <Text style={{ width: "55%" }}>{i.text}</Text>
+                        <Text style={{ width: "10%" }}>
+                          {i.experiensce_years}
+                        </Text>
                         <View
                           style={{
                             width: "35%",
@@ -435,7 +435,7 @@ export function CVPdfItem(props) {
                           <Text
                             style={{
                               width: `${percent}%`,
-                              backgroundColor: "#10BE43",
+                              backgroundColor: "#10be43",
                               height: 4,
                               borderRadius: "50%",
                             }}

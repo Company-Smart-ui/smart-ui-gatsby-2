@@ -1,4 +1,5 @@
 @import "src/var";
+
 $lightBorder: rgba(106, 106, 106, 0.7);
 $xs: 420px;
 @mixin xs {
@@ -6,12 +7,16 @@ $xs: 420px;
     @content;
   }
 }
+
 .list {
   width: 100%;
   margin-bottom: 30px;
+  height: 100%;
+
   &:last-child {
     margin-bottom: 0;
   }
+
   @include lg {
     margin-bottom: 0;
 
@@ -20,6 +25,7 @@ $xs: 420px;
       border-right: 0.5px solid rgba(106, 106, 106, 0.7);
     }
   }
+
   h4 {
     text-transform: uppercase;
     font-size: 17px;
@@ -28,14 +34,11 @@ $xs: 420px;
       font-size: 20px;
     }
   }
-  &Wrapp {
-    display: block;
-  }
+
+
   &Item {
     @include sm {
-      display: grid;
-      grid-column-gap: 10px;
-      grid-template-columns: repeat(3, 1fr);
+      column-count: 3;
       padding-top: 25px;
       padding-bottom: 25px;
       & + .listItem:not(:nth-child(2)) {
@@ -48,11 +51,9 @@ $xs: 420px;
         padding-top: 0;
       }
     }
-    @include lg {
-      grid-column-gap: 40px;
-      grid-template-columns: repeat(3, 1fr);
-    }
+
   }
+
   ul {
     width: 100%;
     margin-bottom: 10px;

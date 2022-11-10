@@ -1,10 +1,12 @@
 import * as React from "react";
-import { useState, useRef, Suspense } from "react";
+import { Suspense, useRef, useState } from "react";
 import * as style from "./cv.module.scss";
 import { getImage } from "gatsby-plugin-image";
 import { Hero } from "./components/hero/hero";
 import { Skills } from "./components/skills/skills";
 import { graphql } from "gatsby";
+import { useOpen } from "../../hooks/useOpen";
+import { Loader } from "../../global/loader/loader";
 
 const PdfDownloader = React.lazy(() =>
   import("./helpers/pdfDownloader").then((module) => ({
@@ -108,14 +110,14 @@ const Cv = (props) => {
       : "",
     userName: team?.name ? team?.name : "",
     userDirection: team?.direction ? team?.direction : "",
-    technologyExperience: team?.technology_experience?.skills || [],
+    technologyExperience: team?.technology_experience?.skills,
     experienceYearsTitle: global?.tr_experiensce_years,
     languageTitle: global?.tr_language,
     englishTitle: global?.tr_team_english,
     englishLevel: team?.english_level ? team?.english_level : "",
     otherLanguage: team?.language ? team?.language : "",
     personalSkillTitle: global?.tr_personal_skills,
-    hardSkills: team?.hard_skills || {},
+    hardSkills: team?.hard_skills,
     mainTitle: global?.tr_main,
     additionalTitle: global?.tr_additional,
     workExperience: team?.work_experience,
@@ -123,14 +125,21 @@ const Cv = (props) => {
   };
 
   const linkRef = useRef();
-
+  const {
+    isOpen: pdfLoader,
+    onOpen: showLoadPdf,
+    onClose: hideLoaderPdf,
+  } = useOpen();
   const handleDownloadClick = () => {
     if (ready) return;
     setReady(true);
+    showLoadPdf();
   };
 
   return (
     <div className={style.cv}>
+      <div className={style.logo}></div>
+      <div className="noise"></div>
       <div className="container">
         <Hero
           img={
@@ -146,16 +155,21 @@ const Cv = (props) => {
           <a
             ref={linkRef}
             id="download"
-            className="button"
+            className={"button"}
             onClick={handleDownloadClick}
           >
             Download CV
           </a>
           {ready && (
             <Suspense>
-              <PdfDownloader linkRef={linkRef} userInfo={userInfo} />
+              <PdfDownloader
+                hideLoaderPdf={hideLoaderPdf}
+                linkRef={linkRef}
+                userInfo={userInfo}
+              />
             </Suspense>
           )}
+          {pdfLoader && <Loader className={style.loader} />}
         </div>
       </div>
     </div>

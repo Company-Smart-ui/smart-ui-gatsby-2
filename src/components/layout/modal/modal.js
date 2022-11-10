@@ -64,68 +64,78 @@ export const Modal = ({
 
   return (
     <>
-      <div className={["mask", isFade ? "open" : ""].join(" ")}></div>
-      <div ref={modalRef} className={["modal", isFade ? "open" : ""].join(" ")}>
-        {children}
-        <form onSubmit={handleSubmit(onSubmit)} className="form">
-          {isReview && (
-            <div className="formRating">
-              <StarRating
-                size={35}
-                initialRating={0}
-                unit="full"
-                activeColor="yellow"
-                handleOnClick={handleOnClick}
+      <div className={["mask", isFade ? "open" : ""].join(" ")}>
+        <div
+          ref={modalRef}
+          className={["modal", isFade ? "open" : ""].join(" ")}
+        >
+          {children}
+          <form onSubmit={handleSubmit(onSubmit)} className="form">
+            {isReview && (
+              <div className="formRating">
+                <StarRating
+                  size={35}
+                  initialRating={0}
+                  unit="full"
+                  activeColor="yellow"
+                  handleOnClick={handleOnClick}
+                />
+              </div>
+            )}
+            <p>Write your comment</p>
+            <label className="formField">
+              <input
+                {...register("name", {
+                  required: true,
+                  maxLength: {
+                    value: 150,
+                    message: "Not more than 150 symbols",
+                  },
+                })}
+                placeholder={
+                  "Leave any contacts: ( telegram ,whatsapp, linkedin , etc.. )"
+                }
+                type={"text"}
               />
+              {errors.contact && (
+                <span className="error">{errors.contact.message}</span>
+              )}
+            </label>
+            <label className="formField">
+              <textarea
+                {...register("review", {
+                  required: true,
+                  maxLength: {
+                    value: 300,
+                    message: "Not more than 300 symbols",
+                  },
+                })}
+                placeholder={"Your message*"}
+              ></textarea>
+              {errors.message && (
+                <span className="error">{errors.message.message}</span>
+              )}
+            </label>
+            <p className="md-only">
+              Your data is safe and will not be passed on to third parties
+            </p>
+            {isMessage && <Messenger data={data} />}
+            <div className={"btns"}>
+              <button
+                className="reset"
+                type="reset"
+                onClick={fadeOutHandle}
+                disabled={isSubmitting}
+              >
+                No, cancel
+              </button>
+              <button type="submit" className="button">
+                Yes, confirm
+              </button>
             </div>
-          )}
-          <p>Write your comment</p>
-          <label className="formField">
-            <input
-              {...register("name", {
-                required: true,
-                maxLength: { value: 150, message: "Not more than 150 symbols" },
-              })}
-              placeholder={
-                "Leave any contacts: ( telegram ,whatsapp, linkedin , etc.. )"
-              }
-              type={"text"}
-            />
-            {errors.contact && (
-              <span className="error">{errors.contact.message}</span>
-            )}
-          </label>
-          <label className="formField">
-            <textarea
-              {...register("review", {
-                required: true,
-                maxLength: { value: 300, message: "Not more than 300 symbols" },
-              })}
-              placeholder={"Your message*"}
-            ></textarea>
-            {errors.message && (
-              <span className="error">{errors.message.message}</span>
-            )}
-          </label>
-          <p className="md-only">
-            Your data is safe and will not be passed on to third parties
-          </p>
-          {isMessage && <Messenger data={data} />}
-          <div className={"btns"}>
-            <button
-              className="reset"
-              type="reset"
-              onClick={fadeOutHandle}
-              disabled={isSubmitting}
-            >
-              No, cancel
-            </button>
-            <button type="submit" className="button">
-              Yes, confirm
-            </button>
-          </div>
-        </form>
-        {loading && <Loader />}
+          </form>
+          {loading && <Loader />}
+        </div>
       </div>
     </>
   );

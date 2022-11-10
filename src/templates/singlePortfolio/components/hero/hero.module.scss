@@ -85,24 +85,6 @@ $xs: 375px;
   top: 0;
   left: 0;
   width: 100%;
-  &:after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 11px;
-    left: 50%;
-    transform: translate(-50%, 0);
-    width: 120px;
-    height: 27px;
-    z-index: 2;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-image: url("data:image/svg+xml,%3Csvg width='164' height='31' viewBox='0 0 164 31' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H164C162.396 0.633367 161.327 2.16514 161.286 3.88899L161.242 5.74719C161.242 19.6939 149.936 31 135.989 31H28.0112C14.0644 31 2.75841 19.6939 2.75841 5.74719L2.71399 3.88899C2.67278 2.16514 1.60381 0.633367 0 0Z' fill='%23004D66'/%3E%3C/svg%3E%0A");
-    @include xl {
-      width: 164px;
-      top: 22px;
-    }
-  }
 }
 .mobileImg {
   width: 100%;
