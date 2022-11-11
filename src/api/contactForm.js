@@ -25,7 +25,7 @@ export const sendForm = ({ type, data }) => {
     type: type,
   };
 
-  const dataToString = JSON.stringify(data);
+  const dataToString = JSON.stringify(data).split(',').join('\n');
   sendTelegram({ type, dataToString });
   sendDataToStrapi(formData);
 };

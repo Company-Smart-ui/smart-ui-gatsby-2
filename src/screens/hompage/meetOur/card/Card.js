@@ -42,7 +42,9 @@ export const Card = ({content, button}) => {
                                     onClose={onClose}
                                     isMessage={show_contact}
                                     data={data}
-                                    title={`Leave message to ${name}`}
+                                    title={'Leave message'}
+                                    employee={name}
+                                    isDeveloper={true}
                                 >
                                     <div className={style.modalHead}>
                                         {image && <GatsbyImage image={image} alt={name}/>}

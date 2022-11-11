@@ -566,10 +566,10 @@ button {
   opacity: 0;
   transition: 0.65s ease-in-out;
   z-index: 102;
+  display: flex;
 
   &.open {
     opacity: 1;
-    display: flex;
     padding: 20px;
     overflow: auto;
   }

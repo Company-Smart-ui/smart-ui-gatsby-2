@@ -117,10 +117,6 @@ export const WhatWeDo = () => {
                   activeIndex={activeIndex}
                 />
               </div>
-              <div className="info-link">
-                <div className="horizontal-line" />
-                <a href="/">{t("tr_book_a_consultation")}</a>
-              </div>
             </div>
           </div>
         </section>

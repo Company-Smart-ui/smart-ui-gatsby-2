@@ -23,7 +23,7 @@ export const leaveComment = (data) => {
     ...data,
     published: false,
   };
-  const dataToString = JSON.stringify(formData);
+  const dataToString = JSON.stringify(data).split(',').join('\n');
   sendTelegram({ type, dataToString });
   sendDataToStrapi(formData);
 };
