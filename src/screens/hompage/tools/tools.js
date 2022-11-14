@@ -6,7 +6,6 @@ import { SwiperButtons } from "../../../global/swiperButtons/SwiperButtons";
 
 import { SwipeTo } from "../../../global/swipeTo/swipeTo";
 import { useTranslation } from "react-i18next";
-// import { Modal } from "../../../components/layout/modal/modal";
 import { useOpen } from "../../../hooks/useOpen";
 
 const Modal = React.lazy(() =>

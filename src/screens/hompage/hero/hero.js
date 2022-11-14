@@ -47,7 +47,7 @@ export const Hero = () => {
             />
             <StaticImage
               style={parallaxStyle}
-              placeholder={"none"}
+              placeholder={'none'}
               height={480}
               alt={""}
               src={"./desktop.png"}
