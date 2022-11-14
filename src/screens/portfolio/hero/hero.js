@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import * as style from "./hero.module.scss";
 import { useOpen } from "../../../hooks/useOpen";
 import { Modal } from "../../../components/layout/modal/modal";
@@ -6,7 +6,6 @@ import { useProjectsList } from "../../../hooks/useProjectsList";
 import { OptimizationCard } from "./optimizationCard/optimizationCard";
 import { useWindowResize } from "../../../hooks/useWindowResize";
 import { FilterButtons } from "./filterButtons/filterButtons";
-import { ProjectsList } from "./projectsList/projectsList";
 import { Loader } from "../../../global/loader/loader";
 import { PaginationList } from "../paginationList/paginationList";
 import { useTranslation } from "react-i18next";
@@ -15,6 +14,12 @@ import {
   sliceItemsPerPage,
 } from "./handlers/handlers";
 import { useQueryParam } from "../../../hooks/useQueryParam";
+
+const ProjectsList = React.lazy(() =>
+  import("./projectsList/projectsList").then((module) => ({
+    default: module.ProjectsList,
+  }))
+);
 
 export const Hero = () => {
   const { isOpen, onClose, onOpen } = useOpen(false);
@@ -123,10 +128,12 @@ export const Hero = () => {
             </div>
             <div className="listWrapper overlay container">
               {!loading ? (
-                <ProjectsList
-                  button={t("tr_learn_more")}
-                  currentsCard={projectsList}
-                />
+                <Suspense>
+                  <ProjectsList
+                    button={t("tr_learn_more")}
+                    currentsCard={projectsList}
+                  />
+                </Suspense>
               ) : (
                 <Loader inside />
               )}
