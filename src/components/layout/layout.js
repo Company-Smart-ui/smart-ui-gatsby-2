@@ -8,9 +8,10 @@ import {Header} from "./header/header";
 const Layout = (props) => {
     const path = props?.children?.props?.pageContext?.pageName[0];
 
+    // const currentUrl = ;
     const [pageURL, setPageURL] = useState(false);
     useEffect(() => {
-        const currentUrl = window.location.href
+        const currentUrl = window.location.href;
         if(currentUrl.includes('uk-UA')) {
             setPageURL(true);
         } else{
