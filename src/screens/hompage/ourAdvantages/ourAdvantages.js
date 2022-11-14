@@ -30,7 +30,12 @@ export const OurAdvantages = () => {
         <div className="noise"/>
         <div className="container">
           <div className="clock-mobile"/>
-          <div className="illustration-tablet"/>
+          <div className="illustration-tablet">
+          <StaticImage
+            src="./illustration_tablet.png"
+            style={{ position: "absolute", top: 0, height: "100%" }}
+          />
+          </div>
           <div className="upperBlock">
             <div className="title-block">
               <div className="bCircle md-only"/>

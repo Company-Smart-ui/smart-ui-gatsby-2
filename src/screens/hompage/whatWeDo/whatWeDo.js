@@ -1,15 +1,21 @@
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import ScrollableAnchor from "react-scrollable-anchor";
 import * as style from "./whatWeDo.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { SwiperButtons } from "../../../global/swiperButtons/SwiperButtons";
 import { useTranslation } from "react-i18next";
-import { Modal } from "../../../components/layout/modal/modal";
+// import { Modal } from "../../../components/layout/modal/modal";
 import { useOpen } from "../../../hooks/useOpen";
 
 import "swiper/css";
 import { Pagination } from "../../../global/pagination/Pagination";
 import { StaticImage } from "gatsby-plugin-image";
+
+const Modal = React.lazy(() =>
+  import("../../../components/layout/modal/modal").then((module) => ({
+    default: module.Modal,
+  }))
+);
 
 export const WhatWeDo = () => {
   const { t } = useTranslation();
@@ -122,10 +128,12 @@ export const WhatWeDo = () => {
         </section>
       </ScrollableAnchor>
       {isOpen && (
-        <div  >
-          <Modal onClose={onClose} title={"Ask a question"}>
-            <h3>Ask a question</h3>
-          </Modal>
+        <div>
+          <Suspense>
+            <Modal onClose={onClose} title={"Ask a question"}>
+              <h3>Ask a question</h3>
+            </Modal>
+          </Suspense>
         </div>
       )}
     </>

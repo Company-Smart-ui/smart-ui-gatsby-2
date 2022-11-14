@@ -14,10 +14,10 @@
       grid-template-columns: 1fr;
       grid-template-rows: auto auto auto auto;
       grid-template-areas:
-        'title-block'
-        'container-block'
-        'footer-buttons'
-        'whole-team-button';
+        "title-block"
+        "container-block"
+        "footer-buttons"
+        "whole-team-button";
     }
 
     .title-block {
@@ -26,7 +26,6 @@
 
     .img-block {
       position: absolute;
-      background-image: url('./mobile_illustration.png');
       top: -60px;
       right: -210px;
       width: 344px;
@@ -76,6 +75,5 @@
       margin-top: 24px;
       height: 100%;
     }
-
   }
 }
