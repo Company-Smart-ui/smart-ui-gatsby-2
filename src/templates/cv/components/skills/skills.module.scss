@@ -79,15 +79,13 @@ $xs: 420px;
       }
       &:after {
         content: attr(data-title) "+";
-        top: -20px;
-        left: 0;
+        top: -8px;
+        right: 22px;
         position: absolute;
-        text-align: left;
         width: 100%;
         transition: 0.3s;
         @include md {
           opacity: 0;
-          text-align: right;
           margin-bottom: 0;
         }
       }
