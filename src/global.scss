@@ -457,7 +457,7 @@ button {
   width: 100%;
   padding: 20px 15px;
   transform: translate(0, -100%);
-  transition: 0.65s ease-in-out;
+  transition: 0.45s ease-in-out;
   @include md {
     max-width: 547px;
     padding: 35px 30px;
@@ -545,6 +545,7 @@ button {
 
   &.open {
     transform: translate(0, 0);
+    transition: 0.45s ease-in-out;
   }
 }
 

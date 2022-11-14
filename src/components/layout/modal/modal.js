@@ -57,7 +57,7 @@ export const Modal = ({
   useEffect(() => {
     setTimeout(() => {
       fadeIn();
-    }, 1);
+    }, 350);
   }, [fadeIn]);
 
   const handleOnClick = (rating) => {
