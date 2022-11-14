@@ -22,7 +22,7 @@ export const Hero = (props) => {
           />
         )}
 
-        <button onClick={onOpen} className={`button ${style.buttonChat}`}>
+        <button onClick={onOpen} className={[style.buttonChat, "button", isOpen ? "disabledBtn" : ""].join(" ")}>
           {props?.chat}
         </button>
       </div>
