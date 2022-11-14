@@ -125,5 +125,12 @@ module.exports = {
         pages: nt,
       },
     },
+    {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: "GTM-TMKGNJK",
+        includeInDevelopment: true,
+      },
+    },
   ],
 };
