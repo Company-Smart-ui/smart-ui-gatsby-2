@@ -14,6 +14,7 @@ export const GetInTouch = (props) => {
     formState: { errors, isSubmitting },
   } = useForm({
     mode: "onChange",
+    reValidateMode: "onSubmit"
   });
 
   function onSubmit(data, e) {
@@ -38,26 +39,26 @@ export const GetInTouch = (props) => {
           <label className="formField">
             <input
               {...register("name", {
-                required: true,
                 minLength: { value: 2, message: "Not less than 5 symbols" },
                 maxLength: { value: 30, message: "Not more than 30 symbols" },
                 pattern: {
                   value: /^[а-яА-ЯёЁіІїЇєЄa-zA-Z_'"\s]+$/,
                   message: "Please, use only letters",
                 },
+                required: 'This field is required',
               })}
               placeholder={props.name}
               type={"text"}
             />
-            {errors.firstName && (
-              <span className="error">{errors.firstName.message}</span>
+            {errors.name && (
+              <span className="error">{errors.name.message}</span>
             )}
           </label>
 
           <label className="formField">
             <input
               {...register("email", {
-                required: true,
+                required: 'This field is required',
                 pattern: {
                   value:
                     /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/,
@@ -75,13 +76,13 @@ export const GetInTouch = (props) => {
           <label className="formField">
             <textarea
               {...register("review", {
-                required: true,
+                required: 'This field is required',
                 maxLength: { value: 300, message: "Not more than 300 symbols" },
               })}
               placeholder={props.message}
             ></textarea>
-            {errors.message && (
-              <span className="error">{errors.message.message}</span>
+            {errors.review && (
+              <span className="error">{errors.review.message}</span>
             )}
           </label>
           <button className="button" type="submit" disabled={isSubmitting}>

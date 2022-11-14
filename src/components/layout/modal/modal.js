@@ -93,7 +93,7 @@ export const Modal = ({
             <label className="formField">
               <input
                 {...register("name", {
-                  required: true,
+                  required: 'This field is required',
                   maxLength: {
                     value: 150,
                     message: "Not more than 150 symbols",
@@ -104,14 +104,14 @@ export const Modal = ({
                 }
                 type={"text"}
               />
-              {errors.contact && (
-                <span className="error">{errors.contact.message}</span>
+              {errors.name && (
+                <span className="error">{errors.name.message}</span>
               )}
             </label>
             <label className="formField">
               <textarea
                 {...register("review", {
-                  required: true,
+                  required: 'This field is required',
                   maxLength: {
                     value: 300,
                     message: "Not more than 300 symbols",
@@ -119,8 +119,8 @@ export const Modal = ({
                 })}
                 placeholder={"Your message*"}
               ></textarea>
-              {errors.message && (
-                <span className="error">{errors.message.message}</span>
+              {errors.review && (
+                <span className="error">{errors.review.message}</span>
               )}
             </label>
             <p className="md-only">
