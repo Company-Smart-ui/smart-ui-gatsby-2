@@ -26,8 +26,7 @@ export const sendTelegram = ({type, dataToString}) => {
         TELEGRAM.uri, {
             chat_id: TELEGRAM.chatId,
             parse_mode: 'html',
-            text: `<b>${type}</b>.
-                         ${dataToString}`
+            text: `<b>${type}</b>.\n\n${dataToString}`
 
         }
     ).catch((e) => console.log(e)).then(() => {

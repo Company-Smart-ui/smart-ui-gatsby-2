@@ -1,0 +1,30 @@
+@import "src/var";
+
+.bg {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  background-image: url("./img/react.svg");
+  background-repeat: no-repeat;
+  background-position:70% 50% ;
+  background-size: 350% 250%;
+  opacity: 0.2;
+  @include md{
+    background-position:100% 50% ;
+    background-size: 200% 150%;
+  }
+  @include lg{
+    background-position:100% 50% ;
+    background-size: 150% 150%;
+  }
+  @include xl{
+    background-position:50% 50% ;
+    background-size:80% 80%;
+
+  }
+}
+

@@ -130,8 +130,9 @@ const Cv = (props) => {
     onOpen: showLoadPdf,
     onClose: hideLoaderPdf,
   } = useOpen();
-  const handleDownloadClick = () => {
+  const handleDownloadClick = (e) => {
     if (ready) return;
+    e.preventDefault()
     setReady(true);
     showLoadPdf();
   };
@@ -153,6 +154,7 @@ const Cv = (props) => {
         <Skills info={userInfo} />
         <div className={style.wrapCvButton}>
           <a
+            href={"?"}
             ref={linkRef}
             id="download"
             className={"button"}

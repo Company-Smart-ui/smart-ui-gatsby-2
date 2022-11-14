@@ -47,9 +47,11 @@ export const Hero = (props) => {
             <div className={style.modalTeam}>
               <Modal
                 onClose={onClose}
-                isMessage={"show_contact"}
+                isMessage={'show_contact'}
                 data={[]}
-                title={`Leave message to ${name}`}
+                title={'Leave message'}
+                employee={name}
+                isDeveloper={true}
               >
                 <div className={style.modalHead}>
                   {image && <GatsbyImage image={image} alt={name} />}

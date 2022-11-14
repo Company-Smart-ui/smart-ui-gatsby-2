@@ -82,7 +82,7 @@ export const Tools = () => {
         </div>
       </div>
       {isOpen && (
-        <div className={style.toolsWrap}>
+        <div>
           <Suspense>
             <Modal onClose={onClose} title={`${t("tools_btn")}`}>
               <h3>{t("tools_btn")}</h3>

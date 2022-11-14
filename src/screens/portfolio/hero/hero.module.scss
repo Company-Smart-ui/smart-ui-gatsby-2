@@ -1,5 +1,5 @@
 @import "src/var";
-
+@import "bg";
 .hero {
   padding: 120px 0 0;
   position: relative;
@@ -151,12 +151,7 @@
       }
     }
 
-    .bg-container {
-      background-image: url("./img/bg-react.png");
-      background-repeat: no-repeat;
-      background-position: left top;
-      background-size: cover;
-    }
+
 
     .listWrapper {
       padding-top: 60px;

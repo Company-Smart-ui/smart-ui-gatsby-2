@@ -68,7 +68,7 @@ body {
   .crisp-client .cc-52lo .cc-kegp .cc-1oun {
     bottom: 151px !important;
     right: 14px !important;
-    @include xl{
+    @include xl {
       bottom: 270px !important;
       right: 65px !important;
     }
@@ -108,10 +108,18 @@ p {
       padding-top: 40px;
       padding-bottom: 40px;
       transition: padding 0.2s;
+      &.open {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: #fff;
+      }
       &.scrolled {
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding-top: 15px;
+        padding-bottom: 15px;
         background-color: #1e1e1e;
+        &.open {
+          background-color: #fff;
+        }
         @include md {
           background-color: #fff;
         }
@@ -133,7 +141,7 @@ p {
   }
 }
 
-.ua-font *{
+.ua-font * {
   font-family: $uaFontText !important;
   letter-spacing: 0.3px !important;
 }
@@ -558,10 +566,10 @@ button {
   opacity: 0;
   transition: 0.65s ease-in-out;
   z-index: 102;
+  display: flex;
 
   &.open {
     opacity: 1;
-    display: flex;
     padding: 20px;
     overflow: auto;
   }

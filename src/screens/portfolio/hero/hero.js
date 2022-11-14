@@ -117,7 +117,7 @@ export const Hero = () => {
           </div>
         </div>
         <div className="portfolio-block overlay">
-          <div className="bg-container">
+          <div className={style.bg}/>
             <div className="container">
               <div className="filter-buttons">
                 <FilterButtons
@@ -127,6 +127,7 @@ export const Hero = () => {
               </div>
             </div>
             <div className="listWrapper overlay container">
+
               {!loading ? (
                 <Suspense>
                   <ProjectsList
@@ -149,14 +150,14 @@ export const Hero = () => {
               )}
             </div>
           </div>
-        </div>
+
       </section>
       {isOpen && (
-        <div className={style.heroWrap}>
+
           <Modal onClose={onClose} title={"Contact the lead developer"}>
             <h3>Contact the lead developer</h3>
           </Modal>
-        </div>
+
       )}
     </>
   );

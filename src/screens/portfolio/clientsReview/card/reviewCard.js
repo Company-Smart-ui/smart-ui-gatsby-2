@@ -1,5 +1,6 @@
 import React from "react";
-import StarRating from "react-svg-star-rating";
+
+const StarRating = React.lazy(() => import('react-svg-star-rating'));
 
 export const ReviewCard = ({ content }) => {
   const { name, stars, review } = content;

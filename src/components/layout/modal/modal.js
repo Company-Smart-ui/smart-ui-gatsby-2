@@ -17,6 +17,8 @@ export const Modal = ({
   data = "",
   isReview = false,
   init = false,
+  employee = "",
+  isDeveloper = false,
 }) => {
   const [loading, setLoader] = useState(init);
   const { isOpen: isFade, onOpen: fadeIn, onClose: fadeOut } = useOpen(false);
@@ -83,6 +85,11 @@ export const Modal = ({
               </div>
             )}
             <p>Write your comment</p>
+            {isDeveloper && <input 
+            {...register("employee")}
+              type={'hidden'}
+              value={employee}
+             />}
             <label className="formField">
               <input
                 {...register("name", {

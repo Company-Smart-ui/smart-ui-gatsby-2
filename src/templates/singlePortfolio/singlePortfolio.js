@@ -113,6 +113,7 @@ const SinglePortfolio = (props) => {
             <StaticImage 
                 src="./logo-wp.png"
                 style={{position:'absolute'}}
+                alt={""}
              />
             {Background()}
             <div className="container">

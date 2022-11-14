@@ -80,7 +80,7 @@ export const Hero = () => {
         </div>
       </section>
       {isOpen && (
-        <div className={style.heroWrap}>
+        <div>
           <Suspense>
             <Modal onClose={onClose} title={"Get started"}>
               <h3>{t("tr_get_started")}</h3>

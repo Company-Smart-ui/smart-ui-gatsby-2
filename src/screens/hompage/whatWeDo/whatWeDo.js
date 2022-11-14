@@ -43,10 +43,11 @@ export const WhatWeDo = () => {
     <>
       <ScrollableAnchor id={"whatWeDo"}>
         <section className={`${style.whatWeDo} vertical-padding`}>
-          <StaticImage
+          <StaticImage 
             src="./line_background_grid.png"
-            style={{ position: "absolute", top: 0, height: "100%" }}
-          />
+            alt={""}
+            style={{position:'absolute', top: 0, height:'100%'}} 
+            />
           <div className="container">
             <div className="grid">
               <div className="description-grid">
@@ -122,16 +123,12 @@ export const WhatWeDo = () => {
                   activeIndex={activeIndex}
                 />
               </div>
-              <div className="info-link">
-                <div className="horizontal-line" />
-                <a href="/">{t("tr_book_a_consultation")}</a>
-              </div>
             </div>
           </div>
         </section>
       </ScrollableAnchor>
       {isOpen && (
-        <div className={style.whatWeDoWrap}>
+        <div>
           <Suspense>
             <Modal onClose={onClose} title={"Ask a question"}>
               <h3>Ask a question</h3>
