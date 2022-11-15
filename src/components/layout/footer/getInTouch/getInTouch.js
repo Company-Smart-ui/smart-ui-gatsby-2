@@ -19,7 +19,6 @@ export const GetInTouch = (props) => {
 
   function onSubmit(data, e) {
     e.preventDefault();
-
     sendForm({ type: "footer", data: { ...data } });
     reset();
   }
