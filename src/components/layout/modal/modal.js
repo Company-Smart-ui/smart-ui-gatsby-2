@@ -1,3 +1,4 @@
+import * as style from "./modal.module.scss";
 import React, { useEffect, useRef, useState } from "react";
 import { useOpen } from "../../../hooks/useOpen";
 import { useOnClickOutside } from "../../../hooks/useOnClickOutside";
@@ -66,15 +67,15 @@ export const Modal = ({
 
   return (
     <>
-      <div className={["mask", isFade ? "open" : ""].join(" ")}>
+      <div className={[style.mask, isFade ? "open" : ""].join(" ")}>
         <div
           ref={modalRef}
-          className={["modal", isFade ? "open" : ""].join(" ")}
+          className={[style.modal, 'modal', isFade ? "open" : ""].join(" ")}
         >
           {children}
-          <form onSubmit={handleSubmit(onSubmit)} className="form">
+          <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
             {isReview && (
-              <div className="formRating">
+              <div className={style.formRating}>
                 <StarRating
                   size={35}
                   initialRating={0}
@@ -90,7 +91,7 @@ export const Modal = ({
               type={'hidden'}
               value={employee}
              />}
-            <label className="formField">
+            <label className={style.formField}>
               <input
                 {...register("name", {
                   required: 'This field is required',
@@ -105,10 +106,10 @@ export const Modal = ({
                 type={"text"}
               />
               {errors.name && (
-                <span className="error">{errors.name.message}</span>
+                <span className={style.error}>{errors.name.message}</span>
               )}
             </label>
-            <label className="formField">
+            <label className={style.formField}>
               <textarea
                 {...register("review", {
                   required: 'This field is required',
@@ -120,16 +121,16 @@ export const Modal = ({
                 placeholder={"Your message*"}
               ></textarea>
               {errors.review && (
-                <span className="error">{errors.review.message}</span>
+                <span className={style.error}>{errors.review.message}</span>
               )}
             </label>
             <p className="md-only">
               Your data is safe and will not be passed on to third parties
             </p>
             {isMessage && <Messenger data={data} />}
-            <div className={"btns"}>
+            <div className={style.btns}>
               <button
-                className="reset"
+                className={style.reset}
                 type="reset"
                 onClick={fadeOutHandle}
                 disabled={isSubmitting}
