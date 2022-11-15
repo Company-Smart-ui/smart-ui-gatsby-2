@@ -67,10 +67,10 @@ export const Modal = ({
 
   return (
     <>
-      <div className={[style.mask, isFade ? "open" : ""].join(" ")}>
+      <div className={[style.mask, isFade ? style.open : ""].join(" ")}>
         <div
           ref={modalRef}
-          className={[style.modal, 'modal', isFade ? "open" : ""].join(" ")}
+          className={[style.modal, 'modal', isFade ? style.open : ""].join(" ")}
         >
           {children}
           <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
@@ -91,7 +91,7 @@ export const Modal = ({
               type={'hidden'}
               value={employee}
              />}
-            <label className={style.formField}>
+            <label className="formField">
               <input
                 {...register("name", {
                   required: 'This field is required',
@@ -106,10 +106,10 @@ export const Modal = ({
                 type={"text"}
               />
               {errors.name && (
-                <span className={style.error}>{errors.name.message}</span>
+                <span className="error">{errors.name.message}</span>
               )}
             </label>
-            <label className={style.formField}>
+            <label className="formField">
               <textarea
                 {...register("review", {
                   required: 'This field is required',
@@ -121,7 +121,7 @@ export const Modal = ({
                 placeholder={"Your message*"}
               ></textarea>
               {errors.review && (
-                <span className={style.error}>{errors.review.message}</span>
+                <span className="error">{errors.review.message}</span>
               )}
             </label>
             <p className="md-only">
@@ -130,7 +130,7 @@ export const Modal = ({
             {isMessage && <Messenger data={data} />}
             <div className={style.btns}>
               <button
-                className={style.reset}
+                className="reset"
                 type="reset"
                 onClick={fadeOutHandle}
                 disabled={isSubmitting}

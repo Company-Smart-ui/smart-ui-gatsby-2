@@ -1,3 +1,5 @@
+@import "src/var";
+
 .modal {
   background: $GrayBlue;
   margin: auto;
@@ -63,33 +65,35 @@
       order: 1;
     }
   }
-  .reset {
-    margin-bottom: 20px;
-    @include sm {
-      margin-bottom: 0;
-    }
-  }
-  .button,
-  .reset {
-    width: 100%;
-    @include sm {
-      width: auto;
-      margin-left: 10px;
-    }
 
-    @include lg {
-      margin-left: 35px;
+  :global {
+    .reset {
+      margin-bottom: 20px;
+      @include sm {
+        margin-bottom: 0;
+      }
     }
-    @media (max-width: $md) {
-      font-size: 10px;
-      min-width: 115px;
-    }
-  }
+    .button,
+    .reset {
+      width: 100%;
+      @include sm {
+        width: auto;
+        margin-left: 10px;
+      }
 
-  .formField input,
-  .formField textarea {
-    font-size: 12px;
-    line-height: 18px;
+      @include lg {
+        margin-left: 35px;
+      }
+      @media (max-width: $md) {
+        font-size: 10px;
+        min-width: 115px;
+      }
+    }
+    .formField input,
+    .formField textarea {
+      font-size: 12px;
+      line-height: 18px;
+    }
   }
 
   &.open {

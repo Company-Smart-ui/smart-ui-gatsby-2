@@ -1,0 +1,53 @@
+@import "var";
+
+body {
+  .crisp-client .cc-52lo .cc-1s3d,
+  .crisp-client .cc-52lo .cc-1801:before,
+  .crisp-client .cc-52lo .cc-1801:after {
+    background-color: $Lime !important;
+  }
+
+  .crisp-client
+    .cc-52lo[data-full-view="true"][data-last-operator-face="false"]
+    .cc-kegp
+    .cc-1oun
+    .cc-1qth
+    .cc-lgzk
+    .cc-3ycs[data-is-ongoing="false"],
+  .crisp-client
+    .cc-52lo[data-last-operator-face="false"]
+    .cc-kegp
+    .cc-1oun
+    .cc-1qth
+    .cc-lgzk
+    .cc-3ycs[data-is-ongoing="false"] {
+    background-image: url("images/chat-white.png") !important;
+    width: 20.5px !important;
+    height: 20.5px !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    @include lg {
+      width: 40px !important;
+      height: 40px !important;
+    }
+  }
+  .crisp-client .cc-52lo[data-full-view="true"] .cc-kegp .cc-1oun,
+  .crisp-client .cc-52lo .cc-kegp .cc-1oun {
+    bottom: 151px !important;
+    right: 14px !important;
+    @include xl {
+      bottom: 270px !important;
+      right: 65px !important;
+    }
+  }
+  .crisp-client .cc-52lo .cc-kegp .cc-1oun .cc-1qth,
+  .crisp-client .cc-52lo[data-full-view="true"] .cc-kegp .cc-1oun .cc-1qth {
+    width: 38px !important;
+    height: 38px !important;
+    @include lg {
+      width: 74px !important;
+      height: 74px !important;
+    }
+  }
+}

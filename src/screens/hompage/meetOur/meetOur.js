@@ -81,7 +81,7 @@ export const MeetOur = () => {
           <div className="footer-buttons overlay">
             <SwiperButtons onPrev={slidePrevHandler} onNext={slideNextHandler} activeIndex={activeIndex} sliderLength={employees.length} fill doubleEnd countElementFromEnd={countElementFromEnd} />
           </div>
-          <Link className="container button whole-team-button overlay" to={"/team/"} language={currentLng}>
+          <Link className="button whole-team-button overlay" to={"/team/"} language={currentLng}>
             {t("team_btn")}
           </Link>
         </div>
