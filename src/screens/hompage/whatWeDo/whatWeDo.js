@@ -94,7 +94,7 @@ export const WhatWeDo = () => {
                   <SwiperSlide>
                     <>
                       <p className="subtitle">{firstSlide.bottom_title}</p>
-                      <ul
+                      <div
                         dangerouslySetInnerHTML={{
                           __html: firstSlide.bottom_text,
                         }}
@@ -105,7 +105,7 @@ export const WhatWeDo = () => {
                   <SwiperSlide>
                     <>
                       <p className="subtitle">{secondSlide.bottom_title}</p>
-                      <ul
+                      <div
                         dangerouslySetInnerHTML={{
                           __html: secondSlide.bottom_text,
                         }}
