@@ -144,7 +144,10 @@ p {
 
 .ua-font * {
   font-family: $uaFontText !important;
-  letter-spacing: 0.3px !important;
+  letter-spacing: -0.3px;
+  h1{
+    letter-spacing: -3px;
+  }
 }
 header,
 footer {
