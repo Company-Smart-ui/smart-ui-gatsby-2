@@ -167,46 +167,6 @@ h2 {
   white-space: nowrap;
 }
 
-.openBtn {
-  position: fixed;
-  top: 162px;
-  left: 7px;
-  transform-origin: 0;
-  z-index: 50;
-  background: $Lime;
-  border-radius: 3px;
-  transition: 0.2s;
-  height: 169px;
-  width: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: $fontText;
-  span {
-    transform: rotate(-90deg);
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 1.2;
-    color: $White;
-  }
-  @include md {
-    left: 16px;
-    margin: 0;
-  }
-  @include xl {
-    font-size: 18px;
-    letter-spacing: 0.5px;
-  }
-
-  &:hover {
-    box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.49);
-  }
-
-  &:active {
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.49);
-  }
-}
-
 .loader {
   position: absolute;
   width: 100%;
