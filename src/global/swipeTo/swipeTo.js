@@ -14,10 +14,10 @@ export const SwipeTo = ({ toLink, text }) => {
   return (
     <a href={`${toLink}`} className={style.swipeTo + "  swipeTo "}>
       <span className="lg-only">
-        <img src={Scroll} alt="" /> {text}
+        <img loading="lazy" src={Scroll} alt="" /> {text}
       </span>
       <span className="lg-end">
-        <img src={Img} alt="" /> {text}
+        <img loading="lazy" src={Img} alt="" /> {text}
       </span>
     </a>
   );

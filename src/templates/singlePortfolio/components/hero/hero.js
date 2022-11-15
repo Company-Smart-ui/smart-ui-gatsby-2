@@ -34,7 +34,11 @@ export const Hero = (props) => {
                 ))}
               </div>
               <div className={style.mobileDevice}>
-                <img src={mobileDevice} alt={props.name && props.name} />
+                <img
+                  loading="lazy"
+                  src={mobileDevice}
+                  alt={props.name && props.name}
+                />
               </div>
             </div>
           )
@@ -43,7 +47,11 @@ export const Hero = (props) => {
   ) : (
     <div className={style.heroImg}>
       <div className={style.heroImgDevice}>
-        <img src={desctopDevice} alt={props.name && props.name} />
+        <img
+          loading="lazy"
+          src={desctopDevice}
+          alt={props.name && props.name}
+        />
       </div>
       <div className={style.heroImgWrapp}>
         <GatsbyImage

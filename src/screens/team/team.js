@@ -38,7 +38,7 @@ export const AllTeam = (props) => {
   return (
     <div className={style.team}>
       <div className={style.logo}>
-        <StaticImage
+        <StaticImage alt={'smart ui logo'}
           src="./logo.svg"
           style={{ height: "100%", width: "100%" }}
         />

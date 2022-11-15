@@ -10,11 +10,12 @@ export const Background = () => {
       <div>
         <div className={`flag ${style.flag}`}>
           <img
+            loading="lazy"
             className="flag__mobile"
             src={logoSmartUIMobile}
             alt="logoSmartUI"
           />
-          <img className="flag__desktop" src={flag} alt="logoSmartUI" />
+          <img loading="lazy" className="flag__desktop" src={flag} alt="logoSmartUI" />
         </div>
       </div>
     </>

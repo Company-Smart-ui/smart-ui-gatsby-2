@@ -9,7 +9,7 @@ export const OptimizationCard = ({ result }) => {
     <div className={style.optimizationCard}>
       <div className="wrapper">
         <div className="img">
-          <img src={PageSpeedLogo} alt="pagespeed_logo" />
+          <img loading="lazy" src={PageSpeedLogo} alt="pagespeed_logo" />
         </div>
         <div className="speed-wrapper">
           <div className="speed">PageSpeed Insights</div>
@@ -18,7 +18,7 @@ export const OptimizationCard = ({ result }) => {
           </div>
         </div>
         <div className="info">
-          <img src={Info} alt="info" />
+          <img loading="lazy" src={Info} alt="info" />
         </div>
       </div>
       <div className="widget">

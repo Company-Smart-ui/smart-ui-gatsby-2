@@ -245,6 +245,7 @@ const SinglePortfolio = (props) => {
                                                         </div>
                                                         <div className={style.mobileDevice}>
                                                             <img
+                                                                loading="lazy"
                                                                 src={mobileDevice}
                                                                 alt={
                                                                     propProj?.project_name

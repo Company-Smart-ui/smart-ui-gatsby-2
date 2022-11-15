@@ -59,7 +59,7 @@ export const MeetOur = () => {
       <div className="noise" />
       <div className="container">
         <div className="img-block">
-          <StaticImage
+          <StaticImage alt={'illustration'}
             src="./mobile_illustration.png"
             style={{ position: "absolute", top: 0, height: "100%" }}
           />

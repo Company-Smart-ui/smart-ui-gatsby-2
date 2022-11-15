@@ -6,7 +6,7 @@ import {CONTACTS} from "../data";
 
 const Single =({link , img , alt })=>{
     return <li>
-        <a target={"_blank"} rel={"noreferrer"} href={link}> <img src={img} alt={alt}/></a>
+        <a target={"_blank"} rel={"noreferrer"} href={link}> <img loading="lazy" src={img} alt={alt}/></a>
     </li>
 }
 

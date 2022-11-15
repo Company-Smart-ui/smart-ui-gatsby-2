@@ -40,10 +40,10 @@ export const BackToTop = ({ text }) => {
   return (
     <button aria-label="Scroll" onClick={scroll} className={style.backTo}>
       <span className="lg-only">
-        <img src={scroll_img} alt="back to top" /> {text}
+        <img loading="lazy" src={scroll_img} alt="back to top" /> {text}
       </span>
       <span className="lg-end">
-        <img src={pointer_img} alt="back to top" /> {text}
+        <img loading="lazy" src={pointer_img} alt="back to top" /> {text}
       </span>
     </button>
   );

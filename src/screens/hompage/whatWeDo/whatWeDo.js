@@ -4,7 +4,6 @@ import * as style from "./whatWeDo.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { SwiperButtons } from "../../../global/swiperButtons/SwiperButtons";
 import { useTranslation } from "react-i18next";
-// import { Modal } from "../../../components/layout/modal/modal";
 import { useOpen } from "../../../hooks/useOpen";
 
 import "swiper/css";
@@ -43,7 +42,7 @@ export const WhatWeDo = () => {
     <>
       <ScrollableAnchor id={"whatWeDo"}>
         <section className={`${style.whatWeDo} vertical-padding`}>
-          <StaticImage 
+          <StaticImage loading={'lazy'}
             src="./line_background_grid.png"
             alt={""}
             style={{position:'absolute', top: 0, height:'100%'}} 

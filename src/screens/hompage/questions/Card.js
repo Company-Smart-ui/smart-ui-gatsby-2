@@ -11,9 +11,9 @@ export const Card = ({ el, dropdownHandler, options, idx }) => {
           <span className="card-title">{title}</span>
           <span className={`cube-button ${options[idx]?.isOpen ? "open" : ""}`}>
         {options[idx]?.isOpen ? (
-            <img src={Minus} alt="minus" className="minus" />
+            <img loading="lazy" src={Minus} alt="minus" className="minus" />
         ) : (
-            <img src={Plus} alt="plus" className="plus" />
+            <img loading="lazy" src={Plus} alt="plus" className="plus" />
         )}
         </span>
       </span>
