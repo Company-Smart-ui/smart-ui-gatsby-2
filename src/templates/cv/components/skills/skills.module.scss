@@ -82,12 +82,10 @@ $xs: 420px;
         top: -8px;
         right: 22px;
         position: absolute;
-        text-align: left;
         width: 100%;
         transition: 0.3s;
         @include md {
           opacity: 0;
-          text-align: left;
           margin-bottom: 0;
         }
       }

@@ -3,14 +3,6 @@
 .clientReviews {
   position: relative;
   background-color: $White;
-  background-image: url('./upwork_label_mobile.png');
-  background-repeat: no-repeat;
-  background-position: right top;
-
-  @include lg {
-    background-image: url('./upwork_label_tablet.png');
-    background-size: contain;
-  }
 
   :global {
     .green {

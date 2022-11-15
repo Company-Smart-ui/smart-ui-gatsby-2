@@ -1,3 +1,4 @@
+import * as style from "./modal.module.scss";
 import React, { useEffect, useRef, useState } from "react";
 import { useOpen } from "../../../hooks/useOpen";
 import { useOnClickOutside } from "../../../hooks/useOnClickOutside";
@@ -57,7 +58,7 @@ export const Modal = ({
   useEffect(() => {
     setTimeout(() => {
       fadeIn();
-    }, 1);
+    }, 0);
   }, [fadeIn]);
 
   const handleOnClick = (rating) => {
@@ -66,15 +67,15 @@ export const Modal = ({
 
   return (
     <>
-      <div className={["mask", isFade ? "open" : ""].join(" ")}>
+      <div className={[style.mask, isFade ? style.open : ""].join(" ")}>
         <div
           ref={modalRef}
-          className={["modal", isFade ? "open" : ""].join(" ")}
+          className={[style.modal, 'modal', isFade ? style.open : ""].join(" ")}
         >
           {children}
-          <form onSubmit={handleSubmit(onSubmit)} className="form">
+          <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
             {isReview && (
-              <div className="formRating">
+              <div className={style.formRating}>
                 <StarRating
                   size={35}
                   initialRating={0}
@@ -93,7 +94,7 @@ export const Modal = ({
             <label className="formField">
               <input
                 {...register("name", {
-                  required: true,
+                  required: 'This field is required',
                   maxLength: {
                     value: 150,
                     message: "Not more than 150 symbols",
@@ -104,14 +105,14 @@ export const Modal = ({
                 }
                 type={"text"}
               />
-              {errors.contact && (
-                <span className="error">{errors.contact.message}</span>
+              {errors.name && (
+                <span className="error">{errors.name.message}</span>
               )}
             </label>
             <label className="formField">
               <textarea
                 {...register("review", {
-                  required: true,
+                  required: 'This field is required',
                   maxLength: {
                     value: 300,
                     message: "Not more than 300 symbols",
@@ -119,15 +120,15 @@ export const Modal = ({
                 })}
                 placeholder={"Your message*"}
               ></textarea>
-              {errors.message && (
-                <span className="error">{errors.message.message}</span>
+              {errors.review && (
+                <span className="error">{errors.review.message}</span>
               )}
             </label>
             <p className="md-only">
               Your data is safe and will not be passed on to third parties
             </p>
             {isMessage && <Messenger data={data} />}
-            <div className={"btns"}>
+            <div className={style.btns}>
               <button
                 className="reset"
                 type="reset"

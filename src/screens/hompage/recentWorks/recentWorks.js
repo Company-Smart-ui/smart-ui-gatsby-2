@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 import { Loader } from "../../../global/loader/loader";
 import { useProjectsList } from "../../../hooks/useProjectsList";
 import { useWindowResize } from "../../../hooks/useWindowResize";
+import { StaticImage } from "gatsby-plugin-image";
 
 export const RecentWorks = () => {
   const [swiperRef, setSwiperRef] = useState(null);
@@ -36,6 +37,10 @@ export const RecentWorks = () => {
 
   return (
     <div className={`${style.recentWorks} vertical-padding`}>
+      <StaticImage
+        src="./img/react.png"
+        style={{ position: "absolute", right: 0, height: "100%" }}
+      />
       <div className="overlay container">
         <div className="container-grid">
           <div className="title-container">

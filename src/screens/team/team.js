@@ -2,6 +2,7 @@ import * as React from "react";
 import * as style from "./team.module.scss";
 import { TeamItem } from "./teamItem/teamItem";
 import { useStaticQuery, graphql } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
 
 export const AllTeam = (props) => {
   const data = useStaticQuery(graphql`
@@ -36,7 +37,12 @@ export const AllTeam = (props) => {
   const item = data.allStrapiTeam.nodes;
   return (
     <div className={style.team}>
-      <div className={style.logo}></div>
+      <div className={style.logo}>
+        <StaticImage
+          src="./logo.svg"
+          style={{ height: "100%", width: "100%" }}
+        />
+      </div>
       <div className="noise"></div>
       <div className={style.teamWrapper}>
         <h1>Specialists for outstaff</h1>

@@ -1,0 +1,55 @@
+.formField {
+    position: relative;
+    margin-bottom: 25px;
+    width: 100%;
+    display: block;
+    @include md {
+      margin-bottom: 55px;
+    }
+  
+    textarea {
+      resize: none;
+    }
+  
+    input,
+    textarea {
+      background: none;
+      border: none;
+      width: 100%;
+      color: $White;
+      padding: 20px 10px 10px;
+      font-family: $fontText;
+      font-size: 11px;
+      border-bottom: 1px solid $LimeGreen;
+      @include md {
+        font-size: 14px;
+      }
+  
+      &::-webkit-input-placeholder,
+      &::-moz-placeholder {
+        color: $DarkGray;
+      }
+  
+      &:focus {
+        background: none;
+        outline: transparent;
+  
+        &::-webkit-input-placeholder {
+          color: transparent;
+        }
+  
+        &::-moz-placeholder {
+          color: transparent;
+        }
+      }
+    }
+  
+    /* form validation */
+    .error {
+      color: red;
+      font-size: 14px;
+      position: absolute;
+      bottom: -20px;
+      left: 5px;
+    }
+  }

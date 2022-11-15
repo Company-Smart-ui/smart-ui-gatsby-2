@@ -1,0 +1,122 @@
+@import "src/var";
+
+.modal {
+  background: $GrayBlue;
+  margin: auto;
+  z-index: 103;
+  border-radius: 8px;
+  width: 100%;
+  padding: 20px 15px;
+  transform: translate(0, -100%);
+  transition: 0.45s ease-in-out;
+  @include md {
+    max-width: 547px;
+    padding: 35px 30px;
+  }
+  @include lg {
+    max-width: 750px;
+    padding: 45px 40px 40px;
+  }
+  h3 {
+    color: $White;
+    font-size: 20px;
+    font-family: $fontText;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 24px;
+    color: $LightGray;
+    margin-bottom: 25px;
+  }
+
+  .form {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+      color: $White;
+      font-size: 16px;
+    }
+  }
+
+  .formRating {
+    width: 100%;
+    margin: 15px 0;
+  }
+
+  .btns {
+    display: flex;
+    flex-direction: column;
+    order: 2;
+    width: 100%;
+    @include sm {
+      justify-content: flex-end;
+      flex-direction: row;
+      align-items: center;
+      order: 1;
+    }
+  }
+
+  :global {
+    .reset {
+      margin-bottom: 20px;
+      @include sm {
+        margin-bottom: 0;
+      }
+    }
+    .button,
+    .reset {
+      width: 100%;
+      @include sm {
+        width: auto;
+        margin-left: 10px;
+      }
+
+      @include lg {
+        margin-left: 35px;
+      }
+      @media (max-width: $md) {
+        font-size: 10px;
+        min-width: 115px;
+      }
+    }
+    .formField input,
+    .formField textarea {
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+
+  &.open {
+    transform: translate(0, 0);
+    transition: 0.45s ease-in-out;
+  }
+}
+
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba($GrayBlue, 0.5);
+  opacity: 0;
+  transition: 0.65s ease-in-out;
+  z-index: 102;
+  display: flex;
+
+  &.open {
+    opacity: 1;
+    padding: 20px;
+    overflow: auto;
+  }
+}
