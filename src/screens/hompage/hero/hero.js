@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import * as style from "./hero.module.scss";
 import { Contact } from "../../../global/contact/contact";
 import { StaticImage } from "gatsby-plugin-image";
 import { SwipeTo } from "../../../global/swipeTo/swipeTo";
 import { useTranslation } from "react-i18next";
 import { useOpen } from "../../../hooks/useOpen";
-import { Suspense } from "react";
 
 const Modal = React.lazy(() =>
   import("../../../components/layout/modal/modal").then((module) => ({
@@ -14,8 +13,8 @@ const Modal = React.lazy(() =>
 );
 
 export const Hero = () => {
-  const { t } = useTranslation();
-  const { isOpen, onClose, onOpen } = useOpen(false);
+  const {t} = useTranslation();
+  const {isOpen, onClose, onOpen} = useOpen(false);
   const [transformScroll, setTransformScroll] = useState(1);
   useEffect(() => {
     const layout = window;
@@ -29,65 +28,65 @@ export const Hero = () => {
     layout.addEventListener("scroll", scrollHandler);
     return () => layout.removeEventListener("scroll", scrollHandler);
   }, []);
-  const parallaxStyle = { transform: "translateY(" + transformScroll + "px)" };
+  const parallaxStyle = {transform: "translateY(" + transformScroll + "px)"};
 
   return (
-    <>
-      <section className={style.hero}>
-        <div className="container  hero-3d">
-          <div className="yCircle left md-only" />
-          <div
-            style={{ top: transformScroll / 5, bottom: transformScroll / 5 }}
-            className="bCircle   "
-          />
-          <figure className="deskImg md-only  ">
+      <>
+        <section className={style.hero}>
+          <div className="container  hero-3d">
+            <div className="yCircle left md-only"/>
             <div
-              style={{ top: transformScroll / 3 }}
-              className="yCircle right "
+                style={{top: transformScroll / 5, bottom: transformScroll / 5}}
+                className="bCircle   "
             />
-            <StaticImage
-              style={parallaxStyle}
-              placeholder={'none'}
-              height={480}
-              alt={""}
-              src={"./desktop.png"}
-            />
-          </figure>
-          <div className="noise" />
+            <figure className="deskImg md-only  ">
+              <div
+                  style={{top: transformScroll / 3}}
+                  className="yCircle right "
+              />
+              <StaticImage
+                  style={parallaxStyle}
+                  placeholder={"none"}
+                  height={480}
+                  alt={""}
+                  src={"./desktop.png"}
+              />
+            </figure>
+            <div className="noise"/>
 
-          <div className={style.overlay}>
-            <h1>
-              {" "}
-              <span className="yCircle  md-only " />{" "}
-              <span dangerouslySetInnerHTML={{ __html: t("h1") }} />
-            </h1>
-            <p
-              dangerouslySetInnerHTML={{ __html: t("hero_subtitle") }}
-              className="subtitle"
-            />
-            <div className={style.ctaContainer}>
-              <button
-                className={["button", isOpen ? "disabledBtn" : ""].join(" ")}
-                onClick={onOpen}
-              >
+            <div className={style.overlay}>
+              <h1>
                 {" "}
-                {t("tr_get_started")}{" "}
-              </button>
-              <Contact />
+                <span className="yCircle  md-only "/>{" "}
+                <span dangerouslySetInnerHTML={{__html: t("h1")}}/>
+              </h1>
+              <p
+                  dangerouslySetInnerHTML={{__html: t("hero_subtitle")}}
+                  className="subtitle"
+              />
+              <div className={style.ctaContainer}>
+                <button
+                    className={["button", isOpen ? "disabledBtn" : ""].join(" ")}
+                    onClick={onOpen}
+                >
+                  {" "}
+                  {t("tr_get_started")}{" "}
+                </button>
+                <Contact/>
+              </div>
+              <SwipeTo toLink={"#whatWeDo"} text={t("tr_scroll_to_explore")}/>
             </div>
-            <SwipeTo toLink={"#whatWeDo"} text={t("tr_scroll_to_explore")} />
           </div>
-        </div>
-      </section>
-      {isOpen && (
-        <div>
-          <Suspense>
-            <Modal onClose={onClose} title={"Get started"}>
-              <h3>{t("tr_get_started")}</h3>
-            </Modal>
-          </Suspense>
-        </div>
-      )}
-    </>
+        </section>
+        {isOpen && (
+            <div>
+              <Suspense>
+                <Modal onClose={onClose} title={"Get started"}>
+                  <h3>{t("tr_get_started")}</h3>
+                </Modal>
+              </Suspense>
+            </div>
+        )}
+      </>
   );
 };

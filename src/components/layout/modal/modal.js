@@ -2,13 +2,14 @@ import * as style from "./modal.module.scss";
 import React, { useEffect, useRef, useState } from "react";
 import { useOpen } from "../../../hooks/useOpen";
 import { useOnClickOutside } from "../../../hooks/useOnClickOutside";
-import { sendForm } from "../../../api/contactForm";
 import { useForm } from "react-hook-form";
 import { Messenger } from "../../../global/messengers/messengers";
 import { useNoScroll } from "../../../hooks/useNoScroll";
 import StarRating from "react-svg-star-rating";
-import { leaveComment } from "../../../api/leaveComment";
 import { Loader } from "../../../global/loader/loader";
+import { leaveComment } from "../../../api/leaveComment";
+import { sendForm } from "../../../api/contactForm";
+import { sendFormForTagManager } from "../../../stats/google";
 
 export const Modal = ({
   onClose,
@@ -39,6 +40,7 @@ export const Modal = ({
     isReview
       ? leaveComment({ ...data, stars: rating })
       : sendForm({ type: title, data: { ...data } });
+    sendFormForTagManager(title);
     reset();
     setLoader((newLoader) => (newLoader = !loading));
     fadeOutHandle();
@@ -70,7 +72,7 @@ export const Modal = ({
       <div className={[style.mask, isFade ? style.open : ""].join(" ")}>
         <div
           ref={modalRef}
-          className={[style.modal, 'modal', isFade ? style.open : ""].join(" ")}
+          className={[style.modal, "modal", isFade ? style.open : ""].join(" ")}
         >
           {children}
           <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
@@ -86,15 +88,17 @@ export const Modal = ({
               </div>
             )}
             <p>Write your comment</p>
-            {isDeveloper && <input 
-            {...register("employee")}
-              type={'hidden'}
-              value={employee}
-             />}
+            {isDeveloper && (
+              <input
+                {...register("employee")}
+                type={"hidden"}
+                value={employee}
+              />
+            )}
             <label className="formField">
               <input
                 {...register("name", {
-                  required: 'This field is required',
+                  required: "This field is required",
                   maxLength: {
                     value: 150,
                     message: "Not more than 150 symbols",
@@ -112,7 +116,7 @@ export const Modal = ({
             <label className="formField">
               <textarea
                 {...register("review", {
-                  required: 'This field is required',
+                  required: "This field is required",
                   maxLength: {
                     value: 300,
                     message: "Not more than 300 symbols",

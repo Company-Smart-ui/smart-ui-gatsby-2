@@ -2,9 +2,10 @@ import React from "react";
 import * as style from "./getInTouch.module.scss";
 import { StaticImage } from "gatsby-plugin-image";
 import { useForm } from "react-hook-form";
-import { sendForm } from "../../../../api/contactForm";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { sendFormForTagManager } from "../../../../stats/google";
+import { sendForm } from "../../../../api/contactForm";
 
 export const GetInTouch = (props) => {
   const {
@@ -14,22 +15,23 @@ export const GetInTouch = (props) => {
     formState: { errors, isSubmitting },
   } = useForm({
     mode: "onChange",
-    reValidateMode: "onSubmit"
+    reValidateMode: "onSubmit",
   });
 
   function onSubmit(data, e) {
     e.preventDefault();
     sendForm({ type: "footer", data: { ...data } });
+    sendFormForTagManager("footer");
     reset();
   }
 
   return (
     <div className={`${style.wrapper} getInTouch`}>
-      <StaticImage 
+      <StaticImage
         src="./line_background_grid.png"
         alt={""}
         quality={1}
-        style={{position: 'absolute', height: '100%', top: 0}}
+        style={{ position: "absolute", height: "100%", top: 0 }}
       />
       <div className="noise"></div>
       <div className="container">
@@ -44,7 +46,7 @@ export const GetInTouch = (props) => {
                   value: /^[а-яА-ЯёЁіІїЇєЄa-zA-Z_'"\s]+$/,
                   message: "Please, use only letters",
                 },
-                required: 'This field is required',
+                required: "This field is required",
               })}
               placeholder={props.name}
               type={"text"}
@@ -57,7 +59,7 @@ export const GetInTouch = (props) => {
           <label className="formField">
             <input
               {...register("email", {
-                required: 'This field is required',
+                required: "This field is required",
                 pattern: {
                   value:
                     /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/,
@@ -75,7 +77,7 @@ export const GetInTouch = (props) => {
           <label className="formField">
             <textarea
               {...register("review", {
-                required: 'This field is required',
+                required: "This field is required",
                 maxLength: { value: 300, message: "Not more than 300 symbols" },
               })}
               placeholder={props.message}
