@@ -4,7 +4,7 @@ import { TeamItem } from "./teamItem/teamItem";
 import { useStaticQuery, graphql } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 
-export const AllTeam = (props) => {
+export const AllTeam = ( ) => {
   const data = useStaticQuery(graphql`
     query {
       allStrapiTeam {
@@ -39,6 +39,7 @@ export const AllTeam = (props) => {
     <div className={style.team}>
       <div className={style.logo}>
         <StaticImage
+            alt={""}
           src="./logo.svg"
           style={{ height: "100%", width: "100%" }}
         />

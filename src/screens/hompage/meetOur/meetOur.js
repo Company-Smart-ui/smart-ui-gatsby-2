@@ -62,6 +62,7 @@ export const MeetOur = () => {
           <StaticImage
             src="./mobile_illustration.png"
             style={{ position: "absolute", top: 0, height: "100%" }}
+            alt={""}
           />
         </div>
 

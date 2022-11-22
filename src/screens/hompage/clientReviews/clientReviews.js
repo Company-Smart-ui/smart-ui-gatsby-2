@@ -20,6 +20,7 @@ export const ClientReviews = () => {
   return (
     <div className={`${style.clientReviews} vertical-padding`}>
       <StaticImage
+          alt={""}
         src="./upwork_label_mobile.png"
         style={{ position: "absolute", right: 0, top: 0, width: "535px" }}
       />
