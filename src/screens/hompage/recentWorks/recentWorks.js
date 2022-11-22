@@ -38,6 +38,7 @@ export const RecentWorks = () => {
   return (
     <div className={`${style.recentWorks} vertical-padding`}>
       <StaticImage
+          alt={""}
         src="./img/react.png"
         style={{ position: "absolute", right: 0, height: "100%" }}
       />
