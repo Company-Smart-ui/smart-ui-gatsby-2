@@ -21,6 +21,7 @@ export const ClientReviews = () => {
     <div className={`${style.clientReviews} vertical-padding`}>
       <StaticImage
         src="./upwork_label_mobile.png"
+        alt={""}
         style={{ position: "absolute", right: 0, top: 0, width: "535px" }}
       />
       <div className="bg-upwork-title">

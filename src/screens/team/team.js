@@ -40,6 +40,7 @@ export const AllTeam = (props) => {
       <div className={style.logo}>
         <StaticImage
           src="./logo.svg"
+          alt={""}
           style={{ height: "100%", width: "100%" }}
         />
       </div>

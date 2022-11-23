@@ -39,6 +39,7 @@ export const RecentWorks = () => {
     <div className={`${style.recentWorks} vertical-padding`}>
       <StaticImage
         src="./img/react.png"
+        alt={""}
         style={{ position: "absolute", right: 0, height: "100%" }}
       />
       <div className="overlay container">
