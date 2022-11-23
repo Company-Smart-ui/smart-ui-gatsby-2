@@ -6,10 +6,8 @@
   font-size: 38px;
   text-align: center;
   color: $Gray;
-  transition: 0.3s;
   pointer-events: none;
   opacity: 0;
-  transform: translate(-100%);
   width: 100%;
   a:hover{
     color: $Lime

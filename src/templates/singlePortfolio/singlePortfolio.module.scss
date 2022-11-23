@@ -268,3 +268,9 @@ $xs: 375px;
     margin-right: 16px;
   }
 }
+.onlyDesc{
+  display: none;
+  @include md{
+    display: block;
+  }
+}
