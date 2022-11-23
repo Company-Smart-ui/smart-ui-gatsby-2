@@ -25,13 +25,7 @@
         transition: 0.3s;
         pointer-events: none;
         opacity: 0;
-        &:nth-child(odd) {
-          transform: translate(-110vw);
-        }
-  
-        &:nth-child(even) {
-          transform: translate(110vw);
-        }
+        
 
       }
     }

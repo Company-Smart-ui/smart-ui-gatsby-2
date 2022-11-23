@@ -96,6 +96,7 @@ export const Header = ({ path }) => {
       <div className={style.menu}>
         <nav className={"nav"}>
           <ul className={"navList"}>
+          
             {Object.entries(translatedNavigation).map((item, i) => {
               const data = item[1];
               return (
@@ -108,10 +109,11 @@ export const Header = ({ path }) => {
                   id={i}
                 />
               );
+              
             })}
           </ul>
-          <LangSwitch delay={(Object.entries(NAVIGATION).length + 1) / 5} />
-          <Messenger data={MESSENGERS} />
+          <LangSwitch delay={(Object.entries(translatedNavigation).length - 1)} />
+          <Messenger data={MESSENGERS} delay={(Object.entries(translatedNavigation).length + 1)}/>
         </nav>
 
         <StaticImage

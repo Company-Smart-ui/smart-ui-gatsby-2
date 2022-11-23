@@ -10,8 +10,10 @@ $xs: 375px;
   margin: 0 auto;
   padding-top: 30px;
   overflow: hidden;
+  display: none;
   @include md {
     width: 630px;
+    display: block;
   }
   @include lg {
     width: 700px;
@@ -73,11 +75,7 @@ $xs: 375px;
   }
   @include md {
     margin: 0;
-  }
-  @include xl {
-    width: 385px;
-    height: 754px;
-    padding: 22px 28px 23px;
+    display: none;
   }
 }
 .mobileDevice {
