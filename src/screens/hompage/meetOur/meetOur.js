@@ -63,7 +63,6 @@ export const MeetOur = () => {
             src="./mobile_illustration.png"
             alt={""}
             style={{ position: "absolute", top: 0, height: "100%" }}
-            alt={""}
           />
         </div>
 

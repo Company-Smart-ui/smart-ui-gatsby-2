@@ -266,6 +266,7 @@ const SinglePortfolio = (props) => {
 export default SinglePortfolio;
 
 export const Head = (props) => {
+    
     const title = props?.data?.project?.edges[0]?.node?.project_name;
     return <Seo title={title}> </Seo>;
 };
