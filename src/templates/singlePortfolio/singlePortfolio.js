@@ -266,9 +266,10 @@ const SinglePortfolio = (props) => {
 
 export default SinglePortfolio;
 
-export const Head = (props) => {
+// export const Head = (props) => {
     
-    const title = props?.data?.project?.edges[0]?.node?.seo_title;
-    const descr = props?.data?.project?.edges[0]?.node?.seo_description;
-    return <Seo title={title} description={descr}/>;
-};
+//     const title = props?.data?.project?.edges[0]?.node?.seo_title;
+//     const descr = props?.data?.project?.edges[0]?.node?.seo_description;
+//     console.log(descr, title);
+//     return <Seo title={title} description={descr}/>;
+// };
