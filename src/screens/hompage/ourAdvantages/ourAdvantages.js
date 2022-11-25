@@ -24,7 +24,6 @@ export const OurAdvantages = () => {
   return (
       <section className={`${style.ourAdvantages} vertical-padding`}>
         <StaticImage
-            alt={""}
           src="../whatWeDo/line_background_grid.png"
           alt={""}
           style={{position:'absolute', height: '100%', top:'0'}}
@@ -34,7 +33,6 @@ export const OurAdvantages = () => {
           <div className="clock-mobile"/>
           <div className="illustration-tablet">
           <StaticImage
-              alt={""}
             src="./illustration_tablet.png"
             alt={""}
             style={{ position: "absolute", top: 0, height: "100%" }}

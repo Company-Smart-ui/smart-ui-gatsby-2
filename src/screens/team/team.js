@@ -39,7 +39,6 @@ export const AllTeam = ( ) => {
     <div className={style.team}>
       <div className={style.logo}>
         <StaticImage
-            alt={""}
           src="./logo.svg"
           alt={""}
           style={{ height: "100%", width: "100%" }}
