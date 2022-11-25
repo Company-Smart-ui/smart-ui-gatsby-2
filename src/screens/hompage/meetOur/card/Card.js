@@ -51,7 +51,7 @@ export const Card = ({content, button}) => {
                                     isMessage={show_contact}
                                     data={data}
                                     title={'Leave message'}
-                                    employee={name}
+                                    employee={name} 
                                     isDeveloper={true}
                                 >
                                     <div className={style.modalHead}>
