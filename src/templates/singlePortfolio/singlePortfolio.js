@@ -154,12 +154,12 @@ const SinglePortfolio = (props) => {
                                     </ul>
                                 </Block>
                             )}
-                            {propProj?.description_text?.data?.description_text && (
+                            {/* {propProj?.description_text?.data?.description_text && (
                                 <Block
                                     title={t("tr_review")}
                                     text={t(propProj?.description_text?.data?.description_text)}
                                 />
-                            )}
+                            )} */}
                             {propProj?.services && (
                                 <div className={`${style.left} ${style.lists}`}>
                                     <Block title={t("tr_services")}>
@@ -266,10 +266,9 @@ const SinglePortfolio = (props) => {
 
 export default SinglePortfolio;
 
-// export const Head = (props) => {
+export const Head = (props) => {
     
-//     const title = props?.data?.project?.edges[0]?.node?.seo_title;
-//     const descr = props?.data?.project?.edges[0]?.node?.seo_description;
-//     console.log(descr, title);
-//     return <Seo title={title} description={descr}/>;
-// };
+    const title = props?.data?.project?.edges[0]?.node?.seo_title;
+    const descr = props?.data?.project?.edges[0]?.node?.seo_description;
+    return <Seo title={title} description={descr}/>;
+};
