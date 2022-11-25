@@ -20,12 +20,12 @@ export const Card = ({ content, button }) => {
     linkedin && { img: Linkedin, link: linkedin, alt: "linkedin" },
   ];
 
-  const createSlug = (name) => name.toLowerCase().split(" ").join("_");
+  const createPath = (name) => name.toLowerCase().split(" ").join("_");
 
   return (
     <div className={style.card}>
       <div className="img-wrapper">
-        <Link to={`team/${createSlug(name)}`}>
+        <Link to={`team/${createPath(name)}`}>
           <GatsbyImage image={image} alt={name} />
         </Link>
       </div>
