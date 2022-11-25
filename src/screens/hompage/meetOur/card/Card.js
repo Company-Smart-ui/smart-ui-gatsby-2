@@ -6,6 +6,7 @@ import {createPortal} from "react-dom";
 import Linkedin from "../../../../images/linkedin.svg";
 import Telegram from "../../../../images/telegram.svg";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
+import {Link} from "gatsby";
 
 export const Card = ({content, button}) => {
     const {position, name, telegram, linkedin, preview_photo, show_contact} =
@@ -19,11 +20,18 @@ export const Card = ({content, button}) => {
         linkedin && {img: Linkedin, link: linkedin, alt: "linkedin"},
     ];
 
+    const makeUrl =
+        typeof name === "string"
+            ? name?.replace(/[ ,./!@#$%^&*(?)=:;'"]/g, "_").toLowerCase()
+            : "";
+
     return (
         <div className={style.card}>
-            <div className="img-wrapper">
-                <GatsbyImage image={image} alt={name}/>
-            </div>
+            <Link to={`/team/${makeUrl}`}>
+                <div className="img-wrapper">
+                    <GatsbyImage image={image} alt={name}/>
+                </div>
+            </Link>
             <div className="content-wrapper">
                 <div className="content-title">{name}</div>
                 <div className="contentWrapperDescription">{position}</div>
@@ -47,7 +55,9 @@ export const Card = ({content, button}) => {
                                     isDeveloper={true}
                                 >
                                     <div className={style.modalHead}>
-                                        {image && <GatsbyImage image={image} alt={name}/>}
+                                        <Link to={`/team/${makeUrl}`}>
+                                            {image && <GatsbyImage image={image} alt={name}/>}
+                                        </Link>
                                         <h3>{`Leave message to ${name}`}</h3>
                                         <p>{position}</p>
                                         <p>{`Please leave one of your contacts, ${name} will contact you.`}</p>
