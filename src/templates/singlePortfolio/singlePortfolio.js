@@ -30,6 +30,7 @@ export const query = graphql`
           id
           project_name
           seo_title
+          seo_description
           site_url
           main_img {
             url
@@ -267,6 +268,7 @@ export default SinglePortfolio;
 
 export const Head = (props) => {
     
-    const title = props?.data?.project?.edges[0]?.node?.project_name;
-    return <Seo title={title}> </Seo>;
+    const title = props?.data?.project?.edges[0]?.node?.seo_title;
+    const descr = props?.data?.project?.edges[0]?.node?.seo_description;
+    return <Seo title={title} description={descr}/>;
 };
