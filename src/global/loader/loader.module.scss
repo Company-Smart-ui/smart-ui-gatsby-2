@@ -10,7 +10,7 @@
   align-items: center;
   background-color: rgba(80, 218, 108, 0.17);
 
-  img {
+  .imgWrapper {
     height: 100px;
     width: 100px;
   }
@@ -25,4 +25,5 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 

@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as style from "./clientReviews.module.scss";
 import { Pagination } from "../../../global/pagination/Pagination";
 import { SwiperButtons } from "../../../global/swiperButtons/SwiperButtons";
 import { ReviewSwiper } from "./swiper/ReviewSwiper";
 import { useTranslation } from "react-i18next";
 import { StaticImage } from "gatsby-plugin-image";
+import { graphql, useStaticQuery } from "gatsby";
+import { Loader } from "../../../global/loader/loader";
 
 export const ClientReviews = () => {
   const [swiperRef, setSwiperRef] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [reviewList, setReviewList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const slidePrevHandler = () => swiperRef.slidePrev();
   const slideNextHandler = () => swiperRef.slideNext();
@@ -17,12 +21,35 @@ export const ClientReviews = () => {
 
   const link = t("reviews_link", { returnObjects: true });
 
+  const data = useStaticQuery(graphql`
+    query {
+      allStrapiReviewPortfolio {
+        nodes {
+          id
+          name
+          stars
+          review
+          published
+        }
+      }
+    }
+  `);
+
+  useEffect(() => {
+    if (data) {
+      const list = data?.allStrapiReviewPortfolio?.nodes.filter(
+        (item) => item.published
+      );
+      setReviewList(list);
+      setIsLoading(false);
+    }
+  }, [data]);
+
   return (
     <div className={`${style.clientReviews} vertical-padding`}>
       <StaticImage
-          alt={""}
         src="./upwork_label_mobile.png"
-        alt={""}
+        alt="label"
         style={{ position: "absolute", right: 0, top: 0, width: "535px" }}
       />
       <div className="bg-upwork-title">
@@ -47,12 +74,22 @@ export const ClientReviews = () => {
               </a>
             </div>
             <div className="content">
-              <Pagination sliderLength={2} activeIdx={activeIndex} />
-              <ReviewSwiper
-                swiperRef={swiperRef}
-                setSwiperRef={setSwiperRef}
-                setActiveIndex={setActiveIndex}
-              />
+              {isLoading ? (
+                <Loader inside fill="dark" />
+              ) : (
+                <>
+                  <Pagination
+                    sliderLength={Math.ceil(reviewList.length / 2)}
+                    activeIdx={activeIndex}
+                  />
+                  <ReviewSwiper
+                    swiperRef={swiperRef}
+                    setSwiperRef={setSwiperRef}
+                    setActiveIndex={setActiveIndex}
+                    reviewList={reviewList}
+                  />
+                </>
+              )}
             </div>
             <div className="buttons">
               <SwiperButtons

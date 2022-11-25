@@ -1,9 +1,33 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { SwiperList } from "../list/SwiperList";
-import reviewList from "../list/templates/reviewList";
 
-export const ReviewSwiper = ({ swiperRef, setSwiperRef, setActiveIndex }) => {
+export const ReviewSwiper = ({
+  swiperRef,
+  setSwiperRef,
+  setActiveIndex,
+  reviewList,
+}) => {
+  const divideArr = (initialArr, offset) => {
+    const arr = [];
+    let firstItem = 0;
+    let secondItem = offset;
+    const iterator = Math.ceil(initialArr.length / offset);
+    let myIterator = 0;
+
+    if (initialArr.length !== 0) {
+      while (iterator !== myIterator) {
+        arr.push(initialArr.slice(firstItem, secondItem));
+        firstItem = firstItem + offset;
+        secondItem = secondItem + offset;
+        myIterator += 1;
+      }
+    }
+    return arr;
+  };
+
+  const listForSwiperSlide = divideArr(reviewList, 2);
+
   return (
     <Swiper
       onSwiper={setSwiperRef}
@@ -12,16 +36,13 @@ export const ReviewSwiper = ({ swiperRef, setSwiperRef, setActiveIndex }) => {
       allowTouchMove={true}
       onSlideChange={() => setActiveIndex(swiperRef.realIndex)}
     >
-      <SwiperSlide>
-        {reviewList.firstList.map((el) => (
-          <SwiperList key={el.title} content={el} />
-        ))}
-      </SwiperSlide>
-      <SwiperSlide>
-        {reviewList?.secondList.map((el) => (
-          <SwiperList key={el.title} content={el} />
-        ))}
-      </SwiperSlide>
+      {listForSwiperSlide?.map((slide, idx) => (
+        <SwiperSlide key={idx}>
+          {slide.map(({ id, review, stars, name }) => (
+            <SwiperList key={id} review={review} stars={stars} name={name} />
+          ))}
+        </SwiperSlide>
+      ))}
     </Swiper>
   );
 };

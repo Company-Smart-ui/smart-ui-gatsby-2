@@ -1,24 +1,24 @@
 import React from "react";
 import StarRating from "react-svg-star-rating";
 
-export const SwiperList = ({ content }) => {
-  const { title, rating, review, link } = content;
+export const SwiperList = ({ review, stars, name }) => {
+  const link = "/upwork comments link";
   return (
     <>
-      <div className="list-title">{title}</div>
+      <div className="list-title">{name}</div>
       <div className="list-rating">
         <StarRating
           isReadOnly
           size={14}
-          initialRating={rating}
+          initialRating={stars}
           unit="float"
           activeColor="#13CC00"
         />
-        <span>{rating}</span>
+        <span>{stars}</span>
       </div>
       <div className="list-review">{review}</div>
       <div className="list-link">
-        <a href={link}>
+        <a href={link} style={{ pointerEvents: "none" }}>
           Review on <span className="green">Up work</span>
         </a>
       </div>

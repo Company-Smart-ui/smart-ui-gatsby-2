@@ -51,7 +51,7 @@
       @include md {
         max-width: 275px;
       }
-      @include lg{
+      @include lg {
         max-width: none;
       }
     }
@@ -93,7 +93,7 @@
       background-image: url('./upwork_title.png');
       background-repeat: no-repeat;
       background-position: -35px bottom;
-      @include lg{
+      @include lg {
         background-position: 0 bottom;
       }
     }
@@ -102,6 +102,8 @@
       grid-area: content;
       margin-top: 48px;
       padding-bottom: 16px;
+      min-height: 520px;
+      position: relative;
 
       @include md {
         padding-right: 110px;
@@ -130,7 +132,7 @@
       margin-top: 16px;
       margin-bottom: 10px;
       font-family: $fontTitle;
-      @include md{
+      @include md {
         margin-bottom: 23px;
       }
       @include xxl {
@@ -144,10 +146,11 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      @include md{
+      @include md {
         margin-bottom: 15px;
       }
-      svg{
+
+      svg {
         margin-right: 4px;
       }
     }
@@ -173,10 +176,10 @@
       font-weight: 500;
       line-height: 1.5;
       letter-spacing: -0.045em;
-      @include md{
+      @include md {
         margin-top: 30px;
         margin-bottom: 40px;
-        &:last-child{
+        &:last-child {
           margin-bottom: 0;
         }
       }
