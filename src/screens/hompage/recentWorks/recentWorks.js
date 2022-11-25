@@ -8,6 +8,7 @@ import { Loader } from "../../../global/loader/loader";
 import { useProjectsList } from "../../../hooks/useProjectsList";
 import { useWindowResize } from "../../../hooks/useWindowResize";
 import { StaticImage } from "gatsby-plugin-image";
+import { Link } from "gatsby";
 
 export const RecentWorks = () => {
   const [swiperRef, setSwiperRef] = useState(null);
@@ -38,7 +39,7 @@ export const RecentWorks = () => {
   return (
     <div className={`${style.recentWorks} vertical-padding`}>
       <StaticImage
-          alt={""}
+        alt={""}
         src="./img/react.png"
         alt={""}
         style={{ position: "absolute", right: 0, height: "100%" }}
@@ -50,9 +51,9 @@ export const RecentWorks = () => {
             <h2 className="h2 title">{t("projects_big_title")}</h2>
             <div className="subtitle">{t("projects_text")}</div>
           </div>
-          <button className="button view-more-button overlay">
+          <Link className="button view-more-button overlay" to="portfolio/">
             {t("projects_btn")}
-          </button>
+          </Link>
           {listOfProjects ? (
             <>
               <div className="content-container">
