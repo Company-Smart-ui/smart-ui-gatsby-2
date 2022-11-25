@@ -154,12 +154,11 @@ const SinglePortfolio = (props) => {
                                     </ul>
                                 </Block>
                             )}
-                            {/* {propProj?.description_text?.data?.description_text && (
-                                <Block
-                                    title={t("tr_review")}
-                                    text={t(propProj?.description_text?.data?.description_text)}
-                                />
-                            )} */}
+                            {propProj?.description_text?.data?.description_text && (
+                                <Block title={t("tr_review")}>
+                                    <div dangerouslySetInnerHTML={{__html: t(propProj?.description_text?.data?.description_text)}} />
+                                </Block>
+                            )}
                             {propProj?.services && (
                                 <div className={`${style.left} ${style.lists}`}>
                                     <Block title={t("tr_services")}>
