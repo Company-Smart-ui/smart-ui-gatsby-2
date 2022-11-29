@@ -271,7 +271,10 @@ const SinglePortfolio = (props) => {
                         </div>
                     </div>
                     {aboutProject && (
-                        <div className={style.aboutProject} dangerouslySetInnerHTML={{__html: t(aboutProject)}} />
+                        <div className={style.aboutProject}>
+                            <h3>{t("tr_description")}</h3>
+                            <div dangerouslySetInnerHTML={{__html: t(aboutProject)}} />
+                        </div>
                     )}
                     {propProj?.blocks_description && (
                         <div className={`${style.aboutProject} ${style.flex}`}>
