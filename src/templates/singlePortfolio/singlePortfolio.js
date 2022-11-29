@@ -32,6 +32,26 @@ export const query = graphql`
           seo_title
           seo_description
           site_url
+          childStrapiSingleProjectAboutProjectTextnode {
+            about_project
+          }
+          blocks_description {
+            results {
+                data {
+                  results
+                }
+            }
+            our_approach {
+                data {
+                  our_approach
+                }
+            }
+            challenge {
+                data {
+                  challenge
+                }
+            }
+          }
           main_img {
             url
             localFile {
@@ -98,6 +118,7 @@ const SinglePortfolio = (props) => {
     const propProj = props?.data?.project?.edges[0]?.node;
     const mainImg =
         propProj?.main_img?.localFile?.childImageSharp?.gatsbyImageData;
+    const aboutProject = propProj?.childStrapiSingleProjectAboutProjectTextnode?.about_project;
     return (
         <div className={style.singlePortfolio}>
             <StaticImage 
@@ -249,6 +270,27 @@ const SinglePortfolio = (props) => {
                             )}
                         </div>
                     </div>
+                    {aboutProject && (
+                        <div className={style.aboutProject} dangerouslySetInnerHTML={{__html: t(aboutProject)}} />
+                    )}
+                    {propProj?.blocks_description && (
+                        <div className={`${style.aboutProject} ${style.flex}`}>
+                            <div className={style.wrapAboutDesc}>
+                                <div className={style.aboutItem}>
+                                    <h3>{t("tr_challenge")}</h3>
+                                    <div className={style.content} dangerouslySetInnerHTML={{__html: t(propProj?.blocks_description?.challenge.data.challenge)}} />
+                                </div>
+                                <div className={style.aboutItem}>
+                                    <h3>{t("tr_results")}</h3>
+                                    <div className={style.content} dangerouslySetInnerHTML={{__html: t(propProj?.blocks_description?.results.data.results)}} />
+                                </div>
+                            </div>
+                            <div className={`${style.aboutItem} ${style.lastItem}`}>
+                                <h3>{t("tr_our_approach")}</h3>
+                                <div className={style.content} dangerouslySetInnerHTML={{__html: t(propProj?.blocks_description?.our_approach.data.our_approach)}} />
+                            </div>
+                        </div>
+                    )}
                 </div>
                 {propProj?.Blocks &&
                     propProj?.Blocks.map((i, idx) => {
