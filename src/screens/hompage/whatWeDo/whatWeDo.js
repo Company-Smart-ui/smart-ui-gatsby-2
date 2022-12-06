@@ -98,7 +98,6 @@ export const WhatWeDo = () => {
                         dangerouslySetInnerHTML={{
                           __html: firstSlide.bottom_text,
                         }}
-                        className="list-descriptions"
                       />
                     </>
                   </SwiperSlide>
@@ -109,7 +108,6 @@ export const WhatWeDo = () => {
                         dangerouslySetInnerHTML={{
                           __html: secondSlide.bottom_text,
                         }}
-                        className="list-descriptions"
                       />
                     </>
                   </SwiperSlide>
