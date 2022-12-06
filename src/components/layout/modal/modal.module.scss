@@ -69,6 +69,7 @@
   :global {
     .reset {
       margin-bottom: 20px;
+      background-color: #ecf2f6;
       @include sm {
         margin-bottom: 0;
       }
