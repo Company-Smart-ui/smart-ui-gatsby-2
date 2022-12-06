@@ -78,6 +78,9 @@
       }
       .pagination-wrapper {
         padding-left: 15px;
+        @include md{
+          display: none;
+        }
         @include xxl {
           padding-left: 19px;
         }
