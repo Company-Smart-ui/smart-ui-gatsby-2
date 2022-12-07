@@ -27,19 +27,19 @@ const codeStyles = {
 
 // markup
 
-export const query = graphql`
-  query ($language: String  ) {
-   locales: allLocale(filter: {language: {eq: $language}, ns: {in:[   "global"]}}) {
-      edges {
-        node { 
-          ns
-          language
-          data 
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query ($language: String  ) {
+//    locales: allLocale(filter: {language: {eq: $language}, ns: {in:[   "global"]}}) {
+//       edges {
+//         node {
+//           ns
+//           language
+//           data
+//         }
+//       }
+//     }
+//   }
+// `
 const NotFoundPage = (props) => {
 
 
@@ -54,7 +54,7 @@ const NotFoundPage = (props) => {
         </span>{" "}
                 we couldn’t find what you were looking for.
                 <br/>
-                {process.env.NODE_ENV === "development" ? (
+                {process?.env?.NODE_ENV === "development" ? (
                     <>
                         <br/>
                         Try creating a page in <code style={codeStyles}>src/pages/</code>.
