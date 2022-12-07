@@ -6,6 +6,9 @@
   position: relative;
 
   :global {
+    .subtitle{
+      opacity: .5;
+    }
     .gCircle {
       width: 94px;
       position: absolute;
