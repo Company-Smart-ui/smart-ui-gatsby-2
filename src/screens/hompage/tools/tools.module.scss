@@ -63,7 +63,7 @@
       @include md {
         width: 628px;
         margin-top: 71px;
-        .swiper-slide{
+        .swiper-slide {
           cursor: default;
         }
       }
@@ -79,9 +79,10 @@
       @include xxl {
         max-width: none;
       }
+
       .pagination-wrapper {
         padding-left: 15px;
-        @include md{
+        @include md {
           display: none;
         }
         @include xxl {
@@ -113,7 +114,6 @@
     }
 
     .description {
-      margin-top: 15px;
 
       @include md {
         font-size: 19px;
