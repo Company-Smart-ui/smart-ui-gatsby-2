@@ -2,22 +2,21 @@
 
 .cardsList {
   margin: 0 auto;
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 24px;
   width: 275px;
 
   @include md {
     width: 574px;
-    grid-template-columns: repeat(2, 1fr);
   }
 
   @include xl {
     width: 873px;
-    grid-template-columns: repeat(3, 1fr);
   }
 
   @include xxl {
     width: 1172px;
-    grid-template-columns: repeat(4, 1fr);
   }
 }
