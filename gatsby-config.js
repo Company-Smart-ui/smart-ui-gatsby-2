@@ -44,7 +44,7 @@ const strapiConfig = {
   ],
   queryLimit: 1000,
 };
-const noTranslate = ["/dev-404-page/"];
+const noTranslate = ["/dev-404-page/"]; 
 const nt = noTranslate.map((n) => {
   return {
     matchPath: n,
