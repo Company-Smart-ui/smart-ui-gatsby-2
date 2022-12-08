@@ -27,19 +27,19 @@ const codeStyles = {
 
 // markup
 
-// export const query = graphql`
-//   query ($language: String  ) {
-//    locales: allLocale(filter: {language: {eq: $language}, ns: {in:[   "global"]}}) {
-//       edges {
-//         node {
-//           ns
-//           language
-//           data
-//         }
-//       }
-//     }
-//   }
-// `
+export const query = graphql`
+  query ($language: String  ) {
+   locales: allLocale(filter: {language: {eq: $language}, ns: {in:[   "global"]}}) {
+      edges {
+        node { 
+          ns
+          language
+          data 
+        }
+      }
+    }
+  }
+`
 const NotFoundPage = (props) => {
 
 
