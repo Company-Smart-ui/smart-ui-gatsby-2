@@ -56,11 +56,10 @@ export const Hero = () => {
 
             <div className={style.overlay}>
               <h1>
-                {" "}
                 <span className="yCircle  md-only "/>{" "}
                 <span dangerouslySetInnerHTML={{__html: t("h1")}}/>
               </h1>
-              <p
+              <div
                   dangerouslySetInnerHTML={{__html: t("hero_subtitle")}}
                   className="subtitle"
               />

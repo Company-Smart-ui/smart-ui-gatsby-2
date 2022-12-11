@@ -130,9 +130,9 @@ const SinglePortfolio = (props) => {
             <div className="container">
                 {mainImg && (
                     <HeroPortfolio
-                        name={propProj?.project_name ? propProj.project_name : ""}
+                        name={propProj?.project_name  || ""}
                         imgDesc={mainImg}
-                        imgMob={propProj?.Blocks && propProj?.Blocks}
+                        imgMob={propProj?.Blocks  }
                     />
                 )}
                 <div>

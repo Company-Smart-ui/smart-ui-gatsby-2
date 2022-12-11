@@ -50,10 +50,8 @@
       padding-left: 10px;
     }
     .langItem.langItem{
-      pointer-events: none;
       opacity: 0;
       @include lg{
-        pointer-events: all;
         transform: none;
         opacity: 1;
       }

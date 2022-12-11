@@ -6,7 +6,6 @@
   font-size: 38px;
   text-align: center;
   color: $Gray;
-  pointer-events: none;
   opacity: 0;
   width: 100%;
   a:hover{
@@ -46,7 +45,6 @@
     transform: none;
     opacity: 1;
     font-size: 14px;
-    pointer-events: all;
     a {
       display: flex;
       justify-content: center;

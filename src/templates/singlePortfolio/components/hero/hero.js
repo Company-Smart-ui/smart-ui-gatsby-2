@@ -5,7 +5,7 @@ import mobileDevice from "../../mobile.png";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 export const HeroPortfolio = (props) => {
-  
+  console.log(props)
   return (
     <>
     {props.imgMob &&
