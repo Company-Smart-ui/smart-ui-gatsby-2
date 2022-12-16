@@ -2,6 +2,7 @@ import React, { Suspense, useState } from "react";
 import ScrollableAnchor from "react-scrollable-anchor";
 import * as style from "./whatWeDo.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Controller } from "swiper";
 import { SwiperButtons } from "../../../global/swiperButtons/SwiperButtons";
 import { useTranslation } from "react-i18next";
 // import { Modal } from "../../../components/layout/modal/modal";
@@ -19,18 +20,18 @@ const Modal = React.lazy(() =>
 
 export const WhatWeDo = () => {
   const { t } = useTranslation();
-  const [swiper, setSwiper] = useState(null);
+  const [firstSwiper, setFirstSwiper] = useState(null);
   const [secondSwiper, setSecondSwiper] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const { isOpen, onClose, onOpen } = useOpen(false);
 
   const slidePrevHandler = () => {
-    swiper.slidePrev();
+    firstSwiper.slidePrev();
     secondSwiper.slidePrev();
   };
 
   const slideNextHandler = () => {
-    swiper.slideNext();
+    firstSwiper.slideNext();
     secondSwiper.slideNext();
   };
 
@@ -43,11 +44,11 @@ export const WhatWeDo = () => {
     <>
       <ScrollableAnchor id={"whatWeDo"}>
         <section className={`${style.whatWeDo} vertical-padding`}>
-          <StaticImage 
+          <StaticImage
             src="./line_background_grid.png"
             alt={""}
-            style={{position:'absolute', top: 0, height:'100%'}} 
-            />
+            style={{ position: "absolute", top: 0, height: "100%" }}
+          />
           <div className="container">
             <div className="grid">
               <div className="description-grid">
@@ -56,11 +57,13 @@ export const WhatWeDo = () => {
                 <div className="noise" />
                 <h2 className="h2 overlay">{t("whatwedo_title")}</h2>
                 <Swiper
-                  onSwiper={setSwiper}
+                  modules={[Controller]}
+                  onSwiper={setFirstSwiper}
+                  controller={{ control: secondSwiper }}
                   slidesPerView={1}
-                  className="mySwiper2"
-                  allowTouchMove={false}
-                  onSlideChange={() => setActiveIndex(swiper.realIndex)}
+                  className="mySwiper"
+                  allowTouchMove={true}
+                  onSlideChange={() => setActiveIndex(firstSwiper.realIndex)}
                 >
                   <SwiperSlide>
                     <p className="description">{firstSlide.top_text}</p>
@@ -86,10 +89,13 @@ export const WhatWeDo = () => {
               <div className="work-list">
                 <div className="dividerLine" />
                 <Swiper
+                  modules={[Controller]}
                   onSwiper={setSecondSwiper}
+                  controller={{ control: firstSwiper }}
                   slidesPerView={1}
-                  allowTouchMove={false}
-                  className="mySwiper"
+                  allowTouchMove={true}
+                  className="mySwiper2"
+                  onSlideChange={() => setActiveIndex(secondSwiper.realIndex)}
                 >
                   <SwiperSlide>
                     <>

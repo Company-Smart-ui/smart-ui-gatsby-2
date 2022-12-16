@@ -95,7 +95,7 @@
         "description-grid description-grid"
         "pagination pagination"
         "work-list work-list"
-        "footer info-link";
+        "footer footer";
 
       @include md {
         grid-template-rows: 1fr 1fr 40px;
@@ -103,7 +103,7 @@
         grid-template-areas:
           "description-grid ."
           "pagination work-list"
-          "footer info-link";
+          "footer .";
       }
     }
 
@@ -112,34 +112,6 @@
     }
 
     // Link to consultation
-
-    .info-link {
-      grid-area: info-link;
-      font-size: 11px;
-      font-weight: 300;
-      line-height: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      color: $White;
-      text-decoration: underline;
-      position: relative;
-      z-index: 1;
-
-      &:hover {
-        opacity: 0.8;
-      }
-
-      @include sm {
-        font-size: 13px;
-        justify-content: start;
-      }
-
-      @include xl {
-        font-size: 19px;
-      }
-    }
 
     .horizontal-line {
       width: 30px;
@@ -173,7 +145,7 @@
     .footer {
       grid-area: footer;
 
-      @include sm {
+      @include md {
         display: flex;
         justify-content: flex-end;
         margin-right: 70px;
