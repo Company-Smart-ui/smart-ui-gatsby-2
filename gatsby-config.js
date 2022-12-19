@@ -57,7 +57,7 @@ module.exports = {
     title: `Smart-ui `,
     description: `Smart ui  frontend  Agency -  React js , Gatsby , Next `,
     image: `/logo-large.png`,
-    siteUrl: `https://smart-ui-gatsby-2.vercel.app/`,
+    siteUrl: `https://smart-ui.pro/`,
   },
   flags: {
     DEV_SSR: true,
