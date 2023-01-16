@@ -33,13 +33,11 @@ export const Questions = () => {
     setOptions(newOptions);
   };
 
-  const middleIndex = accordionList.length / 2;
 
   useEffect(() => {
     const list = getListOptions();
 
     setOptions(list);
-    //eslint-disable-next-line
   }, []);
 
   return (
@@ -48,10 +46,9 @@ export const Questions = () => {
         <h2 className="h2 mobile">FAQ</h2>
         <h2 className="h2 tablet">{t("questions_title")}</h2>
         <div className="cards-wrapper">
-          <div className="first-column">
             {Array.isArray(accordionList) && accordionList.map(
               (el, i) =>
-                i < middleIndex && (
+                i < accordionList.length && (
                   <Card
                     key={el.id}
                     el={el}
@@ -61,21 +58,6 @@ export const Questions = () => {
                   />
                 )
             )}
-          </div>
-          <div className="second-column">
-            {Array.isArray(accordionList) && accordionList.map(
-              (el, i) =>
-                i >= middleIndex && (
-                  <Card
-                    key={el.id}
-                    el={el}
-                    options={options}
-                    dropdownHandler={dropdownHandler}
-                    idx={i}
-                  />
-                )
-            )}
-          </div>
         </div>
       </div>
     </div>
