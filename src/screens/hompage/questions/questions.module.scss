@@ -21,12 +21,6 @@
 
     .cards-wrapper {
       margin-top: 24px;
-      @include md {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 30px;
-      }
       .card-container {
         padding: 20px 12px;
         border-radius: 8px;
@@ -35,9 +29,6 @@
         cursor: pointer;
         display: block;
         white-space: normal;
-        @include md{
-          width: calc(50% - 15px);
-        }
         @include lg{
           padding: 30px 17px;
         }
@@ -47,9 +38,6 @@
 
         &:not(:first-child) {
           margin-top: 12px;
-          @include md{
-            margin-top: 0;
-          }
         }
 
         &:hover {
@@ -59,6 +47,10 @@
         &:focus {
           box-shadow: 0 2px 7px rgba(8, 15, 52, 0.3);
         }
+      }
+      @include md {
+        display: flex;
+        gap: 30px;
       }
     }
     .card-wrap-title{
