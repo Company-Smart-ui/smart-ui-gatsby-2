@@ -37,6 +37,7 @@ export const Questions = () => {
   useEffect(() => {
     const list = getListOptions();
 
+    // eslint-disable-next-line
     setOptions(list);
   }, []);
 
@@ -50,7 +51,7 @@ export const Questions = () => {
               (el, i) =>
                 i < accordionList.length && (
                   <Card
-                    key={el.id}
+                    key={i}
                     el={el}
                     options={options}
                     dropdownHandler={dropdownHandler}
