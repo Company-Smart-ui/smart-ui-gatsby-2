@@ -19,7 +19,7 @@ export const SwiperList = ({ review, stars, name }) => {
       <div className="list-review">{review}</div>
       <div className="list-link">
         <a href={link} style={{ pointerEvents: "none" }}>
-          Review on <span className="green">Up work</span>
+          Review on <span className="green">UpWork</span>
         </a>
       </div>
     </>
