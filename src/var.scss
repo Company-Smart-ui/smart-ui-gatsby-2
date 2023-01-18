@@ -1,3 +1,4 @@
+$xs: 375px;
 $sm: 576px;
 $md: 768px;
 $lg: 1024px;
@@ -26,7 +27,11 @@ $title: #6F6C8F;
 $DarkGray: #4F4F4F;
 $LightGray: #939397;
 
-
+@mixin xs {
+  @media (min-width: $xs) {
+    @content;
+  }
+}
 @mixin sm {
   @media (min-width: $sm) {
     @content

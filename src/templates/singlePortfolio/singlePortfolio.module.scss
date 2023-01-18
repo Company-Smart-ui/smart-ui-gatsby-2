@@ -5,12 +5,7 @@ $borderColor: rgba(255, 255, 255, 0.1);
 $categoryBg: rgba(217, 217, 217, 0.5);
 $pictureBg: rgba(255, 255, 255, 0.1);
 $secondFontColor: #8f8f8f;
-$xs: 375px;
-@mixin xs {
-  @media (min-width: $xs) {
-    @content;
-  }
-}
+
 
 .singlePortfolio {
   padding-top: 115px;

@@ -112,7 +112,7 @@
       margin-top: 8px;
       opacity: 1;
       max-height: 1000px;
-      animation: 400ms ease-in-out 400ms faq forwards backwards;
+      animation: 400ms ease-in-out 400ms faq forwards, backwards;
       transition: max-height 300ms 100ms, opacity 300ms 100ms, margin-top 300ms 100ms;
       @include lg{
         margin-top: 15px;
