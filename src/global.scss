@@ -107,13 +107,13 @@ ul {
 }
 
 .md-only {
-  @media (max-width: $md) {
+  @media (max-width: $md - 1px) {
     display: none !important;
   }
 }
 
 .lg-only {
-  @media (max-width: $lg) {
+  @media (max-width: $lg - 1px) {
     display: none !important;
   }
 }
