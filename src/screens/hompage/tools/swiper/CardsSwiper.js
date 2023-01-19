@@ -54,10 +54,10 @@ export const CardsSwiper = ({
             slidesPerView: 1,
             spaceBetween: 8,
           },
-          576: {
-            slidesPerView: 2,
-            spaceBetween: 0,
-          },
+          // 576: {
+          //   slidesPerView: 2,
+          //   spaceBetween: 0,
+          // },
           768: {
             slidesPerView: 3,
             spaceBetween: 0,

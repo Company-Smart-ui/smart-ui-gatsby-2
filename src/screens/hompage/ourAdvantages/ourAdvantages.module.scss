@@ -59,7 +59,14 @@
     }
 
     .h2 {
-      word-wrap: break-word;
+      //word-wrap: break-word;
+      font-size: 45px;
+      @include xs{
+        font-size: 55px;
+      }
+      @include md{
+        font-size: 80px;
+      }
     }
 
     .footer-buttons {

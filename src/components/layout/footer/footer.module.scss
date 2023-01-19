@@ -28,22 +28,24 @@
         width: 302px;
       }
     }
+    svg{
+      max-width: 302px;
+    }
   }
 
   :global {
     .contact {
-      @include lg {
-        display: flex;
-        align-items: center;
-        margin-bottom: 80px;
-      }
       margin-bottom: 40px;
+      @include sm{
+        display: flex;
+        width: auto;
+      }
       @include md {
         margin-bottom: 60px;
       }
       @include lg {
-        margin: 0;
         display: flex;
+        margin: 0;
         justify-content: flex-end;
         align-items: flex-end;
         flex-direction: row-reverse;
@@ -54,11 +56,9 @@
       }
 
       img {
-        @include md {
-          height: 55px;
+        @include sm {
+          width: 100%;
           margin-bottom: 5px;
-        }
-        @include lg {
           height: 23px;
           margin-right: 18px;
         }
@@ -81,6 +81,12 @@
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
+    @include sm{
+      gap: 0 30px;
+    }
+    @include md{
+      gap: 0;
+    }
     @media (min-width: 1350px) {
       width: 70%;
     }
@@ -88,7 +94,10 @@
 
   .column {
     width: 100%;
-    margin: 0 0 15px;
+    margin: 0 0 30px;
+    @include sm{
+      width: calc(50% - 15px)
+    }
     @include md {
       margin: 0;
       width: 33.3%;
