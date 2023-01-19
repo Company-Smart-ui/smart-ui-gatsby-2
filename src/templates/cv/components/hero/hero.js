@@ -38,7 +38,7 @@ export const Hero = (props) => {
           <div
             className={style.content}
             dangerouslySetInnerHTML={{ __html: props?.description }}
-          />
+          /> 
         )}
       </div>
       {isOpen &&
