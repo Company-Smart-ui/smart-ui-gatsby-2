@@ -17,14 +17,22 @@
 
     .container-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       grid-template-rows: auto auto auto auto;
       grid-template-areas:
+        "title-container"
+        "view-more-button"
+        "content-container"
+        "buttons-block";
+
+      @include sm{
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
         "title-container ."
         "view-more-button ."
         "content-container content-container"
         "buttons-block buttons-block";
-
+      }
       @include md {
         grid-template-columns: 1fr 1fr;
         grid-template-areas:
@@ -60,8 +68,10 @@
     .content-container {
       grid-area: content-container;
       margin: 0 auto;
-      width: 275px;
-
+      width: 250px;
+      @include xs{
+        width: 275px;
+      }
       @include md {
         width: 600px;
       }
