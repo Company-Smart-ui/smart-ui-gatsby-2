@@ -16,7 +16,7 @@ export const Hero = (props) => {
           <GatsbyImage
             alt={props?.name}
             image={props?.img}
-            placeholderStyle={{
+            placeholderstyle={{
               backgroundColor: "rgba(0, 0, 0, 0)",
             }}
           />

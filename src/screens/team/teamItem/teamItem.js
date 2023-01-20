@@ -15,7 +15,7 @@ export const TeamItem = (props) => {
           <GatsbyImage
             alt={props.name}
             image={getImage(props.img)}
-            placeholderStyle={{
+            placeholderstyle={{
               backgroundColor: "rgba(0, 0, 0, 0)",
             }}
           />
