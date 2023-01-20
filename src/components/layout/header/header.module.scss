@@ -22,7 +22,7 @@
     justify-content: center;
     height: auto;
     position: absolute;
-    transition: 0.1s;
+    transition: all 0.1s, background 0s;
   }
   @include xl {
     padding: 45px max(150px, calc(50% - 670px));
@@ -35,7 +35,7 @@
 
   &.open {
     background-color: #fff;
-    transition: all 0.3s 0s;
+    //transition: all 0.3s 0s;
 
     .menu {
       opacity: 1;
@@ -64,7 +64,7 @@
     padding-bottom: 5px;
     height: 60px;
     background-color: #fff;
-    transition: background 0.1s;
+    //transition: background 0.1s;
 
     @include lg {
       background-color: rgba(255, 255, 255, 0.98);

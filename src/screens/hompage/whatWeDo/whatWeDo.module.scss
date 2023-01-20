@@ -121,6 +121,9 @@
 
     .description-grid {
       grid-area: description-grid;
+      @include md{
+        padding-bottom: 50px;
+      }
     }
 
     // Link to consultation
