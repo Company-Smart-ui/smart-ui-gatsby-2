@@ -2,6 +2,7 @@ $xs: 375px;
 $sm: 576px;
 $md: 768px;
 $lg: 1024px;
+$l: 1200px;
 $xl: 1440px;
 $xxl: 1720px;
 
@@ -48,6 +49,13 @@ $LightGray: #939397;
 ;
 @mixin lg {
   @media (min-width: $lg) {
+    @content
+  }
+}
+
+;
+@mixin l {
+  @media (min-width: $l) {
     @content
   }
 }

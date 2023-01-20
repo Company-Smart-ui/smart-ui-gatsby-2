@@ -12,7 +12,7 @@ export const SwiperList = ({ swiper, setSwiper, setActiveIndex, content }) => {
         allowTouchMove={true}
         speed={400}
         breakpoints={{
-          1024: {
+          1200: {
             slidesPerView: 2,
             spaceBetween: 64,
             allowTouchMove: false,

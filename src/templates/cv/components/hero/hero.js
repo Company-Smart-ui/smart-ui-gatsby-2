@@ -34,12 +34,12 @@ export const Hero = (props) => {
           </h1>
           <p className={style.job}>{props?.direction}</p>
         </div>
-        {/*{props?.description && (*/}
+        {props?.description && (
           <div
             className={style.content}
             dangerouslySetInnerHTML={{ __html: props?.description }}
           />
-        {/*)}*/}
+        )}
       </div>
       {isOpen &&
         createPortal(
