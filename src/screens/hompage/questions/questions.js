@@ -9,13 +9,12 @@ export const Questions = () => {
   const accordionList = t("questions_accondion", { returnObjects: true }) || [];
 
   const getListOptions = () => {
-    const optionsList = Array.isArray(accordionList) && accordionList.map(() => {
+    return   Array.isArray(accordionList) && accordionList.map(() => {
       return {
         isOpen: false,
       };
     });
 
-    return optionsList;
   };
 
 
@@ -40,7 +39,7 @@ export const Questions = () => {
 
     // eslint-disable-next-line
     setOptions(list);
-  }, []);
+  }, [ ]);
 
   return (
     <div className={`${style.questions} vertical-padding`}>

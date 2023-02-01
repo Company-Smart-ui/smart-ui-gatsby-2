@@ -59,7 +59,8 @@ export const AllTeam = ( ) => {
             <span></span>
           </div>
           <div className={style.gridBody}>
-            {item.map((i, k) => {
+            {item.sort((a, b )=>b.price -a.price).map((i, k) => {
+
               return (
                 <TeamItem
                   key={k}
