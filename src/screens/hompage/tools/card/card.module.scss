@@ -1,4 +1,4 @@
-@import 'src/var';
+  @import 'src/var';
 
 
 .card {
@@ -82,6 +82,7 @@
     }
 
     .img-wrapper {
+      margin-top: 10px;
       width: 146px;
       height: 146px;
       border-radius: 50%;

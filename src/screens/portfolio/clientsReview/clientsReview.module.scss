@@ -51,18 +51,20 @@
         column-gap: 30px;
         grid-template-areas:
           "title-section . ."
-          "button-grid review-section review-section"
-          "pagination-section review-section review-section";
+          "button-grid  review-section review-section"
+          ".  review-section review-section"
+          ".  pagination-section pagination-section";
       }
 
       @include xl {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto 110px auto;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto 110px auto auto;
         column-gap: 72px;
         grid-template-areas:
-          "title-section ."
-          "pagination-section review-section review-section"
-          "pagination-section review-section review-section";
+          "title-section . ."
+          "button-grid  review-section review-section"
+          ".  review-section review-section"
+          ".  pagination-section pagination-section";
       }
     }
 
@@ -122,10 +124,6 @@
       grid-area: pagination-section;
       position: static;
       margin: 24px auto 0;
-
-      @include lg {
-        margin-left: 0;
-      }
     }
 
     // Card item

@@ -68,10 +68,12 @@
     .list-descriptions {
       font-size: 16px;
       font-weight: 300;
-      line-height: 1.29;
       margin-top: 34px;
+      margin-bottom: 30px;
       letter-spacing: -0.025em;
       opacity: 0.5;
+      padding-left: 10px;
+
 
       @include md {
         font-size: 16px;
@@ -81,6 +83,16 @@
       @include xl {
         font-size: 21px;
         line-height: 1.52;
+      }
+      li{
+        margin-bottom: 10px;
+        padding-left: 5px;
+        &::marker{
+          content: "-";
+        }
+        @include sm{
+          margin-bottom: 0;
+        }
       }
     }
 
@@ -109,6 +121,9 @@
 
     .description-grid {
       grid-area: description-grid;
+      @include md{
+        padding-bottom: 50px;
+      }
     }
 
     // Link to consultation
@@ -148,7 +163,7 @@
       @include md {
         display: flex;
         justify-content: flex-end;
-        margin-right: 70px;
+        margin-right: -50px;
       }
     }
 

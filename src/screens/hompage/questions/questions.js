@@ -38,8 +38,8 @@ export const Questions = () => {
   useEffect(() => {
     const list = getListOptions();
 
+    // eslint-disable-next-line
     setOptions(list);
-    //eslint-disable-next-line
   }, []);
 
   return (
@@ -64,16 +64,16 @@ export const Questions = () => {
           </div>
           <div className="second-column">
             {Array.isArray(accordionList) && accordionList.map(
-              (el, i) =>
-                i >= middleIndex && (
-                  <Card
-                    key={el.id}
-                    el={el}
-                    options={options}
-                    dropdownHandler={dropdownHandler}
-                    idx={i}
-                  />
-                )
+                (el, i) =>
+                    i >= middleIndex && (
+                        <Card
+                            key={el.id}
+                            el={el}
+                            options={options}
+                            dropdownHandler={dropdownHandler}
+                            idx={i}
+                        />
+                    )
             )}
           </div>
         </div>

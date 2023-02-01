@@ -21,7 +21,10 @@
 
     .cards-wrapper {
       margin-top: 24px;
-
+      @include md {
+        display: flex;
+        gap: 30px;
+      }
       .card-container {
         padding: 20px 12px;
         border-radius: 8px;
@@ -30,6 +33,7 @@
         cursor: pointer;
         display: block;
         white-space: normal;
+
         @include lg{
           padding: 30px 17px;
         }
@@ -48,11 +52,6 @@
         &:focus {
           box-shadow: 0 2px 7px rgba(8, 15, 52, 0.3);
         }
-      }
-
-      @include md {
-        display: flex;
-        gap: 30px;
       }
     }
     .card-wrap-title{
@@ -106,7 +105,7 @@
       margin-top: 8px;
       opacity: 1;
       max-height: 1000px;
-      animation: 400ms ease-in-out 400ms faq forwards backwards;
+      animation: 400ms ease-in-out 400ms faq forwards, backwards;
       transition: max-height 300ms 100ms, opacity 300ms 100ms, margin-top 300ms 100ms;
       @include lg{
         margin-top: 15px;

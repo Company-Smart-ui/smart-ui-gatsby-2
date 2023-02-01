@@ -37,9 +37,6 @@
         .burger {
           span {
             background-color: #fff;
-            @include md {
-              background-color: #27272e;
-            }
           }
         }
       }

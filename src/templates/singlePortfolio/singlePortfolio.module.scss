@@ -5,12 +5,7 @@ $borderColor: rgba(255, 255, 255, 0.1);
 $categoryBg: rgba(217, 217, 217, 0.5);
 $pictureBg: rgba(255, 255, 255, 0.1);
 $secondFontColor: #8f8f8f;
-$xs: 375px;
-@mixin xs {
-  @media (min-width: $xs) {
-    @content;
-  }
-}
+
 
 .singlePortfolio {
   padding-top: 115px;
@@ -21,11 +16,15 @@ $xs: 375px;
   line-height: 23px;
   font-weight: 400;
   padding-bottom: 100px;
+
   @include md {
     margin-top: 76px;
     padding-top: 0;
-    font-size: 24px;
+    font-size: 18px;
     line-height: 36px;
+  }
+  @include lg{
+    font-size: 24px;
   }
   @include xl {
     padding-bottom: 150px;
@@ -81,7 +80,10 @@ $xs: 375px;
       width: 50%;
       max-width: 470px;
       margin-left: auto;
-      padding-left: 80px;
+      padding-left: 30px;
+    }
+    @include xl{
+
     }
   }
   .siteLink {
@@ -103,7 +105,7 @@ $xs: 375px;
     flex-direction: row;
     flex-wrap: wrap;
     @include lg {
-      padding-right: 130px;
+      padding-right: 80px;
     }
   }
   .textInfo {
@@ -153,7 +155,7 @@ $xs: 375px;
       margin-bottom: 30px;
       font-size: 18px;
       width: 100%;
-      @include md {
+      @include sm {
         width: auto;
       }
       @include lg {

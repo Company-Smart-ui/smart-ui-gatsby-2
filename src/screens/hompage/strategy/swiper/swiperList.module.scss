@@ -15,24 +15,24 @@
       &:not(:first-child) {
         margin-top: 50px;
 
-        @include lg {
+        @include l {
           margin-top: 0;
         }
       }
 
-      @include lg {
+      @include l {
         display: contents;
       }
 
       .title-block {
-        @include lg {
+        @include l {
           min-width: 220px;
         }
       }
     }
 
     .second-column-title {
-      @include lg {
+      @include l {
         text-align: end;
       }
     }
@@ -66,13 +66,13 @@
     }
 
     .swiper-slide {
-      @include lg {
+      @include l {
         display: contents;
       }
     }
 
     .swiper-wrapper {
-      @include lg {
+      @include l {
         display: grid;
         row-gap: 40px;
         column-gap: 30px;
