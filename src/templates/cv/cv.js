@@ -148,8 +148,8 @@ const Cv = (props) => {
           }
           name={userInfo.userName}
           chat="Chat"
-          direction={userInfo.userDirection}
-          description={userInfo.userDescription ? userInfo.userDescription : ""}
+          direction={userInfo?.userDirection}
+          description={userInfo?.userDescription  }
         />
         <Skills info={userInfo} />
         <div className={style.wrapCvButton}>

@@ -9,6 +9,7 @@ export const Hero = (props) => {
   const { isOpen, onClose, onOpen } = useOpen();
   const name = props.name;
   const image = props.img;
+    console.log(props)
   return (
     <div className={style.hero}>
       <div className={style.photo}>
