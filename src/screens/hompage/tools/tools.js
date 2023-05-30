@@ -48,12 +48,6 @@ export const Tools = () => {
                   {" "}
                   {t("tools_btn")}
                 </button>
-                <div className="swiperTips">
-                  <SwipeTo
-                    toLink={"#strategy"}
-                    text={t("tr_scroll_to_explore")}
-                  />
-                </div>
               </div>
             </div>
             <div className="vertical-block overlay">
@@ -78,6 +72,12 @@ export const Tools = () => {
                 fill
               />
             </div>
+          </div>
+          <div className="swiperTips">
+            <SwipeTo
+              toLink={"#strategy"}
+              text={t("tr_scroll_to_explore")}
+            />
           </div>
         </div>
       </div>

@@ -7,6 +7,7 @@ import { Skills } from "./components/skills/skills";
 import { graphql } from "gatsby";
 import { useOpen } from "../../hooks/useOpen";
 import { Loader } from "../../global/loader/loader";
+import {Seo} from "../../components/SEO/SEO";
 
 const PdfDownloader = React.lazy(() =>
   import("./helpers/pdfDownloader").then((module) => ({
@@ -179,3 +180,10 @@ const Cv = (props) => {
 };
 
 export default Cv;
+
+export const Head = (data) => {
+  const title = data?.data?.cv?.edges[0]?.node?.name;
+  const descr = data?.data?.cv?.edges[0]?.node?.description?.data?.description;
+	return <Seo title={title} description={descr}/>
+};
+
