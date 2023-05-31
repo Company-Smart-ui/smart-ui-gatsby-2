@@ -12,14 +12,6 @@ $borderColor: rgba(255, 255, 255, 0.3);
   :global {
     .block {
       width: 100%;
-      @include lg {
-        width: 50%;
-        &:nth-child(2n) {
-          max-width: 470px;
-          margin-left: auto;
-          padding-left: 80px;
-        }
-      }
     }
   }
 }

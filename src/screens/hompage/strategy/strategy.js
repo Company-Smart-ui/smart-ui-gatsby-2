@@ -20,11 +20,13 @@ export const Strategy = () => {
   return (
       <ScrollableAnchor id={'strategy'} >
         <section className={`${style.strategy} vertical-padding`}>
-          <StaticImage
-              alt={""}
-            src="../whatWeDo/line_background_grid.png"
-            style={{position:'absolute', height:'100%', top:0}}
-           />
+          <div className="bgWrapper">
+            <StaticImage
+                alt={""}
+              src="../whatWeDo/line_background_grid.png"
+              style={{position:'absolute', height:'100%', top:0}}
+             />
+          </div>
           <div className="noise" />
           <div className="container">
             <div className="gCircle" />

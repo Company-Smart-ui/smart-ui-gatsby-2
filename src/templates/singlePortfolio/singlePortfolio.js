@@ -277,18 +277,16 @@ const SinglePortfolio = (props) => {
                         </div>
                     )}
                     {propProj?.blocks_description && (
-                        <div className={`${style.aboutProject} ${style.flex}`}>
-                            <div className={style.wrapAboutDesc}>
-                                <div className={style.aboutItem}>
-                                    <h3>{t("tr_challenge")}</h3>
-                                    <div dangerouslySetInnerHTML={{__html: t(propProj?.blocks_description?.challenge.data.challenge)}} />
-                                </div>
-                                <div className={style.aboutItem}>
-                                    <h3>{t("tr_results")}</h3>
-                                    <div dangerouslySetInnerHTML={{__html: t(propProj?.blocks_description?.results.data.results)}} />
-                                </div>
+                        <div className={style.aboutProject}>
+                            <div className={style.aboutItem}>
+                                <h3>{t("tr_challenge")}</h3>
+                                <div dangerouslySetInnerHTML={{__html: t(propProj?.blocks_description?.challenge.data.challenge)}} />
                             </div>
-                            <div className={`${style.aboutItem} ${style.lastItem}`}>
+                            <div className={style.aboutItem}>
+                                <h3>{t("tr_results")}</h3>
+                                <div dangerouslySetInnerHTML={{__html: t(propProj?.blocks_description?.results.data.results)}} />
+                            </div>
+                            <div className={style.aboutItem}>
                                 <h3>{t("tr_our_approach")}</h3>
                                 <div dangerouslySetInnerHTML={{__html: t(propProj?.blocks_description?.our_approach.data.our_approach)}} />
                             </div>

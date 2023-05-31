@@ -304,24 +304,7 @@ $secondFontColor: #8f8f8f;
   margin-bottom: 30px;
   &:last-child{
     @include lg{
-      margin: 0;
+      margin-bottom: 0;
     }
-  }
-}
-.flex{
-  @include lg{
-    display: flex;
-    gap: 45px;
-  }
-}
-.wrapAboutDesc{
-  @include lg{
-    width: 55%;
-  }
-}
-.lastItem{
-  margin: 0;
-  @include lg{
-    width: 45%;
   }
 }
