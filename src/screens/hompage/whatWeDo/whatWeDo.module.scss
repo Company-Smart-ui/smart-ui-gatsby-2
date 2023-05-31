@@ -6,6 +6,9 @@
   position: relative;
 
   :global {
+    .bgWrapper > div > div {
+      background-color: transparent !important;
+    }
     .gCircle {
       width: 100px;
       position: absolute;

@@ -44,11 +44,13 @@ export const WhatWeDo = () => {
     <>
       <ScrollableAnchor id={"whatWeDo"}>
         <section className={`${style.whatWeDo} vertical-padding`}>
-          <StaticImage
-            src="./line_background_grid.png"
-            alt={""}
-            style={{ position: "absolute", top: 0, height: "100%" }}
-          />
+          <div className="bgWrapper">
+            <StaticImage
+              src="./line_background_grid.png"
+              alt={""}
+              style={{ position: "absolute", top: 0, height: "100%" }}
+            />
+          </div>
           <div className="container">
             <div className="grid">
               <div className="description-grid">

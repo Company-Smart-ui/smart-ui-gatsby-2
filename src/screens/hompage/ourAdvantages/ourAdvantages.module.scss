@@ -6,6 +6,10 @@
   position: relative;
 
   :global {
+    .bgWrapper > div > div {
+      background-color: transparent !important;
+    }
+
     .subtitle{
       opacity: .5;
     }

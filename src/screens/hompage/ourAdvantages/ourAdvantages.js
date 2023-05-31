@@ -23,11 +23,14 @@ export const OurAdvantages = () => {
 
   return (
       <section className={`${style.ourAdvantages} vertical-padding`}>
-        <StaticImage
-          src="../whatWeDo/line_background_grid.png"
-          alt={""}
-          style={{position:'absolute', height: '100%', top:'0'}}
-         />
+        <div className="bgWrapper">
+          <StaticImage
+            src="../whatWeDo/line_background_grid.png"
+            alt={""}
+            style={{position:'absolute', height: '100%', top:'0'}}
+          />
+        </div>
+
         <div className="noise"/>
         <div className="container">
           <div className="clock-mobile"/>

@@ -50,6 +50,10 @@
   }
 
   :global {
+    .bgWrapper > div > div {
+      background-color: transparent !important;
+    }
+
     .formField {
       input,
       textarea {

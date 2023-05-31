@@ -9,7 +9,11 @@
   color: $White;
   position: relative;
 
-  :global { 
+  :global {
+    .bgWrapper > div > div {
+      background-color: transparent !important;
+    }
+
     .gCircle {
       position: absolute;
       left: 75px;

@@ -27,12 +27,14 @@ export const GetInTouch = (props) => {
 
   return (
     <div className={`${style.wrapper} getInTouch`}>
-      <StaticImage
-        src="./line_background_grid.png"
-        alt={""}
-        quality={1}
-        style={{ position: "absolute", height: "100%", top: 0 }}
-      />
+      <div className="bgWrapper">
+        <StaticImage
+          src="./line_background_grid.png"
+          alt={""}
+          quality={1}
+          style={{ position: "absolute", height: "100%", top: 0 }}
+        />
+      </div>
       <div className="noise"></div>
       <div className="container">
         <h2 className="h2">{props.title}</h2>
