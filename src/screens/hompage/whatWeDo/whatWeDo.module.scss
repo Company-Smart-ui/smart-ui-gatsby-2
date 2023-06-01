@@ -103,7 +103,7 @@
 
     .grid {
       display: grid;
-      grid-template-rows: 1fr 108px 1fr 40px;
+      grid-template-rows: 1fr 108px auto 40px;
       grid-template-columns: 50% 50%;
 
       grid-template-areas:
@@ -113,12 +113,15 @@
         "footer footer";
 
       @include md {
-        grid-template-rows: 1fr 1fr 40px;
+        grid-template-rows: 1fr auto 40px;
         grid-template-columns: 50% 50%;
         grid-template-areas:
           "description-grid ."
           "pagination work-list"
           "footer .";
+      }
+      @include xl {
+        grid-template-rows: 1fr 1fr 40px;
       }
     }
 
