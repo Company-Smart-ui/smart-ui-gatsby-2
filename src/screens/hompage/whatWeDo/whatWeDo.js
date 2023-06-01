@@ -97,6 +97,12 @@ export const WhatWeDo = () => {
                   slidesPerView={1}
                   allowTouchMove={true}
                   className="mySwiper2"
+                  autoHeight={true}
+                  breakpoints={{
+                    768: {
+                      autoHeight: false
+                    },
+                  }}
                   onSlideChange={() => setActiveIndex(secondSwiper.realIndex)}
                 >
                   <SwiperSlide>
