@@ -8,13 +8,14 @@ function ucFirst(str) {
     return str[0].toUpperCase() + str.slice(1);
 }
 
-export const Seo = ({title, description, pathname, children}) => {
+export const Seo = ({title, description, pathname, children, keywords}) => {
 
-    const {title: defaultTitle, description: defaultDescription, image, siteUrl, twitterUsername} = useSiteMetadata()
+    const {title: defaultTitle, description: defaultDescription, keywords: defaultKeywords, image, siteUrl, twitterUsername} = useSiteMetadata()
     const clearTitle = (title ? title + ' | ' + defaultTitle : defaultTitle)
     const seo = {
         title: ucFirst(clearTitle),
         description: description || defaultDescription,
+        keywords: keywords || defaultKeywords,
         image: `${siteUrl}${image}`,
         url: `${siteUrl}${pathname || ``}`,
         twitterUsername,
@@ -25,6 +26,7 @@ export const Seo = ({title, description, pathname, children}) => {
         <>
             <title>{seo.title}</title>
             <meta name="description" content={seo.description}></meta>
+            <meta name="keywords" content={seo.keywords}></meta>
             <meta name="image" content={seo.image}></meta>
                 <meta name="twitter:card" content="summary_large_image"></meta>
             {seo.title&&<meta name="twitter:title" content={seo.title}/>}

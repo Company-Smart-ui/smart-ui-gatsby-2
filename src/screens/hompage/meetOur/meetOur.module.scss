@@ -7,6 +7,7 @@
   :global {
     .container {
       position: relative;
+      z-index: 2;
     }
 
     .container-grid {

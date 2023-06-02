@@ -56,6 +56,7 @@ module.exports = {
   siteMetadata: {
     title: `Smart-ui `,
     description: `Smart ui  frontend  Agency -  React js , Gatsby , Next `,
+    keywords: `Frontend development, React.js development, Gatsby development, Next.js development, User interface development, Reactive web applications, Responsive design, Web development services `,
     image: `/logo-large.png`,
     siteUrl: `https://smart-ui.pro/`,
   },
