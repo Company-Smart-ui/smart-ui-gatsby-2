@@ -4,7 +4,7 @@ import * as style from "./filterButtons.module.scss";
 const filterOptions = [
   { title: "All", link: "/" },
   { title: "Angular", link: "angular" },
-  // { title: "Gatsby", link: "gatsby" },
+  { title: "Gatsby", link: "gatsby" },
   // { title: "HTML", link: "html" },
   { title: "React", link: "react" },
   { title: "Next.Js", link: "next.js" },
