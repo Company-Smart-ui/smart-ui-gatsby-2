@@ -190,14 +190,22 @@ $secondFontColor: #8f8f8f;
     .block {
       margin-bottom: 25px;
       width: 100%;
+
       @include md {
         margin-bottom: 10px;
       }
+
+      a,
       p,
       ul,
       & > div {
         color: #8f8f8f;
         word-break: break-word;
+      }
+
+      a:hover {
+        color: #13CC00;
+        text-decoration: underline;
       }
     }
 

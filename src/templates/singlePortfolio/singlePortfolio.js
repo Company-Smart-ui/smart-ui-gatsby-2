@@ -154,8 +154,16 @@ const SinglePortfolio = (props) => {
                                 <Block
                                     class={`${style.modified} ${style.siteUrl}`}
                                     title={t("tr_site") + ":"}
-                                    text={propProj?.site_url}
-                                />
+                                >
+                                    <a
+                                      href={propProj?.site_url}
+                                      className={`${style.siteUrl}`}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                    >
+                                        {propProj?.site_url}
+                                    </a>
+                                </Block>
                             )}
                             {propProj?.content_management_systems.length > 0 && (
                                 <Block class={style.modified} title={t("tr_cms") + ":"}>

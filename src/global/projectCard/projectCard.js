@@ -90,21 +90,22 @@ export const ProjectCard = ({
         <div className="content-wrapper">
           <div>
             <div className="content-title">{project_name}</div>
-            <a
-              href={site_url}
+            <Link
+              to={site_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="content-link"
+              className="content-link projectCard-link"
             >
               Website
-            </a>
+            </Link>
+            <Link target="_blank" to={`/project/${makeUrl}`} className="projectCard-link__overlay"></Link>
             <div className="content-description">
               {shortedDescription(seo_description)}
             </div>
           </div>
-          <Link to={`/project/${makeUrl}`} className="button">
+          <div className="button">
             {button}
-          </Link>
+          </div>
         </div>
       </div>
     </div>
