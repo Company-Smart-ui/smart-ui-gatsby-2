@@ -25,7 +25,7 @@ const ContactUs = ({ info }) => {
 };
 
 const copyright = {
-  text: "© 2022 Smart-UI. All Rights Reserved",
+  text: `© ${(new Date().getFullYear())} Smart-UI. All Rights Reserved`,
 };
 
 export const BackToTop = ({ text }) => {
